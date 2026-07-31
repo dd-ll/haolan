@@ -1,0 +1,863 @@
+/**
+ * 关于我们 — 专属样式
+ * 色调：浅白 + 金色
+ */
+
+/* ========== Banner ========== */
+.page-banner--about {
+  position: relative;
+  isolate: isolate;
+  overflow: hidden;
+  min-height: clamp(280px, 42vw, 420px);
+  padding: var(--space-9) 0;
+  color: var(--color-navy);
+  background-color: var(--color-off-white);
+}
+
+.page-banner--about .page-banner__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.page-banner--about .page-banner__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.page-banner--about .page-banner__veil {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(
+      105deg,
+      rgba(247, 248, 250, 0.94) 0%,
+      rgba(247, 248, 250, 0.78) 42%,
+      rgba(247, 248, 250, 0.35) 100%
+    );
+  pointer-events: none;
+}
+
+.page-banner--about .page-banner__inner {
+  position: relative;
+  z-index: 2;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-pad-x);
+}
+
+.page-banner--about .page-banner__brand {
+  margin: 0 0 var(--space-3);
+  font-family: var(--font-family-display);
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: 0.08em;
+  color: var(--color-navy);
+}
+
+.page-banner--about .page-banner__brand span {
+  color: var(--color-gold);
+}
+
+.page-banner--about .page-banner__title {
+  margin: 0 0 var(--space-4);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.2em;
+  color: var(--color-gold-dark);
+}
+
+.page-banner--about .page-banner__slogan {
+  margin: 0;
+  max-width: 22em;
+  font-size: var(--fs-md);
+  line-height: var(--lh-base);
+  color: var(--color-gray-dark);
+}
+
+.page-banner--about .page-banner__accent {
+  display: block;
+  width: 56px;
+  height: 3px;
+  margin: var(--space-4) 0 0;
+  background: linear-gradient(90deg, var(--color-gold) 0%, var(--color-gold-light) 100%);
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .page-banner--about {
+    min-height: var(--banner-min-h-mobile);
+    padding: var(--space-8) 0;
+  }
+
+  .page-banner--about .page-banner__veil {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(247, 248, 250, 0.92) 0%,
+        rgba(247, 248, 250, 0.82) 100%
+      );
+  }
+
+  .page-banner--about .page-banner__brand {
+    letter-spacing: 0.06em;
+  }
+
+  .page-banner--about .page-banner__title {
+    font-size: var(--fs-base);
+    letter-spacing: 0.16em;
+  }
+
+  .page-banner--about .page-banner__slogan {
+    font-size: var(--fs-base);
+  }
+}
+
+/* ========== 公司简介 ========== */
+.about-intro {
+  background-color: var(--color-white);
+}
+
+.about-intro__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: var(--space-8);
+  align-items: start;
+}
+
+.about-intro__media {
+  margin: 0;
+  position: sticky;
+  top: calc(var(--header-height) + var(--space-5));
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--color-off-white);
+}
+
+.about-intro__media img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.about-intro__lead {
+  margin: 0 0 var(--space-6);
+  padding-bottom: var(--space-5);
+  font-size: var(--fs-md);
+  line-height: var(--lh-loose);
+  color: var(--color-gray-dark);
+  border-bottom: 1px solid var(--color-gray-border);
+}
+
+.about-intro__points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.about-intro__point {
+  position: relative;
+  padding-left: var(--space-5);
+}
+
+.about-intro__point::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.45em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(196, 163, 90, 0.2);
+}
+
+.about-intro__point-title {
+  margin: 0 0 var(--space-2);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semibold);
+  color: var(--color-navy);
+}
+
+.about-intro__point-text {
+  margin: 0;
+  font-size: var(--fs-base);
+  line-height: var(--lh-base);
+  color: var(--color-gray-dark);
+}
+
+@media (max-width: 900px) {
+  .about-intro__layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .about-intro__media {
+    position: static;
+    max-width: 560px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-intro__lead {
+    font-size: var(--fs-base);
+  }
+
+  .about-intro__point-title {
+    font-size: var(--fs-md);
+  }
+
+  .about-intro__point-text {
+    font-size: var(--fs-sm);
+  }
+}
+
+/* ========== 企业资质与合规 ========== */
+.about-compliance {
+  background-color: var(--color-off-white);
+}
+
+.about-compliance__lead {
+  margin: 0 auto var(--space-7);
+  max-width: 46em;
+  text-align: center;
+  font-size: var(--fs-md);
+  line-height: var(--lh-loose);
+  color: var(--color-gray-dark);
+}
+
+.about-compliance__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-6);
+  margin-bottom: var(--space-7);
+}
+
+.about-compliance__item {
+  padding: var(--space-6) var(--space-5);
+  background: var(--color-white);
+  border-top: 3px solid var(--color-gold);
+}
+
+.about-compliance__label {
+  margin: 0 0 var(--space-3);
+  font-family: var(--font-family-display);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.12em;
+  color: var(--color-gold-dark);
+}
+
+.about-compliance__item-title {
+  margin: 0 0 var(--space-3);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semibold);
+  color: var(--color-navy);
+}
+
+.about-compliance__item-text {
+  margin: 0;
+  font-size: var(--fs-sm);
+  line-height: var(--lh-loose);
+  color: var(--color-gray-dark);
+}
+
+.about-compliance__note {
+  padding: var(--space-4) var(--space-5);
+  border-left: 3px solid var(--color-gold);
+  background: rgba(196, 163, 90, 0.08);
+}
+
+.about-compliance__note p {
+  margin: 0;
+  font-size: var(--fs-sm);
+  line-height: var(--lh-base);
+  color: var(--color-gray-dark);
+}
+
+.about-compliance__note strong {
+  font-weight: var(--fw-semibold);
+  color: var(--color-navy);
+}
+
+@media (max-width: 900px) {
+  .about-compliance__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+}
+
+@media (max-width: 768px) {
+  .about-compliance__lead {
+    margin-bottom: var(--space-5);
+    font-size: var(--fs-base);
+    text-align: left;
+  }
+
+  .about-compliance__item {
+    padding: var(--space-5) var(--space-4);
+  }
+
+  .about-compliance__item-title {
+    font-size: var(--fs-md);
+  }
+}
+
+/* ========== 发展历程时间轴 ========== */
+.about-timeline {
+  background-color: var(--color-white);
+}
+
+.timeline {
+  --timeline-gap: var(--space-7);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+/* PC：中轴双列交错 */
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0.4em;
+  bottom: 0.4em;
+  left: 50%;
+  width: 2px;
+  margin-left: -1px;
+  background: linear-gradient(
+    180deg,
+    var(--color-gold-light) 0%,
+    var(--color-gold) 50%,
+    var(--color-navy-soft) 100%
+  );
+}
+
+.timeline__item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  margin-bottom: var(--timeline-gap);
+  align-items: start;
+}
+
+.timeline__item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline__marker {
+  position: absolute;
+  top: 0.55em;
+  left: 50%;
+  z-index: 1;
+  width: 14px;
+  height: 14px;
+  margin-left: -7px;
+  border-radius: 50%;
+  background: var(--color-white);
+  border: 3px solid var(--color-gold);
+  box-shadow: 0 0 0 4px rgba(196, 163, 90, 0.15);
+}
+
+.timeline__body {
+  max-width: 28rem;
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-off-white);
+  border-left: 3px solid var(--color-gold);
+}
+
+/* 奇数：内容在左 */
+.timeline__item:nth-child(odd) .timeline__body {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: end;
+  text-align: right;
+  border-left: none;
+  border-right: 3px solid var(--color-gold);
+}
+
+/* 偶数：内容在右 */
+.timeline__item:nth-child(even) .timeline__body {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: start;
+  text-align: left;
+}
+
+.timeline__year {
+  display: block;
+  margin-bottom: var(--space-2);
+  font-family: var(--font-family-display);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  line-height: 1;
+  color: var(--color-gold-dark);
+  letter-spacing: 0.04em;
+}
+
+.timeline__title {
+  margin: 0 0 var(--space-2);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semibold);
+  color: var(--color-navy);
+}
+
+.timeline__text {
+  margin: 0;
+  font-size: var(--fs-sm);
+  line-height: var(--lh-loose);
+  color: var(--color-gray-dark);
+}
+
+/* 移动端：纵向时间轴 */
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 11px;
+    margin-left: 0;
+  }
+
+  .timeline__item {
+    display: block;
+    padding-left: var(--space-7);
+    margin-bottom: var(--space-5);
+  }
+
+  .timeline__marker {
+    left: 11px;
+    margin-left: -7px;
+  }
+
+  .timeline__item:nth-child(odd) .timeline__body,
+  .timeline__item:nth-child(even) .timeline__body {
+    max-width: none;
+    justify-self: stretch;
+    text-align: left;
+    border-left: 3px solid var(--color-gold);
+    border-right: none;
+  }
+
+  .timeline__year {
+    font-size: var(--fs-lg);
+  }
+
+  .timeline__title {
+    font-size: var(--fs-md);
+  }
+}
+
+/* ========== 企业荣誉与公益 ========== */
+.about-honor {
+  background-color: var(--color-off-white);
+}
+
+.about-honor__block + .about-honor__block {
+  margin-top: var(--space-8);
+}
+
+.about-honor__heading {
+  margin: 0 0 var(--space-5);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-semibold);
+  color: var(--color-navy);
+  text-align: center;
+}
+
+.about-honor__heading::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  margin: var(--space-3) auto 0;
+  background: var(--color-gold);
+}
+
+.honor-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+.honor-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-border);
+  overflow: hidden;
+  transition: box-shadow var(--transition-base), border-color var(--transition-fast);
+}
+
+.honor-card:hover {
+  border-color: rgba(196, 163, 90, 0.55);
+  box-shadow: var(--shadow-md);
+}
+
+.honor-card--focus {
+  border-color: rgba(196, 163, 90, 0.45);
+}
+
+.honor-card__media {
+  margin: 0;
+  background: var(--color-gray-light);
+}
+
+.honor-card__media img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.honor-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: var(--space-4) var(--space-5) var(--space-5);
+}
+
+.honor-card__tag {
+  margin: 0 0 var(--space-2);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.08em;
+  color: var(--color-gray-mid);
+  text-transform: none;
+}
+
+.honor-card__tag--accent {
+  color: var(--color-gold-dark);
+}
+
+.honor-card__title {
+  margin: 0 0 var(--space-3);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-semibold);
+  color: var(--color-navy);
+  line-height: var(--lh-tight);
+}
+
+.honor-card__text {
+  margin: 0;
+  font-size: var(--fs-sm);
+  line-height: var(--lh-base);
+  color: var(--color-gray-dark);
+}
+
+@media (max-width: 900px) {
+  .honor-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .honor-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-honor__heading {
+    font-size: var(--fs-lg);
+  }
+}
+
+/* ========== 企业文化 ========== */
+.about-culture {
+  background-color: var(--color-white);
+}
+
+.culture-block + .culture-block {
+  margin-top: var(--space-9);
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--color-gray-border);
+}
+
+.culture-block__title {
+  margin: 0 0 var(--space-5);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-semibold);
+  color: var(--color-navy);
+  text-align: center;
+}
+
+.culture-block__title--left {
+  text-align: left;
+}
+
+.culture-block__title::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  margin: var(--space-3) auto 0;
+  background: var(--color-gold);
+}
+
+.culture-block__title--left::after {
+  margin-left: 0;
+}
+
+.culture-values {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+.culture-values__item {
+  padding: var(--space-5) var(--space-4);
+  text-align: center;
+  background: var(--color-off-white);
+  border-bottom: 3px solid var(--color-gold);
+}
+
+.culture-values__name {
+  margin: 0 0 var(--space-3);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semibold);
+  color: var(--color-navy);
+}
+
+.culture-values__desc {
+  margin: 0;
+  font-size: var(--fs-sm);
+  line-height: var(--lh-base);
+  color: var(--color-gray-dark);
+}
+
+.culture-atmosphere {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: var(--space-7);
+  align-items: center;
+}
+
+.culture-atmosphere__lead {
+  margin: 0 0 var(--space-4);
+  font-size: var(--fs-md);
+  line-height: var(--lh-loose);
+  color: var(--color-gray-dark);
+}
+
+.culture-atmosphere__list {
+  margin: 0;
+  padding-left: var(--space-5);
+  color: var(--color-gray-dark);
+  font-size: var(--fs-base);
+  line-height: var(--lh-loose);
+}
+
+.culture-atmosphere__list li + li {
+  margin-top: var(--space-2);
+}
+
+.culture-atmosphere__media {
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--color-off-white);
+}
+
+.culture-atmosphere__media img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.culture-outing__note {
+  margin: calc(var(--space-5) * -1) auto var(--space-5);
+  max-width: 36em;
+  text-align: center;
+  font-size: var(--fs-sm);
+  color: var(--color-gray-mid);
+}
+
+.culture-gallery {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+.culture-gallery__item figure {
+  margin: 0;
+}
+
+.culture-gallery__item img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: var(--color-off-white);
+  border-radius: var(--radius-sm);
+}
+
+.culture-gallery__item figcaption {
+  margin-top: var(--space-2);
+  font-size: var(--fs-sm);
+  color: var(--color-gray-dark);
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .culture-values {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .culture-atmosphere {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+
+  .culture-gallery {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .culture-values {
+    grid-template-columns: 1fr;
+  }
+
+  .culture-block__title {
+    font-size: var(--fs-lg);
+  }
+
+  .culture-atmosphere__lead {
+    font-size: var(--fs-base);
+  }
+
+  .culture-outing__note {
+    text-align: left;
+  }
+}
+
+/* ========== 皓镧商学院简介（铺垫） ========== */
+.about-college {
+  background:
+    linear-gradient(180deg, var(--color-blue-soft) 0%, var(--color-off-white) 100%);
+}
+
+.about-college__panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.85fr);
+  gap: var(--space-7);
+  align-items: stretch;
+  padding: var(--space-7);
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-border);
+  border-top: 3px solid var(--color-gold);
+}
+
+.about-college__eyebrow {
+  margin: 0 0 var(--space-2);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.12em;
+  color: var(--color-gold-dark);
+}
+
+.about-college__title {
+  margin: 0 0 var(--space-4);
+  font-family: var(--font-family-display);
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-bold);
+  color: var(--color-navy);
+}
+
+.about-college__lead {
+  margin: 0 0 var(--space-5);
+  max-width: 40em;
+  font-size: var(--fs-md);
+  line-height: var(--lh-loose);
+  color: var(--color-gray-dark);
+}
+
+.about-college__points {
+  margin: 0 0 var(--space-6);
+  padding-left: var(--space-5);
+  font-size: var(--fs-base);
+  line-height: var(--lh-loose);
+  color: var(--color-gray-dark);
+}
+
+.about-college__points li + li {
+  margin-top: var(--space-2);
+}
+
+.about-college__aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--space-6) var(--space-5);
+  background: var(--color-blue-soft);
+}
+
+.about-college__aside-label {
+  margin: 0 0 var(--space-4);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.1em;
+  color: var(--color-navy);
+}
+
+.about-college__aside-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.about-college__aside-list li {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding-left: var(--space-4);
+  border-left: 2px solid var(--color-gold);
+}
+
+.about-college__aside-list strong {
+  font-size: var(--fs-base);
+  font-weight: var(--fw-semibold);
+  color: var(--color-navy);
+}
+
+.about-college__aside-list span {
+  font-size: var(--fs-sm);
+  line-height: var(--lh-base);
+  color: var(--color-gray-dark);
+}
+
+@media (max-width: 900px) {
+  .about-college__panel {
+    grid-template-columns: 1fr;
+    padding: var(--space-5);
+    gap: var(--space-5);
+  }
+}
+
+@media (max-width: 768px) {
+  .about-college__title {
+    font-size: var(--fs-xl);
+  }
+
+  .about-college__lead {
+    font-size: var(--fs-base);
+  }
+}

@@ -1,0 +1,287 @@
+/**
+ * 联系我们 — 专属样式
+ * 色调：浅白底
+ */
+
+/* ========== Banner ========== */
+.page-banner--contact {
+  position: relative;
+  isolate: isolate;
+  overflow: hidden;
+  min-height: clamp(220px, 30vw, 300px);
+  padding: var(--space-9) 0;
+  color: var(--color-navy);
+  background: var(--color-off-white);
+}
+
+.page-banner--contact .page-banner__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.page-banner--contact .page-banner__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.page-banner--contact .page-banner__veil {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(
+      100deg,
+      rgba(247, 248, 250, 0.97) 0%,
+      rgba(255, 255, 255, 0.88) 48%,
+      rgba(238, 240, 243, 0.55) 100%
+    );
+  pointer-events: none;
+}
+
+.page-banner--contact .page-banner__inner {
+  position: relative;
+  z-index: 2;
+}
+
+.page-banner--contact .page-banner__brand {
+  margin: 0 0 var(--space-3);
+  font-family: var(--font-family-display);
+  font-size: clamp(2rem, 4.5vw, 2.75rem);
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.08em;
+  color: var(--color-navy);
+}
+
+.page-banner--contact .page-banner__brand span {
+  color: var(--color-gold);
+}
+
+.page-banner--contact .page-banner__title {
+  margin: 0 0 var(--space-4);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.2em;
+  color: var(--color-navy-mid);
+}
+
+.page-banner--contact .page-banner__slogan {
+  margin: 0;
+  max-width: 22em;
+  font-size: var(--fs-md);
+  color: var(--color-gray-dark);
+}
+
+.page-banner--contact .page-banner__accent {
+  display: block;
+  width: 56px;
+  height: 3px;
+  margin-top: var(--space-4);
+  background: linear-gradient(90deg, var(--color-navy), var(--color-gold));
+}
+
+/* ========== 六大联系信息 ========== */
+.contact-info {
+  background: var(--color-white);
+}
+
+.contact-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+.contact-block {
+  padding: var(--space-5);
+  background: var(--color-off-white);
+  border: 1px solid var(--color-gray-border);
+  border-top: 3px solid var(--color-navy);
+}
+
+.contact-block--map {
+  grid-column: 1 / -1;
+}
+
+.contact-block__title {
+  margin: 0 0 var(--space-3);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semibold);
+  color: var(--color-navy);
+}
+
+.contact-block__text {
+  margin: 0 0 var(--space-2);
+  font-size: var(--fs-md);
+  line-height: var(--lh-base);
+  color: var(--color-text);
+}
+
+.contact-block__text a {
+  color: var(--color-navy);
+  font-weight: var(--fw-medium);
+}
+
+.contact-block__text a:hover {
+  color: var(--color-gold-dark);
+}
+
+.contact-block__hint {
+  margin: 0;
+  font-size: var(--fs-sm);
+  color: var(--color-gray-mid);
+}
+
+.contact-block__qr {
+  margin: 0 0 var(--space-3);
+  width: 160px;
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-border);
+}
+
+.contact-block__qr img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.contact-block__map {
+  margin: 0 0 var(--space-4);
+  overflow: hidden;
+  border: 1px solid var(--color-gray-border);
+  background: var(--color-white);
+}
+
+.contact-block__map img {
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+}
+
+.contact-block__actions {
+  margin: 0 0 var(--space-3);
+}
+
+/* ========== 留言表单 ========== */
+.contact-message {
+  background: var(--color-off-white);
+}
+
+.container--narrow {
+  max-width: var(--container-narrow);
+}
+
+.message-form {
+  margin: 0;
+  padding: var(--space-6);
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-border);
+}
+
+.message-form__row {
+  margin-bottom: var(--space-5);
+}
+
+.message-form__label {
+  display: block;
+  margin-bottom: var(--space-2);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--color-navy);
+}
+
+.message-form__label span {
+  color: var(--color-danger);
+}
+
+.message-form__input {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  padding: var(--space-2) var(--space-3);
+  font-family: inherit;
+  font-size: var(--fs-base);
+  line-height: var(--lh-base);
+  color: var(--color-text);
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-border);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.message-form__input:focus {
+  outline: none;
+  border-color: var(--color-navy);
+  box-shadow: 0 0 0 3px rgba(11, 42, 74, 0.12);
+}
+
+.message-form__input.is-invalid {
+  border-color: var(--color-danger);
+}
+
+.message-form__textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.message-form__error {
+  margin: var(--space-2) 0 0;
+  font-size: var(--fs-sm);
+  color: var(--color-danger);
+}
+
+.message-form__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+.message-form__success {
+  margin: var(--space-5) 0 0;
+  padding: var(--space-4);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-loose);
+  color: var(--color-success);
+  background: rgba(47, 107, 79, 0.08);
+  border: 1px solid rgba(47, 107, 79, 0.25);
+}
+
+/* ========== 响应式 ========== */
+@media (max-width: 768px) {
+  .page-banner--contact {
+    min-height: var(--banner-min-h-mobile);
+    padding: var(--space-8) 0;
+  }
+
+  .page-banner--contact .page-banner__title {
+    font-size: var(--fs-base);
+  }
+
+  .page-banner--contact .page-banner__slogan {
+    font-size: var(--fs-base);
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-block--map {
+    grid-column: auto;
+  }
+
+  .message-form {
+    padding: var(--space-5);
+  }
+
+  .message-form__actions {
+    flex-direction: column;
+  }
+
+  .message-form__actions .btn {
+    width: 100%;
+  }
+}

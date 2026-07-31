@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="560" viewBox="0 0 1600 560" role="img">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f7f8fa"/>
+      <stop offset="100%" stop-color="#e8eef4"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="560" fill="url(#bg)"/>
+  <rect x="120" y="160" width="420" height="12" fill="#0a3d6b" opacity="0.2"/>
+  <rect x="120" y="200" width="280" height="8" fill="#0a3d6b" opacity="0.12"/>
+  <rect x="900" y="120" width="520" height="300" fill="#ffffff" stroke="#0a3d6b" stroke-opacity="0.15"/>
+  <rect x="940" y="170" width="300" height="10" fill="#0a3d6b" opacity="0.2"/>
+  <rect x="940" y="210" width="440" height="8" fill="#0a3d6b" opacity="0.1"/>
+  <rect x="940" y="240" width="400" height="8" fill="#0a3d6b" opacity="0.1"/>
+  <text x="800" y="500" text-anchor="middle" fill="#0a3d6b" fill-opacity="0.4" font-family="Microsoft YaHei, sans-serif" font-size="20">…ÿb?Vãû · €¦Ñ Banner</text>
+</svg>

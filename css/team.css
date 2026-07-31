@@ -1,0 +1,420 @@
+/**
+ * 精英团队 — 专属样式
+ * 色调：藏蓝 + 浅灰
+ */
+
+/* ========== Banner ========== */
+.page-banner--team {
+  position: relative;
+  isolate: isolate;
+  overflow: hidden;
+  min-height: clamp(260px, 38vw, 380px);
+  padding: var(--space-9) 0;
+  color: var(--color-text-inverse);
+  background: var(--gradient-banner-dark);
+}
+
+.page-banner--team .page-banner__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.page-banner--team .page-banner__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.page-banner--team .page-banner__veil {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(
+      105deg,
+      rgba(6, 26, 46, 0.92) 0%,
+      rgba(11, 42, 74, 0.8) 50%,
+      rgba(238, 240, 243, 0.25) 100%
+    );
+  pointer-events: none;
+}
+
+.page-banner--team .page-banner__inner {
+  position: relative;
+  z-index: 2;
+}
+
+.page-banner--team .page-banner__brand {
+  margin: 0 0 var(--space-3);
+  font-family: var(--font-family-display);
+  font-size: clamp(2rem, 4.5vw, 2.75rem);
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.08em;
+  color: var(--color-text-inverse);
+}
+
+.page-banner--team .page-banner__brand span {
+  color: var(--color-gold);
+}
+
+.page-banner--team .page-banner__title {
+  margin: 0 0 var(--space-4);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.page-banner--team .page-banner__slogan {
+  margin: 0;
+  max-width: 24em;
+  font-size: var(--fs-md);
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.page-banner--team .page-banner__accent {
+  display: block;
+  width: 56px;
+  height: 3px;
+  margin-top: var(--space-4);
+  background: linear-gradient(90deg, var(--color-gold), transparent);
+}
+
+/* ========== 组织架构 ========== */
+.team-org {
+  background: var(--color-gray-light);
+}
+
+.team-org__note {
+  margin: 0 auto var(--space-6);
+  max-width: 36em;
+  text-align: center;
+  font-size: var(--fs-sm);
+  color: var(--color-gray-mid);
+}
+
+.org-tree {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.org-tree__level {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-4);
+  position: relative;
+  width: 100%;
+}
+
+.org-tree__level + .org-tree__level {
+  margin-top: var(--space-7);
+  padding-top: var(--space-7);
+}
+
+.org-tree__level + .org-tree__level::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: var(--space-7);
+  margin-left: -1px;
+  background: var(--color-navy-mid);
+  opacity: 0.35;
+}
+
+.org-node {
+  min-width: 140px;
+  max-width: 200px;
+  padding: var(--space-4) var(--space-5);
+  text-align: center;
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-border);
+  border-top: 3px solid var(--color-navy);
+}
+
+.org-node--root {
+  border-top-color: var(--color-gold);
+  min-width: 180px;
+}
+
+.org-node__role {
+  margin: 0 0 var(--space-1);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--color-navy);
+}
+
+.org-node__desc {
+  margin: 0;
+  font-size: var(--fs-xs);
+  color: var(--color-gray-mid);
+}
+
+.org-tree__branch {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-4);
+  width: 100%;
+}
+
+/* ========== 管理层 ========== */
+.team-mgmt {
+  background: var(--color-white);
+}
+
+.mgmt-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+.mgmt-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-gray-light);
+  border: 1px solid var(--color-gray-border);
+  overflow: hidden;
+}
+
+.mgmt-card__media {
+  margin: 0;
+  background: var(--color-navy-soft);
+}
+
+.mgmt-card__media img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.mgmt-card__body {
+  padding: var(--space-5);
+  flex: 1;
+}
+
+.mgmt-card__name {
+  margin: 0 0 var(--space-1);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semibold);
+  color: var(--color-navy);
+}
+
+.mgmt-card__role {
+  margin: 0 0 var(--space-4);
+  font-size: var(--fs-sm);
+  color: var(--color-gold-dark);
+  letter-spacing: 0.04em;
+}
+
+.mgmt-card__meta {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--fs-sm);
+  line-height: var(--lh-loose);
+  color: var(--color-gray-dark);
+}
+
+.mgmt-card__meta li {
+  position: relative;
+  padding-left: var(--space-4);
+}
+
+.mgmt-card__meta li + li {
+  margin-top: var(--space-2);
+}
+
+.mgmt-card__meta li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-navy);
+  opacity: 0.35;
+}
+
+.mgmt-card__meta strong {
+  font-weight: var(--fw-semibold);
+  color: var(--color-navy);
+}
+
+/* ========== 业务顾问 / 职能团队 共用 ========== */
+.team-advisors,
+.team-functions {
+  background: var(--color-gray-light);
+}
+
+.team-functions {
+  background: var(--color-white);
+}
+
+.team-showcase__lead {
+  margin: 0 auto var(--space-6);
+  max-width: 40em;
+  text-align: center;
+  font-size: var(--fs-md);
+  line-height: var(--lh-loose);
+  color: var(--color-gray-dark);
+}
+
+.team-showcase__hero {
+  margin: 0 0 var(--space-6);
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--color-navy-soft);
+}
+
+.team-showcase__hero img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.advisor-grid,
+.func-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+.advisor-card,
+.func-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-border);
+  overflow: hidden;
+}
+
+.team-functions .func-card {
+  background: var(--color-gray-light);
+}
+
+.advisor-card__media,
+.func-card__media {
+  margin: 0;
+}
+
+.advisor-card__media img,
+.func-card__media img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.advisor-card__body,
+.func-card__body {
+  padding: var(--space-4);
+}
+
+.advisor-card__name,
+.func-card__name {
+  margin: 0 0 var(--space-1);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-semibold);
+  color: var(--color-navy);
+}
+
+.advisor-card__tag,
+.func-card__tag {
+  margin: 0 0 var(--space-3);
+  font-size: var(--fs-xs);
+  color: var(--color-gold-dark);
+  letter-spacing: 0.04em;
+}
+
+.advisor-card__text,
+.func-card__text {
+  margin: 0;
+  font-size: var(--fs-sm);
+  line-height: var(--lh-base);
+  color: var(--color-gray-dark);
+}
+
+.func-block + .func-block {
+  margin-top: var(--space-8);
+  padding-top: var(--space-7);
+  border-top: 1px solid var(--color-gray-border);
+}
+
+.func-block__title {
+  margin: 0 0 var(--space-5);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-semibold);
+  color: var(--color-navy);
+  text-align: center;
+}
+
+.func-block__title::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  margin: var(--space-3) auto 0;
+  background: var(--color-navy);
+  opacity: 0.35;
+}
+
+@media (max-width: 1024px) {
+  .mgmt-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .advisor-grid,
+  .func-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .page-banner--team {
+    min-height: var(--banner-min-h-mobile);
+    padding: var(--space-8) 0;
+  }
+
+  .page-banner--team .page-banner__title {
+    font-size: var(--fs-base);
+    letter-spacing: 0.14em;
+  }
+
+  .page-banner--team .page-banner__slogan {
+    font-size: var(--fs-base);
+  }
+
+  .team-org__note,
+  .team-showcase__lead {
+    text-align: left;
+  }
+
+  .mgmt-grid,
+  .advisor-grid,
+  .func-grid {
+    grid-template-columns: 1fr;
+    max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .org-node {
+    min-width: 120px;
+  }
+}
