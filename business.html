@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>主营业务 - 皓镧资产</title>
+<style>
+  /* ========== 品牌变量 ========== */
+  :root {
+    --gold: #C9A961;
+    --gold-deep: #B8941F;
+    --gold-soft: #E8D9A8;
+    --red: #C8102E;
+    --red-deep: #B91D2E;
+    --green-deep: #1F3A2E;
+    --green-darker: #142720;
+    --ink: #1A1A1A;
+    --muted: #6B6B6B;
+    --line: #E8E2D4;
+    --bg: #FFFFFF;
+    --bg-soft: #FAF6EC;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Microsoft YaHei", "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  /* ========== 顶部黑色双层导航 ========== */
+  .topbar { background: #111; color: #fff; border-bottom: 1px solid rgba(201,169,97,0.18); }
+  .topbar-inner { max-width: 1280px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; gap: 36px; }
+  .logo { display: flex; align-items: center; padding: 14px 0; flex-shrink: 0; }
+  .logo-card {
+    display: inline-flex; align-items: center; background: #fff;
+    padding: 8px 16px; border-radius: 4px; height: 56px;
+    box-shadow: 0 0 0 1px rgba(201,169,97,0.25);
+  }
+  .logo-card img { height: 44px; width: auto; display: block; }
+  .nav { display: flex; flex-direction: column; gap: 6px; margin-left: auto; padding: 14px 0; }
+  .nav-row { display: flex; gap: 30px; font-size: 14px; }
+  .nav-row.top a { color: rgba(255,255,255,0.85); transition: color .2s; padding: 4px 0; }
+  .nav-row.top a:hover, .nav-row.top a.active { color: var(--gold); }
+  .nav-row.bottom { font-size: 12px; color: rgba(255,255,255,0.5); gap: 26px; }
+  .nav-row.bottom a:hover { color: var(--gold); }
+  .topbar-tools { display: flex; align-items: center; gap: 18px; padding: 0 0 0 24px; color: rgba(255,255,255,0.6); font-size: 13px; flex-shrink: 0; }
+  .topbar-tools .icon { width: 16px; height: 16px; opacity: .7; }
+
+  /* ========== 主区 ========== */
+  main { max-width: 1280px; margin: 0 auto; padding: 80px 32px 90px; }
+  section { margin-bottom: 90px; }
+  section:last-child { margin-bottom: 0; }
+
+  .sec-title {
+    text-align: center; font-size: 30px; font-weight: 700; letter-spacing: 6px;
+    color: var(--ink); position: relative; padding-bottom: 22px; margin-bottom: 12px;
+  }
+  .sec-title::after {
+    content: ""; position: absolute; left: 50%; bottom: 0;
+    width: 56px; height: 3px; background: var(--red); transform: translateX(-50%);
+  }
+  .sec-subtitle {
+    text-align: center; color: var(--muted); font-size: 12px; letter-spacing: 4px;
+    margin-bottom: 56px;
+  }
+
+  /* ========== 总览引言 ========== */
+  .intro-block { margin-bottom: 50px; max-width: 960px; margin-left: auto; margin-right: auto; }
+  .intro-text h3 {
+    font-family: "STSong","SimSun",serif; font-size: 26px; font-weight: 700;
+    margin-bottom: 20px; color: var(--ink); position: relative; padding-left: 18px;
+  }
+  .intro-text h3::before {
+    content: ""; position: absolute; left: 0; top: 8px; bottom: 8px;
+    width: 4px; background: linear-gradient(180deg, var(--red), var(--gold));
+  }
+  .intro-text .lead { color: var(--ink); font-size: 15px; line-height: 2; margin-bottom: 14px; text-align: justify; }
+  .intro-text p { color: var(--muted); font-size: 14px; line-height: 2; text-align: justify; }
+
+  /* ========== 子卡片网格 ========== */
+  .sub-grid { display: grid; gap: 20px; }
+  .sub-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .sub-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+  .sub-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+
+  /* icon 型概览卡 */
+  .info-card {
+    border: 1.5px solid var(--gold); border-radius: 10px;
+    padding: 36px 22px 30px; background: #fff;
+    display: flex; flex-direction: column; align-items: center; gap: 14px;
+    transition: transform .25s, box-shadow .25s; text-align: center;
+  }
+  .info-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(184,148,31,0.18); }
+  .info-card .icon { width: 42px; height: 42px; color: var(--gold); }
+  .info-card .num-tag { font-family: "STSong",serif; font-size: 14px; color: var(--gold); letter-spacing: 2px; }
+  .info-card h3 { font-size: 17px; font-weight: 600; color: var(--ink); letter-spacing: 2px; }
+  .info-card .desc { font-size: 12px; color: var(--muted); line-height: 1.9; }
+
+  /* ========== 业务详情大卡（左右布局） ========== */
+  .biz-list { display: flex; flex-direction: column; gap: 32px; }
+  .biz-detail {
+    border: 1.5px solid var(--gold); border-radius: 14px; overflow: hidden;
+    background: #fff; display: grid; grid-template-columns: 300px 1fr;
+    transition: box-shadow .25s, transform .25s;
+  }
+  .biz-detail:hover { box-shadow: 0 18px 44px rgba(184,148,31,0.16); transform: translateY(-3px); }
+
+  .biz-side {
+    background: linear-gradient(160deg, #fdf9ee 0%, #f6ecd0 100%);
+    padding: 40px 30px; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 16px; text-align: center;
+    border-right: 1px solid var(--line); position: relative;
+  }
+  .biz-side::before {
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+    background: linear-gradient(180deg, var(--red), var(--gold));
+  }
+  .biz-side .biz-icon { width: 56px; height: 56px; color: var(--gold-deep); }
+  .biz-side .biz-num {
+    font-family: "STSong",serif; font-size: 40px; font-weight: 700;
+    color: var(--gold); line-height: 1;
+  }
+  .biz-side h3 {
+    font-family: "STSong","SimSun",serif; font-size: 24px; font-weight: 700;
+    color: var(--ink); letter-spacing: 3px;
+  }
+  .biz-side .biz-en { font-size: 11px; color: var(--muted); letter-spacing: 3px; }
+
+  .biz-main { padding: 40px 38px; }
+  .biz-main .biz-lead {
+    font-size: 14px; color: var(--ink); line-height: 2; margin-bottom: 22px; text-align: justify;
+    padding-bottom: 22px; border-bottom: 1px dashed var(--line);
+  }
+  .biz-features { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 26px; margin-bottom: 22px; }
+  .biz-feature { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--ink); line-height: 1.7; }
+  .biz-feature .dot {
+    flex-shrink: 0; width: 18px; height: 18px; border-radius: 50%;
+    background: var(--bg-soft); border: 1px solid var(--gold);
+    color: var(--gold-deep); font-size: 11px; display: flex; align-items: center; justify-content: center;
+    font-family: "STSong",serif; font-weight: 700; margin-top: 1px;
+  }
+  .biz-feature b { color: var(--ink); font-weight: 600; }
+  .biz-feature span { color: var(--muted); }
+
+  .biz-tags { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .biz-tags .lbl { font-size: 12px; color: var(--muted); letter-spacing: 2px; margin-right: 4px; }
+  .biz-tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 5px 14px; border: 1px solid var(--gold); border-radius: 20px;
+    font-size: 12px; color: var(--gold-deep); background: #fff;
+  }
+  .biz-tag::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+
+  /* ========== 优势卡 ========== */
+  .adv-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .adv-card {
+    border: 1.5px solid var(--gold); border-radius: 10px;
+    padding: 34px 24px; background: #fff; text-align: center;
+    display: flex; flex-direction: column; align-items: center; gap: 14px;
+    transition: transform .25s, box-shadow .25s;
+  }
+  .adv-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(184,148,31,0.18); }
+  .adv-card .icon { width: 44px; height: 44px; color: var(--gold); }
+  .adv-card h4 { font-size: 16px; font-weight: 600; color: var(--ink); letter-spacing: 2px; }
+  .adv-card p { font-size: 12px; color: var(--muted); line-height: 1.9; }
+
+  /* ========== 合规提示块 ========== */
+  .notice {
+    border: 1.5px solid var(--gold); border-radius: 12px;
+    background: linear-gradient(135deg, var(--bg-soft) 0%, #fff 100%);
+    padding: 36px 40px; display: flex; align-items: flex-start; gap: 22px;
+  }
+  .notice .n-icon {
+    flex-shrink: 0; width: 46px; height: 46px; color: var(--red);
+  }
+  .notice .n-body h4 {
+    font-family: "STSong","SimSun",serif; font-size: 19px; font-weight: 700;
+    color: var(--ink); margin-bottom: 10px; letter-spacing: 2px;
+  }
+  .notice .n-body p { font-size: 13px; color: var(--muted); line-height: 2; }
+  .notice .n-body p b { color: var(--red-deep); }
+
+  /* ========== 页脚 ========== */
+  .footer {
+    background: linear-gradient(180deg, var(--green-deep) 0%, var(--green-darker) 100%);
+    color: rgba(255,255,255,0.7); padding: 40px 32px;
+  }
+  .footer-inner {
+    max-width: 1280px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; gap: 40px;
+  }
+  .footer-logo { display: flex; align-items: center; gap: 14px; }
+  .footer-logo .lt { color: var(--gold); font-size: 24px; font-weight: 600; letter-spacing: 4px; }
+  .footer-info { display: flex; flex-direction: column; gap: 6px; font-size: 13px; text-align: right; }
+  .footer-info b { color: var(--gold); font-weight: 600; }
+
+  /* ========== 响应式 ========== */
+  @media (max-width: 960px) {
+    .sub-grid.cols-3, .sub-grid.cols-4, .adv-grid { grid-template-columns: repeat(2, 1fr); }
+    .sub-grid.cols-2 { grid-template-columns: 1fr; }
+    .biz-detail { grid-template-columns: 1fr; }
+    .biz-side { border-right: none; border-bottom: 1px solid var(--line); padding: 30px 24px; flex-direction: row; gap: 20px; }
+    .biz-side .biz-num { font-size: 30px; }
+    .biz-side h3 { font-size: 20px; }
+    .biz-features { grid-template-columns: 1fr; }
+    .biz-main { padding: 28px 24px; }
+    .notice { flex-direction: column; padding: 26px 24px; }
+    .topbar-inner { flex-wrap: wrap; padding: 0 20px; gap: 16px; }
+    .nav { margin-left: 0; }
+    .nav-row { gap: 16px; flex-wrap: wrap; }
+    .footer-inner { flex-direction: column; text-align: center; }
+    .footer-info { text-align: center; }
+    main { padding: 40px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== 顶部导航（真实 logo） ========== -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="./index.html" class="logo" aria-label="皓镧资产">
+      <span class="logo-card">
+        <img src="./assets/logo.jpg" alt="皓镧资产" />
+      </span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <div class="nav-row top">
+        <a href="./about.html">关于我们</a>
+        <a href="./business.html" class="active">主营业务</a>
+        <a href="./service.html">服务流程</a>
+        <a href="#">精英团队</a>
+        <a href="#">政策解读</a>
+        <a href="#">加入我们</a>
+        <a href="#">公告号</a>
+      </div>
+      <div class="nav-row bottom">
+        <a href="#">皓博律书院</a>
+        <a href="#">企业查询</a>
+        <a href="#">朗剧场专区</a>
+        <a href="#">班委就行</a>
+        <a href="#">公众号</a>
+      </div>
+    </nav>
+    <div class="topbar-tools">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <span>中 / EN</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ========================================== -->
+  <!-- 1. 主营业务总览 -->
+  <!-- ========================================== -->
+  <section id="overview">
+    <h2 class="sec-title">主营业务</h2>
+    <p class="sec-subtitle">CORE BUSINESS</p>
+
+    <div class="intro-block">
+      <div class="intro-text">
+        <h3>多元业务布局 · 专业资产服务</h3>
+        <p class="lead">
+          皓镧资产以资产端为核心、以服务为延伸，围绕客户在不同阶段的资金需求，构建了覆盖房产抵押、企业经营贷、个人信用融资、车辆相关融资四大业务板块的综合服务体系。
+        </p>
+        <p>
+          我们依托专业化的风控团队与全流程合规体系，为高净值客户、中小微企业及个人提供安全、高效、量身定制的融资解决方案，致力做客户值得托付的长期合作伙伴。
+        </p>
+      </div>
+    </div>
+
+    <div class="sub-grid cols-4">
+      <article class="info-card">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 34 V18 L20 8 L34 18 V34 Z"/><path d="M14 34 V24 H26 V34"/><path d="M20 8 V14"/></svg>
+        <span class="num-tag">① 业务一</span>
+        <h3>房产抵押</h3>
+        <p class="desc">盘活不动产资产<br/>额度高 · 放款快<br/>灵活高效</p>
+      </article>
+      <article class="info-card">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="10" width="28" height="22" rx="2"/><path d="M6 16 H34"/><circle cx="12" cy="24" r="2"/><circle cx="20" cy="24" r="2"/><circle cx="28" cy="24" r="2"/></svg>
+        <span class="num-tag">② 业务二</span>
+        <h3>企业经营贷</h3>
+        <p class="desc">助力企业经营<br/>专款专用 · 还款灵活<br/>赋能发展</p>
+      </article>
+      <article class="info-card">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><circle cx="20" cy="14" r="6"/><path d="M8 34 C8 27 14 24 20 24 C26 24 32 27 32 34"/><path d="M20 8 V6 M24 10 L26 8 M16 10 L14 8"/></svg>
+        <span class="num-tag">③ 业务三</span>
+        <h3>个人信用融资</h3>
+        <p class="desc">凭信用即可办理<br/>免抵押 · 审批快<br/>用途广泛</p>
+      </article>
+      <article class="info-card">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 26 L10 18 H30 L34 26 V32 H6 Z"/><circle cx="13" cy="32" r="3"/><circle cx="27" cy="32" r="3"/><path d="M10 18 L12 12 H28 L30 18"/></svg>
+        <span class="num-tag">④ 业务四</span>
+        <h3>车辆相关融资</h3>
+        <p class="desc">盘活车辆资产<br/>押证不押车 · 手续简<br/>到账迅速</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 2. 业务详情 -->
+  <!-- ========================================== -->
+  <section id="detail">
+    <h2 class="sec-title">业务详情</h2>
+    <p class="sec-subtitle">BUSINESS DETAILS</p>
+
+    <div class="biz-list">
+
+      <!-- ① 房产抵押 -->
+      <article class="biz-detail">
+        <div class="biz-side">
+          <svg class="biz-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 40 V22 L24 10 L40 22 V40 Z"/><path d="M18 40 V28 H30 V40"/><path d="M24 10 V16"/></svg>
+          <div class="biz-num">①</div>
+          <h3>房产抵押</h3>
+          <span class="biz-en">PROPERTY MORTGAGE</span>
+        </div>
+        <div class="biz-main">
+          <p class="biz-lead">
+            以自有或第三方名下房产作为抵押物，为客户盘活不动产资产，匹配灵活、高效的融资方案。涵盖住宅、商铺、写字楼等多种物业类型，满足资金周转、经营扩大、置业置换等多元需求。
+          </p>
+          <div class="biz-features">
+            <div class="biz-feature"><span class="dot">1</span><div><b>额度充足</b><br/><span>按房产评估价值成数核定，满足大额资金需求</span></div></div>
+            <div class="biz-feature"><span class="dot">2</span><div><b>期限灵活</b><br/><span>短至数月、长至数年，按需匹配还款节奏</span></div></div>
+            <div class="biz-feature"><span class="dot">3</span><div><b>利率优惠</b><br/><span>抵押担保降低风险，享受更具竞争力的成本</span></div></div>
+            <div class="biz-feature"><span class="dot">4</span><div><b>放款高效</b><br/><span>专业团队全程跟进，流程透明、到账及时</span></div></div>
+          </div>
+          <div class="biz-tags">
+            <span class="lbl">适用人群</span>
+            <span class="biz-tag">名下有房产的个人</span>
+            <span class="biz-tag">有资金周转需求的企业</span>
+            <span class="biz-tag">经营扩大 / 置业置换</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- ② 企业经营贷 -->
+      <article class="biz-detail">
+        <div class="biz-side">
+          <svg class="biz-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="12" width="32" height="26" rx="2"/><path d="M8 20 H40"/><circle cx="16" cy="30" r="2.5"/><circle cx="24" cy="30" r="2.5"/><circle cx="32" cy="30" r="2.5"/><path d="M16 12 V8 H32 V12"/></svg>
+          <div class="biz-num">②</div>
+          <h3>企业经营贷</h3>
+          <span class="biz-en">ENTERPRISE LOAN</span>
+        </div>
+        <div class="biz-main">
+          <p class="biz-lead">
+            面向中小微企业及个体工商户，以企业经营状况与现金流为核心依据，提供专项经营性融资支持。专款专用、助力经营，解决企业在采购、扩产、周转等环节的资金需求，陪伴企业稳健成长。
+          </p>
+          <div class="biz-features">
+            <div class="biz-feature"><span class="dot">1</span><div><b>专款专用</b><br/><span>定向支持企业经营，资金用途清晰合规</span></div></div>
+            <div class="biz-feature"><span class="dot">2</span><div><b>额度循环</b><br/><span>授信额度可循环使用，随借随还、降低成本</span></div></div>
+            <div class="biz-feature"><span class="dot">3</span><div><b>还款灵活</b><br/><span>等额本息 / 先息后本等多种方式可选</span></div></div>
+            <div class="biz-feature"><span class="dot">4</span><div><b>助力经营</b><br/><span>匹配企业真实经营周期，缓解阶段性资金压力</span></div></div>
+          </div>
+          <div class="biz-tags">
+            <span class="lbl">适用人群</span>
+            <span class="biz-tag">中小微企业</span>
+            <span class="biz-tag">个体工商户</span>
+            <span class="biz-tag">经营满一定期限</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- ③ 个人信用融资 -->
+      <article class="biz-detail">
+        <div class="biz-side">
+          <svg class="biz-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><circle cx="24" cy="16" r="7"/><path d="M10 40 C10 31 17 27 24 27 C31 27 38 31 38 40"/><path d="M24 9 V7 M30 12 L32 10 M18 12 L16 10"/></svg>
+          <div class="biz-num">③</div>
+          <h3>个人信用融资</h3>
+          <span class="biz-en">PERSONAL CREDIT</span>
+        </div>
+        <div class="biz-main">
+          <p class="biz-lead">
+            凭借个人信用资质，无需提供抵押物，即可办理便捷的信用类融资服务。流程简化、审批高效，满足消费、装修、教育、资金周转等多元化个人资金需求，让信用转化为切实可用的价值。
+          </p>
+          <div class="biz-features">
+            <div class="biz-feature"><span class="dot">1</span><div><b>免抵押</b><br/><span>凭个人信用即可申请，无需提供实物担保</span></div></div>
+            <div class="biz-feature"><span class="dot">2</span><div><b>流程简便</b><br/><span>资料精简、线上协同，办理体验轻松顺畅</span></div></div>
+            <div class="biz-feature"><span class="dot">3</span><div><b>审批高效</b><br/><span>专业团队快速评估，缩短等待、及时响应</span></div></div>
+            <div class="biz-feature"><span class="dot">4</span><div><b>用途广泛</b><br/><span>覆盖消费、装修、教育、周转等多种场景</span></div></div>
+          </div>
+          <div class="biz-tags">
+            <span class="lbl">适用人群</span>
+            <span class="biz-tag">信用良好的个人</span>
+            <span class="biz-tag">有稳定收入来源</span>
+            <span class="biz-tag">消费 / 周转需求</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- ④ 车辆相关融资 -->
+      <article class="biz-detail">
+        <div class="biz-side">
+          <svg class="biz-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 30 L11 20 H37 L42 30 V38 H6 Z"/><circle cx="15" cy="38" r="3.5"/><circle cx="33" cy="38" r="3.5"/><path d="M11 20 L13 14 H35 L37 20"/></svg>
+          <div class="biz-num">④</div>
+          <h3>车辆相关融资</h3>
+          <span class="biz-en">VEHICLE FINANCING</span>
+        </div>
+        <div class="biz-main">
+          <p class="biz-lead">
+            以自有车辆抵押或购车融资等方式，为客户提供灵活的车相关融资服务，盘活车辆资产价值。押证不押车、手续简便、到账迅速，兼顾融资效率与日常用车便利，满足短期资金周转与购车需求。
+          </p>
+          <div class="biz-features">
+            <div class="biz-feature"><span class="dot">1</span><div><b>押证不押车</b><br/><span>抵押登记即可，车辆日常使用不受影响</span></div></div>
+            <div class="biz-feature"><span class="dot">2</span><div><b>额度较高</b><br/><span>按车辆评估价值核定，匹配合理融资额度</span></div></div>
+            <div class="biz-feature"><span class="dot">3</span><div><b>手续简便</b><br/><span>流程精简、专人协助，办理省时省心</span></div></div>
+            <div class="biz-feature"><span class="dot">4</span><div><b>到账迅速</b><br/><span>审核高效、放款及时，快速缓解资金需求</span></div></div>
+          </div>
+          <div class="biz-tags">
+            <span class="lbl">适用人群</span>
+            <span class="biz-tag">名下有车辆的个人</span>
+            <span class="biz-tag">有车辆资产的企业</span>
+            <span class="biz-tag">短期周转 / 购车</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 3. 我们的优势 -->
+  <!-- ========================================== -->
+  <section id="advantage">
+    <h2 class="sec-title">我们的优势</h2>
+    <p class="sec-subtitle">OUR ADVANTAGES</p>
+
+    <div class="adv-grid">
+      <article class="adv-card">
+        <svg class="icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 6 L34 12 V24 C34 31 28 36 22 38 C16 36 10 31 10 24 V12 Z"/><path d="M16 22 L20 26 L29 17"/></svg>
+        <h4>专业团队</h4>
+        <p>资深风控与资产管理团队，行业经验丰富，为客户提供专业可信赖的融资方案。</p>
+      </article>
+      <article class="adv-card">
+        <svg class="icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2"><circle cx="22" cy="22" r="14"/><path d="M22 14 V22 L28 26"/></svg>
+        <h4>严控风险</h4>
+        <p>覆盖立项、尽调、审核、贷后的全流程风控体系，层层把关、稳健运行。</p>
+      </article>
+      <article class="adv-card">
+        <svg class="icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 22 L18 32 L36 12"/></svg>
+        <h4>高效服务</h4>
+        <p>流程透明、响应迅速，专人全程跟进，让融资办理省时、省心、省力。</p>
+      </article>
+      <article class="adv-card">
+        <svg class="icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2"><rect x="10" y="14" width="24" height="20" rx="2"/><path d="M10 20 H34 M16 28 H20 M26 28 H30"/></svg>
+        <h4>合规经营</h4>
+        <p>持牌规范、信息透明，严格遵守金融监管要求，保障客户合法权益。</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 4. 合规提示 -->
+  <!-- ========================================== -->
+  <section id="notice">
+    <div class="notice">
+      <svg class="n-icon" viewBox="0 0 46 46" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 6 L40 38 H6 Z"/><path d="M23 20 V28"/><circle cx="23" cy="33" r="1.2" fill="currentColor"/></svg>
+      <div class="n-body">
+        <h4>风险提示与合规声明</h4>
+        <p>
+          融资服务需根据个人及企业实际资质办理，额度、利率、期限以最终审批结果为准。皓镧资产坚持<b>真实、客观、审慎</b>的宣传原则，不夸大收益、不虚假承诺、不诱导融资，严格遵守国家金融监管相关法律法规。请广大客户通过正规渠道办理业务，理性评估自身还款能力，防范金融风险。
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ========== 页脚 ========== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <svg class="logo-mark" width="44" height="44" viewBox="0 0 64 64" fill="none">
+        <path d="M32 4 L58 18 L58 46 L32 60 L6 46 L6 18 Z" stroke="#C9A961" stroke-width="3" fill="none"/>
+        <path d="M22 22 L42 22 M22 32 L42 32 M22 42 L32 42" stroke="#C9A961" stroke-width="3"/>
+      </svg>
+      <span class="lt">皓镧资产</span>
+    </div>
+    <div class="footer-info">
+      <div><b>联系电话：</b>010-8888 8888</div>
+      <div><b>邮箱：</b>hr@haolanzichan.cn</div>
+      <div><b>地址：</b>北京市朝阳区金融街 · 财富中心</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

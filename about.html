@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>关于我们 - 皓镧资产</title>
+<style>
+  /* ========== 品牌变量 ========== */
+  :root {
+    --gold: #C9A961;
+    --gold-deep: #B8941F;
+    --gold-soft: #E8D9A8;
+    --red: #C8102E;
+    --red-deep: #B91D2E;
+    --green-deep: #1F3A2E;
+    --green-darker: #142720;
+    --ink: #1A1A1A;
+    --muted: #6B6B6B;
+    --line: #E8E2D4;
+    --bg: #FFFFFF;
+    --bg-soft: #FAF6EC;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Microsoft YaHei", "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  /* ========== 顶部黑色双层导航 ========== */
+  .topbar { background: #111; color: #fff; border-bottom: 1px solid rgba(201,169,97,0.18); }
+  .topbar-inner { max-width: 1280px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; gap: 36px; }
+  .logo { display: flex; align-items: center; padding: 14px 0; flex-shrink: 0; }
+  .logo-card {
+    display: inline-flex; align-items: center; background: #fff;
+    padding: 8px 16px; border-radius: 4px; height: 56px;
+    box-shadow: 0 0 0 1px rgba(201,169,97,0.25);
+  }
+  .logo-card img { height: 44px; width: auto; display: block; }
+  .nav { display: flex; flex-direction: column; gap: 6px; margin-left: auto; padding: 14px 0; }
+  .nav-row { display: flex; gap: 30px; font-size: 14px; }
+  .nav-row.top a { color: rgba(255,255,255,0.85); transition: color .2s; padding: 4px 0; }
+  .nav-row.top a:hover, .nav-row.top a.active { color: var(--gold); }
+  .nav-row.bottom { font-size: 12px; color: rgba(255,255,255,0.5); gap: 26px; }
+  .nav-row.bottom a:hover { color: var(--gold); }
+  .topbar-tools { display: flex; align-items: center; gap: 18px; padding: 0 0 0 24px; color: rgba(255,255,255,0.6); font-size: 13px; flex-shrink: 0; }
+  .topbar-tools .icon { width: 16px; height: 16px; opacity: .7; }
+
+  /* ========== 主区 ========== */
+  main { max-width: 1280px; margin: 0 auto; padding: 80px 32px 90px; }
+  section { margin-bottom: 90px; }
+  section:last-child { margin-bottom: 0; }
+
+  .sec-title {
+    text-align: center; font-size: 30px; font-weight: 700; letter-spacing: 6px;
+    color: var(--ink); position: relative; padding-bottom: 22px; margin-bottom: 12px;
+  }
+  .sec-title::after {
+    content: ""; position: absolute; left: 50%; bottom: 0;
+    width: 56px; height: 3px; background: var(--red); transform: translateX(-50%);
+  }
+  .sec-subtitle {
+    text-align: center; color: var(--muted); font-size: 12px; letter-spacing: 4px;
+    margin-bottom: 56px;
+  }
+
+  /* ========== 公司简介（纯文字通栏） ========== */
+  .intro-block { margin-bottom: 50px; }
+  .intro-text h3 {
+    font-family: "STSong","SimSun",serif; font-size: 26px; font-weight: 700;
+    margin-bottom: 20px; color: var(--ink); position: relative; padding-left: 18px;
+  }
+  .intro-text h3::before {
+    content: ""; position: absolute; left: 0; top: 8px; bottom: 8px;
+    width: 4px; background: linear-gradient(180deg, var(--red), var(--gold));
+  }
+  .intro-text .lead { color: var(--ink); font-size: 15px; line-height: 2; margin-bottom: 14px; }
+  .intro-text p { color: var(--muted); font-size: 14px; line-height: 2; margin-bottom: 12px; }
+  .intro-text .quote {
+    margin-top: 22px; padding: 16px 22px; border-left: 3px solid var(--gold);
+    background: var(--bg-soft); color: var(--ink); font-size: 13px; line-height: 1.9;
+  }
+
+  /* ========== 子卡片网格 ========== */
+  .sub-grid { display: grid; gap: 20px; }
+  .sub-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .sub-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+  .sub-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+
+  /* 文字型子卡片 */
+  .text-card {
+    border: 1.5px solid var(--gold); border-radius: 10px;
+    padding: 36px 28px; background: #fff; transition: all .25s;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .text-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(184,148,31,0.16); }
+  .text-card .num {
+    font-family: "STSong",serif; font-size: 28px; font-weight: 700;
+    color: var(--gold); line-height: 1; margin-bottom: 4px;
+  }
+  .text-card h4 {
+    font-size: 18px; font-weight: 600; color: var(--ink); letter-spacing: 2px;
+    padding-bottom: 12px; border-bottom: 1px solid var(--line);
+  }
+  .text-card p { color: var(--muted); font-size: 13px; line-height: 1.9; }
+
+  /* icon 型子卡片 */
+  .info-card {
+    border: 1.5px solid var(--gold); border-radius: 10px;
+    padding: 36px 22px 30px; background: #fff;
+    display: flex; flex-direction: column; align-items: center; gap: 14px;
+    transition: transform .25s, box-shadow .25s; text-align: center;
+  }
+  .info-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(184,148,31,0.18); }
+  .info-card .icon { width: 42px; height: 42px; color: var(--gold); }
+  .info-card .num-tag { font-family: "STSong",serif; font-size: 14px; color: var(--gold); letter-spacing: 2px; }
+  .info-card h3 { font-size: 17px; font-weight: 600; color: var(--ink); letter-spacing: 2px; }
+  .info-card .desc { font-size: 12px; color: var(--muted); line-height: 1.9; }
+
+  /* 荣誉卡片 */
+  .honor-card {
+    border: 1.5px solid var(--gold); border-radius: 10px; overflow: hidden;
+    background: #fff; transition: all .25s;
+    display: flex; flex-direction: column;
+  }
+  .honor-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(184,148,31,0.18); }
+  .honor-visual {
+    aspect-ratio: 16/9; position: relative; overflow: hidden;
+    background: linear-gradient(135deg, var(--green-deep), var(--ink));
+  }
+  .honor-visual::before {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(circle at 70% 30%, rgba(201,169,97,0.3), transparent 55%);
+  }
+  .honor-visual .ph {
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    color: rgba(201,169,97,0.7); font-size: 13px; letter-spacing: 4px;
+  }
+  .honor-visual .badge {
+    position: absolute; left: 20px; top: 20px;
+    background: rgba(200,16,46,0.9); color: #fff;
+    font-size: 12px; padding: 4px 12px; border-radius: 3px; letter-spacing: 2px;
+  }
+  .honor-body { padding: 28px 28px 32px; }
+  .honor-body .num { font-family: "STSong",serif; font-size: 20px; color: var(--gold); font-weight: 700; margin-bottom: 6px; }
+  .honor-body h4 {
+    font-size: 18px; font-weight: 600; color: var(--ink); letter-spacing: 2px;
+    margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--line);
+  }
+  .honor-body p { color: var(--muted); font-size: 13px; line-height: 1.9; }
+
+  /* ========== 时间轴（S 形 5 节点） ========== */
+  .timeline-wrap {
+    background: linear-gradient(180deg, #fff 0%, #fdf9ee 100%);
+    border-radius: 14px; padding: 70px 40px 80px; position: relative;
+  }
+  .timeline { position: relative; max-width: 1180px; margin: 0 auto; }
+  /* 中线（穿过每个 dot 中心） */
+  .timeline::before {
+    content: ""; position: absolute; left: 0; right: 0; top: 50%;
+    height: 2px;
+    background: linear-gradient(to right, transparent 0%, var(--gold) 3%, var(--gold) 97%, transparent 100%);
+    transform: translateY(-50%); z-index: 0;
+  }
+  /* 终点 FUTURE 标记 */
+  .timeline::after {
+    content: "FUTURE \2192"; position: absolute; right: -10px; top: 50%;
+    transform: translateY(-50%); color: var(--gold);
+    font-family: "STSong",serif; letter-spacing: 4px; font-size: 13px;
+    padding-left: 20px; background: linear-gradient(to right, transparent, #fdf9ee 30%);
+  }
+  .timeline-track {
+    display: grid; grid-template-columns: repeat(5, 1fr); position: relative; gap: 10px;
+  }
+  .tl-item {
+    display: flex; flex-direction: column; align-items: center;
+    min-height: 380px; position: relative; z-index: 1;
+  }
+  /* 通用三段布局：card / mid(dot) / detail */
+  .tl-item .tl-card,
+  .tl-item .tl-mid,
+  .tl-item .tl-detail { width: 100%; display: flex; justify-content: center; }
+
+  .tl-card {
+    width: 84%; padding: 16px 14px; border: 1.5px solid var(--gold); border-radius: 8px;
+    background: #fff; transition: all .25s; text-align: center;
+  }
+  .tl-card:hover { box-shadow: 0 10px 24px rgba(184,148,31,0.18); transform: translateY(-3px); }
+  .tl-card .y { font-family: "STSong",serif; font-weight: 700; font-size: 22px; color: var(--red); margin-bottom: 6px; }
+  .tl-card .y small { font-size: 13px; color: var(--gold); margin-left: 2px; font-weight: 600; }
+  .tl-card .t { font-size: 14px; color: var(--ink); font-weight: 600; letter-spacing: 2px; }
+
+  .tl-mid {
+    height: 32px; display: flex; align-items: center; justify-content: center;
+  }
+  .tl-dot {
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--gold); border: 3px solid #fdf9ee;
+    box-shadow: 0 0 0 2px var(--gold);
+  }
+
+  .tl-detail {
+    padding: 0 10px; color: var(--muted); font-size: 12px; line-height: 1.85;
+    text-align: center;
+  }
+
+  /* 奇数项：card 上 / detail 下 */
+  .tl-item:nth-child(odd) .tl-card { order: 1; margin-bottom: 32px; }
+  .tl-item:nth-child(odd) .tl-mid { order: 2; }
+  .tl-item:nth-child(odd) .tl-detail { order: 3; margin-top: 32px; }
+
+  /* 偶数项：detail 上 / card 下 */
+  .tl-item:nth-child(even) .tl-detail { order: 1; margin-bottom: 32px; }
+  .tl-item:nth-child(even) .tl-mid { order: 2; }
+  .tl-item:nth-child(even) .tl-card { order: 3; margin-top: 32px; }
+
+  /* ========== 页脚 ========== */
+  .footer {
+    background: linear-gradient(180deg, var(--green-deep) 0%, var(--green-darker) 100%);
+    color: rgba(255,255,255,0.7); padding: 40px 32px;
+  }
+  .footer-inner {
+    max-width: 1280px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; gap: 40px;
+  }
+  .footer-logo { display: flex; align-items: center; gap: 14px; }
+  .footer-logo .lt { color: var(--gold); font-size: 24px; font-weight: 600; letter-spacing: 4px; }
+  .footer-info { display: flex; flex-direction: column; gap: 6px; font-size: 13px; text-align: right; }
+  .footer-info b { color: var(--gold); font-weight: 600; }
+
+  /* ========== 响应式 ========== */
+  @media (max-width: 960px) {
+    .sub-grid.cols-3, .sub-grid.cols-4 { grid-template-columns: repeat(2, 1fr); }
+    .sub-grid.cols-2 { grid-template-columns: 1fr; }
+    .timeline-track { grid-template-columns: 1fr 1fr; gap: 40px 0; }
+    .timeline::before, .timeline::after { display: none; }
+    .tl-item { min-height: auto; }
+    .tl-item:nth-child(odd) .tl-card,
+    .tl-item:nth-child(even) .tl-card { order: 1; margin: 0 0 16px; }
+    .tl-item:nth-child(odd) .tl-mid,
+    .tl-item:nth-child(even) .tl-mid { display: none; }
+    .tl-item:nth-child(odd) .tl-detail,
+    .tl-item:nth-child(even) .tl-detail { order: 2; margin: 0; }
+    .topbar-inner { flex-wrap: wrap; padding: 0 20px; gap: 16px; }
+    .nav { margin-left: 0; }
+    .nav-row { gap: 16px; flex-wrap: wrap; }
+    .footer-inner { flex-direction: column; text-align: center; }
+    .footer-info { text-align: center; }
+    main { padding: 40px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== 顶部导航（真实 logo） ========== -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="./index.html" class="logo" aria-label="皓镧资产">
+      <span class="logo-card">
+        <img src="./assets/logo.jpg" alt="皓镧资产" />
+      </span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <div class="nav-row top">
+        <a href="./about.html" class="active">关于我们</a>
+        <a href="./business.html">主营业务</a>
+        <a href="./service.html">服务流程</a>
+        <a href="#">精英团队</a>
+        <a href="#">政策解读</a>
+        <a href="#">加入我们</a>
+        <a href="#">公告号</a>
+      </div>
+      <div class="nav-row bottom">
+        <a href="#">皓博律书院</a>
+        <a href="#">企业查询</a>
+        <a href="#">朗剧场专区</a>
+        <a href="#">班委就行</a>
+        <a href="#">公众号</a>
+      </div>
+    </nav>
+    <div class="topbar-tools">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <span>中 / EN</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ========================================== -->
+  <!-- 1. 发展历程大事记（S 形 5 节点） -->
+  <!-- ========================================== -->
+  <section id="milestones">
+    <h2 class="sec-title">发展历程大事记</h2>
+    <p class="sec-subtitle">DEVELOPMENT MILESTONES</p>
+
+    <div class="timeline-wrap">
+      <div class="timeline">
+        <div class="timeline-track">
+          <!-- 1 -->
+          <div class="tl-item">
+            <div class="tl-card">
+              <div class="y">2021<small>.11.26</small></div>
+              <div class="t">公司成立</div>
+            </div>
+            <div class="tl-mid"><span class="tl-dot"></span></div>
+            <p class="tl-detail">以创业者支持者为起点，开启充满挑战与机遇的征程。</p>
+          </div>
+          <!-- 2 -->
+          <div class="tl-item">
+            <p class="tl-detail">业务模式升级，紧跟时代步伐、拓展视野格局，为公司的稳健发展奠定坚实基础。</p>
+            <div class="tl-mid"><span class="tl-dot"></span></div>
+            <div class="tl-card">
+              <div class="y">2022<small>.08</small></div>
+              <div class="t">搬迁至时代国际中心</div>
+            </div>
+          </div>
+          <!-- 3 -->
+          <div class="tl-item">
+            <div class="tl-card">
+              <div class="y">2023<small>.07</small></div>
+              <div class="t">增项实业投资、自媒体运营</div>
+            </div>
+            <div class="tl-mid"><span class="tl-dot"></span></div>
+            <p class="tl-detail">新增实业投资与自媒体运营业务板块，拓展多元化业务格局，以更丰富的服务能力赋能客户与品牌价值。</p>
+          </div>
+          <!-- 4 -->
+          <div class="tl-item">
+            <p class="tl-detail">办公空间升级、团队规模扩至 180+ 人，开启品牌精细化运营与全国化布局。</p>
+            <div class="tl-mid"><span class="tl-dot"></span></div>
+            <div class="tl-card">
+              <div class="y">2024<small>.08</small></div>
+              <div class="t">团队扩至 180+ 人</div>
+            </div>
+          </div>
+          <!-- 5 -->
+          <div class="tl-item">
+            <div class="tl-card">
+              <div class="y">2025</div>
+              <div class="t">成立皓镧企业、新增品牌皓镧奢选</div>
+            </div>
+            <div class="tl-mid"><span class="tl-dot"></span></div>
+            <p class="tl-detail">成立皓镧企业，全新推出"皓镧奢选"品牌，品牌矩阵进一步完善，迈入多元化集团化发展新阶段。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 2. 公司简介（直接进入，无红色 hero） -->
+  <!-- ========================================== -->
+  <section id="intro">
+    <h2 class="sec-title">公司简介</h2>
+    <p class="sec-subtitle">COMPANY PROFILE</p>
+
+    <div class="intro-block">
+      <div class="intro-text">
+        <h3>稳健资产管理 · 创造长期价值</h3>
+        <p class="lead">
+          皓镧资产管理有限公司创立于 2021 年，是一家以稳健经营理念为核心，专业从事资产管理、财富管理、投资咨询及综合金融服务的综合性机构。
+        </p>
+        <p>
+          我们深知每一份托付都承载着客户的信任与期望，因此始终以"严格风控、合规先行"为经营底线。依托专业化的资产管理团队与多元化的业务布局，业务涵盖房产抵押融资、企业信贷、个人信用融资、车辆融资、企业服务等多个领域，形成了以资产端为核心、以服务为延伸的完整业务生态。
+        </p>
+        <div class="quote">
+          历经多年稳健发展，皓镧资产已服务数千家客户。我们坚信，唯有<strong>稳健</strong>方能致远，唯有<strong>专业</strong>方能托付。
+        </div>
+      </div>
+    </div>
+
+    <div class="sub-grid cols-3">
+      <article class="text-card">
+        <div class="num">①</div>
+        <h4>发展历程</h4>
+        <p>自 2021 年成立以来，皓镧资产从初创团队成长为多元化资产服务机构，历经业务拓展、规模升级、品牌重塑等里程碑，每一步都走得稳健而坚实，持续为客户创造长期价值。</p>
+      </article>
+      <article class="text-card">
+        <div class="num">②</div>
+        <h4>企业定位</h4>
+        <p>以资产端为核心、以服务为延伸的综合性资产管理机构，专注为高净值客户、机构投资人及优质中小企业提供专业、安全、高效的资产配置方案与综合金融服务。</p>
+      </article>
+      <article class="text-card">
+        <div class="num">③</div>
+        <h4>经营理念与愿景</h4>
+        <p>秉持"稳健资产管理，创造长期价值"的核心理念，以合规为基、以专业为本、以服务为魂，致力成为中国最受信赖的综合性资产管理机构，做时间的朋友。</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 3. 企业资质与合规说明 -->
+  <!-- ========================================== -->
+  <section id="compliance">
+    <h2 class="sec-title">企业资质与合规说明</h2>
+    <p class="sec-subtitle">QUALIFICATIONS &amp; COMPLIANCE</p>
+
+    <div class="sub-grid cols-3">
+      <article class="text-card">
+        <div class="num">①</div>
+        <h4>经营规范</h4>
+        <p>建立覆盖项目立项、尽调审核、贷后管理的全流程风险控制体系，严格遵循国家金融监管要求，确保每项业务合规稳健运行，以制度化保障经营安全与客户权益。</p>
+      </article>
+      <article class="text-card">
+        <div class="num">②</div>
+        <h4>服务宗旨</h4>
+        <p>诚信为本、客户至上、稳健经营。以客户需求为导向，以专业能力为支撑，为每一位客户提供量身定制的资产配置方案与全周期跟踪服务，守护每一份托付。</p>
+      </article>
+      <article class="text-card">
+        <div class="num">③</div>
+        <h4>规避金融违规宣传</h4>
+        <p>坚持真实、客观、审慎的宣传原则，不夸大收益、不虚假承诺、不诱导投资，严格遵守金融广告相关法律法规，保障客户知情权与自主选择权。</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 4. 企业荣誉 -->
+  <!-- ========================================== -->
+  <section id="honor">
+    <h2 class="sec-title">企业荣誉</h2>
+    <p class="sec-subtitle">CORPORATE HONORS</p>
+
+    <div class="sub-grid cols-2">
+      <article class="honor-card">
+        <div class="honor-visual">
+          <span class="badge">公益</span>
+          <span class="ph">公益活动展示</span>
+        </div>
+        <div class="honor-body">
+          <div class="num">①</div>
+          <h4>公益活动展示</h4>
+          <p>积极践行企业社会责任，持续投入扶贫济困、教育支援、社区服务等公益领域。从物资捐赠到志愿服务，皓镧资产以实际行动回馈社会，传递企业温度，践行"稳健经营、回馈社会"的责任承诺。</p>
+        </div>
+      </article>
+      <article class="honor-card">
+        <div class="honor-visual">
+          <span class="badge">6·26</span>
+          <span class="ph">禁毒日主题宣传</span>
+        </div>
+        <div class="honor-body">
+          <div class="num">②</div>
+          <h4>禁毒日主题宣传</h4>
+          <p>每年 6·26 国际禁毒日期间开展主题宣传活动，通过知识科普、社区宣讲、横幅签名等形式，提升公众识毒、防毒、拒毒意识，传递"健康人生、绿色无毒"理念，为共建无毒社会贡献力量。</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 5. 企业文化 -->
+  <!-- ========================================== -->
+  <section id="culture">
+    <h2 class="sec-title">企业文化</h2>
+    <p class="sec-subtitle">CORPORATE CULTURE</p>
+
+    <div class="sub-grid cols-4">
+      <article class="info-card">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 L32 12 V22 C32 28 26 33 20 35 C14 33 8 28 8 22 V12 Z"/><path d="M15 20 L19 24 L26 17"/></svg>
+        <span class="num-tag">① 价值观</span>
+        <h3>价值观</h3>
+        <p class="desc">稳健、诚信<br/>专业、共赢<br/>坚持长期主义<br/>合规风控为生命线</p>
+      </article>
+      <article class="info-card">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><circle cx="13" cy="16" r="4"/><circle cx="27" cy="16" r="4"/><path d="M6 32 C6 27 9 24 13 24 M34 32 C34 27 31 24 27 24 M14 24 C17 24 23 24 26 24"/></svg>
+        <span class="num-tag">② 团队氛围</span>
+        <h3>团队氛围</h3>
+        <p class="desc">专业、和谐、向上<br/>开放协作<br/>鼓励持续学习<br/>人人有归属与舞台</p>
+      </article>
+      <article class="info-card">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 32 V20 L20 12 L32 20 V32 Z"/><path d="M16 32 V24 H24 V32"/></svg>
+        <span class="num-tag">③ 皓镧商学院</span>
+        <h3>皓镧商学院</h3>
+        <p class="desc">公司人才孵化平台<br/>系统化专业培训<br/>行业前沿分享<br/>培养资管行业精英</p>
+      </article>
+      <article class="info-card">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><circle cx="20" cy="14" r="6"/><path d="M8 34 C8 27 14 24 20 24 C26 24 32 27 32 34"/></svg>
+        <span class="num-tag">④ 员工团建</span>
+        <h3>员工团建活动</h3>
+        <p class="desc">定期团建旅行<br/>主题沙龙<br/>文体活动<br/>共筑有温度的文化</p>
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<!-- ========== 页脚 ========== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <svg class="logo-mark" width="44" height="44" viewBox="0 0 64 64" fill="none">
+        <path d="M32 4 L58 18 L58 46 L32 60 L6 46 L6 18 Z" stroke="#C9A961" stroke-width="3" fill="none"/>
+        <path d="M22 22 L42 22 M22 32 L42 32 M22 42 L32 42" stroke="#C9A961" stroke-width="3"/>
+      </svg>
+      <span class="lt">皓镧资产</span>
+    </div>
+    <div class="footer-info">
+      <div><b>联系电话：</b>010-8888 8888</div>
+      <div><b>邮箱：</b>hr@haolanzichan.cn</div>
+      <div><b>地址：</b>北京市朝阳区金融街 · 财富中心</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
