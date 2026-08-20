@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>精英团队 - 皓镧资产</title>
+<style>
+  /* ========== 品牌变量 ========== */
+  :root {
+    --gold: #C9A961;
+    --gold-deep: #B8941F;
+    --gold-soft: #E8D9A8;
+    --red: #C8102E;
+    --red-deep: #B91D2E;
+    --green-deep: #1F3A2E;
+    --green-darker: #142720;
+    --ink: #1A1A1A;
+    --muted: #6B6B6B;
+    --line: #E8E2D4;
+    --bg: #FFFFFF;
+    --bg-soft: #FAF6EC;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Microsoft YaHei", "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  /* ========== 顶部黑色导航（单层 10 项） ========== */
+  .topbar { background: #111; color: #fff; border-bottom: 1px solid rgba(201,169,97,0.18); }
+  .topbar-inner { max-width: 1280px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; gap: 36px; }
+  .logo { display: flex; align-items: center; padding: 14px 0; flex-shrink: 0; }
+  .logo-card {
+    display: inline-flex; align-items: center; background: #fff;
+    padding: 8px 16px; border-radius: 4px; height: 56px;
+    box-shadow: 0 0 0 1px rgba(201,169,97,0.25);
+  }
+  .logo-card img { height: 44px; width: auto; display: block; }
+  .nav { display: flex; flex-direction: column; gap: 6px; margin-left: auto; padding: 14px 0; }
+  .nav-row { display: flex; gap: 30px; font-size: 14px; }
+  .nav-row.top a { color: rgba(255,255,255,0.85); transition: color .2s; padding: 4px 0; white-space: nowrap; }
+  .nav-row.top a:hover, .nav-row.top a.active { color: var(--gold); }
+
+  /* ========== 主区 ========== */
+  main { max-width: 1280px; margin: 0 auto; padding: 80px 32px 90px; }
+  section { margin-bottom: 90px; }
+  section:last-child { margin-bottom: 0; }
+
+  .sec-title {
+    text-align: center; font-size: 30px; font-weight: 700; letter-spacing: 6px;
+    color: var(--ink); position: relative; padding-bottom: 22px; margin-bottom: 12px;
+    font-family: "STSong","SimSun",serif;
+  }
+  .sec-title::after {
+    content: ""; position: absolute; left: 50%; bottom: 0;
+    width: 56px; height: 3px; background: var(--red); transform: translateX(-50%);
+  }
+  .sec-subtitle {
+    text-align: center; color: var(--muted); font-size: 12px; letter-spacing: 4px;
+    margin-bottom: 56px;
+  }
+  .sec-desc {
+    max-width: 860px; margin: 0 auto 52px; text-align: center;
+    color: var(--muted); font-size: 14px; line-height: 2;
+  }
+
+  /* ========== 数据速览条 ========== */
+  .stats-bar {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+    margin-bottom: 64px;
+  }
+  .stat-card {
+    border: 1.5px solid var(--gold); border-radius: 10px;
+    background: var(--bg-soft); padding: 28px 20px;
+    text-align: center; transition: all .25s;
+  }
+  .stat-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(184,148,31,0.16); }
+  .stat-card .num {
+    font-family: "STSong",serif; font-size: 42px; font-weight: 700;
+    color: var(--red); line-height: 1; margin-bottom: 10px;
+  }
+  .stat-card .num small { font-size: 16px; color: var(--gold); margin-left: 2px; }
+  .stat-card .label { font-size: 14px; color: var(--ink); letter-spacing: 3px; font-weight: 600; }
+  .stat-card .sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+  /* ========== 组织架构图 ========== */
+  .org-chart {
+    background: linear-gradient(180deg, #fff 0%, #fdf9ee 100%);
+    border: 1px solid var(--gold-soft); border-radius: 14px;
+    padding: 48px 24px 40px;
+  }
+  .org-level { display: flex; justify-content: center; }
+  .org-box { border-radius: 10px; text-align: center; line-height: 1.5; transition: transform .25s; }
+  .org-box:hover { transform: translateY(-2px); }
+  .org-company {
+    background: var(--green-deep); color: #fff;
+    font-family: "STSong",serif; font-size: 20px; font-weight: 700;
+    letter-spacing: 6px; padding: 14px 52px;
+    border: 2px solid var(--gold);
+    box-shadow: 0 6px 20px rgba(31,58,46,0.25);
+  }
+  .org-dir-box {
+    background: var(--red); color: #fff; border: 2px solid var(--gold);
+    padding: 12px 40px; box-shadow: 0 6px 20px rgba(200,16,46,0.2);
+  }
+  .org-dir-box .dt { font-size: 12px; letter-spacing: 2px; color: rgba(255,255,255,0.8); }
+  .org-dir-box .dn { font-size: 18px; font-weight: 700; letter-spacing: 3px; font-family: "STSong",serif; }
+  .org-vline { width: 2px; height: 28px; background: var(--gold); margin: 0 auto; }
+  .org-branch { position: relative; padding-top: 28px; }
+  .org-branch::before {
+    content: ""; position: absolute; top: 0; left: 8.33%; right: 8.33%;
+    height: 2px; background: var(--gold);
+  }
+  .org-depts { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
+  .org-dept-item { position: relative; }
+  .org-dept-item::before {
+    content: ""; position: absolute; top: -28px; left: 50%;
+    width: 2px; height: 28px; background: var(--gold); transform: translateX(-50%);
+  }
+  .org-dc {
+    border: 1.5px solid var(--gold); border-radius: 10px; background: #fff;
+    padding: 14px 8px 12px; text-align: center; transition: all .25s;
+    height: 100%; display: flex; flex-direction: column;
+  }
+  .org-dc:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(184,148,31,0.18); }
+  .org-dc .d-name { font-size: 13px; font-weight: 700; letter-spacing: 1px; margin-bottom: 4px; }
+  .org-dc .d-mgr { font-size: 11px; color: var(--red); font-weight: 600; margin-bottom: 6px; }
+  .org-dc .d-cnt {
+    display: inline-block; font-size: 10px; color: var(--gold); background: var(--bg-soft);
+    border: 1px solid var(--gold-soft); padding: 1px 8px; border-radius: 10px; margin-bottom: 8px;
+  }/* ========== 部门卡 ========== */
+  .dept-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .dept-card {
+    border: 1.5px solid var(--gold); border-radius: 10px; padding: 28px 26px;
+    background: #fff; transition: all .25s;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .dept-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(184,148,31,0.16); }
+  .dept-card .top { display: flex; align-items: center; justify-content: space-between; }
+  .dept-card h4 { font-size: 18px; font-weight: 600; letter-spacing: 2px; }
+  .dept-card .cnt {
+    font-family: "STSong",serif; font-size: 15px; color: var(--gold); font-weight: 700;
+    background: var(--bg-soft); border: 1px solid var(--gold-soft);
+    padding: 2px 12px; border-radius: 20px;
+  }
+  .dept-card .lead { font-size: 12px; color: var(--gold); letter-spacing: 1px; }
+  .dept-card p { font-size: 13px; color: var(--muted); line-height: 1.85; }
+  .dept-card .posts { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+  .dept-card .posts span {
+    font-size: 11px; color: var(--muted); border: 1px solid var(--line);
+    border-radius: 4px; padding: 2px 8px; background: #fff;
+  }
+
+  /* ========== 管理层 ========== */
+  .leader-card {
+    max-width: 640px; margin: 0 auto 28px;
+    border: 2px solid var(--gold); border-radius: 14px;
+    background: linear-gradient(135deg, #fff 0%, var(--bg-soft) 100%);
+    padding: 36px 44px; display: flex; align-items: center; gap: 28px;
+  }
+  .avatar {
+    border-radius: 50%; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-deep) 100%);
+    color: #fff; display: flex; align-items: center; justify-content: center;
+    font-family: "STSong",serif; font-weight: 700;
+  }
+  .avatar.lg { width: 108px; height: 108px; font-size: 40px; box-shadow: 0 0 0 4px rgba(201,169,97,0.25); }
+  .avatar.sm { width: 76px; height: 76px; font-size: 28px; box-shadow: 0 0 0 3px rgba(201,169,97,0.22); }
+  .avatar.xs { width: 44px; height: 44px; font-size: 16px; box-shadow: 0 0 0 2px rgba(201,169,97,0.2); }
+  .leader-info h3 { font-size: 26px; font-weight: 700; letter-spacing: 3px; font-family: "STSong",serif; }
+  .leader-info .role {
+    display: inline-block; margin: 8px 0 10px; font-size: 13px; letter-spacing: 2px;
+    color: #fff; background: var(--red); padding: 3px 14px; border-radius: 4px;
+  }
+  .leader-info p { color: var(--muted); font-size: 13px; line-height: 1.9; }
+
+  .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .member-card {
+    border: 1.5px solid var(--gold); border-radius: 10px; padding: 30px 20px 26px;
+    background: #fff; text-align: center; transition: all .25s;
+    display: flex; flex-direction: column; align-items: center; gap: 12px;
+  }
+  .member-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(184,148,31,0.16); }
+  .member-card h4 { font-size: 17px; font-weight: 600; letter-spacing: 2px; }
+  .member-card .role {
+    font-size: 12px; color: #fff; background: var(--green-deep);
+    padding: 2px 12px; border-radius: 20px; letter-spacing: 2px;
+  }
+  .member-card .dept-tag { font-size: 11px; color: var(--gold); letter-spacing: 1px; }
+  .member-card p { font-size: 12px; color: var(--muted); line-height: 1.8; }
+
+  /* ========== 顾问风采 ========== */
+  .advice-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 28px; }
+  .advice-group {
+    border: 1.5px solid var(--gold); border-radius: 10px; background: #fff;
+    overflow: hidden; transition: all .25s;
+  }
+  .advice-group:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(184,148,31,0.16); }
+  .advice-group .g-head {
+    background: linear-gradient(135deg, var(--green-deep), var(--green-darker));
+    color: #fff; padding: 16px 20px; display: flex; align-items: center; justify-content: space-between;
+  }
+  .advice-group .g-head b { font-size: 15px; letter-spacing: 2px; }
+  .advice-group .g-head span { font-size: 11px; color: var(--gold); letter-spacing: 2px; }
+  .advice-group .g-body { padding: 18px 18px 20px; display: grid; gap: 10px; }
+  .advice-person {
+    display: flex; align-items: center; gap: 10px;
+    border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px;
+    transition: border-color .2s;
+  }
+  .advice-person:hover { border-color: var(--gold); }
+  .advice-person .name { font-size: 13px; font-weight: 600; letter-spacing: 1px; }
+  .advice-person .post { font-size: 11px; color: var(--muted); }
+
+  /* ========== 自媒体 / 智能团队 ========== */
+  .media-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 28px; }
+  .media-card {
+    border: 1.5px solid var(--gold); border-radius: 14px; overflow: hidden; background: #fff;
+    transition: all .25s;
+  }
+  .media-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(184,148,31,0.16); }
+  .media-card .m-head {
+    padding: 26px 30px; color: #fff;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .media-card.m-newmedia .m-head { background: linear-gradient(135deg, var(--red), var(--red-deep)); }
+  .media-card
+  .media-card .m-head .icon { width: 40px; height: 40px; color: var(--gold); flex-shrink: 0; }
+  .media-card .m-head h3 { font-size: 20px; letter-spacing: 3px; font-family: "STSong",serif; }
+  .media-card .m-head p { font-size: 12px; color: rgba(255,255,255,0.75); letter-spacing: 1px; }
+  .media-card .m-body { padding: 26px 30px; }
+  .media-card .m-body .list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .media-card .m-body .duty { font-size: 12px; color: var(--muted); line-height: 1.9; margin-bottom: 18px; }
+  .media-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .media-tags span {
+    font-size: 12px; border: 1px solid var(--gold); color: var(--ink);
+    border-radius: 20px; padding: 5px 14px; background: var(--bg-soft); letter-spacing: 1px;
+  }
+
+  /* ========== 页脚 ========== */
+  .footer {
+    background: linear-gradient(180deg, var(--green-deep) 0%, var(--green-darker) 100%);
+    color: rgba(255,255,255,0.7); padding: 40px 32px;
+  }
+  .footer-inner {
+    max-width: 1280px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; gap: 40px;
+  }
+  .footer-logo { display: flex; align-items: center; gap: 14px; }
+  .footer-logo .lt { color: var(--gold); font-size: 24px; font-weight: 600; letter-spacing: 4px; }
+  .footer-info { display: flex; flex-direction: column; gap: 6px; font-size: 13px; text-align: right; }
+  .footer-info b { color: var(--gold); font-weight: 600; }
+
+  /* ========== 响应式 ========== */
+  @media (max-width: 1080px) {
+    .team-grid, .advice-grid { grid-template-columns: repeat(2, 1fr); }
+    .dept-grid { grid-template-columns: repeat(2, 1fr); }
+    .media-wrap { grid-template-columns: 1fr; }
+    .org-depts { grid-template-columns: repeat(3, 1fr); }
+    .org-branch::before { left: 16.67%; right: 16.67%; }
+  }
+  @media (max-width: 760px) {
+    .stats-bar { grid-template-columns: repeat(2, 1fr); }
+    .team-grid, .advice-grid, .dept-grid,
+    .media-card .m-body .list { grid-template-columns: repeat(2, 1fr); }
+    .leader-card { flex-direction: column; text-align: center; padding: 28px 20px; }
+    .topbar-inner { flex-wrap: wrap; padding: 0 20px; gap: 16px; }
+    .nav { margin-left: 0; }
+    .nav-row { gap: 16px; flex-wrap: wrap; }
+    .footer-inner { flex-direction: column; text-align: center; }
+    .footer-info { text-align: center; }
+    main { padding: 40px 20px; }
+    .org-depts { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .org-branch::before, .org-dept-item::before { display: none; }
+    .org-branch { padding-top: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== 顶部导航（真实 logo） ========== -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="./index.html" class="logo" aria-label="皓镧资产">
+      <span class="logo-card">
+        <img src="./assets/logo.jpg" alt="皓镧资产" />
+      </span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <div class="nav-row top">
+        <a href="./about.html">关于我们</a>
+        <a href="./business.html">主营业务</a>
+        <a href="./service.html">服务流程</a>
+        <a href="./team.html" class="active">精英团队</a>
+        <a href="./policy.html">政策解读</a>
+        <a href="./notice.html">企业公告</a>
+        <a href="./academy.html">皓镧商学院</a>
+        <a href="./video.html">短视频专区</a>
+        <a href="./join.html">加入我们</a>
+        <a href="./contact.html">联系我们</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ========================================== -->
+  <!-- 1. 组织架构 -->
+  <!-- ========================================== -->
+  <section id="structure">
+    <h2 class="sec-title">组织架构</h2>
+    <p class="sec-subtitle">ORGANIZATION STRUCTURE</p>
+    <p class="sec-desc">
+      皓镧资产以「业务驱动 · 职能护航 · 专业协作」为组织原则，构建了以业务部为核心统筹、营销条线为主体、商务风控与职能保障为支撑的立体化组织体系，为每一位客户提供专业、高效、稳定的服务。
+    </p>
+
+    <div class="stats-bar">
+      <div class="stat-card">
+        <div class="num">58<small>人</small></div>
+        <div class="label">团队成员</div>
+        <div class="sub">专业化 · 年轻化 · 强协作</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">7<small>大</small></div>
+        <div class="label">部门矩阵</div>
+        <div class="sub">业务 · 营销 · 风控 · 职能</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">33<small>名</small></div>
+        <div class="label">营销顾问</div>
+        <div class="sub">三大业务小组协同作战</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">6<small>人</small></div>
+        <div class="label">新媒体矩阵</div>
+        <div class="sub">内容创作 · 账号运营</div>
+      </div>
+    </div>
+
+    <div class="org-chart">
+      <div class="org-level">
+        <div class="org-box org-company">皓镧资产</div>
+      </div>
+      <div class="org-vline"></div>
+      <div class="org-level">
+        <div class="org-box org-dir-box">
+          <div class="dt">业务部 · 总监</div>
+          <div class="dn">叶斯敏</div>
+        </div>
+      </div>
+      <div class="org-vline"></div>
+      <div class="org-branch">
+        <div class="org-depts">
+          <div class="org-dept-item">
+            <div class="org-dc">
+              <div class="d-name">营销部</div>
+              <div class="d-mgr">经理 龚韬凡</div>
+              <div class="d-cnt">34 人</div></div>
+          </div>
+          <div class="org-dept-item">
+            <div class="org-dc">
+              <div class="d-name">商务谈判部</div>
+              <div class="d-mgr">经理 李朗</div>
+              <div class="d-cnt">4 人</div></div>
+          </div>
+          <div class="org-dept-item">
+            <div class="org-dc">
+              <div class="d-name">渠道分销部</div>
+              <div class="d-mgr">经理 刘法胜</div>
+              <div class="d-cnt">3 人</div></div>
+          </div>
+          <div class="org-dept-item">
+            <div class="org-dc">
+              <div class="d-name">风控 / 售后部</div>
+              <div class="d-mgr">经理 廖经勋</div>
+              <div class="d-cnt">3 人</div></div>
+          </div>
+          <div class="org-dept-item">
+            <div class="org-dc">
+              <div class="d-name">互联网部</div>
+              <div class="d-mgr">经理 诸晓奇</div>
+              <div class="d-cnt">6 人</div></div>
+          </div>
+          <div class="org-dept-item">
+            <div class="org-dc">
+              <div class="d-name">行政人事部</div>
+              <div class="d-mgr">经理 李安</div>
+              <div class="d-cnt">8 人</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dept-grid">
+      <article class="dept-card">
+        <div class="top"><h4>营销部</h4><span class="cnt">34 人</span></div>
+        <div class="lead">经理 龚韬凡 · 三大业务小组</div>
+        <p>以顾问式营销服务为引擎，分设三个业务小组，覆盖客户开拓、需求洞察、方案推介与全周期跟进，是公司业务增长的先锋力量。</p>
+        <div class="posts"><span>经理</span><span>主管</span><span>组长</span><span>营销专员</span></div>
+      </article>
+      <article class="dept-card">
+        <div class="top"><h4>商务谈判部</h4><span class="cnt">4 人</span></div>
+        <div class="lead">经理 李朗 · 谈判策略与权证支持</div>
+        <p>主导商务谈判策略制定与落地执行，配套高级商务顾问支持与谈判权证办理，为每一笔业务的合规达成保驾护航。</p>
+        <div class="posts"><span>经理</span><span>高级商务顾问</span><span>谈判权证</span></div>
+      </article>
+      <article class="dept-card">
+        <div class="top"><h4>渠道分销部</h4><span class="cnt">3 人</span></div>
+        <div class="lead">经理 刘法胜 · 渠道拓展与分销网络</div>
+        <p>深耕渠道合作网络，拓展多元分销路径，以精准的渠道运营与伙伴协同，实现资源的高效整合与价值转化。</p>
+        <div class="posts"><span>经理</span><span>高级渠道专员</span></div>
+      </article>
+      <article class="dept-card">
+        <div class="top"><h4>风控 / 售后部</h4><span class="cnt">3 人</span></div>
+        <div class="lead">经理 廖经勋 · 权证风控与客户服务</div>
+        <p>负责业务全流程风险审核与权证管理，并统筹客户服务与售后跟进，坚守风控底线，守护客户托付。</p>
+        <div class="posts"><span>经理</span><span>客服</span></div>
+      </article>
+      <article class="dept-card">
+        <div class="top"><h4>互联网部</h4><span class="cnt">6 人</span></div>
+        <div class="lead">经理 诸晓奇 · 短视频内容与线上运营</div>
+        <p>专注短视频内容策划、拍摄制作与账号矩阵运营，以优质内容传递品牌价值，构建皓镧资产的线上影响力阵地。</p>
+        <div class="posts"><span>经理</span><span>运营组长</span><span>拍摄剪辑</span></div>
+      </article>
+      <article class="dept-card">
+        <div class="top"><h4>行政人事部</h4><span class="cnt">8 人</span></div>
+        <div class="lead">经理 李安 · 行政支持与人事管理</div>
+        <p>统筹行政管理、人事招聘、办公保障与数据系统运维，以高效的后台支撑赋能一线业务，保障组织稳健运转。</p>
+        <div class="posts"><span>经理</span><span>主管</span><span>文员</span><span>系统整合员</span><span>数据</span></div>
+      </article>
+    </div>
+  </section>
+  <!-- ========================================== -->
+  <!-- 2. 业务顾问团队风采 -->
+  <!-- ========================================== -->
+  <section id="advisors">
+    <h2 class="sec-title">业务顾问团队风采</h2>
+    <p class="sec-subtitle">ADVISORY TEAM</p>
+    <p class="sec-desc">
+      商务谈判部与渠道分销部的专业顾问团队，以精湛的谈判策略与广泛的渠道网络，为客户提供高效、精准的融资解决方案。
+    </p>
+
+    <div class="advice-grid">
+      <div class="advice-group">
+        <div class="g-head"><b>商务谈判部</b><span>3 人</span></div>
+        <div class="g-body">
+          <div class="advice-person"><span class="avatar xs">李</span><div><div class="name">李朗</div><div class="post">经理</div></div></div>
+          <div class="advice-person"><span class="avatar xs">曾</span><div><div class="name">曾淑媚</div><div class="post">高级商务顾问</div></div></div>
+          <div class="advice-person"><span class="avatar xs">刘</span><div><div class="name">刘金康</div><div class="post">谈判权证</div></div></div>
+        </div>
+      </div>
+      <div class="advice-group">
+        <div class="g-head"><b>渠道分销部</b><span>3 人</span></div>
+        <div class="g-body">
+          <div class="advice-person"><span class="avatar xs">刘</span><div><div class="name">刘法胜</div><div class="post">经理</div></div></div>
+          <div class="advice-person"><span class="avatar xs">叶</span><div><div class="name">叶永权</div><div class="post">高级渠道专员</div></div></div>
+          <div class="advice-person"><span class="avatar xs">郑</span><div><div class="name">郑逸芬</div><div class="post">高级渠道专员</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 3. 自媒体运营团队 -->
+  <!-- ========================================== -->
+  <section id="newmedia">
+    <h2 class="sec-title">自媒体运营团队</h2>
+    <p class="sec-subtitle">NEW MEDIA TEAM</p>
+    <p class="sec-desc">
+      顺应数字化时代趋势，皓镧资产组建专业的自媒体运营团队，以内容传播品牌，让专业服务触达更多客户。
+    </p>
+
+    <div class="media-wrap">
+      <article class="media-card m-newmedia">
+        <div class="m-head">
+          <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="10" width="24" height="18" rx="3"/><path d="M17 15 L26 19 L17 23 Z" fill="currentColor" stroke="none"/></svg>
+          <div>
+            <h3>自媒体运营团队</h3>
+            <p>互联网部 · 短视频内容创作与矩阵运营</p>
+          </div>
+        </div>
+        <div class="m-body">
+          <p class="duty">聚焦短视频赛道，涵盖内容策划、拍摄制作、剪辑包装与账号运营全链路，持续输出优质内容，构建皓镧资产的线上品牌影响力。</p>
+          <div class="list">
+            <div class="advice-person"><span class="avatar xs">诸</span><div><div class="name">诸晓奇</div><div class="post">经理</div></div></div>
+            <div class="advice-person"><span class="avatar xs">谢</span><div><div class="name">谢国斌</div><div class="post">运营组长</div></div></div>
+            <div class="advice-person"><span class="avatar xs">廖</span><div><div class="name">廖泽希</div><div class="post">拍摄剪辑</div></div></div>
+            <div class="advice-person"><span class="avatar xs">刘</span><div><div class="name">刘永博</div><div class="post">拍摄剪辑</div></div></div>
+            <div class="advice-person"><span class="avatar xs">罗</span><div><div class="name">罗丹丹</div><div class="post">拍摄剪辑</div></div></div>
+            <div class="advice-person"><span class="avatar xs">朱</span><div><div class="name">朱志维</div><div class="post">拍摄剪辑</div></div></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<!-- ========== 页脚 ========== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <svg class="logo-mark" width="44" height="44" viewBox="0 0 64 64" fill="none">
+        <path d="M32 4 L58 18 L58 46 L32 60 L6 46 L6 18 Z" stroke="#C9A961" stroke-width="3" fill="none"/>
+        <path d="M22 22 L42 22 M22 32 L42 32 M22 42 L32 42" stroke="#C9A961" stroke-width="3"/>
+      </svg>
+      <span class="lt">皓镧资产</span>
+    </div>
+    <div class="footer-info">
+      <div><b>联系电话：</b>010-8888 8888</div>
+      <div><b>邮箱：</b>hr@haolanzichan.cn</div>
+      <div><b>地址：</b>北京市朝阳区金融街 · 财富中心</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

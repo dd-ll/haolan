@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>政策解读 - 皓镧资产</title>
+<style>
+  /* ========== 品牌变量 ========== */
+  :root {
+    --gold: #C9A961;
+    --gold-deep: #B8941F;
+    --gold-soft: #E8D9A8;
+    --red: #C8102E;
+    --red-deep: #B91D2E;
+    --green-deep: #1F3A2E;
+    --green-darker: #142720;
+    --ink: #1A1A1A;
+    --muted: #6B6B6B;
+    --line: #E8E2D4;
+    --bg: #FFFFFF;
+    --bg-soft: #FAF6EC;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Microsoft YaHei", "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  /* ========== 顶部黑色导航（单层 10 项） ========== */
+  .topbar { background: #111; color: #fff; border-bottom: 1px solid rgba(201,169,97,0.18); }
+  .topbar-inner { max-width: 1280px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; gap: 36px; }
+  .logo { display: flex; align-items: center; padding: 14px 0; flex-shrink: 0; }
+  .logo-card {
+    display: inline-flex; align-items: center; background: #fff;
+    padding: 8px 16px; border-radius: 4px; height: 56px;
+    box-shadow: 0 0 0 1px rgba(201,169,97,0.25);
+  }
+  .logo-card img { height: 44px; width: auto; display: block; }
+  .nav { display: flex; flex-direction: column; gap: 6px; margin-left: auto; padding: 14px 0; }
+  .nav-row { display: flex; gap: 30px; font-size: 14px; }
+  .nav-row.top a { color: rgba(255,255,255,0.85); transition: color .2s; padding: 4px 0; white-space: nowrap; }
+  .nav-row.top a:hover, .nav-row.top a.active { color: var(--gold); }
+
+  /* ========== 页面横幅 ========== */
+  .page-banner {
+    background: linear-gradient(135deg, var(--green-deep) 0%, #2a4a3a 100%);
+    padding: 60px 32px 50px; text-align: center; position: relative; overflow: hidden;
+  }
+  .page-banner::before {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .page-banner h1 {
+    font-family: "STSong","SimSun",serif; font-size: 38px; font-weight: 700;
+    letter-spacing: 8px; color: #fff; margin-bottom: 14px;
+  }
+  .page-banner .en {
+    color: rgba(201,169,97,0.8); font-size: 13px; letter-spacing: 5px; margin-bottom: 18px;
+  }
+  .page-banner .desc {
+    max-width: 680px; margin: 0 auto; color: rgba(255,255,255,0.7);
+    font-size: 14px; line-height: 1.9;
+  }
+
+  /* ========== 主区 ========== */
+  main { max-width: 1280px; margin: 0 auto; padding: 60px 32px 80px; }
+  section { margin-bottom: 70px; }
+  section:last-child { margin-bottom: 0; }
+
+  .sec-title {
+    text-align: center; font-size: 28px; font-weight: 700; letter-spacing: 6px;
+    color: var(--ink); position: relative; padding-bottom: 20px; margin-bottom: 10px;
+    font-family: "STSong","SimSun",serif;
+  }
+  .sec-title::after {
+    content: ""; position: absolute; left: 50%; bottom: 0;
+    width: 56px; height: 3px; background: var(--red); transform: translateX(-50%);
+  }
+  .sec-subtitle {
+    text-align: center; color: var(--muted); font-size: 12px; letter-spacing: 4px;
+    margin-bottom: 48px;
+  }
+  .sec-desc {
+    max-width: 860px; margin: 0 auto 52px; text-align: center;
+    color: var(--muted); font-size: 14px; line-height: 2;
+  }
+
+  /* ========== 分类筛选标签 ========== */
+  .filter-bar {
+    display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+  .filter-tag {
+    display: inline-block; padding: 8px 24px; border-radius: 24px;
+    font-size: 14px; letter-spacing: 2px; cursor: pointer;
+    border: 1.5px solid var(--line); background: #fff; color: var(--muted);
+    transition: all .25s;
+  }
+  .filter-tag:hover {
+    border-color: var(--gold); color: var(--gold-deep);
+  }
+  .filter-tag.active {
+    background: var(--green-deep); color: #fff; border-color: var(--green-deep);
+  }
+
+  /* ========== 资讯文章列表（左右布局） ========== */
+  .news-layout {
+    display: grid; grid-template-columns: 1fr 320px; gap: 40px;
+  }
+  .news-list { display: flex; flex-direction: column; gap: 20px; }
+
+  .news-card {
+    border: 1.5px solid var(--gold-soft); border-radius: 10px;
+    background: #fff; padding: 28px 32px; transition: all .25s;
+    display: flex; gap: 24px; cursor: pointer;
+  }
+  .news-card:hover {
+    border-color: var(--gold); transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(184,148,31,0.12);
+  }
+  .news-card .date-block {
+    flex-shrink: 0; text-align: center; min-width: 72px;
+    border-right: 1px solid var(--line); padding-right: 24px;
+  }
+  .news-card .date-block .day {
+    font-family: "STSong",serif; font-size: 36px; font-weight: 700;
+    color: var(--red); line-height: 1;
+  }
+  .news-card .date-block .month {
+    font-size: 12px; color: var(--muted); margin-top: 4px; letter-spacing: 1px;
+  }
+  .news-card .date-block .year {
+    font-size: 11px; color: var(--gold); margin-top: 2px;
+  }
+  .news-card .content { flex: 1; min-width: 0; }
+  .news-card .content .tag-row {
+    display: flex; gap: 8px; margin-bottom: 8px;
+  }
+  .news-card .content .cat-tag {
+    font-size: 11px; color: #fff; background: var(--gold);
+    padding: 2px 10px; border-radius: 3px; letter-spacing: 1px;
+  }
+  .news-card .content .cat-tag.hot { background: var(--red); }
+  .news-card .content .cat-tag.new { background: var(--green-deep); }
+  .news-card .content h3 {
+    font-size: 18px; font-weight: 600; color: var(--ink); line-height: 1.5;
+    margin-bottom: 8px; transition: color .2s;
+  }
+  .news-card:hover .content h3 { color: var(--red); }
+  .news-card .content .summary {
+    font-size: 13px; color: var(--muted); line-height: 1.8;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .news-card .content .meta {
+    display: flex; gap: 16px; margin-top: 12px;
+    font-size: 12px; color: var(--muted);
+  }
+  .news-card .content .meta span {
+    display: flex; align-items: center; gap: 4px;
+  }
+
+  /* ========== 侧边栏 ========== */
+  .sidebar { display: flex; flex-direction: column; gap: 28px; }
+  .side-box {
+    border: 1.5px solid var(--gold-soft); border-radius: 10px;
+    background: var(--bg-soft); padding: 24px;
+  }
+  .side-box h4 {
+    font-size: 16px; font-weight: 700; color: var(--ink);
+    letter-spacing: 3px; margin-bottom: 18px; padding-bottom: 12px;
+    border-bottom: 2px solid var(--gold);
+    font-family: "STSong","SimSun",serif;
+  }
+  .side-box h4 .en { font-size: 11px; color: var(--muted); letter-spacing: 2px; font-weight: 400; display: block; margin-top: 2px; }
+
+  .rank-list { display: flex; flex-direction: column; gap: 14px; }
+  .rank-item { display: flex; gap: 12px; align-items: flex-start; cursor: pointer; }
+  .rank-item .num {
+    flex-shrink: 0; width: 22px; height: 22px; border-radius: 4px;
+    background: var(--gold); color: #fff; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    font-family: "STSong",serif;
+  }
+  .rank-item:nth-child(1) .num { background: var(--red); }
+  .rank-item:nth-child(2) .num { background: var(--gold-deep); }
+  .rank-item:nth-child(3) .num { background: var(--green-deep); }
+  .rank-item .info { flex: 1; min-width: 0; }
+  .rank-item .info .t {
+    font-size: 13px; color: var(--ink); line-height: 1.5; font-weight: 500;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    transition: color .2s;
+  }
+  .rank-item:hover .info .t { color: var(--red); }
+  .rank-item .info .d { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+  .tag-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag-cloud a {
+    display: inline-block; padding: 5px 14px; border-radius: 20px;
+    font-size: 12px; border: 1px solid var(--gold-soft); background: #fff;
+    color: var(--muted); transition: all .2s; letter-spacing: 1px;
+  }
+  .tag-cloud a:hover {
+    border-color: var(--gold); color: var(--gold-deep); background: var(--bg-soft);
+  }
+
+  .subscribe-box { text-align: center; }
+  .subscribe-box p { font-size: 13px; color: var(--muted); line-height: 1.8; margin-bottom: 16px; }
+  .subscribe-input { display: flex; gap: 0; margin-bottom: 12px; }
+  .subscribe-input input {
+    flex: 1; min-width: 0; padding: 10px 14px; border: 1.5px solid var(--gold);
+    border-radius: 6px 0 0 6px; font-size: 13px; outline: none; border-right: none;
+    font-family: inherit;
+  }
+  .subscribe-input input:focus { border-color: var(--gold-deep); }
+  .subscribe-input button {
+    padding: 10px 18px; background: var(--gold); color: #fff; border: none;
+    border-radius: 0 6px 6px 0; font-size: 13px; cursor: pointer; font-weight: 600;
+    transition: background .2s; font-family: inherit; white-space: nowrap;
+  }
+  .subscribe-input button:hover { background: var(--gold-deep); }
+  .subscribe-tip { font-size: 11px; color: var(--muted); }
+
+  /* ========== 分页 ========== */
+  .pagination { display: flex; justify-content: center; gap: 8px; margin-top: 40px; }
+  .pagination a {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 36px; height: 36px; padding: 0 10px;
+    border: 1px solid var(--line); border-radius: 6px; font-size: 13px;
+    color: var(--muted); transition: all .2s; cursor: pointer;
+  }
+  .pagination a:hover { border-color: var(--gold); color: var(--gold-deep); }
+  .pagination a.active {
+    background: var(--green-deep); color: #fff; border-color: var(--green-deep);
+  }
+
+  /* ========== 知识科普区 ========== */
+  /* 子分类导航 */
+  .kw-nav {
+    display: flex; justify-content: center; gap: 0; margin-bottom: 48px;
+    border-bottom: 2px solid var(--line);
+  }
+  .kw-tab {
+    padding: 14px 40px; font-size: 16px; font-weight: 600; letter-spacing: 3px;
+    color: var(--muted); cursor: pointer; position: relative; transition: color .25s;
+    border-bottom: 3px solid transparent; margin-bottom: -2px;
+  }
+  .kw-tab:hover { color: var(--gold-deep); }
+  .kw-tab.active {
+    color: var(--red); border-bottom-color: var(--red);
+  }
+  .kw-tab svg { width: 20px; height: 20px; vertical-align: -4px; margin-right: 6px; }
+
+  /* 科普文章卡片 */
+  .kw-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .kw-card {
+    border: 1.5px solid var(--gold-soft); border-radius: 12px; overflow: hidden;
+    background: #fff; transition: all .25s; cursor: pointer;
+    display: flex; flex-direction: column;
+  }
+  .kw-card:hover {
+    border-color: var(--gold); transform: translateY(-4px);
+    box-shadow: 0 16px 36px rgba(184,148,31,0.14);
+  }
+  .kw-banner {
+    height: 100px; display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .kw-banner svg { width: 44px; height: 44px; opacity: 0.92; }
+  .kw-banner.k1 { background: linear-gradient(135deg, #C8102E, #e63950); }
+  .kw-banner.k2 { background: linear-gradient(135deg, #1F3A2E, #2d5a42); }
+  .kw-banner.k3 { background: linear-gradient(135deg, #B8941F, #D4AF37); }
+  .kw-banner .badge {
+    position: absolute; top: 10px; right: 10px; font-size: 11px;
+    color: #fff; background: rgba(0,0,0,0.25); padding: 2px 10px;
+    border-radius: 3px; letter-spacing: 1px;
+  }
+  .kw-body { padding: 22px 24px 26px; flex: 1; display: flex; flex-direction: column; }
+  .kw-body h4 {
+    font-size: 16px; font-weight: 700; color: var(--ink); letter-spacing: 1px;
+    margin-bottom: 10px; line-height: 1.5; font-family: "STSong","SimSun",serif;
+  }
+  .kw-card:hover .kw-body h4 { color: var(--red); }
+  .kw-body p { font-size: 13px; color: var(--muted); line-height: 1.8; flex: 1; margin-bottom: 14px; }
+  .kw-body .kw-meta {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 12px; color: var(--gold); border-top: 1px dashed var(--gold-soft);
+    padding-top: 12px;
+  }
+  .kw-body .kw-meta .cat { font-weight: 600; }
+  .kw-body .kw-meta .date { color: var(--muted); }
+
+  /* ========== 融资避坑专题列表 ========== */
+  .pitfall-list { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .pitfall-item {
+    display: flex; gap: 20px; align-items: flex-start;
+    border: 1.5px solid var(--gold-soft); border-radius: 10px;
+    background: #fff; padding: 24px 28px; transition: all .25s; cursor: pointer;
+  }
+  .pitfall-item:hover {
+    border-color: var(--gold); box-shadow: 0 12px 28px rgba(184,148,31,0.1);
+  }
+  .pitfall-num {
+    flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%;
+    background: var(--bg-soft); border: 2px solid var(--red);
+    display: flex; align-items: center; justify-content: center;
+    font-family: "STSong",serif; font-size: 18px; font-weight: 700; color: var(--red);
+  }
+  .pitfall-text h4 {
+    font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 8px;
+    line-height: 1.5;
+  }
+  .pitfall-item:hover .pitfall-text h4 { color: var(--red); }
+  .pitfall-text p { font-size: 13px; color: var(--muted); line-height: 1.8; }
+
+  /* ========== 征信知识卡片 ========== */
+  .credit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .credit-card {
+    border: 1.5px solid var(--gold); border-radius: 12px;
+    background: linear-gradient(180deg, #fff 0%, var(--bg-soft) 100%);
+    padding: 28px 24px; transition: all .25s; cursor: pointer;
+  }
+  .credit-card:hover {
+    transform: translateY(-4px); box-shadow: 0 16px 36px rgba(184,148,31,0.16);
+  }
+  .credit-icon {
+    width: 56px; height: 56px; border-radius: 12px; margin-bottom: 18px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .credit-icon svg { width: 30px; height: 30px; }
+  .credit-icon.c1 { background: rgba(200,16,46,0.1); }
+  .credit-icon.c1 svg { color: var(--red); }
+  .credit-icon.c2 { background: rgba(31,58,46,0.1); }
+  .credit-icon.c2 svg { color: var(--green-deep); }
+  .credit-icon.c3 { background: rgba(184,148,31,0.12); }
+  .credit-icon.c3 svg { color: var(--gold-deep); }
+  .credit-card h4 {
+    font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: 1px;
+    margin-bottom: 10px; font-family: "STSong","SimSun",serif;
+  }
+  .credit-card p { font-size: 13px; color: var(--muted); line-height: 1.9; margin-bottom: 14px; }
+  .credit-card .tips-list { display: flex; flex-direction: column; gap: 6px; }
+  .credit-card .tips-list li {
+    font-size: 12px; color: var(--ink); list-style: none;
+    padding-left: 16px; position: relative; line-height: 1.8;
+  }
+  .credit-card .tips-list li::before {
+    content: ""; position: absolute; left: 0; top: 8px;
+    width: 6px; height: 6px; border-radius: 50%; background: var(--gold);
+  }
+
+  /* ========== 办理小贴士时间线 ========== */
+  .tips-timeline { position: relative; padding-left: 36px; }
+  .tips-timeline::before {
+    content: ""; position: absolute; left: 15px; top: 8px; bottom: 8px;
+    width: 2px; background: linear-gradient(180deg, var(--gold), var(--gold-soft));
+  }
+  .tip-step { position: relative; margin-bottom: 32px; }
+  .tip-step:last-child { margin-bottom: 0; }
+  .tip-step::before {
+    content: ""; position: absolute; left: -29px; top: 4px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: #fff; border: 3px solid var(--red);
+  }
+  .tip-step .step-head {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 8px;
+  }
+  .tip-step .step-head .step-num {
+    font-family: "STSong",serif; font-size: 14px; font-weight: 700;
+    color: var(--red); letter-spacing: 2px;
+  }
+  .tip-step .step-head .step-title {
+    font-size: 16px; font-weight: 600; color: var(--ink); letter-spacing: 1px;
+  }
+  .tip-step .step-body {
+    font-size: 13px; color: var(--muted); line-height: 2;
+    padding-left: 2px;
+  }
+  .tip-step .step-tags {
+    display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap;
+  }
+  .tip-step .step-tags span {
+    font-size: 11px; padding: 3px 12px; border-radius: 20px;
+    border: 1px solid var(--gold); color: var(--gold-deep);
+    background: var(--bg-soft); letter-spacing: 1px;
+  }
+
+  /* ========== 页脚 ========== */
+  .footer {
+    background: linear-gradient(180deg, var(--green-deep) 0%, var(--green-darker) 100%);
+    color: rgba(255,255,255,0.7); padding: 40px 32px;
+  }
+  .footer-inner {
+    max-width: 1280px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; gap: 40px;
+  }
+  .footer-logo { display: flex; align-items: center; gap: 14px; }
+  .footer-logo .lt { color: var(--gold); font-size: 24px; font-weight: 600; letter-spacing: 4px; }
+  .footer-info { display: flex; flex-direction: column; gap: 6px; font-size: 13px; text-align: right; }
+  .footer-info b { color: var(--gold); font-weight: 600; }
+
+  /* ========== 响应式 ========== */
+  @media (max-width: 1080px) {
+    .news-layout { grid-template-columns: 1fr; }
+    .kw-grid { grid-template-columns: repeat(2, 1fr); }
+    .pitfall-list { grid-template-columns: 1fr; }
+    .credit-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 760px) {
+    .kw-grid { grid-template-columns: 1fr; }
+    .credit-grid { grid-template-columns: 1fr; }
+    .news-card { flex-direction: column; gap: 16px; }
+    .news-card .date-block {
+      border-right: none; border-bottom: 1px solid var(--line);
+      padding-right: 0; padding-bottom: 12px;
+      display: flex; align-items: baseline; gap: 8px;
+    }
+    .topbar-inner { flex-wrap: wrap; padding: 0 20px; gap: 16px; }
+    .nav { margin-left: 0; }
+    .nav-row { gap: 16px; flex-wrap: wrap; }
+    .footer-inner { flex-direction: column; text-align: center; }
+    .footer-info { text-align: center; }
+    main { padding: 40px 20px; }
+    .page-banner { padding: 40px 20px 36px; }
+    .page-banner h1 { font-size: 28px; letter-spacing: 5px; }
+    .kw-tab { padding: 10px 20px; font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== 顶部导航（真实 logo） ========== -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="./index.html" class="logo" aria-label="皓镧资产">
+      <span class="logo-card">
+        <img src="./assets/logo.jpg" alt="皓镧资产" />
+      </span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <div class="nav-row top">
+        <a href="./about.html">关于我们</a>
+        <a href="./business.html">主营业务</a>
+        <a href="./service.html">服务流程</a>
+        <a href="./team.html">精英团队</a>
+        <a href="./policy.html" class="active">政策解读</a>
+        <a href="./notice.html">企业公告</a>
+        <a href="./academy.html">皓镧商学院</a>
+        <a href="./video.html">短视频专区</a>
+        <a href="./join.html">加入我们</a>
+        <a href="./contact.html">联系我们</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- ========== 页面横幅 ========== -->
+<div class="page-banner">
+  <h1>政策解读</h1>
+  <p class="en">POLICY &amp; KNOWLEDGE</p>
+  <p class="desc">紧跟行业资讯与金融政策导向，深度解读最新法规动态；以专业知识科普为辅，提供融资避坑指南、征信知识普及与办理小贴士，助您融资决策更从容。</p>
+</div>
+
+<main>
+
+  <!-- ========================================== -->
+  <!-- 1. 行业资讯与金融政策解读 -->
+  <!-- ========================================== -->
+  <section id="news">
+    <h2 class="sec-title">行业资讯与金融政策解读</h2>
+    <p class="sec-subtitle">INDUSTRY NEWS &amp; POLICY ANALYSIS</p>
+
+    <!-- 分类筛选标签 -->
+    <div class="filter-bar">
+      <span class="filter-tag active">全部</span>
+      <span class="filter-tag">房产抵押</span>
+      <span class="filter-tag">企业经营贷</span>
+      <span class="filter-tag">个人融资</span>
+      <span class="filter-tag">车辆融资</span>
+      <span class="filter-tag">行业动态</span>
+      <span class="filter-tag">监管法规</span>
+    </div>
+
+    <div class="news-layout">
+      <!-- 文章列表 -->
+      <div class="news-list">
+
+        <article class="news-card">
+          <div class="date-block">
+            <div class="day">12</div>
+            <div class="month">8月</div>
+            <div class="year">2026</div>
+          </div>
+          <div class="content">
+            <div class="tag-row">
+              <span class="cat-tag hot">热门</span>
+              <span class="cat-tag">房产抵押</span>
+            </div>
+            <h3>LPR 连续下调对房产抵押贷款的影响深度分析</h3>
+            <p class="summary">央行宣布 LPR 不对称降息，5 年期以上 LPR 下调 25 个基点。本文从贷款成本、审批节奏、抵押估值三个维度，解读此次降息对房产抵押融资市场的实质影响，以及借款人如何把握窗口期。</p>
+            <div class="meta">
+              <span>来源：皓镧政策研究室</span>
+              <span>阅读 2,480</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <div class="date-block">
+            <div class="day">08</div>
+            <div class="month">8月</div>
+            <div class="year">2026</div>
+          </div>
+          <div class="content">
+            <div class="tag-row">
+              <span class="cat-tag new">最新</span>
+              <span class="cat-tag">企业经营贷</span>
+            </div>
+            <h3>中小微企业融资支持新政：贴息范围扩大至全行业</h3>
+            <p class="summary">国务院办公厅发布《关于进一步加强中小微企业融资服务的指导意见》，将贷款贴息范围从科技创新型扩展至全行业，单户最高贴息额度提升至 100 万元。皓镧资产为您逐条拆解政策要点与申报条件。</p>
+            <div class="meta">
+              <span>来源：皓镧政策研究室</span>
+              <span>阅读 1,860</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <div class="date-block">
+            <div class="day">02</div>
+            <div class="month">8月</div>
+            <div class="year">2026</div>
+          </div>
+          <div class="content">
+            <div class="tag-row">
+              <span class="cat-tag">监管法规</span>
+            </div>
+            <h3>银保监会新规：个人消费贷资金用途穿透式管理升级</h3>
+            <p class="summary">银保监会印发《关于规范个人消费贷款资金用途管理的通知》，要求银行对消费贷资金流向实施穿透式监控，明确禁止流入股市、楼市。本文解读新规对个人信用融资申请的实际影响与合规操作建议。</p>
+            <div class="meta">
+              <span>来源：皓镧政策研究室</span>
+              <span>阅读 1,520</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <div class="date-block">
+            <div class="day">26</div>
+            <div class="month">7月</div>
+            <div class="year">2026</div>
+          </div>
+          <div class="content">
+            <div class="tag-row">
+              <span class="cat-tag">车辆融资</span>
+            </div>
+            <h3>汽车金融公司管理办法修订要点：融资渠道拓宽与风控强化</h3>
+            <p class="summary">国家金融监督管理总局发布修订后的《汽车金融公司管理办法》，新增资产证券化与发行金融债券等融资渠道，同时提高最低注册资本至 20 亿元。解读新规对车辆融资市场格局的重塑效应。</p>
+            <div class="meta">
+              <span>来源：皓镧政策研究室</span>
+              <span>阅读 1,180</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <div class="date-block">
+            <div class="day">20</div>
+            <div class="month">7月</div>
+            <div class="year">2026</div>
+          </div>
+          <div class="content">
+            <div class="tag-row">
+              <span class="cat-tag">行业动态</span>
+            </div>
+            <h3>2026 年上半年融资市场数据回顾与下半年趋势展望</h3>
+            <p class="summary">央行发布 2026 上半年金融统计报告：人民币贷款增加 15.2 万亿元，同比多增 1.8 万亿元。企业经营贷与个人消费贷增速领跑。本文从宏观数据切入，展望下半年融资成本走势与政策方向。</p>
+            <div class="meta">
+              <span>来源：皓镧政策研究室</span>
+              <span>阅读 980</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <div class="date-block">
+            <div class="day">14</div>
+            <div class="month">7月</div>
+            <div class="year">2026</div>
+          </div>
+          <div class="content">
+            <div class="tag-row">
+              <span class="cat-tag">房产抵押</span>
+            </div>
+            <h3>不动产登记新规实施：抵押登记办理时限压缩至 3 个工作日</h3>
+            <p class="summary">自然资源部《关于进一步优化不动产登记流程的通知》正式实施，抵押登记、转移登记等高频事项承诺时限压缩至 3 个工作日。本文解读新规对房产抵押贷款放款效率的提升作用。</p>
+            <div class="meta">
+              <span>来源：皓镧政策研究室</span>
+              <span>阅读 860</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 分页 -->
+        <div class="pagination">
+          <a class="active">1</a>
+          <a>2</a>
+          <a>3</a>
+          <a>下一页</a>
+        </div>
+
+      </div>
+
+      <!-- 侧边栏 -->
+      <aside class="sidebar">
+
+        <!-- 热门排行 -->
+        <div class="side-box">
+          <h4>热门排行<span class="en">HOT ARTICLES</span></h4>
+          <div class="rank-list">
+            <div class="rank-item">
+              <span class="num">1</span>
+              <div class="info">
+                <div class="t">LPR 连续下调对房产抵押贷款的影响深度分析</div>
+                <div class="d">2026-08-12</div>
+              </div>
+            </div>
+            <div class="rank-item">
+              <span class="num">2</span>
+              <div class="info">
+                <div class="t">中小微企业融资支持新政：贴息范围扩大至全行业</div>
+                <div class="d">2026-08-08</div>
+              </div>
+            </div>
+            <div class="rank-item">
+              <span class="num">3</span>
+              <div class="info">
+                <div class="t">银保监会新规：个人消费贷资金用途穿透式管理升级</div>
+                <div class="d">2026-08-02</div>
+              </div>
+            </div>
+            <div class="rank-item">
+              <span class="num">4</span>
+              <div class="info">
+                <div class="t">不动产登记新规：抵押登记时限压缩至 3 个工作日</div>
+                <div class="d">2026-07-14</div>
+              </div>
+            </div>
+            <div class="rank-item">
+              <span class="num">5</span>
+              <div class="info">
+                <div class="t">2026 上半年融资市场数据回顾与下半年展望</div>
+                <div class="d">2026-07-20</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 标签云 -->
+        <div class="side-box">
+          <h4>关键词<span class="en">TAGS</span></h4>
+          <div class="tag-cloud">
+            <a>LPR降息</a>
+            <a>房产抵押</a>
+            <a>经营贷</a>
+            <a>消费贷</a>
+            <a>贴息政策</a>
+            <a>车辆融资</a>
+            <a>银保监会</a>
+            <a>中小微企业</a>
+            <a>融资成本</a>
+            <a>风控新规</a>
+            <a>不动产登记</a>
+            <a>资金用途</a>
+          </div>
+        </div>
+
+        <!-- 订阅 -->
+        <div class="side-box subscribe-box">
+          <h4>政策订阅<span class="en">SUBSCRIBE</span></h4>
+          <p>订阅皓镧政策速递，第一时间获取最新行业资讯与政策解读。</p>
+          <div class="subscribe-input">
+            <input type="email" placeholder="输入您的邮箱" />
+            <button>订阅</button>
+          </div>
+          <p class="subscribe-tip">我们尊重您的隐私，不会向第三方分享邮箱信息。</p>
+        </div>
+
+      </aside>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 2. 知识科普 -->
+  <!-- ========================================== -->
+  <section id="knowledge">
+    <h2 class="sec-title">知识科普</h2>
+    <p class="sec-subtitle">FINANCIAL KNOWLEDGE</p>
+    <p class="sec-desc">
+      融资路上的每一步都需要专业知识护航。皓镧资产以多年实操经验，为您整理融资避坑指南、征信知识科普与办理小贴士，让专业门槛不再成为融资障碍。
+    </p>
+
+    <!-- 子分类导航 -->
+    <div class="kw-nav" id="kwTabs">
+      <span class="kw-tab active" data-target="pitfall">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 L2 22 L22 22 Z"/><path d="M12 9 L12 15"/><circle cx="12" cy="18" r="0.5" fill="currentColor"/></svg>
+        融资避坑指南
+      </span>
+      <span class="kw-tab" data-target="credit">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10 L21 10"/><path d="M7 15 L11 15"/></svg>
+        征信知识
+      </span>
+      <span class="kw-tab" data-target="tips">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 7 L12 13"/><circle cx="12" cy="16" r="0.5" fill="currentColor"/></svg>
+        办理小贴士
+      </span>
+    </div>
+
+    <!-- ===== 2-A. 融资避坑指南 ===== -->
+    <div class="kw-panel" id="pitfall">
+      <div class="pitfall-list">
+        <div class="pitfall-item">
+          <div class="pitfall-num">1</div>
+          <div class="pitfall-text">
+            <h4>警惕"低息"陷阱：名义利率与实际利率的区别</h4>
+            <p>部分机构以"月息低至 X 厘"吸引客户，但实际年化利率远高于宣传值。务必要求对方出具书面年化利率（APR），以真实成本做比较，而非被"月供低"话术迷惑。</p>
+          </div>
+        </div>
+        <div class="pitfall-item">
+          <div class="pitfall-num">2</div>
+          <div class="pitfall-text">
+            <h4>手续费隐形加价：问清"全包成本"</h4>
+            <p>除了利息外，评估费、公证费、抵押登记费、账户管理费等名目繁多。签约前请对方逐项列出全部费用清单，计算"综合融资成本"，避免签约后被动加价。</p>
+          </div>
+        </div>
+        <div class="pitfall-item">
+          <div class="pitfall-num">3</div>
+          <div class="pitfall-text">
+            <h4>合同条款埋雷：提前还款违约金与强制绑定期</h4>
+            <p>部分贷款合同约定 2-3 年内提前还款需支付 3%-5% 违约金，或强制绑定代发工资、购买保险等附加条件。签约前逐条阅读违约条款与附加条件，保护自身灵活还款权。</p>
+          </div>
+        </div>
+        <div class="pitfall-item">
+          <div class="pitfall-num">4</div>
+          <div class="pitfall-text">
+            <h4>抵押物估值猫腻：自行核实市场公允价</h4>
+            <p>部分评估机构与贷款机构关联，可能高估或低估房产价值。建议自行查询同小区近期成交价，或委托独立第三方评估，确保抵押物估值公允，额度不被刻意压低。</p>
+          </div>
+        </div>
+        <div class="pitfall-item">
+          <div class="pitfall-num">5</div>
+          <div class="pitfall-text">
+            <h4>资金用途合规红线：消费贷严禁流入股市楼市</h4>
+            <p>银保监会新规要求消费贷资金穿透式管理，流入股市、楼市将被提前收回贷款并影响征信。申请前务必明确真实用途，保留消费凭证，切勿心存侥幸违规挪用。</p>
+          </div>
+        </div>
+        <div class="pitfall-item">
+          <div class="pitfall-num">6</div>
+          <div class="pitfall-text">
+            <h4>"包装贷款"风险：虚构资质可能触犯刑法</h4>
+            <p>部分中介提供"包装流水""挂靠公司"等虚假资质服务，一旦银行贷后核查发现，不仅贷款被追回，还可能涉嫌贷款诈骗罪。务必以真实资质申请，宁可额度低也不要触红线。</p>
+          </div>
+        </div>
+        <div class="pitfall-item">
+          <div class="pitfall-num">7</div>
+          <div class="pitfall-text">
+            <h4>过桥资金成本陷阱：短期周转不是免费午餐</h4>
+            <p>续贷前的过桥资金按日计息，日息看似低但年化极高。务必精确计算续贷到账周期，尽量缩短过桥天数，或选择有银行"无还本续贷"承诺的方案，避免过桥成本吞噬利润。</p>
+          </div>
+        </div>
+        <div class="pitfall-item">
+          <div class="pitfall-num">8</div>
+          <div class="pitfall-text">
+            <h4>中介冒充银行：核实放款机构资质</h4>
+            <p>部分机构以"银行直贷""银行优选"为名吸引客户，实际为中间转介。签约前请通过金融监管总局官网查询放款机构金融许可证，确认最终放款方为持牌金融机构。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== 2-B. 征信知识 ===== -->
+    <div class="kw-panel" id="credit" style="display:none;">
+      <div class="credit-grid">
+        <div class="credit-card">
+          <div class="credit-icon c1">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 L4 6 L4 12 C4 17 8 21 12 22 C16 21 20 17 20 12 L20 6 Z"/><path d="M9 12 L11 14 L15 10"/></svg>
+          </div>
+          <h4>征信报告是什么</h4>
+          <p>个人征信报告由中国人民银行征信中心出具，记录您的信用卡、贷款、担保等信用行为，是银行审批贷款的核心依据。</p>
+          <ul class="tips-list">
+            <li>每年可免费查询 2 次个人信用报告</li>
+            <li>查询渠道：央行征信中心官网 / 部分银行 APP</li>
+            <li>建议每半年自查一次，及时发现问题</li>
+          </ul>
+        </div>
+        <div class="credit-card">
+          <div class="credit-icon c2">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6 L12 12 L16 14"/></svg>
+          </div>
+          <h4>逾期记录的影响</h4>
+          <p>逾期是影响征信评分的最主要因素。不同程度的逾期对贷款审批的影响差异巨大，了解规则才能有效规避。</p>
+          <ul class="tips-list">
+            <li>1-30 天逾期：轻微影响，部分银行仍可受理</li>
+            <li>31-90 天逾期：严重影响，多数银行拒贷</li>
+            <li>90 天以上 / 连三累六：基本无法获批贷款</li>
+            <li>逾期记录自还清之日起保留 5 年</li>
+          </ul>
+        </div>
+        <div class="credit-card">
+          <div class="credit-icon c3">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12 L7 12 M17 12 L21 12"/><circle cx="12" cy="12" r="3"/><path d="M9 12 L15 12"/></svg>
+          </div>
+          <h4>硬查询与征信"花了"</h4>
+          <p>短期内频繁被不同机构查询征信（硬查询），会让银行认为您"资金饥渴"，影响审批通过率和利率定价。</p>
+          <ul class="tips-list">
+            <li>本人查询（软查询）不影响征信评分</li>
+            <li>贷款审批 / 信用卡审批属于硬查询</li>
+            <li>建议 1 个月内硬查询不超过 3 次</li>
+            <li>不要同时向多家机构"广撒网"申请</li>
+          </ul>
+        </div>
+        <div class="credit-card">
+          <div class="credit-icon c1">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10 L21 10"/><path d="M7 15 L13 15"/></svg>
+          </div>
+          <h4>信用卡使用率</h4>
+          <p>信用卡总额度的使用比例直接影响征信评分。长期高比例使用会让银行认为您负债压力大、还款能力不足。</p>
+          <ul class="tips-list">
+            <li>建议单卡使用率不超过额度的 70%</li>
+            <li>多卡总额度使用率建议低于 50%</li>
+            <li>全额还款优于最低还款，避免循环利息</li>
+            <li>申请贷款前 3 个月适当降低信用卡使用</li>
+          </ul>
+        </div>
+        <div class="credit-card">
+          <div class="credit-icon c2">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 L12 21"/><path d="M8 7 L12 3 L16 7"/><path d="M8 17 L12 21 L16 17"/></svg>
+          </div>
+          <h4>担保与共同借款</h4>
+          <p>为他人提供担保或共同借款，会以"或有负债"形式计入您的征信报告。主借款人逾期，担保人征信同步受损。</p>
+          <ul class="tips-list">
+            <li>担保前评估对方还款能力与信用状况</li>
+            <li>一般保证与连带责任保证的法律后果不同</li>
+            <li>担保记录会占用您自身的负债空间</li>
+            <li>已结清的担保记录保留 5 年后自动消除</li>
+          </ul>
+        </div>
+        <div class="credit-card">
+          <div class="credit-icon c3">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12 L9 16 L19 6"/></svg>
+          </div>
+          <h4>征信修复与异议</h4>
+          <p>征信报告有误可以申请异议处理，但任何声称"付费洗白征信"的广告均为骗局。合规修复只有官方渠道一条路。</p>
+          <ul class="tips-list">
+            <li>向征信中心或数据报送机构提交异议申请</li>
+            <li>正常异议处理周期约 15-20 个工作日</li>
+            <li>非本人原因导致的逾期可申请标注说明</li>
+            <li>警惕"征信修复""征信洗白"骗局</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== 2-C. 办理小贴士 ===== -->
+    <div class="kw-panel" id="tips" style="display:none;">
+      <div class="tips-timeline">
+        <div class="tip-step">
+          <div class="step-head">
+            <span class="step-num">STEP 01</span>
+            <span class="step-title">贷前准备：材料齐全是高效的第一步</span>
+          </div>
+          <div class="step-body">
+            申请融资前，提前准备好身份证、户口本、婚姻证明、收入流水、资产证明等基础材料。企业经营贷还需提供营业执照、公司章程、财务报表与纳税记录。材料越齐全，审批越快，反复补件是延误放款的首要原因。
+          </div>
+          <div class="step-tags">
+            <span>身份证件</span><span>收入流水</span><span>资产证明</span><span>企业资质</span>
+          </div>
+        </div>
+        <div class="tip-step">
+          <div class="step-head">
+            <span class="step-num">STEP 02</span>
+            <span class="step-title">机构选择：比对至少 2-3 家机构方案</span>
+          </div>
+          <div class="step-body">
+            不同银行的偏好客群、利率定价、审批速度差异较大。建议同时咨询 2-3 家机构，比对年化利率、还款方式（等额本息 / 先息后本）、额度和期限，选择综合成本最低且匹配自身还款节奏的方案。皓镧资产顾问可一站式比对多家银行产品。
+          </div>
+          <div class="step-tags">
+            <span>年化利率</span><span>还款方式</span><span>额度期限</span>
+          </div>
+        </div>
+        <div class="tip-step">
+          <div class="step-head">
+            <span class="step-num">STEP 03</span>
+            <span class="step-title">面签环节：核实合同核心条款</span>
+          </div>
+          <div class="step-body">
+            面签时重点核实：贷款金额、年化利率（APR）、贷款期限、还款方式、提前还款违约金条款、放款时间承诺。如合同金额与口头承诺不一致，务必当场提出。签前可要求带走合同样本回家研读，正规机构不会拒绝。
+          </div>
+          <div class="step-tags">
+            <span>年化利率</span><span>违约金条款</span><span>放款时效</span>
+          </div>
+        </div>
+        <div class="tip-step">
+          <div class="step-head">
+            <span class="step-num">STEP 04</span>
+            <span class="step-title">抵押登记：配合出证加速放款</span>
+          </div>
+          <div class="step-body">
+            房产抵押贷款需办理抵押登记后方可放款。新规下登记时限已压缩至 3 个工作日，但需配合提交不动产登记申请书、身份证明、抵押合同等材料。皓镧资产与多地登记中心建立绿色通道，可协助加急办理，部分紧急件 1 个工作日出证。
+          </div>
+          <div class="step-tags">
+            <span>不动产登记</span><span>绿色通道</span><span>加急出证</span>
+          </div>
+        </div>
+        <div class="tip-step">
+          <div class="step-head">
+            <span class="step-num">STEP 05</span>
+            <span class="step-title">贷后管理：按时还款与用途留痕</span>
+          </div>
+          <div class="step-body">
+            放款后请按时还款，避免逾期影响征信。消费贷需保留资金用途凭证（发票、合同等）至少 1 年，以备银行贷后检查。经营贷需确保资金用于企业经营用途，避免流入个人账户或投资领域。建议设置自动还款提醒，确保不遗漏。
+          </div>
+          <div class="step-tags">
+            <span>按时还款</span><span>用途凭证</span><span>贷后检查</span>
+          </div>
+        </div>
+        <div class="tip-step">
+          <div class="step-head">
+            <span class="step-num">STEP 06</span>
+            <span class="step-title">结清解押：别忘了最后一环</span>
+          </div>
+          <div class="step-body">
+            贷款结清后，需向银行索取结清证明并办理抵押注销登记，房产才完全恢复自由状态。如计划结清后出售或再次抵押，务必预留 5-10 个工作日办理解押手续。皓镧资产提供结清解押全程协助服务。
+          </div>
+          <div class="step-tags">
+            <span>结清证明</span><span>注销登记</span><span>解押手续</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<!-- ========== 页脚 ========== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <svg class="logo-mark" width="44" height="44" viewBox="0 0 64 64" fill="none">
+        <path d="M32 4 L58 18 L58 46 L32 60 L6 46 L6 18 Z" stroke="#C9A961" stroke-width="3" fill="none"/>
+        <path d="M22 22 L42 22 M22 32 L42 32 M22 42 L32 42" stroke="#C9A961" stroke-width="3"/>
+      </svg>
+      <span class="lt">皓镧资产</span>
+    </div>
+    <div class="footer-info">
+      <div><b>联系电话：</b>010-8888 8888</div>
+      <div><b>邮箱：</b>hr@haolanzichan.cn</div>
+      <div><b>地址：</b>北京市朝阳区金融街 · 财富中心</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // 分类筛选交互
+  document.querySelectorAll('.filter-tag').forEach(function(tag) {
+    tag.addEventListener('click', function() {
+      document.querySelectorAll('.filter-tag').forEach(function(t) { t.classList.remove('active'); });
+      this.classList.add('active');
+    });
+  });
+
+  // 知识科普子分类切换
+  document.querySelectorAll('.kw-tab').forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      document.querySelectorAll('.kw-tab').forEach(function(t) { t.classList.remove('active'); });
+      this.classList.add('active');
+      var target = this.getAttribute('data-target');
+      document.querySelectorAll('.kw-panel').forEach(function(p) {
+        if (p.id === target) { p.style.display = ''; }
+        else { p.style.display = 'none'; }
+      });
+    });
+  });
+</script>
+</body>
+</html>

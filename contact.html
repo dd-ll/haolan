@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>联系我们 - 皓镧资产</title>
+<style>
+  /* ========== 品牌变量 ========== */
+  :root {
+    --gold: #C9A961;
+    --gold-deep: #B8941F;
+    --gold-soft: #E8D9A8;
+    --red: #C8102E;
+    --red-deep: #B91D2E;
+    --green-deep: #1F3A2E;
+    --green-darker: #142720;
+    --ink: #1A1A1A;
+    --muted: #6B6B6B;
+    --line: #E8E2D4;
+    --bg: #FFFFFF;
+    --bg-soft: #FAF6EC;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Microsoft YaHei", "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  /* ========== 顶部黑色导航（单层 10 项） ========== */
+  .topbar { background: #111; color: #fff; border-bottom: 1px solid rgba(201,169,97,0.18); }
+  .topbar-inner { max-width: 1280px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; gap: 36px; }
+  .logo { display: flex; align-items: center; padding: 14px 0; flex-shrink: 0; }
+  .logo-card {
+    display: inline-flex; align-items: center; background: #fff;
+    padding: 8px 16px; border-radius: 4px; height: 56px;
+    box-shadow: 0 0 0 1px rgba(201,169,97,0.25);
+  }
+  .logo-card img { height: 44px; width: auto; display: block; }
+  .nav { display: flex; flex-direction: column; gap: 6px; margin-left: auto; padding: 14px 0; }
+  .nav-row { display: flex; gap: 30px; font-size: 14px; }
+  .nav-row.top a { color: rgba(255,255,255,0.85); transition: color .2s; padding: 4px 0; white-space: nowrap; }
+  .nav-row.top a:hover, .nav-row.top a.active { color: var(--gold); }
+
+  /* ========== 页面横幅 ========== */
+  .page-banner {
+    background: linear-gradient(135deg, var(--green-deep) 0%, #2a4a3a 100%);
+    padding: 60px 32px 50px; text-align: center; position: relative; overflow: hidden;
+  }
+  .page-banner::before {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .page-banner h1 {
+    font-family: "STSong","SimSun",serif; font-size: 38px; font-weight: 700;
+    letter-spacing: 8px; color: #fff; margin-bottom: 14px;
+  }
+  .page-banner .en {
+    color: rgba(201,169,97,0.8); font-size: 13px; letter-spacing: 5px; margin-bottom: 18px;
+  }
+  .page-banner .desc {
+    max-width: 680px; margin: 0 auto; color: rgba(255,255,255,0.7);
+    font-size: 14px; line-height: 1.9;
+  }
+
+  /* ========== 主区 ========== */
+  main { max-width: 1280px; margin: 0 auto; padding: 60px 32px 80px; }
+  section { margin-bottom: 70px; }
+  section:last-child { margin-bottom: 0; }
+
+  .sec-title {
+    text-align: center; font-size: 28px; font-weight: 700; letter-spacing: 6px;
+    color: var(--ink); position: relative; padding-bottom: 20px; margin-bottom: 10px;
+    font-family: "STSong","SimSun",serif;
+  }
+  .sec-title::after {
+    content: ""; position: absolute; left: 50%; bottom: 0;
+    width: 56px; height: 3px; background: var(--red); transform: translateX(-50%);
+  }
+  .sec-subtitle {
+    text-align: center; color: var(--muted); font-size: 12px; letter-spacing: 4px;
+    margin-bottom: 48px;
+  }
+  .sec-desc {
+    max-width: 860px; margin: 0 auto 52px; text-align: center;
+    color: var(--muted); font-size: 14px; line-height: 2;
+  }
+
+  /* ========== 1. 公司地址 ========== */
+  .addr-feature {
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 28px; align-items: stretch;
+  }
+  .addr-card {
+    border: 1.5px solid var(--gold-soft); border-radius: 12px; background: #fff;
+    padding: 34px 36px; position: relative; overflow: hidden; transition: all .25s;
+  }
+  .addr-card:hover { border-color: var(--gold); box-shadow: 0 12px 30px rgba(184,148,31,0.12); }
+  .addr-card::after {
+    content: ""; position: absolute; right: -40px; top: -40px; width: 160px; height: 160px;
+    border: 2px solid rgba(201,169,97,0.15); border-radius: 50%;
+  }
+  .addr-card .mark {
+    width: 58px; height: 58px; border-radius: 16px; margin-bottom: 18px;
+    background: linear-gradient(135deg, var(--red), var(--red-deep));
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 8px 20px rgba(200,16,46,0.28);
+  }
+  .addr-card .mark svg { width: 30px; height: 30px; color: #fff; }
+  .addr-card h4 {
+    font-family: "STSong","SimSun",serif; font-size: 20px; font-weight: 700;
+    letter-spacing: 3px; margin-bottom: 10px;
+  }
+  .addr-card .full { font-size: 15px; color: var(--ink); line-height: 1.9; margin-bottom: 10px; }
+  .addr-card .full b { color: var(--gold-deep); }
+  .addr-card .note { font-size: 12.5px; color: var(--muted); line-height: 1.9; }
+  .addr-card .note b { color: var(--red); font-weight: 600; }
+  .addr-card .chips { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+  .addr-card .chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12px; color: var(--gold-deep);
+    background: var(--bg-soft); border: 1px solid var(--gold-soft);
+    border-radius: 16px; padding: 5px 14px;
+  }
+  .addr-card .chip svg { width: 13px; height: 13px; }
+  .addr-visual {
+    border: 1.5px solid var(--gold-soft); border-radius: 12px; background: #fff;
+    display: flex; align-items: center; justify-content: center; padding: 20px;
+  }
+  .addr-visual svg { width: 100%; max-width: 460px; height: auto; }
+
+  /* ========== 2. 联系电话 & 客服微信 ========== */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .contact-box {
+    border: 1.5px solid var(--gold-soft); border-radius: 12px; background: #fff;
+    padding: 30px 32px; transition: all .25s;
+  }
+  .contact-box:hover { border-color: var(--gold); box-shadow: 0 12px 30px rgba(184,148,31,0.12); }
+  .contact-box .head { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; }
+  .contact-box .head .h-icon {
+    width: 46px; height: 46px; border-radius: 13px; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 6px 16px rgba(184,148,31,0.3);
+  }
+  .contact-box .head .h-icon svg { width: 24px; height: 24px; color: #fff; }
+  .contact-box .head h4 { font-size: 18px; font-weight: 700; letter-spacing: 2px; font-family: "STSong","SimSun",serif; }
+  .contact-box .head .en { font-size: 11px; color: var(--muted); letter-spacing: 2px; }
+  .phone-list { display: flex; flex-direction: column; gap: 16px; }
+  .phone-item { display: flex; gap: 14px; align-items: flex-start; }
+  .phone-item .pico {
+    width: 38px; height: 38px; border-radius: 10px; flex-shrink: 0;
+    background: var(--bg-soft); border: 1px solid var(--gold-soft);
+    display: flex; align-items: center; justify-content: center; color: var(--gold-deep);
+  }
+  .phone-item .pico svg { width: 19px; height: 19px; }
+  .phone-item .pt { font-size: 13.5px; font-weight: 600; color: var(--ink); }
+  .phone-item .pt b { font-family: "STSong",serif; font-size: 19px; color: var(--red); font-weight: 700; }
+  .phone-item .pd { font-size: 11.5px; color: var(--muted); }
+  .wx-box { display: flex; gap: 22px; align-items: center; }
+  .qr-frame {
+    width: 148px; height: 148px; flex-shrink: 0; border-radius: 12px;
+    border: 1.5px solid var(--gold-soft); background: #fff; padding: 10px;
+    box-shadow: inset 0 0 0 1px rgba(201,169,97,0.15);
+  }
+  .qr-frame svg { width: 100%; height: 100%; display: block; }
+  .wx-info h4 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+  .wx-info .id {
+    display: inline-block; font-size: 12.5px; color: var(--gold-deep);
+    background: var(--bg-soft); border: 1px dashed var(--gold);
+    border-radius: 6px; padding: 4px 12px; margin-bottom: 10px; letter-spacing: 1px;
+  }
+  .wx-info p { font-size: 12px; color: var(--muted); line-height: 1.8; }
+  .wx-info p b { color: var(--red); }
+
+  /* ========== 3. 在线留言表单 ========== */
+  .form-wrap { display: grid; grid-template-columns: 1.5fr 1fr; gap: 28px; }
+  .form-card {
+    border: 1.5px solid var(--gold-soft); border-radius: 12px; background: #fff;
+    padding: 34px 36px;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px; }
+  .form-group { display: flex; flex-direction: column; gap: 7px; }
+  .form-group label { font-size: 13px; color: var(--ink); font-weight: 600; }
+  .form-group label i { font-style: normal; color: var(--red); margin-left: 2px; }
+  .form-group input, .form-group select, .form-group textarea {
+    font-family: inherit; font-size: 14px; color: var(--ink);
+    border: 1.5px solid var(--line); border-radius: 8px; padding: 11px 14px;
+    background: #fff; outline: none; transition: all .2s; width: 100%;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,169,97,0.12);
+  }
+  .form-group textarea { resize: vertical; min-height: 130px; line-height: 1.8; }
+  .form-group select { cursor: pointer; appearance: auto; }
+  .form-submit {
+    margin-top: 8px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+  }
+  .form-submit .btn {
+    font-size: 15px; font-weight: 600; letter-spacing: 4px; color: #fff;
+    background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+    border: none; border-radius: 22px; padding: 12px 44px; cursor: pointer;
+    transition: all .25s;
+  }
+  .form-submit .btn:hover { box-shadow: 0 8px 22px rgba(184,148,31,0.4); transform: translateY(-2px); }
+  .form-submit .privacy { font-size: 11.5px; color: var(--muted); line-height: 1.7; }
+  .form-submit .privacy b { color: var(--gold-deep); }
+  .form-msg {
+    display: none; margin-top: 18px; padding: 14px 18px; border-radius: 8px;
+    font-size: 13.5px; line-height: 1.8;
+    background: linear-gradient(135deg, var(--bg-soft), #fff);
+    border: 1.5px solid var(--gold); color: var(--ink);
+  }
+  .form-msg.show { display: block; }
+  .form-msg b { color: var(--red); }
+
+  /* 留言须知 */
+  .form-side { display: flex; flex-direction: column; gap: 20px; }
+  .notice-card {
+    border: 1.5px solid var(--gold-soft); border-radius: 12px; background: #fff;
+    padding: 26px 28px;
+  }
+  .notice-card h4 {
+    font-size: 15.5px; font-weight: 700; letter-spacing: 2px; margin-bottom: 14px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .notice-card h4 svg { width: 18px; height: 18px; color: var(--gold-deep); }
+  .notice-card ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .notice-card li {
+    font-size: 12.5px; color: var(--muted); line-height: 1.8;
+    padding-left: 16px; position: relative;
+  }
+  .notice-card li::before {
+    content: ""; position: absolute; left: 0; top: 9px;
+    width: 6px; height: 6px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+  }
+  .notice-card li b { color: var(--ink); font-weight: 600; }
+
+  /* ========== 4. 导航定位 ========== */
+  .navi-wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 28px; }
+  .map-card {
+    border: 1.5px solid var(--gold-soft); border-radius: 12px; background: #fff;
+    overflow: hidden; position: relative;
+  }
+  .map-card .map-head {
+    display: flex; align-items: center; gap: 12px;
+    background: linear-gradient(135deg, var(--green-deep), #2a4a3a);
+    color: #fff; padding: 14px 22px;
+  }
+  .map-card .map-head svg { width: 18px; height: 18px; color: var(--gold); }
+  .map-card .map-head span { font-size: 13px; letter-spacing: 2px; }
+  .map-body { padding: 18px; background: var(--bg-soft); }
+  .map-body svg { width: 100%; height: auto; display: block; }
+  .map-tip {
+    display: flex; align-items: center; gap: 14px; padding: 12px 22px;
+    border-top: 1px solid var(--line); background: #fff; font-size: 12px; color: var(--muted);
+  }
+  .map-tip svg { width: 16px; height: 16px; color: var(--red); flex-shrink: 0; }
+  .route-list { display: flex; flex-direction: column; gap: 18px; }
+  .route-card {
+    border: 1.5px solid var(--gold-soft); border-radius: 12px; background: #fff;
+    padding: 22px 24px; display: flex; gap: 16px; transition: all .25s;
+  }
+  .route-card:hover { border-color: var(--gold); box-shadow: 0 10px 26px rgba(184,148,31,0.12); transform: translateX(4px); }
+  .route-card .r-icon {
+    width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
+    background: var(--bg-soft); border: 1.5px solid var(--gold-soft);
+    display: flex; align-items: center; justify-content: center; color: var(--gold-deep);
+  }
+  .route-card .r-icon svg { width: 22px; height: 22px; }
+  .route-card h4 { font-size: 15px; font-weight: 700; letter-spacing: 1px; margin-bottom: 4px; }
+  .route-card p { font-size: 12.5px; color: var(--muted); line-height: 1.9; }
+  .route-card p b { color: var(--ink); font-weight: 600; }
+
+  /* ========== 5. 工作时间 ========== */
+  .hours-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .hours-card {
+    border: 1.5px solid var(--gold-soft); border-radius: 12px; background: #fff;
+    padding: 28px 26px; text-align: center; transition: all .25s; position: relative; overflow: hidden;
+  }
+  .hours-card::before {
+    content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--red)); opacity: 0; transition: opacity .25s;
+  }
+  .hours-card:hover { border-color: var(--gold); box-shadow: 0 10px 26px rgba(184,148,31,0.12); transform: translateY(-4px); }
+  .hours-card:hover::before { opacity: 1; }
+  .hours-card .h-icon {
+    width: 50px; height: 50px; margin: 0 auto 12px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, var(--gold-soft), var(--bg-soft));
+    border: 1px solid var(--gold-soft); color: var(--gold-deep);
+  }
+  .hours-card .h-icon svg { width: 25px; height: 25px; }
+  .hours-card h4 { font-size: 16px; font-weight: 700; letter-spacing: 2px; margin-bottom: 8px; }
+  .hours-card .time { font-family: "STSong",serif; font-size: 22px; font-weight: 700; color: var(--red); margin-bottom: 6px; }
+  .hours-card p { font-size: 12px; color: var(--muted); line-height: 1.8; }
+  .hours-card p b { color: var(--gold-deep); font-weight: 600; }
+  .hours-note {
+    margin-top: 24px; display: flex; align-items: center; gap: 14px;
+    border: 1.5px dashed var(--gold); border-radius: 10px;
+    background: linear-gradient(135deg, var(--bg-soft), #fff);
+    padding: 16px 24px; font-size: 12.5px; color: var(--muted);
+  }
+  .hours-note svg { width: 20px; height: 20px; color: var(--gold-deep); flex-shrink: 0; }
+  .hours-note b { color: var(--ink); }
+
+  /* ========== 6. 公众号 ========== */
+  .gzh-card {
+    border: 1.5px solid var(--gold-soft); border-radius: 16px; background: #fff;
+    overflow: hidden; display: grid; grid-template-columns: 1.2fr 1fr;
+  }
+  .gzh-left {
+    background: linear-gradient(135deg, var(--green-deep), #2a4a3a);
+    color: #fff; padding: 44px 44px; position: relative; overflow: hidden;
+  }
+  .gzh-left::after {
+    content: ""; position: absolute; right: -60px; bottom: -60px; width: 200px; height: 200px;
+    border: 2px solid rgba(201,169,97,0.18); border-radius: 50%;
+  }
+  .gzh-left h4 { font-size: 22px; font-weight: 700; letter-spacing: 4px; margin-bottom: 8px; font-family: "STSong","SimSun",serif; }
+  .gzh-left .en { color: rgba(201,169,97,0.8); font-size: 11px; letter-spacing: 4px; margin-bottom: 18px; }
+  .gzh-left p { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 2; margin-bottom: 6px; }
+  .gzh-left p b { color: var(--gold); font-weight: 600; }
+  .gzh-left .gzh-id {
+    display: inline-block; margin-top: 16px; font-size: 12.5px; letter-spacing: 1px;
+    color: var(--gold); border: 1px dashed rgba(201,169,97,0.6);
+    border-radius: 6px; padding: 5px 14px;
+  }
+  .gzh-right {
+    padding: 40px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+  }
+  .gzh-right .qr-frame { width: 170px; height: 170px; }
+  .gzh-right h5 { font-size: 14px; font-weight: 700; letter-spacing: 2px; margin-top: 14px; }
+  .gzh-right p { font-size: 11.5px; color: var(--muted); margin-top: 6px; line-height: 1.8; }
+
+  /* ========== 页脚 ========== */
+  .footer {
+    background: linear-gradient(180deg, var(--green-deep) 0%, var(--green-darker) 100%);
+    color: rgba(255,255,255,0.7); padding: 40px 32px;
+  }
+  .footer-inner {
+    max-width: 1280px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; gap: 40px;
+  }
+  .footer-logo { display: flex; align-items: center; gap: 14px; }
+  .footer-logo .lt { color: var(--gold); font-size: 24px; font-weight: 600; letter-spacing: 4px; }
+  .footer-info { display: flex; flex-direction: column; gap: 6px; font-size: 13px; text-align: right; }
+  .footer-info b { color: var(--gold); font-weight: 600; }
+
+  /* ========== 响应式 ========== */
+  @media (max-width: 1080px) {
+    .addr-feature, .contact-grid, .form-wrap, .navi-wrap, .gzh-card { grid-template-columns: 1fr; }
+    .hours-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 900px) {
+    .hours-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 760px) {
+    .form-row { grid-template-columns: 1fr; }
+    .addr-card { padding: 26px 22px; }
+    .topbar-inner { flex-wrap: wrap; padding: 0 20px; gap: 16px; }
+    .nav { margin-left: 0; }
+    .nav-row { gap: 16px; flex-wrap: wrap; }
+    .footer-inner { flex-direction: column; text-align: center; }
+    .footer-info { text-align: center; }
+    main { padding: 40px 20px; }
+    .page-banner { padding: 40px 20px 36px; }
+    .page-banner h1 { font-size: 28px; letter-spacing: 5px; }
+    .wx-box { flex-direction: column; text-align: center; }
+    .gzh-right { padding: 28px 20px; }
+    .route-card { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== 顶部导航（真实 logo） ========== -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="./index.html" class="logo" aria-label="皓镧资产">
+      <span class="logo-card">
+        <img src="./assets/logo.jpg" alt="皓镧资产" />
+      </span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <div class="nav-row top">
+        <a href="./about.html">关于我们</a>
+        <a href="./business.html">主营业务</a>
+        <a href="./service.html">服务流程</a>
+        <a href="./team.html">精英团队</a>
+        <a href="./policy.html">政策解读</a>
+        <a href="./notice.html">企业公告</a>
+        <a href="./academy.html">皓镧商学院</a>
+        <a href="./video.html">短视频专区</a>
+        <a href="./join.html">加入我们</a>
+        <a href="./contact.html" class="active">联系我们</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- ========== 页面横幅 ========== -->
+<div class="page-banner">
+  <h1>联系我们</h1>
+  <p class="en">CONTACT US</p>
+  <p class="desc">无论您有融资需求、合作意向，还是想加入皓镧大家庭，欢迎通过以下任一方式与我们取得联系，我们将第一时间为您服务。</p>
+</div>
+
+<main>
+
+  <!-- ========================================== -->
+  <!-- 1. 公司地址 -->
+  <!-- ========================================== -->
+  <section id="address">
+    <h2 class="sec-title">公司地址</h2>
+    <p class="sec-subtitle">COMPANY ADDRESS</p>
+
+    <div class="addr-feature">
+      <div class="addr-card">
+        <div class="mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        </div>
+        <h4>皓镧资产 · 总部</h4>
+        <div class="full"><b>北京市朝阳区金融街 · 财富中心 B 座 12 层</b></div>
+        <div class="note">公司位于金融街核心商务区，毗邻多家银行总部与金融机构，交通便利、配套完善。<b>来访请提前预约</b>，前台将为您登记指引。</div>
+        <div class="chips">
+          <span class="chip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v4M8 5l3 3M16 5l-3 3M5 12h4M8 16l-3-3M8 8l-3 3M19 12h-4M16 16l3-3M16 8l3 3"/><circle cx="12" cy="12" r="2"/></svg>
+            地铁 2 号线 · 金融街站 B 口
+          </span>
+          <span class="chip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M9 21v-1.5M15 21v-1.5"/></svg>
+            财富中心写字楼
+          </span>
+          <span class="chip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V6l-4 1v11M9 6l6-2v12M15 6l4-1v11"/></svg>
+            导航：皓镧资产
+          </span>
+        </div>
+      </div>
+
+      <div class="addr-visual">
+        <svg viewBox="0 0 460 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="460" height="300" fill="#FAF6EC"/>
+          <!-- 街区 -->
+          <rect x="30" y="30" width="110" height="100" fill="#fff" stroke="#E8E2D4" stroke-width="1.5"/>
+          <rect x="170" y="30" width="110" height="100" fill="#fff" stroke="#E8E2D4" stroke-width="1.5"/>
+          <rect x="310" y="30" width="120" height="100" fill="#fff" stroke="#E8E2D4" stroke-width="1.5"/>
+          <rect x="30" y="170" width="110" height="100" fill="#fff" stroke="#E8E2D4" stroke-width="1.5"/>
+          <rect x="310" y="170" width="120" height="100" fill="#fff" stroke="#E8E2D4" stroke-width="1.5"/>
+          <!-- 道路 -->
+          <path d="M150 20v260" stroke="#C9A961" stroke-width="5" stroke-linecap="round"/>
+          <path d="M290 20v260" stroke="#C9A961" stroke-width="5" stroke-linecap="round"/>
+          <path d="M20 145h420" stroke="#C9A961" stroke-width="5" stroke-linecap="round"/>
+          <!-- 地铁线 -->
+          <path d="M0 62 Q 150 62 170 62 T 330 62 T 460 62" stroke="#C8102E" stroke-width="3" stroke-dasharray="8 6"/>
+          <!-- 楼宇标注 -->
+          <text x="55" y="88" font-size="12" fill="#6B6B6B">财富中心 A 座</text>
+          <text x="195" y="88" font-size="13" fill="#1F3A2E" font-weight="bold">财富中心 B 座</text>
+          <text x="335" y="88" font-size="12" fill="#6B6B6B">金融大厦</text>
+          <text x="50" y="228" font-size="12" fill="#6B6B6B">写字楼 C 座</text>
+          <text x="335" y="228" font-size="12" fill="#6B6B6B">银行大厦</text>
+          <!-- 地铁站 -->
+          <circle cx="150" cy="62" r="6" fill="#fff" stroke="#C8102E" stroke-width="3"/>
+          <text x="116" y="45" font-size="12" fill="#C8102E">金融街站 B 口</text>
+          <!-- 公司标记 -->
+          <g>
+            <circle cx="195" cy="88" r="24" fill="#C8102E" opacity="0.15">
+              <animate attributeName="r" values="18;30;18" dur="2.4s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="195" cy="88" r="12" fill="#C8102E"/>
+            <text x="195" y="93" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">皓</text>
+          </g>
+          <text x="195" y="125" font-size="11" fill="#B8941F" text-anchor="middle">皓镧资产 · B座12层</text>
+          <!-- 指北针 -->
+          <g transform="translate(428,272)">
+            <path d="M0 0 L6 16 L0 13 L-6 16 Z" fill="#B8941F"/>
+            <text x="9" y="16" font-size="10" fill="#6B6B6B">北</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 2. 联系电话 & 客服微信 -->
+  <!-- ========================================== -->
+  <section id="contact">
+    <h2 class="sec-title">联系方式</h2>
+    <p class="sec-subtitle">PHONE & WECHAT</p>
+
+    <div class="contact-grid">
+      <!-- 联系电话 -->
+      <div class="contact-box">
+        <div class="head">
+          <span class="h-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-3 2a12 12 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+          </span>
+          <div>
+            <h4>联系电话</h4>
+            <span class="en">SERVICE HOTLINE</span>
+          </div>
+        </div>
+        <div class="phone-list">
+          <div class="phone-item">
+            <span class="pico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-3 2a12 12 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+            </span>
+            <div>
+              <div class="pt">服务热线 <b>010-8888 8888</b></div>
+              <div class="pd">融资咨询 · 业务办理 · 售后服务</div>
+            </div>
+          </div>
+          <div class="phone-item">
+            <span class="pico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+            </span>
+            <div>
+              <div class="pt">商务合作 <b>cooperation@haolanzichan.cn</b></div>
+              <div class="pd">渠道合作 · 机构对接 · 品牌合作</div>
+            </div>
+          </div>
+          <div class="phone-item">
+            <span class="pico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </span>
+            <div>
+              <div class="pt">招聘邮箱 <b>hr@haolanzichan.cn</b></div>
+              <div class="pd">简历投递 · 面试邀约</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 客服微信 -->
+      <div class="contact-box">
+        <div class="head">
+          <span class="h-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.5 8.5 0 0 1-9.2 8.4 9 9 0 0 1-4.1-1.4L3 20l1.4-4.2A8.5 8.5 0 1 1 21 11.5z"/><path d="M8.5 11.5h.01M12.5 11.5h.01M16.5 11.5h.01"/></svg>
+          </span>
+          <div>
+            <h4>客服微信</h4>
+            <span class="en">CUSTOMER SERVICE</span>
+          </div>
+        </div>
+        <div class="wx-box">
+          <div class="qr-frame">
+            <svg viewBox="0 0 105 105" fill="#1F3A2E" role="img" aria-label="客服微信二维码">
+              <rect width="105" height="105" fill="#fff"/>
+              <rect x="0" y="0" width="4.4" height="4.4"/><rect x="5" y="0" width="4.4" height="4.4"/><rect x="10" y="0" width="4.4" height="4.4"/><rect x="15" y="0" width="4.4" height="4.4"/><rect x="20" y="0" width="4.4" height="4.4"/><rect x="25" y="0" width="4.4" height="4.4"/><rect x="30" y="0" width="4.4" height="4.4"/><rect x="40" y="0" width="4.4" height="4.4"/><rect x="45" y="0" width="4.4" height="4.4"/><rect x="50" y="0" width="4.4" height="4.4"/><rect x="70" y="0" width="4.4" height="4.4"/><rect x="75" y="0" width="4.4" height="4.4"/><rect x="80" y="0" width="4.4" height="4.4"/><rect x="85" y="0" width="4.4" height="4.4"/><rect x="90" y="0" width="4.4" height="4.4"/><rect x="95" y="0" width="4.4" height="4.4"/><rect x="100" y="0" width="4.4" height="4.4"/><rect x="0" y="5" width="4.4" height="4.4"/><rect x="5" y="5" width="4.4" height="4.4"/><rect x="10" y="5" width="4.4" height="4.4"/><rect x="15" y="5" width="4.4" height="4.4"/><rect x="20" y="5" width="4.4" height="4.4"/><rect x="30" y="5" width="4.4" height="4.4"/><rect x="35" y="5" width="4.4" height="4.4"/><rect x="40" y="5" width="4.4" height="4.4"/><rect x="55" y="5" width="4.4" height="4.4"/><rect x="70" y="5" width="4.4" height="4.4"/><rect x="75" y="5" width="4.4" height="4.4"/><rect x="90" y="5" width="4.4" height="4.4"/><rect x="95" y="5" width="4.4" height="4.4"/><rect x="100" y="5" width="4.4" height="4.4"/><rect x="0" y="10" width="4.4" height="4.4"/><rect x="10" y="10" width="4.4" height="4.4"/><rect x="15" y="10" width="4.4" height="4.4"/><rect x="20" y="10" width="4.4" height="4.4"/><rect x="25" y="10" width="4.4" height="4.4"/><rect x="30" y="10" width="4.4" height="4.4"/><rect x="35" y="10" width="4.4" height="4.4"/><rect x="40" y="10" width="4.4" height="4.4"/><rect x="70" y="10" width="4.4" height="4.4"/><rect x="80" y="10" width="4.4" height="4.4"/><rect x="85" y="10" width="4.4" height="4.4"/><rect x="90" y="10" width="4.4" height="4.4"/><rect x="95" y="10" width="4.4" height="4.4"/><rect x="100" y="10" width="4.4" height="4.4"/><rect x="0" y="15" width="4.4" height="4.4"/><rect x="10" y="15" width="4.4" height="4.4"/><rect x="15" y="15" width="4.4" height="4.4"/><rect x="20" y="15" width="4.4" height="4.4"/><rect x="30" y="15" width="4.4" height="4.4"/><rect x="55" y="15" width="4.4" height="4.4"/><rect x="60" y="15" width="4.4" height="4.4"/><rect x="65" y="15" width="4.4" height="4.4"/><rect x="70" y="15" width="4.4" height="4.4"/><rect x="75" y="15" width="4.4" height="4.4"/><rect x="80" y="15" width="4.4" height="4.4"/><rect x="85" y="15" width="4.4" height="4.4"/><rect x="90" y="15" width="4.4" height="4.4"/><rect x="95" y="15" width="4.4" height="4.4"/><rect x="100" y="15" width="4.4" height="4.4"/><rect x="0" y="20" width="4.4" height="4.4"/><rect x="5" y="20" width="4.4" height="4.4"/><rect x="10" y="20" width="4.4" height="4.4"/><rect x="15" y="20" width="4.4" height="4.4"/><rect x="20" y="20" width="4.4" height="4.4"/><rect x="25" y="20" width="4.4" height="4.4"/><rect x="30" y="20" width="4.4" height="4.4"/><rect x="40" y="20" width="4.4" height="4.4"/><rect x="45" y="20" width="4.4" height="4.4"/><rect x="50" y="20" width="4.4" height="4.4"/><rect x="55" y="20" width="4.4" height="4.4"/><rect x="70" y="20" width="4.4" height="4.4"/><rect x="80" y="20" width="4.4" height="4.4"/><rect x="85" y="20" width="4.4" height="4.4"/><rect x="90" y="20" width="4.4" height="4.4"/><rect x="95" y="20" width="4.4" height="4.4"/><rect x="100" y="20" width="4.4" height="4.4"/><rect x="0" y="25" width="4.4" height="4.4"/><rect x="10" y="25" width="4.4" height="4.4"/><rect x="15" y="25" width="4.4" height="4.4"/><rect x="30" y="25" width="4.4" height="4.4"/><rect x="55" y="25" width="4.4" height="4.4"/><rect x="60" y="25" width="4.4" height="4.4"/><rect x="65" y="25" width="4.4" height="4.4"/><rect x="70" y="25" width="4.4" height="4.4"/><rect x="75" y="25" width="4.4" height="4.4"/><rect x="80" y="25" width="4.4" height="4.4"/><rect x="95" y="25" width="4.4" height="4.4"/><rect x="100" y="25" width="4.4" height="4.4"/><rect x="0" y="30" width="4.4" height="4.4"/><rect x="5" y="30" width="4.4" height="4.4"/><rect x="10" y="30" width="4.4" height="4.4"/><rect x="15" y="30" width="4.4" height="4.4"/><rect x="20" y="30" width="4.4" height="4.4"/><rect x="25" y="30" width="4.4" height="4.4"/><rect x="30" y="30" width="4.4" height="4.4"/><rect x="40" y="30" width="4.4" height="4.4"/><rect x="55" y="30" width="4.4" height="4.4"/><rect x="60" y="30" width="4.4" height="4.4"/><rect x="70" y="30" width="4.4" height="4.4"/><rect x="75" y="30" width="4.4" height="4.4"/><rect x="80" y="30" width="4.4" height="4.4"/><rect x="85" y="30" width="4.4" height="4.4"/><rect x="90" y="30" width="4.4" height="4.4"/><rect x="95" y="30" width="4.4" height="4.4"/><rect x="100" y="30" width="4.4" height="4.4"/><rect x="0" y="35" width="4.4" height="4.4"/><rect x="15" y="35" width="4.4" height="4.4"/><rect x="20" y="35" width="4.4" height="4.4"/><rect x="35" y="35" width="4.4" height="4.4"/><rect x="40" y="35" width="4.4" height="4.4"/><rect x="45" y="35" width="4.4" height="4.4"/><rect x="60" y="35" width="4.4" height="4.4"/><rect x="65" y="35" width="4.4" height="4.4"/><rect x="70" y="35" width="4.4" height="4.4"/><rect x="95" y="35" width="4.4" height="4.4"/><rect x="10" y="40" width="4.4" height="4.4"/><rect x="20" y="40" width="4.4" height="4.4"/><rect x="25" y="40" width="4.4" height="4.4"/><rect x="45" y="40" width="4.4" height="4.4"/><rect x="55" y="40" width="4.4" height="4.4"/><rect x="70" y="40" width="4.4" height="4.4"/><rect x="85" y="40" width="4.4" height="4.4"/><rect x="5" y="45" width="4.4" height="4.4"/><rect x="10" y="45" width="4.4" height="4.4"/><rect x="15" y="45" width="4.4" height="4.4"/><rect x="35" y="45" width="4.4" height="4.4"/><rect x="40" y="45" width="4.4" height="4.4"/><rect x="55" y="45" width="4.4" height="4.4"/><rect x="65" y="45" width="4.4" height="4.4"/><rect x="80" y="45" width="4.4" height="4.4"/><rect x="95" y="45" width="4.4" height="4.4"/><rect x="0" y="50" width="4.4" height="4.4"/><rect x="5" y="50" width="4.4" height="4.4"/><rect x="20" y="50" width="4.4" height="4.4"/><rect x="25" y="50" width="4.4" height="4.4"/><rect x="40" y="50" width="4.4" height="4.4"/><rect x="50" y="50" width="4.4" height="4.4"/><rect x="55" y="50" width="4.4" height="4.4"/><rect x="60" y="50" width="4.4" height="4.4"/><rect x="70" y="50" width="4.4" height="4.4"/><rect x="75" y="50" width="4.4" height="4.4"/><rect x="80" y="50" width="4.4" height="4.4"/><rect x="90" y="50" width="4.4" height="4.4"/><rect x="0" y="55" width="4.4" height="4.4"/><rect x="5" y="55" width="4.4" height="4.4"/><rect x="15" y="55" width="4.4" height="4.4"/><rect x="20" y="55" width="4.4" height="4.4"/><rect x="50" y="55" width="4.4" height="4.4"/><rect x="55" y="55" width="4.4" height="4.4"/><rect x="60" y="55" width="4.4" height="4.4"/><rect x="65" y="55" width="4.4" height="4.4"/><rect x="90" y="55" width="4.4" height="4.4"/><rect x="95" y="55" width="4.4" height="4.4"/><rect x="100" y="55" width="4.4" height="4.4"/><rect x="5" y="60" width="4.4" height="4.4"/><rect x="10" y="60" width="4.4" height="4.4"/><rect x="15" y="60" width="4.4" height="4.4"/><rect x="20" y="60" width="4.4" height="4.4"/><rect x="25" y="60" width="4.4" height="4.4"/><rect x="30" y="60" width="4.4" height="4.4"/><rect x="40" y="60" width="4.4" height="4.4"/><rect x="55" y="60" width="4.4" height="4.4"/><rect x="85" y="60" width="4.4" height="4.4"/><rect x="95" y="60" width="4.4" height="4.4"/><rect x="100" y="60" width="4.4" height="4.4"/><rect x="0" y="65" width="4.4" height="4.4"/><rect x="5" y="65" width="4.4" height="4.4"/><rect x="15" y="65" width="4.4" height="4.4"/><rect x="30" y="65" width="4.4" height="4.4"/><rect x="55" y="65" width="4.4" height="4.4"/><rect x="60" y="65" width="4.4" height="4.4"/><rect x="85" y="65" width="4.4" height="4.4"/><rect x="0" y="70" width="4.4" height="4.4"/><rect x="5" y="70" width="4.4" height="4.4"/><rect x="10" y="70" width="4.4" height="4.4"/><rect x="15" y="70" width="4.4" height="4.4"/><rect x="20" y="70" width="4.4" height="4.4"/><rect x="25" y="70" width="4.4" height="4.4"/><rect x="30" y="70" width="4.4" height="4.4"/><rect x="35" y="70" width="4.4" height="4.4"/><rect x="45" y="70" width="4.4" height="4.4"/><rect x="50" y="70" width="4.4" height="4.4"/><rect x="65" y="70" width="4.4" height="4.4"/><rect x="70" y="70" width="4.4" height="4.4"/><rect x="80" y="70" width="4.4" height="4.4"/><rect x="95" y="70" width="4.4" height="4.4"/><rect x="0" y="75" width="4.4" height="4.4"/><rect x="15" y="75" width="4.4" height="4.4"/><rect x="25" y="75" width="4.4" height="4.4"/><rect x="30" y="75" width="4.4" height="4.4"/><rect x="35" y="75" width="4.4" height="4.4"/><rect x="45" y="75" width="4.4" height="4.4"/><rect x="50" y="75" width="4.4" height="4.4"/><rect x="60" y="75" width="4.4" height="4.4"/><rect x="80" y="75" width="4.4" height="4.4"/><rect x="85" y="75" width="4.4" height="4.4"/><rect x="90" y="75" width="4.4" height="4.4"/><rect x="0" y="80" width="4.4" height="4.4"/><rect x="10" y="80" width="4.4" height="4.4"/><rect x="15" y="80" width="4.4" height="4.4"/><rect x="20" y="80" width="4.4" height="4.4"/><rect x="25" y="80" width="4.4" height="4.4"/><rect x="30" y="80" width="4.4" height="4.4"/><rect x="35" y="80" width="4.4" height="4.4"/><rect x="65" y="80" width="4.4" height="4.4"/><rect x="75" y="80" width="4.4" height="4.4"/><rect x="90" y="80" width="4.4" height="4.4"/><rect x="95" y="80" width="4.4" height="4.4"/><rect x="100" y="80" width="4.4" height="4.4"/><rect x="0" y="85" width="4.4" height="4.4"/><rect x="10" y="85" width="4.4" height="4.4"/><rect x="15" y="85" width="4.4" height="4.4"/><rect x="20" y="85" width="4.4" height="4.4"/><rect x="25" y="85" width="4.4" height="4.4"/><rect x="30" y="85" width="4.4" height="4.4"/><rect x="45" y="85" width="4.4" height="4.4"/><rect x="55" y="85" width="4.4" height="4.4"/><rect x="75" y="85" width="4.4" height="4.4"/><rect x="80" y="85" width="4.4" height="4.4"/><rect x="85" y="85" width="4.4" height="4.4"/><rect x="90" y="85" width="4.4" height="4.4"/><rect x="0" y="90" width="4.4" height="4.4"/><rect x="5" y="90" width="4.4" height="4.4"/><rect x="10" y="90" width="4.4" height="4.4"/><rect x="15" y="90" width="4.4" height="4.4"/><rect x="20" y="90" width="4.4" height="4.4"/><rect x="30" y="90" width="4.4" height="4.4"/><rect x="40" y="90" width="4.4" height="4.4"/><rect x="45" y="90" width="4.4" height="4.4"/><rect x="50" y="90" width="4.4" height="4.4"/><rect x="80" y="90" width="4.4" height="4.4"/><rect x="85" y="90" width="4.4" height="4.4"/><rect x="90" y="90" width="4.4" height="4.4"/><rect x="0" y="95" width="4.4" height="4.4"/><rect x="15" y="95" width="4.4" height="4.4"/><rect x="20" y="95" width="4.4" height="4.4"/><rect x="25" y="95" width="4.4" height="4.4"/><rect x="30" y="95" width="4.4" height="4.4"/><rect x="45" y="95" width="4.4" height="4.4"/><rect x="55" y="95" width="4.4" height="4.4"/><rect x="85" y="95" width="4.4" height="4.4"/><rect x="95" y="95" width="4.4" height="4.4"/><rect x="0" y="100" width="4.4" height="4.4"/><rect x="5" y="100" width="4.4" height="4.4"/><rect x="10" y="100" width="4.4" height="4.4"/><rect x="15" y="100" width="4.4" height="4.4"/><rect x="20" y="100" width="4.4" height="4.4"/><rect x="25" y="100" width="4.4" height="4.4"/><rect x="30" y="100" width="4.4" height="4.4"/><rect x="50" y="100" width="4.4" height="4.4"/><rect x="60" y="100" width="4.4" height="4.4"/><rect x="75" y="100" width="4.4" height="4.4"/><rect x="90" y="100" width="4.4" height="4.4"/><rect x="100" y="100" width="4.4" height="4.4"/>
+            </svg>
+          </div>
+          <div class="wx-info">
+            <h4>扫码添加专属客服</h4>
+            <span class="id">微信号：HL-KF01</span>
+            <p>一对一咨询服务，为您匹配<b>专属融资顾问</b>。添加时请备注「公司 / 姓名 + 咨询意向」。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 3. 在线留言表单 -->
+  <!-- ========================================== -->
+  <section id="message">
+    <h2 class="sec-title">在线留言</h2>
+    <p class="sec-subtitle">ONLINE MESSAGE</p>
+    <p class="sec-desc">填写以下表单提交您的需求，工作人员将在 <b style="color:#C8102E;">1 个工作日</b> 内与您取得联系（仅用于业务沟通，信息严格保密）。</p>
+
+    <div class="form-wrap">
+      <div class="form-card">
+        <form id="msgForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label>您的称呼<i>*</i></label>
+              <input type="text" name="name" placeholder="请输入您的姓名或称呼" required />
+            </div>
+            <div class="form-group">
+              <label>联系电话<i>*</i></label>
+              <input type="tel" name="phone" placeholder="请输入手机号，便于我们回访" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>咨询类型<i>*</i></label>
+              <select name="type" required>
+                <option value="">请选择咨询类型</option>
+                <option>房产抵押融资</option>
+                <option>企业经营贷</option>
+                <option>个人信用融资</option>
+                <option>车辆融资</option>
+                <option>续贷与过桥</option>
+                <option>渠道 / 机构合作</option>
+                <option>其他咨询</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>意向金额</label>
+              <select name="amount">
+                <option value="">请选择（选填）</option>
+                <option>100 万以下</option>
+                <option>100 – 300 万</option>
+                <option>300 – 500 万</option>
+                <option>500 – 1000 万</option>
+                <option>1000 万以上</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>留言内容<i>*</i></label>
+            <textarea name="content" placeholder="请简要描述您的融资需求或合作意向，例如：名下房产位于朝阳区，评估价约800万，想申请经营贷…" required></textarea>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn">提交留言</button>
+            <span class="privacy"><b>隐私保护：</b>您的信息仅用于本次业务沟通，不会用于任何其他用途。</span>
+          </div>
+          <div class="form-msg" id="formMsg">
+            <b>提交成功！</b>感谢您的留言，专属顾问将在 1 个工作日内与您联系，请保持电话畅通。
+          </div>
+        </form>
+      </div>
+
+      <div class="form-side">
+        <div class="notice-card">
+          <h4>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 4v5c0 4.4-3 8.4-7 9-4-.6-7-4.6-7-9V7z"/><path d="M9 12l2 2 4-4"/></svg>
+            留言须知
+          </h4>
+          <ul>
+            <li>提交后系统将自动生成工单，<b>1 个工作日内</b>回访响应</li>
+            <li>涉及大额融资，建议同时致电热线，<b>加速办理</b></li>
+            <li>您的资料仅用于本次业务对接，<b>严格保密</b>不外传</li>
+            <li>节假日提交的留言，将顺延至<b>节后首个工作日</b>处理</li>
+          </ul>
+        </div>
+        <div class="notice-card">
+          <h4>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+            紧急事项
+          </h4>
+          <ul>
+            <li>贷款到期、续贷加急等紧急需求，请直接拨打<b>010-8888 8888</b></li>
+            <li>工作时间外可添加<b>客服微信</b>留言，次日优先处理</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 4. 导航定位 -->
+  <!-- ========================================== -->
+  <section id="navigation">
+    <h2 class="sec-title">导航定位</h2>
+    <p class="sec-subtitle">LOCATION & ROUTES</p>
+
+    <div class="navi-wrap">
+      <!-- 示意图 -->
+      <div class="map-card">
+        <div class="map-head">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <span>位置示意图（示意） · 北京市朝阳区金融街 · 财富中心</span>
+        </div>
+        <div class="map-body">
+          <svg viewBox="0 0 460 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="460" height="300" fill="#FAF6EC"/>
+            <rect x="30" y="30" width="110" height="100" fill="#fff" stroke="#E8E2D4" stroke-width="1.5"/>
+            <rect x="170" y="30" width="110" height="100" fill="#fff" stroke="#E8E2D4" stroke-width="1.5"/>
+            <rect x="310" y="30" width="120" height="100" fill="#fff" stroke="#E8E2D4" stroke-width="1.5"/>
+            <rect x="30" y="170" width="110" height="100" fill="#fff" stroke="#E8E2D4" stroke-width="1.5"/>
+            <rect x="310" y="170" width="120" height="100" fill="#fff" stroke="#E8E2D4" stroke-width="1.5"/>
+            <path d="M150 20v260" stroke="#C9A961" stroke-width="5" stroke-linecap="round"/>
+            <path d="M290 20v260" stroke="#C9A961" stroke-width="5" stroke-linecap="round"/>
+            <path d="M20 145h420" stroke="#C9A961" stroke-width="5" stroke-linecap="round"/>
+            <path d="M0 62 Q 150 62 170 62 T 330 62 T 460 62" stroke="#C8102E" stroke-width="3" stroke-dasharray="8 6"/>
+            <text x="55" y="88" font-size="12" fill="#6B6B6B">财富中心 A 座</text>
+            <text x="195" y="88" font-size="13" fill="#1F3A2E" font-weight="bold">财富中心 B 座</text>
+            <text x="335" y="88" font-size="12" fill="#6B6B6B">金融大厦</text>
+            <text x="50" y="228" font-size="12" fill="#6B6B6B">写字楼 C 座</text>
+            <text x="335" y="228" font-size="12" fill="#6B6B6B">银行大厦</text>
+            <circle cx="150" cy="62" r="6" fill="#fff" stroke="#C8102E" stroke-width="3"/>
+            <text x="116" y="45" font-size="12" fill="#C8102E">金融街站 B 口</text>
+            <g>
+              <circle cx="195" cy="88" r="24" fill="#C8102E" opacity="0.15">
+                <animate attributeName="r" values="18;30;18" dur="2.4s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="195" cy="88" r="12" fill="#C8102E"/>
+              <text x="195" y="93" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">皓</text>
+            </g>
+            <text x="195" y="125" font-size="11" fill="#B8941F" text-anchor="middle">皓镧资产 · B座12层</text>
+            <g transform="translate(428,272)">
+              <path d="M0 0 L6 16 L0 13 L-6 16 Z" fill="#B8941F"/>
+              <text x="9" y="16" font-size="10" fill="#6B6B6B">北</text>
+            </g>
+          </svg>
+        </div>
+        <div class="map-tip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          示意图仅供位置参考，可在手机地图搜索「皓镧资产」或「财富中心 B 座」获取实时导航路线。
+        </div>
+      </div>
+
+      <!-- 交通指引 -->
+      <div class="route-list">
+        <div class="route-card">
+          <span class="r-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M4 9h16M9 21v-1.5M15 21v-1.5"/></svg>
+          </span>
+          <div>
+            <h4>地铁路线</h4>
+            <p>乘 <b>地铁 2 号线</b> 至「金融街站」，从 <b>B 口</b> 出站，沿金融街步行约 <b>500 米</b>（5 分钟）即达财富中心。</p>
+          </div>
+        </div>
+        <div class="route-card">
+          <span class="r-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M3 18h18M6 18v2M18 18v2"/></svg>
+          </span>
+          <div>
+            <h4>公交路线</h4>
+            <p>乘 <b>1 路 / 9 路 / 金融街专线</b> 至「金融街站」下车，步行 <b>200 米</b> 至财富中心，写字楼入口位于路北侧。</p>
+          </div>
+        </div>
+        <div class="route-card">
+          <span class="r-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 11l1.5-4.5h11L19 11M5 11v6h14v-6M5 11h14M8 11v-3h8v3M7 15h.01M17 15h.01"/></svg>
+          </span>
+          <div>
+            <h4>驾车路线</h4>
+            <p>导航搜索 <b>「财富中心 B 座」</b>，地下停车场 B2–B3 层可临停，<b>凭访客登记免 2 小时</b>停车费，前台领取停车券。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 5. 工作时间 -->
+  <!-- ========================================== -->
+  <section id="hours">
+    <h2 class="sec-title">工作时间</h2>
+    <p class="sec-subtitle">WORKING HOURS</p>
+
+    <div class="hours-grid">
+      <div class="hours-card">
+        <div class="h-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18M8 5v14"/></svg>
+        </div>
+        <h4>工作日</h4>
+        <div class="time">周一至周五</div>
+        <p><b>09:00 – 18:00</b>，午间不休，全时段接待客户</p>
+      </div>
+      <div class="hours-card">
+        <div class="h-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v4M8 5l3 3M16 5l-3 3M5 12h4M8 16l-3-3M8 8l-3 3M19 12h-4M16 16l3-3M16 8l3 3"/><circle cx="12" cy="12" r="2"/></svg>
+        </div>
+        <h4>周末</h4>
+        <div class="time">周六</div>
+        <p><b>09:30 – 17:00</b>，仅接待<b>提前预约</b>客户，周日休息</p>
+      </div>
+      <div class="hours-card">
+        <div class="h-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 4v5c0 4.4-3 8.4-7 9-4-.6-7-4.6-7-9V7z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <h4>法定节假日</h4>
+        <div class="time">放假安排</div>
+        <p>按国家法定节假日<b>统一放假</b>，紧急事项可联系您的专属客户经理</p>
+      </div>
+    </div>
+
+    <div class="hours-note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 4v5c0 4.4-3 8.4-7 9-4-.6-7-4.6-7-9V7z"/><path d="M9 12l2 2 4-4"/></svg>
+      温馨提示：热线电话与在线留言在<b>工作日 09:00–18:00</b> 由人工值守，其余时段请留言或添加客服微信，我们将于次日优先处理。
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 6. 公众号 -->
+  <!-- ========================================== -->
+  <section id="gzh">
+    <h2 class="sec-title">关注公众号</h2>
+    <p class="sec-subtitle">OFFICIAL ACCOUNT</p>
+
+    <div class="gzh-card">
+      <div class="gzh-left">
+        <h4>皓镧资产</h4>
+        <div class="en">OFFICIAL ACCOUNT</div>
+        <p>关注官方微信公众号，第一时间获取：</p>
+        <p>· 公司动态与<b>企业公告</b></p>
+        <p>· 行业资讯与<b>金融政策解读</b></p>
+        <p>· 融资产品介绍与<b>办理指南</b></p>
+        <p>· 皓镧商学院<b>知识科普</b>内容</p>
+        <span class="gzh-id">微信搜索：皓镧资产</span>
+      </div>
+      <div class="gzh-right">
+        <div class="qr-frame">
+          <svg viewBox="0 0 105 105" fill="#1F3A2E" role="img" aria-label="微信公众号二维码">
+            <rect width="105" height="105" fill="#fff"/>
+            <rect x="0" y="0" width="4.4" height="4.4"/><rect x="5" y="0" width="4.4" height="4.4"/><rect x="10" y="0" width="4.4" height="4.4"/><rect x="15" y="0" width="4.4" height="4.4"/><rect x="20" y="0" width="4.4" height="4.4"/><rect x="25" y="0" width="4.4" height="4.4"/><rect x="30" y="0" width="4.4" height="4.4"/><rect x="35" y="0" width="4.4" height="4.4"/><rect x="40" y="0" width="4.4" height="4.4"/><rect x="50" y="0" width="4.4" height="4.4"/><rect x="60" y="0" width="4.4" height="4.4"/><rect x="65" y="0" width="4.4" height="4.4"/><rect x="70" y="0" width="4.4" height="4.4"/><rect x="75" y="0" width="4.4" height="4.4"/><rect x="80" y="0" width="4.4" height="4.4"/><rect x="85" y="0" width="4.4" height="4.4"/><rect x="90" y="0" width="4.4" height="4.4"/><rect x="95" y="0" width="4.4" height="4.4"/><rect x="100" y="0" width="4.4" height="4.4"/><rect x="0" y="5" width="4.4" height="4.4"/><rect x="10" y="5" width="4.4" height="4.4"/><rect x="15" y="5" width="4.4" height="4.4"/><rect x="20" y="5" width="4.4" height="4.4"/><rect x="25" y="5" width="4.4" height="4.4"/><rect x="30" y="5" width="4.4" height="4.4"/><rect x="35" y="5" width="4.4" height="4.4"/><rect x="45" y="5" width="4.4" height="4.4"/><rect x="50" y="5" width="4.4" height="4.4"/><rect x="70" y="5" width="4.4" height="4.4"/><rect x="75" y="5" width="4.4" height="4.4"/><rect x="85" y="5" width="4.4" height="4.4"/><rect x="95" y="5" width="4.4" height="4.4"/><rect x="100" y="5" width="4.4" height="4.4"/><rect x="0" y="10" width="4.4" height="4.4"/><rect x="5" y="10" width="4.4" height="4.4"/><rect x="10" y="10" width="4.4" height="4.4"/><rect x="15" y="10" width="4.4" height="4.4"/><rect x="20" y="10" width="4.4" height="4.4"/><rect x="25" y="10" width="4.4" height="4.4"/><rect x="30" y="10" width="4.4" height="4.4"/><rect x="35" y="10" width="4.4" height="4.4"/><rect x="45" y="10" width="4.4" height="4.4"/><rect x="60" y="10" width="4.4" height="4.4"/><rect x="70" y="10" width="4.4" height="4.4"/><rect x="75" y="10" width="4.4" height="4.4"/><rect x="80" y="10" width="4.4" height="4.4"/><rect x="85" y="10" width="4.4" height="4.4"/><rect x="90" y="10" width="4.4" height="4.4"/><rect x="95" y="10" width="4.4" height="4.4"/><rect x="100" y="10" width="4.4" height="4.4"/><rect x="0" y="15" width="4.4" height="4.4"/><rect x="5" y="15" width="4.4" height="4.4"/><rect x="10" y="15" width="4.4" height="4.4"/><rect x="15" y="15" width="4.4" height="4.4"/><rect x="20" y="15" width="4.4" height="4.4"/><rect x="30" y="15" width="4.4" height="4.4"/><rect x="35" y="15" width="4.4" height="4.4"/><rect x="40" y="15" width="4.4" height="4.4"/><rect x="55" y="15" width="4.4" height="4.4"/><rect x="70" y="15" width="4.4" height="4.4"/><rect x="75" y="15" width="4.4" height="4.4"/><rect x="80" y="15" width="4.4" height="4.4"/><rect x="85" y="15" width="4.4" height="4.4"/><rect x="90" y="15" width="4.4" height="4.4"/><rect x="100" y="15" width="4.4" height="4.4"/><rect x="0" y="20" width="4.4" height="4.4"/><rect x="10" y="20" width="4.4" height="4.4"/><rect x="15" y="20" width="4.4" height="4.4"/><rect x="20" y="20" width="4.4" height="4.4"/><rect x="30" y="20" width="4.4" height="4.4"/><rect x="40" y="20" width="4.4" height="4.4"/><rect x="50" y="20" width="4.4" height="4.4"/><rect x="55" y="20" width="4.4" height="4.4"/><rect x="65" y="20" width="4.4" height="4.4"/><rect x="70" y="20" width="4.4" height="4.4"/><rect x="80" y="20" width="4.4" height="4.4"/><rect x="85" y="20" width="4.4" height="4.4"/><rect x="90" y="20" width="4.4" height="4.4"/><rect x="95" y="20" width="4.4" height="4.4"/><rect x="100" y="20" width="4.4" height="4.4"/><rect x="0" y="25" width="4.4" height="4.4"/><rect x="25" y="25" width="4.4" height="4.4"/><rect x="30" y="25" width="4.4" height="4.4"/><rect x="70" y="25" width="4.4" height="4.4"/><rect x="80" y="25" width="4.4" height="4.4"/><rect x="100" y="25" width="4.4" height="4.4"/><rect x="0" y="30" width="4.4" height="4.4"/><rect x="5" y="30" width="4.4" height="4.4"/><rect x="10" y="30" width="4.4" height="4.4"/><rect x="15" y="30" width="4.4" height="4.4"/><rect x="20" y="30" width="4.4" height="4.4"/><rect x="25" y="30" width="4.4" height="4.4"/><rect x="30" y="30" width="4.4" height="4.4"/><rect x="40" y="30" width="4.4" height="4.4"/><rect x="45" y="30" width="4.4" height="4.4"/><rect x="55" y="30" width="4.4" height="4.4"/><rect x="65" y="30" width="4.4" height="4.4"/><rect x="70" y="30" width="4.4" height="4.4"/><rect x="75" y="30" width="4.4" height="4.4"/><rect x="80" y="30" width="4.4" height="4.4"/><rect x="85" y="30" width="4.4" height="4.4"/><rect x="90" y="30" width="4.4" height="4.4"/><rect x="95" y="30" width="4.4" height="4.4"/><rect x="100" y="30" width="4.4" height="4.4"/><rect x="0" y="35" width="4.4" height="4.4"/><rect x="5" y="35" width="4.4" height="4.4"/><rect x="15" y="35" width="4.4" height="4.4"/><rect x="20" y="35" width="4.4" height="4.4"/><rect x="25" y="35" width="4.4" height="4.4"/><rect x="35" y="35" width="4.4" height="4.4"/><rect x="40" y="35" width="4.4" height="4.4"/><rect x="65" y="35" width="4.4" height="4.4"/><rect x="70" y="35" width="4.4" height="4.4"/><rect x="75" y="35" width="4.4" height="4.4"/><rect x="90" y="35" width="4.4" height="4.4"/><rect x="95" y="35" width="4.4" height="4.4"/><rect x="100" y="35" width="4.4" height="4.4"/><rect x="0" y="40" width="4.4" height="4.4"/><rect x="15" y="40" width="4.4" height="4.4"/><rect x="20" y="40" width="4.4" height="4.4"/><rect x="25" y="40" width="4.4" height="4.4"/><rect x="30" y="40" width="4.4" height="4.4"/><rect x="65" y="40" width="4.4" height="4.4"/><rect x="90" y="40" width="4.4" height="4.4"/><rect x="95" y="40" width="4.4" height="4.4"/><rect x="100" y="40" width="4.4" height="4.4"/><rect x="5" y="45" width="4.4" height="4.4"/><rect x="10" y="45" width="4.4" height="4.4"/><rect x="15" y="45" width="4.4" height="4.4"/><rect x="20" y="45" width="4.4" height="4.4"/><rect x="25" y="45" width="4.4" height="4.4"/><rect x="30" y="45" width="4.4" height="4.4"/><rect x="35" y="45" width="4.4" height="4.4"/><rect x="40" y="45" width="4.4" height="4.4"/><rect x="45" y="45" width="4.4" height="4.4"/><rect x="50" y="45" width="4.4" height="4.4"/><rect x="55" y="45" width="4.4" height="4.4"/><rect x="70" y="45" width="4.4" height="4.4"/><rect x="75" y="45" width="4.4" height="4.4"/><rect x="80" y="45" width="4.4" height="4.4"/><rect x="85" y="45" width="4.4" height="4.4"/><rect x="90" y="45" width="4.4" height="4.4"/><rect x="10" y="50" width="4.4" height="4.4"/><rect x="15" y="50" width="4.4" height="4.4"/><rect x="20" y="50" width="4.4" height="4.4"/><rect x="25" y="50" width="4.4" height="4.4"/><rect x="35" y="50" width="4.4" height="4.4"/><rect x="40" y="50" width="4.4" height="4.4"/><rect x="55" y="50" width="4.4" height="4.4"/><rect x="65" y="50" width="4.4" height="4.4"/><rect x="90" y="50" width="4.4" height="4.4"/><rect x="95" y="50" width="4.4" height="4.4"/><rect x="100" y="50" width="4.4" height="4.4"/><rect x="15" y="55" width="4.4" height="4.4"/><rect x="20" y="55" width="4.4" height="4.4"/><rect x="55" y="55" width="4.4" height="4.4"/><rect x="65" y="55" width="4.4" height="4.4"/><rect x="70" y="55" width="4.4" height="4.4"/><rect x="75" y="55" width="4.4" height="4.4"/><rect x="80" y="55" width="4.4" height="4.4"/><rect x="85" y="55" width="4.4" height="4.4"/><rect x="100" y="55" width="4.4" height="4.4"/><rect x="15" y="60" width="4.4" height="4.4"/><rect x="20" y="60" width="4.4" height="4.4"/><rect x="25" y="60" width="4.4" height="4.4"/><rect x="30" y="60" width="4.4" height="4.4"/><rect x="35" y="60" width="4.4" height="4.4"/><rect x="70" y="60" width="4.4" height="4.4"/><rect x="100" y="60" width="4.4" height="4.4"/><rect x="5" y="65" width="4.4" height="4.4"/><rect x="20" y="65" width="4.4" height="4.4"/><rect x="25" y="65" width="4.4" height="4.4"/><rect x="40" y="65" width="4.4" height="4.4"/><rect x="45" y="65" width="4.4" height="4.4"/><rect x="50" y="65" width="4.4" height="4.4"/><rect x="65" y="65" width="4.4" height="4.4"/><rect x="85" y="65" width="4.4" height="4.4"/><rect x="95" y="65" width="4.4" height="4.4"/><rect x="100" y="65" width="4.4" height="4.4"/><rect x="0" y="70" width="4.4" height="4.4"/><rect x="5" y="70" width="4.4" height="4.4"/><rect x="10" y="70" width="4.4" height="4.4"/><rect x="15" y="70" width="4.4" height="4.4"/><rect x="20" y="70" width="4.4" height="4.4"/><rect x="25" y="70" width="4.4" height="4.4"/><rect x="30" y="70" width="4.4" height="4.4"/><rect x="55" y="70" width="4.4" height="4.4"/><rect x="70" y="70" width="4.4" height="4.4"/><rect x="75" y="70" width="4.4" height="4.4"/><rect x="80" y="70" width="4.4" height="4.4"/><rect x="85" y="70" width="4.4" height="4.4"/><rect x="95" y="70" width="4.4" height="4.4"/><rect x="100" y="70" width="4.4" height="4.4"/><rect x="0" y="75" width="4.4" height="4.4"/><rect x="5" y="75" width="4.4" height="4.4"/><rect x="15" y="75" width="4.4" height="4.4"/><rect x="30" y="75" width="4.4" height="4.4"/><rect x="40" y="75" width="4.4" height="4.4"/><rect x="65" y="75" width="4.4" height="4.4"/><rect x="70" y="75" width="4.4" height="4.4"/><rect x="75" y="75" width="4.4" height="4.4"/><rect x="80" y="75" width="4.4" height="4.4"/><rect x="90" y="75" width="4.4" height="4.4"/><rect x="0" y="80" width="4.4" height="4.4"/><rect x="10" y="80" width="4.4" height="4.4"/><rect x="15" y="80" width="4.4" height="4.4"/><rect x="20" y="80" width="4.4" height="4.4"/><rect x="25" y="80" width="4.4" height="4.4"/><rect x="30" y="80" width="4.4" height="4.4"/><rect x="50" y="80" width="4.4" height="4.4"/><rect x="60" y="80" width="4.4" height="4.4"/><rect x="65" y="80" width="4.4" height="4.4"/><rect x="95" y="80" width="4.4" height="4.4"/><rect x="0" y="85" width="4.4" height="4.4"/><rect x="10" y="85" width="4.4" height="4.4"/><rect x="15" y="85" width="4.4" height="4.4"/><rect x="20" y="85" width="4.4" height="4.4"/><rect x="30" y="85" width="4.4" height="4.4"/><rect x="75" y="85" width="4.4" height="4.4"/><rect x="95" y="85" width="4.4" height="4.4"/><rect x="100" y="85" width="4.4" height="4.4"/><rect x="0" y="90" width="4.4" height="4.4"/><rect x="5" y="90" width="4.4" height="4.4"/><rect x="10" y="90" width="4.4" height="4.4"/><rect x="15" y="90" width="4.4" height="4.4"/><rect x="20" y="90" width="4.4" height="4.4"/><rect x="25" y="90" width="4.4" height="4.4"/><rect x="30" y="90" width="4.4" height="4.4"/><rect x="35" y="90" width="4.4" height="4.4"/><rect x="40" y="90" width="4.4" height="4.4"/><rect x="60" y="90" width="4.4" height="4.4"/><rect x="75" y="90" width="4.4" height="4.4"/><rect x="90" y="90" width="4.4" height="4.4"/><rect x="100" y="90" width="4.4" height="4.4"/><rect x="0" y="95" width="4.4" height="4.4"/><rect x="20" y="95" width="4.4" height="4.4"/><rect x="25" y="95" width="4.4" height="4.4"/><rect x="30" y="95" width="4.4" height="4.4"/><rect x="40" y="95" width="4.4" height="4.4"/><rect x="45" y="95" width="4.4" height="4.4"/><rect x="50" y="95" width="4.4" height="4.4"/><rect x="60" y="95" width="4.4" height="4.4"/><rect x="70" y="95" width="4.4" height="4.4"/><rect x="75" y="95" width="4.4" height="4.4"/><rect x="80" y="95" width="4.4" height="4.4"/><rect x="95" y="95" width="4.4" height="4.4"/><rect x="0" y="100" width="4.4" height="4.4"/><rect x="5" y="100" width="4.4" height="4.4"/><rect x="10" y="100" width="4.4" height="4.4"/><rect x="15" y="100" width="4.4" height="4.4"/><rect x="20" y="100" width="4.4" height="4.4"/><rect x="25" y="100" width="4.4" height="4.4"/><rect x="30" y="100" width="4.4" height="4.4"/><rect x="45" y="100" width="4.4" height="4.4"/><rect x="50" y="100" width="4.4" height="4.4"/><rect x="55" y="100" width="4.4" height="4.4"/><rect x="65" y="100" width="4.4" height="4.4"/><rect x="70" y="100" width="4.4" height="4.4"/><rect x="75" y="100" width="4.4" height="4.4"/><rect x="90" y="100" width="4.4" height="4.4"/><rect x="95" y="100" width="4.4" height="4.4"/>
+          </svg>
+        </div>
+        <h5>扫码关注「皓镧资产」</h5>
+        <p>长按识别二维码或微信搜索添加，<br/>获取最新资讯与专属服务。</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <svg class="logo-mark" width="44" height="44" viewBox="0 0 64 64" fill="none">
+        <path d="M32 4 L58 18 L58 46 L32 60 L6 46 L6 18 Z" stroke="#C9A961" stroke-width="3" fill="none"/>
+        <path d="M22 22 L42 22 M22 32 L42 32 M22 42 L32 42" stroke="#C9A961" stroke-width="3"/>
+      </svg>
+      <span class="lt">皓镧资产</span>
+    </div>
+    <div class="footer-info">
+      <div><b>联系电话：</b>010-8888 8888</div>
+      <div><b>邮箱：</b>hr@haolanzichan.cn</div>
+      <div><b>地址：</b>北京市朝阳区金融街 · 财富中心</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // 在线留言表单：校验 + 提交反馈
+  var form = document.getElementById('msgForm');
+  var msg = document.getElementById('formMsg');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var valid = true;
+    var fields = form.querySelectorAll('input[required], select[required], textarea[required]');
+
+    fields.forEach(function(f) {
+      if (!f.value.trim()) {
+        valid = false;
+        f.style.borderColor = '#C8102E';
+        f.style.boxShadow = '0 0 0 3px rgba(200,16,46,0.10)';
+      } else {
+        f.style.borderColor = '';
+        f.style.boxShadow = '';
+      }
+    });
+
+    if (!valid) {
+      alert('请完整填写带 * 号的必填项后再提交。');
+      return;
+    }
+
+    msg.classList.add('show');
+    form.reset();
+    setTimeout(function() {
+      msg.classList.remove('show');
+    }, 6000);
+  });
+</script>
+</body>
+</html>

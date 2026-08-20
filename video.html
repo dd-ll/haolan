@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>短视频专区 - 皓镧资产</title>
+<style>
+  /* ========== 品牌变量 ========== */
+  :root {
+    --gold: #C9A961;
+    --gold-deep: #B8941F;
+    --gold-soft: #E8D9A8;
+    --red: #C8102E;
+    --red-deep: #B91D2E;
+    --green-deep: #1F3A2E;
+    --green-darker: #142720;
+    --ink: #1A1A1A;
+    --muted: #6B6B6B;
+    --line: #E8E2D4;
+    --bg: #FFFFFF;
+    --bg-soft: #FAF6EC;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Microsoft YaHei", "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  /* ========== 顶部黑色导航（单层 10 项） ========== */
+  .topbar { background: #111; color: #fff; border-bottom: 1px solid rgba(201,169,97,0.18); }
+  .topbar-inner { max-width: 1280px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; gap: 36px; }
+  .logo { display: flex; align-items: center; padding: 14px 0; flex-shrink: 0; }
+  .logo-card {
+    display: inline-flex; align-items: center; background: #fff;
+    padding: 8px 16px; border-radius: 4px; height: 56px;
+    box-shadow: 0 0 0 1px rgba(201,169,97,0.25);
+  }
+  .logo-card img { height: 44px; width: auto; display: block; }
+  .nav { display: flex; flex-direction: column; gap: 6px; margin-left: auto; padding: 14px 0; }
+  .nav-row { display: flex; gap: 30px; font-size: 14px; }
+  .nav-row.top a { color: rgba(255,255,255,0.85); transition: color .2s; padding: 4px 0; white-space: nowrap; }
+  .nav-row.top a:hover, .nav-row.top a.active { color: var(--gold); }
+
+  /* ========== 页面横幅 ========== */
+  .page-banner {
+    background: linear-gradient(135deg, var(--green-deep) 0%, #2a4a3a 100%);
+    padding: 60px 32px 50px; text-align: center; position: relative; overflow: hidden;
+  }
+  .page-banner::before {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .page-banner h1 {
+    font-family: "STSong","SimSun",serif; font-size: 38px; font-weight: 700;
+    letter-spacing: 8px; color: #fff; margin-bottom: 14px;
+  }
+  .page-banner .en {
+    color: rgba(201,169,97,0.8); font-size: 13px; letter-spacing: 5px; margin-bottom: 18px;
+  }
+  .page-banner .desc {
+    max-width: 680px; margin: 0 auto; color: rgba(255,255,255,0.7);
+    font-size: 14px; line-height: 1.9;
+  }
+
+  /* ========== 主区 ========== */
+  main { max-width: 1280px; margin: 0 auto; padding: 60px 32px 80px; }
+  section { margin-bottom: 70px; }
+  section:last-child { margin-bottom: 0; }
+
+  .sec-title {
+    text-align: center; font-size: 28px; font-weight: 700; letter-spacing: 6px;
+    color: var(--ink); position: relative; padding-bottom: 20px; margin-bottom: 10px;
+    font-family: "STSong","SimSun",serif;
+  }
+  .sec-title::after {
+    content: ""; position: absolute; left: 50%; bottom: 0;
+    width: 56px; height: 3px; background: var(--red); transform: translateX(-50%);
+  }
+  .sec-subtitle {
+    text-align: center; color: var(--muted); font-size: 12px; letter-spacing: 4px;
+    margin-bottom: 48px;
+  }
+  .sec-desc {
+    max-width: 860px; margin: 0 auto 52px; text-align: center;
+    color: var(--muted); font-size: 14px; line-height: 2;
+  }
+
+  /* ========== 1. 精选推荐 ========== */
+  .featured-video {
+    display: grid; grid-template-columns: 1.6fr 1fr; gap: 28px; margin-bottom: 24px;
+  }
+  .player-card {
+    border: 1.5px solid var(--gold-soft); border-radius: 12px; overflow: hidden;
+    background: #000; transition: all .25s;
+  }
+  .player-card:hover { border-color: var(--gold); box-shadow: 0 12px 32px rgba(184,148,31,0.15); }
+  .player-frame {
+    position: relative; aspect-ratio: 16/9; cursor: pointer; overflow: hidden;
+  }
+  .player-frame .ph {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 30% 40%, rgba(201,169,97,0.28), transparent 60%),
+      radial-gradient(ellipse 50% 60% at 75% 70%, rgba(200,16,46,0.22), transparent 60%),
+      linear-gradient(135deg, #16241d 0%, #1F3A2E 55%, #142720 100%);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .player-frame .ph svg.skyline {
+    position: absolute; bottom: 0; left: 0; width: 100%; height: 34%; opacity: 0.5;
+  }
+  .play-btn {
+    position: relative; width: 84px; height: 84px; border-radius: 50%;
+    background: rgba(201,169,97,0.16); border: 2px solid rgba(201,169,97,0.8);
+    display: flex; align-items: center; justify-content: center;
+    transition: all .25s; backdrop-filter: blur(2px);
+  }
+  .player-frame:hover .play-btn {
+    background: var(--gold); border-color: var(--gold);
+    box-shadow: 0 0 40px rgba(201,169,97,0.5); transform: scale(1.06);
+  }
+  .play-btn svg { width: 32px; height: 32px; margin-left: 4px; fill: #fff; }
+  .player-frame .dur {
+    position: absolute; right: 14px; bottom: 12px;
+    background: rgba(0,0,0,0.65); color: #fff; font-size: 12px;
+    padding: 2px 10px; border-radius: 4px; letter-spacing: 1px;
+  }
+  .player-frame .badge-hot {
+    position: absolute; left: 14px; top: 12px;
+    background: linear-gradient(135deg, var(--red) 0%, var(--red-deep) 100%);
+    color: #fff; font-size: 12px; font-weight: 600; letter-spacing: 2px;
+    padding: 4px 12px; border-radius: 4px;
+  }
+  .player-info { background: #fff; padding: 18px 24px; }
+  .player-info h4 {
+    font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 8px;
+    font-family: "STSong","SimSun",serif;
+  }
+  .player-info .meta {
+    display: flex; gap: 18px; font-size: 12px; color: var(--muted);
+  }
+  .player-info .meta b { color: var(--gold-deep); }
+
+  /* 精选侧榜 */
+  .rank-box {
+    border: 1.5px solid var(--gold-soft); border-radius: 12px; background: #fff;
+    padding: 24px; display: flex; flex-direction: column;
+  }
+  .rank-box h4 {
+    font-size: 16px; font-weight: 700; letter-spacing: 3px; color: var(--ink);
+    margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid var(--gold);
+    font-family: "STSong","SimSun",serif;
+  }
+  .rank-box h4 .en { display: block; font-size: 11px; color: var(--muted); letter-spacing: 2px; font-weight: 400; margin-top: 2px; }
+  .rank-item {
+    display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px dashed var(--line);
+    cursor: pointer; align-items: flex-start;
+  }
+  .rank-item:last-child { border-bottom: none; }
+  .rank-item .no {
+    flex-shrink: 0; width: 24px; height: 24px; margin-top: 2px; border-radius: 6px;
+    background: var(--bg-soft); border: 1px solid var(--gold-soft);
+    color: var(--gold-deep); font-size: 13px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    font-family: "STSong",serif;
+  }
+  .rank-item:nth-child(2) .no, .rank-item:nth-child(3) .no {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-deep) 100%);
+    color: #fff; border-color: transparent;
+  }
+  .rank-item .t { font-size: 13px; font-weight: 600; color: var(--ink); line-height: 1.6; margin-bottom: 4px; transition: color .2s; }
+  .rank-item:hover .t { color: var(--red); }
+  .rank-item .m { font-size: 11px; color: var(--muted); }
+
+  /* ========== 2. 视频库 ========== */
+  .vfilter {
+    display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 36px;
+  }
+  .vfilter .fbtn {
+    font-size: 13px; letter-spacing: 2px; padding: 8px 20px; border-radius: 20px;
+    border: 1.5px solid var(--gold-soft); color: var(--muted); cursor: pointer;
+    background: #fff; transition: all .2s;
+  }
+  .vfilter .fbtn:hover { border-color: var(--gold); color: var(--gold-deep); }
+  .vfilter .fbtn.active {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-deep) 100%);
+    border-color: transparent; color: #fff; font-weight: 600;
+  }
+
+  .video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .v-card {
+    border: 1.5px solid var(--gold-soft); border-radius: 10px; background: #fff;
+    overflow: hidden; cursor: pointer; transition: all .25s;
+  }
+  .v-card:hover { border-color: var(--gold); box-shadow: 0 12px 28px rgba(184,148,31,0.12); transform: translateY(-4px); }
+  .v-card.hide { display: none; }
+  .v-thumb { position: relative; aspect-ratio: 16/9; overflow: hidden; }
+  .v-thumb .ph {
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  }
+  /* 分类配色封面 */
+  .ph.c-green { background: radial-gradient(ellipse 55% 45% at 30% 35%, rgba(201,169,97,0.3), transparent 60%), linear-gradient(135deg, #16241d, #1F3A2E 60%, #142720); }
+  .ph.c-red { background: radial-gradient(ellipse 55% 45% at 70% 35%, rgba(201,169,97,0.25), transparent 60%), linear-gradient(135deg, #5c0a17, var(--red-deep) 60%, #7c1122); }
+  .ph.c-gold { background: radial-gradient(ellipse 55% 45% at 40% 60%, rgba(255,255,255,0.18), transparent 60%), linear-gradient(135deg, #8a6d1e, var(--gold-deep) 60%, #6d5617); }
+  .ph.c-ink { background: radial-gradient(ellipse 55% 45% at 60% 30%, rgba(201,169,97,0.22), transparent 60%), linear-gradient(135deg, #111, #2a2a2a 60%, #1a1a1a); }
+  .v-thumb .ph .glyph { width: 40px; height: 40px; color: rgba(255,255,255,0.85); }
+  .v-thumb .ph .glyph svg { width: 40px; height: 40px; }
+  .v-thumb .mini-play {
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    transition: background .25s;
+  }
+  .v-thumb .mini-play .pb {
+    width: 46px; height: 46px; border-radius: 50%;
+    background: rgba(0,0,0,0.35); border: 1.5px solid rgba(255,255,255,0.85);
+    display: flex; align-items: center; justify-content: center;
+    transition: all .25s; backdrop-filter: blur(2px);
+  }
+  .v-thumb .mini-play .pb svg { width: 16px; height: 16px; margin-left: 2px; fill: #fff; }
+  .v-card:hover .mini-play { background: rgba(0,0,0,0.2); }
+  .v-card:hover .mini-play .pb { background: var(--gold); border-color: var(--gold); transform: scale(1.1); }
+  .v-thumb .dur {
+    position: absolute; right: 10px; bottom: 8px;
+    background: rgba(0,0,0,0.6); color: #fff; font-size: 11px;
+    padding: 1px 8px; border-radius: 3px;
+  }
+  .v-thumb .cat-chip {
+    position: absolute; left: 10px; top: 10px;
+    font-size: 11px; letter-spacing: 1px; padding: 2px 10px; border-radius: 3px;
+    background: rgba(0,0,0,0.45); color: var(--gold-soft); border: 1px solid rgba(201,169,97,0.5);
+  }
+  .v-info { padding: 16px 20px 18px; }
+  .v-info h4 {
+    font-size: 14.5px; font-weight: 600; color: var(--ink); line-height: 1.6;
+    margin-bottom: 8px; transition: color .2s;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .v-card:hover .v-info h4 { color: var(--red); }
+  .v-info .meta { display: flex; gap: 14px; font-size: 11.5px; color: var(--muted); flex-wrap: wrap; }
+  .v-info .meta b { color: var(--gold-deep); font-weight: 600; }
+
+  /* 上传说明条 */
+  .upload-bar {
+    margin-top: 36px; display: flex; align-items: center; gap: 18px;
+    border: 1.5px dashed var(--gold); border-radius: 10px;
+    background: linear-gradient(135deg, var(--bg-soft) 0%, #fff 100%);
+    padding: 20px 28px;
+  }
+  .upload-bar .icon { flex-shrink: 0; width: 44px; height: 44px; color: var(--gold-deep); }
+  .upload-bar .icon svg { width: 44px; height: 44px; }
+  .upload-bar .txt { flex: 1; font-size: 13px; color: var(--muted); line-height: 1.8; }
+  .upload-bar .txt b { color: var(--ink); }
+
+  /* ========== 3. 平台账号矩阵 ========== */
+  .plat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .plat-card {
+    border: 1.5px solid var(--gold-soft); border-radius: 10px; background: #fff;
+    padding: 26px 20px; text-align: center; transition: all .25s;
+  }
+  .plat-card:hover { border-color: var(--gold); box-shadow: 0 10px 28px rgba(184,148,31,0.12); transform: translateY(-4px); }
+  .plat-card .p-icon {
+    width: 52px; height: 52px; margin: 0 auto 12px; border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--bg-soft); border: 1.5px solid var(--gold-soft); color: var(--gold-deep);
+  }
+  .plat-card .p-icon svg { width: 28px; height: 28px; }
+  .plat-card h4 { font-size: 16px; font-weight: 600; letter-spacing: 2px; color: var(--ink); margin-bottom: 4px; font-family: "STSong","SimSun",serif; }
+  .plat-card .id { font-size: 12px; color: var(--gold-deep); margin-bottom: 10px; }
+  .plat-card .fans { font-family: "STSong",serif; font-size: 24px; font-weight: 700; color: var(--red); line-height: 1.1; }
+  .plat-card .fans-label { font-size: 11px; color: var(--muted); letter-spacing: 2px; margin-bottom: 14px; }
+  .plat-card .go {
+    display: inline-block; font-size: 12px; letter-spacing: 2px; color: var(--gold-deep);
+    border: 1.5px solid var(--gold); border-radius: 18px; padding: 5px 18px;
+    transition: all .2s;
+  }
+  .plat-card .go:hover { background: linear-gradient(135deg, var(--gold), var(--gold-deep)); color: #fff; }
+
+  /* ========== 页脚 ========== */
+  .footer {
+    background: linear-gradient(180deg, var(--green-deep) 0%, var(--green-darker) 100%);
+    color: rgba(255,255,255,0.7); padding: 40px 32px;
+  }
+  .footer-inner {
+    max-width: 1280px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; gap: 40px;
+  }
+  .footer-logo { display: flex; align-items: center; gap: 14px; }
+  .footer-logo .lt { color: var(--gold); font-size: 24px; font-weight: 600; letter-spacing: 4px; }
+  .footer-info { display: flex; flex-direction: column; gap: 6px; font-size: 13px; text-align: right; }
+  .footer-info b { color: var(--gold); font-weight: 600; }
+
+  /* ========== 响应式 ========== */
+  @media (max-width: 1080px) {
+    .featured-video { grid-template-columns: 1fr; }
+    .video-grid { grid-template-columns: repeat(2, 1fr); }
+    .plat-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 760px) {
+    .video-grid { grid-template-columns: 1fr; }
+    .plat-grid { grid-template-columns: 1fr; }
+    .topbar-inner { flex-wrap: wrap; padding: 0 20px; gap: 16px; }
+    .nav { margin-left: 0; }
+    .nav-row { gap: 16px; flex-wrap: wrap; }
+    .footer-inner { flex-direction: column; text-align: center; }
+    .footer-info { text-align: center; }
+    main { padding: 40px 20px; }
+    .page-banner { padding: 40px 20px 36px; }
+    .page-banner h1 { font-size: 28px; letter-spacing: 5px; }
+    .upload-bar { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== 顶部导航（真实 logo） ========== -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="./index.html" class="logo" aria-label="皓镧资产">
+      <span class="logo-card">
+        <img src="./assets/logo.jpg" alt="皓镧资产" />
+      </span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <div class="nav-row top">
+        <a href="./about.html">关于我们</a>
+        <a href="./business.html">主营业务</a>
+        <a href="./service.html">服务流程</a>
+        <a href="./team.html">精英团队</a>
+        <a href="./policy.html">政策解读</a>
+        <a href="./notice.html">企业公告</a>
+        <a href="./academy.html">皓镧商学院</a>
+        <a href="./video.html" class="active">短视频专区</a>
+        <a href="./join.html">加入我们</a>
+        <a href="./contact.html">联系我们</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- ========== 页面横幅 ========== -->
+<div class="page-banner">
+  <h1>短视频专区</h1>
+  <p class="en">SHORT VIDEO ZONE</p>
+  <p class="desc">汇集皓镧资产官方短视频内容——公司口播、活动宣传、品牌形象与金融知识科普，用镜头记录皓镧的每一个精彩瞬间。</p>
+</div>
+
+<main>
+
+  <!-- ========================================== -->
+  <!-- 1. 精选推荐 -->
+  <!-- ========================================== -->
+  <section id="featured">
+    <h2 class="sec-title">精选推荐</h2>
+    <p class="sec-subtitle">FEATURED VIDEOS</p>
+
+    <div class="featured-video">
+      <!-- 播放器 -->
+      <div class="player-card">
+        <div class="player-frame" id="mainPlayer">
+          <div class="ph">
+            <svg class="skyline" viewBox="0 0 1200 200" preserveAspectRatio="none" fill="rgba(201,169,97,0.35)">
+              <path d="M0 200 L0 140 L60 140 L60 100 L110 100 L110 150 L170 150 L170 80 L200 50 L230 80 L230 150 L300 150 L300 120 L360 120 L360 160 L430 160 L430 70 L460 40 L490 70 L490 160 L560 160 L560 110 L620 110 L620 150 L690 150 L690 90 L730 60 L770 90 L770 150 L840 150 L840 130 L900 130 L900 160 L960 160 L960 100 L1010 70 L1060 100 L1060 160 L1120 160 L1120 130 L1200 130 L1200 200 Z"/>
+            </svg>
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24"><path d="M8 5 L19 12 L8 19 Z"/></svg>
+            </div>
+            <span class="badge-hot">精选</span>
+            <span class="dur">02:45</span>
+          </div>
+        </div>
+        <div class="player-info">
+          <h4 id="playerTitle">皓镧资产 2026 品牌宣传片 · 五载同行，与您共成长</h4>
+          <div class="meta">
+            <span>分类：<b>品牌宣传片</b></span>
+            <span>播放 <b>52.8万</b></span>
+            <span>发布时间：2026-08-01</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 热播榜 -->
+      <div class="rank-box">
+        <h4>热播榜 TOP5<span class="en">TRENDING NOW</span></h4>
+        <div class="rank-item" data-title="【口播】2026 房贷利率新政三分钟看懂" data-dur="03:12" data-views="36.2万">
+          <span class="no">1</span>
+          <div><div class="t">【口播】2026 房贷利率新政三分钟看懂</div><div class="m">公司口播 · 36.2万 播放</div></div>
+        </div>
+        <div class="rank-item" data-title="皓镧资产 2026 品牌宣传片 · 五载同行" data-dur="02:45" data-views="52.8万">
+          <span class="no">2</span>
+          <div><div class="t">皓镧资产 2026 品牌宣传片 · 五载同行</div><div class="m">品牌宣传片 · 52.8万 播放</div></div>
+        </div>
+        <div class="rank-item" data-title="【活动】2026 年度战略合作签约仪式全程回顾" data-dur="04:38" data-views="28.6万">
+          <span class="no">3</span>
+          <div><div class="t">【活动】2026 年度战略合作签约仪式全程回顾</div><div class="m">活动宣传片 · 28.6万 播放</div></div>
+        </div>
+        <div class="rank-item" data-title="【科普】征信报告怎么看？这五个指标最关键" data-dur="02:58" data-views="21.4万">
+          <span class="no">4</span>
+          <div><div class="t">【科普】征信报告怎么看？这五个指标最关键</div><div class="m">知识科普 · 21.4万 播放</div></div>
+        </div>
+        <div class="rank-item" data-title="【活动】皓镧商学院首期内训营结业典礼精彩瞬间" data-dur="03:26" data-views="18.9万">
+          <span class="no">5</span>
+          <div><div class="t">【活动】皓镧商学院首期内训营结业典礼精彩瞬间</div><div class="m">活动宣传片 · 18.9万 播放</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 2. 视频库 -->
+  <!-- ========================================== -->
+  <section id="library">
+    <h2 class="sec-title">视频库</h2>
+    <p class="sec-subtitle">VIDEO LIBRARY</p>
+    <p class="sec-desc">覆盖公司口播、活动宣传、品牌形象、知识科普四大内容板块，持续更新中。</p>
+
+    <!-- 分类筛选 -->
+    <div class="vfilter" id="vfilter">
+      <div class="fbtn active" data-cat="all">全部</div>
+      <div class="fbtn" data-cat="koubo">公司口播</div>
+      <div class="fbtn" data-cat="huodong">活动宣传片</div>
+      <div class="fbtn" data-cat="pinpai">品牌宣传片</div>
+      <div class="fbtn" data-cat="kepu">知识科普</div>
+    </div>
+
+    <div class="video-grid" id="videoGrid">
+      <!-- 公司口播 -->
+      <div class="v-card" data-cat="koubo">
+        <div class="v-thumb">
+          <div class="ph c-green">
+            <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M9 9 C7.5 10 7.5 14 9 15 M13 9 C11.5 10 11.5 14 13 15 M16.5 10.5 C15.8 11.2 15.8 12.8 16.5 13.5"/></svg></span>
+          </div>
+          <div class="mini-play"><span class="pb"><svg viewBox="0 0 24 24"><path d="M8 5 L19 12 L8 19 Z"/></svg></span></div>
+          <span class="cat-chip">公司口播</span>
+          <span class="dur">03:12</span>
+        </div>
+        <div class="v-info">
+          <h4>【口播】2026 房贷利率新政三分钟看懂</h4>
+          <div class="meta"><span>播放 <b>36.2万</b></span><span>点赞 1.2万</span><span>08-12</span></div>
+        </div>
+      </div>
+      <div class="v-card" data-cat="koubo">
+        <div class="v-thumb">
+          <div class="ph c-green">
+            <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M9 9 C7.5 10 7.5 14 9 15 M13 9 C11.5 10 11.5 14 13 15"/></svg></span>
+          </div>
+          <div class="mini-play"><span class="pb"><svg viewBox="0 0 24 24"><path d="M8 5 L19 12 L8 19 Z"/></svg></span></div>
+          <span class="cat-chip">公司口播</span>
+          <span class="dur">02:36</span>
+        </div>
+        <div class="v-info">
+          <h4>【口播】企业经营贷的三大误区，你踩过几个？</h4>
+          <div class="meta"><span>播放 <b>15.7万</b></span><span>点赞 8,600</span><span>08-05</span></div>
+        </div>
+      </div>
+      <div class="v-card" data-cat="koubo">
+        <div class="v-thumb">
+          <div class="ph c-green">
+            <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M12 9 L12 15 M9 12 L15 12"/></svg></span>
+          </div>
+          <div class="mini-play"><span class="pb"><svg viewBox="0 0 24 24"><path d="M8 5 L19 12 L8 19 Z"/></svg></span></div>
+          <span class="cat-chip">公司口播</span>
+          <span class="dur">02:18</span>
+        </div>
+        <div class="v-info">
+          <h4>【口播】融资避坑第一课：先看资质，再谈利率</h4>
+          <div class="meta"><span>播放 <b>12.3万</b></span><span>点赞 7,200</span><span>07-28</span></div>
+        </div>
+      </div>
+
+      <!-- 活动宣传片 -->
+      <div class="v-card" data-cat="huodong">
+        <div class="v-thumb">
+          <div class="ph c-red">
+            <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 21 L4 8 L12 3 L20 8 L20 21"/><path d="M9 21 L9 13 L15 13 L15 21"/><path d="M2 21 L22 21"/></svg></span>
+          </div>
+          <div class="mini-play"><span class="pb"><svg viewBox="0 0 24 24"><path d="M8 5 L19 12 L8 19 Z"/></svg></span></div>
+          <span class="cat-chip">活动宣传片</span>
+          <span class="dur">04:38</span>
+        </div>
+        <div class="v-info">
+          <h4>【活动】2026 年度战略合作签约仪式全程回顾</h4>
+          <div class="meta"><span>播放 <b>28.6万</b></span><span>点赞 9,800</span><span>08-10</span></div>
+        </div>
+      </div>
+      <div class="v-card" data-cat="huodong">
+        <div class="v-thumb">
+          <div class="ph c-red">
+            <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3 L14.5 8.5 L20.5 9.2 L16 13.3 L17.3 19.5 L12 16.4 L6.7 19.5 L8 13.3 L3.5 9.2 L9.5 8.5 Z"/></svg></span>
+          </div>
+          <div class="mini-play"><span class="pb"><svg viewBox="0 0 24 24"><path d="M8 5 L19 12 L8 19 Z"/></svg></span></div>
+          <span class="cat-chip">活动宣传片</span>
+          <span class="dur">03:26</span>
+        </div>
+        <div class="v-info">
+          <h4>【活动】皓镧商学院首期内训营结业典礼精彩瞬间</h4>
+          <div class="meta"><span>播放 <b>18.9万</b></span><span>点赞 6,500</span><span>07-18</span></div>
+        </div>
+      </div>
+      <div class="v-card" data-cat="huodong">
+        <div class="v-thumb">
+          <div class="ph c-red">
+            <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7 L12 12 L15.5 14"/></svg></span>
+          </div>
+          <div class="mini-play"><span class="pb"><svg viewBox="0 0 24 24"><path d="M8 5 L19 12 L8 19 Z"/></svg></span></div>
+          <span class="cat-chip">活动宣传片</span>
+          <span class="dur">02:52</span>
+        </div>
+        <div class="v-info">
+          <h4>【活动】社区金融公益科普活动 · 走进阳光社区</h4>
+          <div class="meta"><span>播放 <b>9.6万</b></span><span>点赞 4,300</span><span>06-30</span></div>
+        </div>
+      </div>
+
+      <!-- 品牌宣传片 -->
+      <div class="v-card" data-cat="pinpai">
+        <div class="v-thumb">
+          <div class="ph c-gold">
+            <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M32 4 L58 18 L58 46 L32 60 L6 46 L6 18 Z" transform="scale(0.3) translate(8,8)"/><path d="M12 2 L15 8.5 L22 9.5 L17 14.5 L18 21.5 L12 18 L6 21.5 L7 14.5 L2 9.5 L9 8.5 Z"/></svg></span>
+          </div>
+          <div class="mini-play"><span class="pb"><svg viewBox="0 0 24 24"><path d="M8 5 L19 12 L8 19 Z"/></svg></span></div>
+          <span class="cat-chip">品牌宣传片</span>
+          <span class="dur">02:45</span>
+        </div>
+        <div class="v-info">
+          <h4>皓镧资产 2026 品牌宣传片 · 五载同行，与您共成长</h4>
+          <div class="meta"><span>播放 <b>52.8万</b></span><span>点赞 2.1万</span><span>08-01</span></div>
+        </div>
+      </div>
+      <div class="v-card" data-cat="pinpai">
+        <div class="v-thumb">
+          <div class="ph c-gold">
+            <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7 L4 17 L9 17 L9 7 Z"/><path d="M10 7 L10 17 L15 17 L15 7 Z"/><path d="M16 8 L20 8 L20 16 L16 16 Z"/><path d="M2 19 L22 19"/></svg></span>
+          </div>
+          <div class="mini-play"><span class="pb"><svg viewBox="0 0 24 24"><path d="M8 5 L19 12 L8 19 Z"/></svg></span></div>
+          <span class="cat-chip">品牌宣传片</span>
+          <span class="dur">01:58</span>
+        </div>
+        <div class="v-info">
+          <h4>新品牌「皓镧奢选」首发形象片</h4>
+          <div class="meta"><span>播放 <b>24.5万</b></span><span>点赞 1.1万</span><span>05-20</span></div>
+        </div>
+      </div>
+      <div class="v-card" data-cat="pinpai">
+        <div class="v-thumb">
+          <div class="ph c-gold">
+            <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10 L8 7 C8 5 9.5 4 12 4 C14.5 4 16 5 16 7 L16 10"/><circle cx="12" cy="15" r="1.5"/></svg></span>
+          </div>
+          <div class="mini-play"><span class="pb"><svg viewBox="0 0 24 24"><path d="M8 5 L19 12 L8 19 Z"/></svg></span></div>
+          <span class="cat-chip">品牌宣传片</span>
+          <span class="dur">03:05</span>
+        </div>
+        <div class="v-info">
+          <h4>皓镧资产五周年 · 时间里的答案</h4>
+          <div class="meta"><span>播放 <b>31.2万</b></span><span>点赞 1.5万</span><span>05-08</span></div>
+        </div>
+      </div>
+
+      <!-- 知识科普 -->
+      <div class="v-card" data-cat="kepu">
+        <div class="v-thumb">
+          <div class="ph c-ink">
+            <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 4 L19 4 L19 18 L15 18 L12 21 L9 18 L5 18 Z"/><path d="M9 9 L15 9 M9 13 L13 13"/></svg></span>
+          </div>
+          <div class="mini-play"><span class="pb"><svg viewBox="0 0 24 24"><path d="M8 5 L19 12 L8 19 Z"/></svg></span></div>
+          <span class="cat-chip">知识科普</span>
+          <span class="dur">02:58</span>
+        </div>
+        <div class="v-info">
+          <h4>【科普】征信报告怎么看？这五个指标最关键</h4>
+          <div class="meta"><span>播放 <b>21.4万</b></span><span>点赞 1.3万</span><span>08-08</span></div>
+        </div>
+      </div>
+      <div class="v-card" data-cat="kepu">
+        <div class="v-thumb">
+          <div class="ph c-ink">
+            <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 8 L12 12"/><path d="M8.5 14.5 C9.5 13.5 10.6 13 12 13 C13.4 13 14.5 13.5 15.5 14.5"/></svg></span>
+          </div>
+          <div class="mini-play"><span class="pb"><svg viewBox="0 0 24 24"><path d="M8 5 L19 12 L8 19 Z"/></svg></span></div>
+          <span class="cat-chip">知识科普</span>
+          <span class="dur">02:24</span>
+        </div>
+        <div class="v-info">
+          <h4>【科普】抵押贷款 vs 信用贷款，一张图讲清楚</h4>
+          <div class="meta"><span>播放 <b>16.8万</b></span><span>点赞 9,400</span><span>07-22</span></div>
+        </div>
+      </div>
+      <div class="v-card" data-cat="kepu">
+        <div class="v-thumb">
+          <div class="ph c-ink">
+            <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3 L2 8 L12 13 L22 8 Z"/><path d="M6 10.5 L6 15 C6 17 8.5 18.5 12 18.5 C15.5 18.5 18 17 18 15 L18 10.5"/></svg></span>
+          </div>
+          <div class="mini-play"><span class="pb"><svg viewBox="0 0 24 24"><path d="M8 5 L19 12 L8 19 Z"/></svg></span></div>
+          <span class="cat-chip">知识科普</span>
+          <span class="dur">03:40</span>
+        </div>
+        <div class="v-info">
+          <h4>【科普】小微企业融资政策红利，别再错过</h4>
+          <div class="meta"><span>播放 <b>11.2万</b></span><span>点赞 5,800</span><span>07-10</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 上传说明 -->
+    <div class="upload-bar">
+      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 16 L12 4 M7 9 L12 4 L17 9"/><path d="M4 16 L4 19 C4 20 5 21 6 21 L18 21 C19 21 20 20 20 19 L20 16"/></svg></div>
+      <div class="txt"><b>内容持续上传中：</b>本专区将陆续上传公司口播视频、活动宣传片、品牌形象片与金融知识科普内容。视频来源为皓镧资产互联网部官方摄制，正式上线后将替换为可直接播放的视频源，敬请期待。</div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 3. 平台账号矩阵 -->
+  <!-- ========================================== -->
+  <section id="platforms">
+    <h2 class="sec-title">平台账号矩阵</h2>
+    <p class="sec-subtitle">FOLLOW US</p>
+    <p class="sec-desc">皓镧资产官方新媒体矩阵，同名账号全网同步更新，关注我们获取第一手内容。</p>
+
+    <div class="plat-grid">
+      <div class="plat-card">
+        <div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M16.5 3 C13 3 10.5 5.4 10.5 8.8 C10.5 9.3 10.6 9.9 10.7 10.3 C7 10.6 4 8.7 1.8 5.6 C1.4 6.4 1.2 7.4 1.2 8.4 C1.2 10.4 2.2 12.1 3.7 13.1 C2.8 13 1.9 12.7 1.2 12.3 C1.2 15.1 3.1 17.3 5.6 17.9 C4.8 18.2 3.8 18.3 2.9 18.1 C3.8 20.2 5.8 21.6 8.1 21.7 C6 23.4 3.4 24.2 0.6 24.2 C6 24.2 11 22 14 18.4 C16.4 15.5 17.8 11.8 17.8 8.5 L17.8 8.5 C18.6 7.9 19.3 7.2 19.8 6.3 C19 6.7 18.2 7 17.3 7.1 C18.2 6.5 18.9 5.6 19.2 4.6 C18.3 5.2 17.4 5.6 16.4 5.9 C15.6 5 14.5 4.4 13.3 4.4"/></svg></div>
+        <h4>抖音</h4>
+        <div class="id">@皓镧资产官方</div>
+        <div class="fans">18.6万</div>
+        <div class="fans-label">粉丝</div>
+        <a class="go" href="#">关注账号</a>
+      </div>
+      <div class="plat-card">
+        <div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 C6.5 2 2 5.9 2 10.8 C2 13.5 3.4 15.9 5.7 17.5 L5.7 21.5 L9.5 19.5 C10.3 19.7 11.1 19.7 12 19.7 C17.5 19.7 22 15.8 22 10.8 C22 5.9 17.5 2 12 2 Z"/><path d="M8.5 9.5 L15.5 9.5 M8.5 13 L12.5 13"/></svg></div>
+        <h4>微信视频号</h4>
+        <div class="id">皓镧资产</div>
+        <div class="fans">12.4万</div>
+        <div class="fans-label">粉丝</div>
+        <a class="go" href="#">关注账号</a>
+      </div>
+      <div class="plat-card">
+        <div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="6" width="18" height="12" rx="4"/><path d="M10 9.5 L15 12 L10 14.5 Z"/></svg></div>
+        <h4>哔哩哔哩</h4>
+        <div class="id">皓镧资产Official</div>
+        <div class="fans">6.8万</div>
+        <div class="fans-label">粉丝</div>
+        <a class="go" href="#">关注账号</a>
+      </div>
+      <div class="plat-card">
+        <div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4 L20 4 L20 20 L16 20 L12 23 L8 20 L4 20 Z"/><path d="M9 10 L15 10 M9 14 L13 14"/></svg></div>
+        <h4>小红书</h4>
+        <div class="id">皓镧资产</div>
+        <div class="fans">4.2万</div>
+        <div class="fans-label">粉丝</div>
+        <a class="go" href="#">关注账号</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ========== 页脚 ========== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <svg class="logo-mark" width="44" height="44" viewBox="0 0 64 64" fill="none">
+        <path d="M32 4 L58 18 L58 46 L32 60 L6 46 L6 18 Z" stroke="#C9A961" stroke-width="3" fill="none"/>
+        <path d="M22 22 L42 22 M22 32 L42 32 M22 42 L32 42" stroke="#C9A961" stroke-width="3"/>
+      </svg>
+      <span class="lt">皓镧资产</span>
+    </div>
+    <div class="footer-info">
+      <div><b>联系电话：</b>010-8888 8888</div>
+      <div><b>邮箱：</b>hr@haolanzichan.cn</div>
+      <div><b>地址：</b>北京市朝阳区金融街 · 财富中心</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // 分类筛选
+  document.querySelectorAll('#vfilter .fbtn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('#vfilter .fbtn').forEach(function(b) { b.classList.remove('active'); });
+      this.classList.add('active');
+      var cat = this.getAttribute('data-cat');
+      document.querySelectorAll('#videoGrid .v-card').forEach(function(card) {
+        card.classList.toggle('hide', cat !== 'all' && card.getAttribute('data-cat') !== cat);
+      });
+    });
+  });
+
+  // 点击视频卡片 / 热播榜 → 更新播放器标题
+  var playerTitle = document.getElementById('playerTitle');
+  document.querySelectorAll('#videoGrid .v-card').forEach(function(card) {
+    card.addEventListener('click', function() {
+      playerTitle.textContent = this.querySelector('h4').textContent;
+      document.getElementById('featured').scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+  document.querySelectorAll('.rank-item').forEach(function(item) {
+    item.addEventListener('click', function() {
+      playerTitle.textContent = this.getAttribute('data-title');
+      var dur = document.querySelector('#mainPlayer .dur');
+      if (dur) dur.textContent = this.getAttribute('data-dur');
+    });
+  });
+</script>
+</body>
+</html>

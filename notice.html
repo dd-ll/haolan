@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>企业公告 - 皓镧资产</title>
+<style>
+  /* ========== 品牌变量 ========== */
+  :root {
+    --gold: #C9A961;
+    --gold-deep: #B8941F;
+    --gold-soft: #E8D9A8;
+    --red: #C8102E;
+    --red-deep: #B91D2E;
+    --green-deep: #1F3A2E;
+    --green-darker: #142720;
+    --ink: #1A1A1A;
+    --muted: #6B6B6B;
+    --line: #E8E2D4;
+    --bg: #FFFFFF;
+    --bg-soft: #FAF6EC;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Microsoft YaHei", "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  /* ========== 顶部黑色导航（单层 10 项） ========== */
+  .topbar { background: #111; color: #fff; border-bottom: 1px solid rgba(201,169,97,0.18); }
+  .topbar-inner { max-width: 1280px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; gap: 36px; }
+  .logo { display: flex; align-items: center; padding: 14px 0; flex-shrink: 0; }
+  .logo-card {
+    display: inline-flex; align-items: center; background: #fff;
+    padding: 8px 16px; border-radius: 4px; height: 56px;
+    box-shadow: 0 0 0 1px rgba(201,169,97,0.25);
+  }
+  .logo-card img { height: 44px; width: auto; display: block; }
+  .nav { display: flex; flex-direction: column; gap: 6px; margin-left: auto; padding: 14px 0; }
+  .nav-row { display: flex; gap: 30px; font-size: 14px; }
+  .nav-row.top a { color: rgba(255,255,255,0.85); transition: color .2s; padding: 4px 0; white-space: nowrap; }
+  .nav-row.top a:hover, .nav-row.top a.active { color: var(--gold); }
+
+  /* ========== 页面横幅 ========== */
+  .page-banner {
+    background: linear-gradient(135deg, var(--green-deep) 0%, #2a4a3a 100%);
+    padding: 60px 32px 50px; text-align: center; position: relative; overflow: hidden;
+  }
+  .page-banner::before {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .page-banner h1 {
+    font-family: "STSong","SimSun",serif; font-size: 38px; font-weight: 700;
+    letter-spacing: 8px; color: #fff; margin-bottom: 14px;
+  }
+  .page-banner .en {
+    color: rgba(201,169,97,0.8); font-size: 13px; letter-spacing: 5px; margin-bottom: 18px;
+  }
+  .page-banner .desc {
+    max-width: 680px; margin: 0 auto; color: rgba(255,255,255,0.7);
+    font-size: 14px; line-height: 1.9;
+  }
+
+  /* ========== 主区 ========== */
+  main { max-width: 1280px; margin: 0 auto; padding: 60px 32px 80px; }
+  section { margin-bottom: 70px; }
+  section:last-child { margin-bottom: 0; }
+
+  .sec-title {
+    text-align: center; font-size: 28px; font-weight: 700; letter-spacing: 6px;
+    color: var(--ink); position: relative; padding-bottom: 20px; margin-bottom: 10px;
+    font-family: "STSong","SimSun",serif;
+  }
+  .sec-title::after {
+    content: ""; position: absolute; left: 50%; bottom: 0;
+    width: 56px; height: 3px; background: var(--red); transform: translateX(-50%);
+  }
+  .sec-subtitle {
+    text-align: center; color: var(--muted); font-size: 12px; letter-spacing: 4px;
+    margin-bottom: 48px;
+  }
+  .sec-desc {
+    max-width: 860px; margin: 0 auto 52px; text-align: center;
+    color: var(--muted); font-size: 14px; line-height: 2;
+  }
+
+  /* ========== 1. 公司动态 ========== */
+  /* 置顶公告条 */
+  .notice-bar {
+    display: flex; align-items: center; gap: 16px;
+    border: 1.5px solid var(--gold); border-radius: 10px;
+    background: linear-gradient(135deg, var(--bg-soft) 0%, #fff 100%);
+    padding: 18px 28px; margin-bottom: 40px; transition: all .25s;
+  }
+  .notice-bar:hover { box-shadow: 0 8px 24px rgba(184,148,31,0.12); }
+  .notice-bar .pin-badge {
+    flex-shrink: 0; display: flex; align-items: center; gap: 6px;
+    background: var(--red); color: #fff; font-size: 12px; font-weight: 600;
+    padding: 5px 14px; border-radius: 4px; letter-spacing: 1px;
+  }
+  .notice-bar .pin-badge svg { width: 14px; height: 14px; }
+  .notice-bar .nb-content { flex: 1; min-width: 0; }
+  .notice-bar .nb-content h4 {
+    font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 4px;
+  }
+  .notice-bar .nb-content p { font-size: 13px; color: var(--muted); }
+  .notice-bar .nb-date { flex-shrink: 0; font-size: 13px; color: var(--gold); font-weight: 600; }
+
+  /* 动态时间线 */
+  .dyna-layout { display: grid; grid-template-columns: 1fr 340px; gap: 40px; }
+
+  .dyna-timeline { position: relative; padding-left: 28px; }
+  .dyna-timeline::before {
+    content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px;
+    width: 2px; background: linear-gradient(180deg, var(--gold), var(--gold-soft));
+  }
+  .dyna-item { position: relative; margin-bottom: 28px; }
+  .dyna-item:last-child { margin-bottom: 0; }
+  .dyna-item::before {
+    content: ""; position: absolute; left: -25px; top: 6px;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: #fff; border: 2.5px solid var(--gold);
+    transition: all .25s;
+  }
+  .dyna-item:hover::before { border-color: var(--red); background: var(--red); }
+  .dyna-item .di-date {
+    font-size: 12px; color: var(--gold-deep); font-weight: 600; letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  .dyna-card {
+    border: 1.5px solid var(--gold-soft); border-radius: 10px;
+    background: #fff; padding: 22px 28px; transition: all .25s; cursor: pointer;
+  }
+  .dyna-card:hover {
+    border-color: var(--gold); box-shadow: 0 10px 28px rgba(184,148,31,0.1);
+    transform: translateX(4px);
+  }
+  .dyna-card .di-tags { display: flex; gap: 8px; margin-bottom: 10px; }
+  .dyna-card .di-tag {
+    font-size: 11px; padding: 3px 10px; border-radius: 3px; letter-spacing: 1px;
+  }
+  .dyna-card .di-tag.cat { background: var(--gold); color: #fff; }
+  .dyna-card .di-tag.cat.red { background: var(--red); }
+  .dyna-card .di-tag.cat.green { background: var(--green-deep); }
+  .dyna-card h4 {
+    font-size: 17px; font-weight: 600; color: var(--ink); line-height: 1.5;
+    margin-bottom: 8px; font-family: "STSong","SimSun",serif;
+    transition: color .2s;
+  }
+  .dyna-card:hover h4 { color: var(--red); }
+  .dyna-card p { font-size: 13px; color: var(--muted); line-height: 1.8; }
+  .dyna-card .di-meta {
+    display: flex; gap: 16px; margin-top: 12px; font-size: 12px; color: var(--muted);
+  }
+
+  /* 公司动态 - 侧边栏 */
+  .dyna-side { display: flex; flex-direction: column; gap: 28px; }
+  .side-box {
+    border: 1.5px solid var(--gold-soft); border-radius: 10px;
+    background: var(--bg-soft); padding: 24px;
+  }
+  .side-box h4 {
+    font-size: 16px; font-weight: 700; color: var(--ink);
+    letter-spacing: 3px; margin-bottom: 18px; padding-bottom: 12px;
+    border-bottom: 2px solid var(--gold);
+    font-family: "STSong","SimSun",serif;
+  }
+  .side-box h4 .en { font-size: 11px; color: var(--muted); letter-spacing: 2px; font-weight: 400; display: block; margin-top: 2px; }
+
+  /* 数据概览 */
+  .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .stat-item {
+    text-align: center; border: 1px solid var(--gold-soft); border-radius: 8px;
+    background: #fff; padding: 18px 12px;
+  }
+  .stat-item .num {
+    font-family: "STSong",serif; font-size: 28px; font-weight: 700;
+    color: var(--red); line-height: 1; margin-bottom: 6px;
+  }
+  .stat-item .label { font-size: 12px; color: var(--muted); letter-spacing: 1px; }
+
+  /* 动态日历 */
+  .cal-box { }
+  .cal-box .cal-month {
+    font-size: 14px; font-weight: 600; color: var(--ink); text-align: center;
+    margin-bottom: 14px; letter-spacing: 2px;
+  }
+  .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+  .cal-grid .cal-h {
+    text-align: center; font-size: 11px; color: var(--muted); padding: 4px 0;
+  }
+  .cal-grid .cal-d {
+    text-align: center; font-size: 12px; color: var(--ink); padding: 6px 0;
+    border-radius: 4px; cursor: pointer; transition: all .2s;
+  }
+  .cal-grid .cal-d:hover { background: var(--gold-soft); }
+  .cal-grid .cal-d.has-event {
+    color: #fff; background: var(--gold); font-weight: 600;
+  }
+  .cal-grid .cal-d.has-event.red { background: var(--red); }
+  .cal-grid .cal-d.empty { color: transparent; }
+  .cal-box .cal-legend {
+    display: flex; justify-content: center; gap: 16px; margin-top: 14px;
+    font-size: 11px; color: var(--muted);
+  }
+  .cal-box .cal-legend span { display: flex; align-items: center; gap: 4px; }
+  .cal-box .cal-legend i {
+    display: inline-block; width: 10px; height: 10px; border-radius: 2px;
+  }
+  .cal-box .cal-legend i.gold { background: var(--gold); }
+  .cal-box .cal-legend i.red { background: var(--red); }
+
+  /* ========== 2. 客户案例 + 服务优势 ========== */
+  /* 精选案例 */
+  .case-featured {
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 0;
+    border: 1.5px solid var(--gold); border-radius: 12px; overflow: hidden;
+    background: #fff; margin-bottom: 32px; transition: all .25s;
+  }
+  .case-featured:hover { box-shadow: 0 16px 40px rgba(184,148,31,0.14); }
+  .case-featured .cf-visual {
+    background: linear-gradient(135deg, #1F3A2E 0%, #2d5a42 100%);
+    padding: 40px 36px; display: flex; flex-direction: column; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .case-featured .cf-visual::before {
+    content: ""; position: absolute; top: 0; right: 0; width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(201,169,97,0.15), transparent 70%);
+  }
+  .case-featured .cf-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(201,169,97,0.2); color: var(--gold);
+    font-size: 12px; padding: 5px 14px; border-radius: 20px; letter-spacing: 1px;
+    margin-bottom: 16px; width: fit-content;
+  }
+  .case-featured .cf-badge svg { width: 14px; height: 14px; }
+  .case-featured .cf-visual h3 {
+    font-family: "STSong","SimSun",serif; font-size: 24px; font-weight: 700;
+    color: #fff; margin-bottom: 14px; line-height: 1.4;
+  }
+  .case-featured .cf-visual .cf-summary {
+    font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.9; margin-bottom: 20px;
+  }
+  .case-featured .cf-visual .cf-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+  .case-featured .cf-visual .cf-tags span {
+    font-size: 11px; padding: 4px 12px; border-radius: 20px;
+    border: 1px solid rgba(201,169,97,0.4); color: var(--gold); letter-spacing: 1px;
+  }
+  .case-featured .cf-body { padding: 36px; display: flex; flex-direction: column; }
+  .case-featured .cf-body .cf-label {
+    font-size: 12px; color: var(--gold-deep); font-weight: 600; letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+  .case-featured .cf-body .cf-quote {
+    font-size: 15px; color: var(--ink); line-height: 2; margin-bottom: 20px;
+    font-style: italic; border-left: 3px solid var(--gold); padding-left: 16px;
+  }
+  .case-featured .cf-body .cf-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    padding: 18px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    margin-bottom: 18px;
+  }
+  .case-featured .cf-body .cf-stats .st { text-align: center; }
+  .case-featured .cf-body .cf-stats .st .v {
+    font-family: "STSong",serif; font-size: 22px; font-weight: 700;
+    color: var(--red); line-height: 1;
+  }
+  .case-featured .cf-body .cf-stats .st .l {
+    font-size: 11px; color: var(--muted); margin-top: 4px; letter-spacing: 1px;
+  }
+  .case-featured .cf-body .cf-client {
+    font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 8px;
+  }
+  .case-featured .cf-body .cf-client b { color: var(--ink); font-weight: 600; }
+
+  /* 案例列表 */
+  .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 48px; }
+  .case-card {
+    border: 1.5px solid var(--gold-soft); border-radius: 12px; overflow: hidden;
+    background: #fff; transition: all .25s; cursor: pointer;
+    display: flex; flex-direction: column;
+  }
+  .case-card:hover {
+    border-color: var(--gold); transform: translateY(-4px);
+    box-shadow: 0 16px 36px rgba(184,148,31,0.12);
+  }
+  .case-banner {
+    height: 90px; display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .case-banner svg { width: 40px; height: 40px; opacity: 0.9; }
+  .case-banner.b1 { background: linear-gradient(135deg, #C8102E, #e63950); }
+  .case-banner.b2 { background: linear-gradient(135deg, #1F3A2E, #2d5a42); }
+  .case-banner.b3 { background: linear-gradient(135deg, #B8941F, #D4AF37); }
+  .case-banner .case-badge {
+    position: absolute; top: 8px; right: 8px; font-size: 11px;
+    color: #fff; background: rgba(0,0,0,0.25); padding: 2px 10px; border-radius: 3px;
+  }
+  .case-body { padding: 22px 24px 24px; flex: 1; display: flex; flex-direction: column; }
+  .case-body h4 {
+    font-size: 16px; font-weight: 700; color: var(--ink); letter-spacing: 1px;
+    margin-bottom: 8px; line-height: 1.5; font-family: "STSong","SimSun",serif;
+    transition: color .2s;
+  }
+  .case-card:hover .case-body h4 { color: var(--red); }
+  .case-body .case-meta {
+    display: flex; gap: 12px; margin-bottom: 10px; flex-wrap: wrap;
+  }
+  .case-body .case-meta span {
+    font-size: 11px; padding: 2px 8px; border-radius: 3px;
+    background: var(--bg-soft); color: var(--gold-deep); letter-spacing: 1px;
+  }
+  .case-body p { font-size: 13px; color: var(--muted); line-height: 1.8; flex: 1; margin-bottom: 14px; }
+  .case-body .case-footer {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 12px; border-top: 1px dashed var(--gold-soft); padding-top: 12px;
+  }
+  .case-body .case-footer .amount { color: var(--red); font-weight: 600; font-size: 13px; }
+  .case-body .case-footer .date { color: var(--muted); }
+
+  /* 服务优势 */
+  .adv-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .adv-card {
+    border: 1.5px solid var(--gold); border-radius: 12px;
+    background: linear-gradient(180deg, #fff 0%, var(--bg-soft) 100%);
+    padding: 32px 24px; text-align: center; transition: all .25s; cursor: pointer;
+  }
+  .adv-card:hover {
+    transform: translateY(-4px); box-shadow: 0 16px 36px rgba(184,148,31,0.16);
+  }
+  .adv-icon {
+    width: 60px; height: 60px; border-radius: 50%; margin: 0 auto 18px;
+    display: flex; align-items: center; justify-content: center;
+    border: 2px solid var(--gold);
+  }
+  .adv-icon svg { width: 28px; height: 28px; color: var(--gold-deep); }
+  .adv-card:nth-child(1) .adv-icon { background: rgba(200,16,46,0.08); border-color: var(--red); }
+  .adv-card:nth-child(1) .adv-icon svg { color: var(--red); }
+  .adv-card:nth-child(2) .adv-icon { background: rgba(31,58,46,0.08); border-color: var(--green-deep); }
+  .adv-card:nth-child(2) .adv-icon svg { color: var(--green-deep); }
+  .adv-card:nth-child(3) .adv-icon { background: rgba(184,148,31,0.1); border-color: var(--gold-deep); }
+  .adv-card:nth-child(3) .adv-icon svg { color: var(--gold-deep); }
+  .adv-card:nth-child(4) .adv-icon { background: rgba(201,169,97,0.1); border-color: var(--gold); }
+  .adv-card:nth-child(4) .adv-icon svg { color: var(--gold-deep); }
+  .adv-card h4 {
+    font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: 1px;
+    margin-bottom: 10px; font-family: "STSong","SimSun",serif;
+  }
+  .adv-card p { font-size: 13px; color: var(--muted); line-height: 1.9; }
+
+  /* ========== 3. 服务场景展示 ========== */
+  .scene-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .scene-card {
+    border: 1.5px solid var(--gold-soft); border-radius: 12px; overflow: hidden;
+    background: #fff; transition: all .25s; cursor: pointer;
+  }
+  .scene-card:hover {
+    border-color: var(--gold); transform: translateY(-4px);
+    box-shadow: 0 16px 36px rgba(184,148,31,0.12);
+  }
+  .scene-banner {
+    height: 140px; position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .scene-banner svg { width: 48px; height: 48px; opacity: 0.85; z-index: 1; }
+  .scene-banner::after {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(circle at 70% 30%, rgba(255,255,255,0.15), transparent 60%);
+  }
+  .scene-banner.s1 { background: linear-gradient(135deg, #8E0A1F 0%, #C8102E 100%); }
+  .scene-banner.s2 { background: linear-gradient(135deg, #1F3A2E 0%, #2d5a42 100%); }
+  .scene-banner.s3 { background: linear-gradient(135deg, #B8941F 0%, #D4AF37 100%); }
+  .scene-banner.s4 { background: linear-gradient(135deg, #2a4a3a 0%, #1F3A2E 100%); }
+  .scene-banner.s5 { background: linear-gradient(135deg, #B91D2E 0%, #8E0A1F 100%); }
+  .scene-banner.s6 { background: linear-gradient(135deg, #B4941F 0%, #B8941F 100%); }
+  .scene-banner .scene-label {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: linear-gradient(180deg, transparent, rgba(0,0,0,0.4));
+    padding: 12px 20px 10px; color: #fff;
+    font-size: 11px; letter-spacing: 2px; z-index: 2;
+  }
+  .scene-body { padding: 24px 26px 28px; }
+  .scene-body h4 {
+    font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: 1px;
+    margin-bottom: 10px; font-family: "STSong","SimSun",serif;
+    transition: color .2s;
+  }
+  .scene-card:hover .scene-body h4 { color: var(--red); }
+  .scene-body p { font-size: 13px; color: var(--muted); line-height: 1.9; margin-bottom: 16px; }
+  .scene-body .scene-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .scene-body .scene-tags span {
+    font-size: 11px; padding: 4px 12px; border-radius: 20px;
+    border: 1px solid var(--gold-soft); color: var(--gold-deep);
+    background: var(--bg-soft); letter-spacing: 1px;
+  }
+
+  /* ========== 页脚 ========== */
+  .footer {
+    background: linear-gradient(180deg, var(--green-deep) 0%, var(--green-darker) 100%);
+    color: rgba(255,255,255,0.7); padding: 40px 32px;
+  }
+  .footer-inner {
+    max-width: 1280px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; gap: 40px;
+  }
+  .footer-logo { display: flex; align-items: center; gap: 14px; }
+  .footer-logo .lt { color: var(--gold); font-size: 24px; font-weight: 600; letter-spacing: 4px; }
+  .footer-info { display: flex; flex-direction: column; gap: 6px; font-size: 13px; text-align: right; }
+  .footer-info b { color: var(--gold); font-weight: 600; }
+
+  /* ========== 响应式 ========== */
+  @media (max-width: 1080px) {
+    .dyna-layout { grid-template-columns: 1fr; }
+    .case-featured { grid-template-columns: 1fr; }
+    .case-grid { grid-template-columns: repeat(2, 1fr); }
+    .adv-grid { grid-template-columns: repeat(2, 1fr); }
+    .scene-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 760px) {
+    .case-grid { grid-template-columns: 1fr; }
+    .adv-grid { grid-template-columns: 1fr; }
+    .scene-grid { grid-template-columns: 1fr; }
+    .topbar-inner { flex-wrap: wrap; padding: 0 20px; gap: 16px; }
+    .nav { margin-left: 0; }
+    .nav-row { gap: 16px; flex-wrap: wrap; }
+    .footer-inner { flex-direction: column; text-align: center; }
+    .footer-info { text-align: center; }
+    main { padding: 40px 20px; }
+    .page-banner { padding: 40px 20px 36px; }
+    .page-banner h1 { font-size: 28px; letter-spacing: 5px; }
+    .notice-bar { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .stat-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== 顶部导航（真实 logo） ========== -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="./index.html" class="logo" aria-label="皓镧资产">
+      <span class="logo-card">
+        <img src="./assets/logo.jpg" alt="皓镧资产" />
+      </span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <div class="nav-row top">
+        <a href="./about.html">关于我们</a>
+        <a href="./business.html">主营业务</a>
+        <a href="./service.html">服务流程</a>
+        <a href="./team.html">精英团队</a>
+        <a href="./policy.html">政策解读</a>
+        <a href="./notice.html" class="active">企业公告</a>
+        <a href="./academy.html">皓镧商学院</a>
+        <a href="./video.html">短视频专区</a>
+        <a href="./join.html">加入我们</a>
+        <a href="./contact.html">联系我们</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- ========== 页面横幅 ========== -->
+<div class="page-banner">
+  <h1>企业公告</h1>
+  <p class="en">COMPANY ANNOUNCEMENTS</p>
+  <p class="desc">发布皓镧资产最新公司动态、客户服务案例与核心优势、服务场景展示，让您第一时间了解皓镧的成长足迹与服务实力。</p>
+</div>
+
+<main>
+
+  <!-- ========================================== -->
+  <!-- 1. 公司动态 -->
+  <!-- ========================================== -->
+  <section id="dynamics">
+    <h2 class="sec-title">公司动态</h2>
+    <p class="sec-subtitle">COMPANY DYNAMICS</p>
+    <p class="sec-desc">记录皓镧资产发展的每一个重要时刻——从公司成立到业务拓展，从团队建设到品牌升级，每一步都脚踏实地。</p>
+
+    <!-- 置顶公告 -->
+    <div class="notice-bar">
+      <div class="pin-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 L14 8 L20 8 L15 12 L17 18 L12 14 L7 18 L9 12 L4 8 L10 8 Z"/></svg>
+        置顶公告
+      </div>
+      <div class="nb-content">
+        <h4>皓镧资产 2026 年度战略合作签约仪式圆满举行</h4>
+        <p>公司与多家银行机构签署年度战略合作协议，融资服务能力再上新台阶。</p>
+      </div>
+      <div class="nb-date">2026-08-10</div>
+    </div>
+
+    <div class="dyna-layout">
+      <!-- 动态时间线 -->
+      <div class="dyna-timeline">
+        <div class="dyna-item">
+          <div class="di-date">2026-08-10</div>
+          <div class="dyna-card">
+            <div class="di-tags">
+              <span class="di-tag cat red">重要事件</span>
+              <span class="di-tag">战略合作</span>
+            </div>
+            <h4>皓镧资产与三家银行签署年度战略合作协议</h4>
+            <p>皓镧资产正式与工商银行、建设银行、招商银行签署 2026 年度战略合作协议，进一步拓宽融资渠道，提升放款效率与额度保障能力。签约后，公司可对接的银行产品从 12 款增至 18 款，覆盖房产抵押、企业经营贷、个人消费贷全品类。</p>
+            <div class="di-meta">
+              <span>来源：皓镧资产</span>
+              <span>阅读 1,280</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="dyna-item">
+          <div class="di-date">2026-07-28</div>
+          <div class="dyna-card">
+            <div class="di-tags">
+              <span class="di-tag cat green">品牌升级</span>
+              <span class="di-tag">皓镧奢选</span>
+            </div>
+            <h4>皓镧品牌矩阵再添新成员：皓镧奢选正式发布</h4>
+            <p>继 2025 年成立皓镧企业后，公司旗下新品牌「皓镧奢选」正式发布运营。皓镧奢选定位于高端消费品供应链金融服务，标志皓镧资产从传统融资服务向多元化金融服务集团迈出关键一步。</p>
+            <div class="di-meta">
+              <span>来源：皓镧资产</span>
+              <span>阅读 960</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="dyna-item">
+          <div class="di-date">2026-06-15</div>
+          <div class="dyna-card">
+            <div class="di-tags">
+              <span class="di-tag cat">团队建设</span>
+            </div>
+            <h4>皓镧商学院首期内训圆满结业，47 名顾问获认证</h4>
+            <p>皓镧商学院首期金融顾问内训课程历时 8 周，涵盖房产抵押实务、企业信贷风控、征信分析、客户服务等核心模块。47 名业务顾问通过考核并获得认证证书，专业能力再上新台阶。</p>
+            <div class="di-meta">
+              <span>来源：皓镧资产</span>
+              <span>阅读 720</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="dyna-item">
+          <div class="di-date">2026-05-20</div>
+          <div class="dyna-card">
+            <div class="di-tags">
+              <span class="di-tag cat">业务拓展</span>
+            </div>
+            <h4>互联网部正式成立，自媒体获客体系全面上线</h4>
+            <p>公司新设互联网部（6 人编制），统筹抖音短视频运营、线上获客与数据分析。首批 3 个抖音账号已上线运营，单月获客线索突破 500 条，线上引流占比首次超过传统渠道的 15%。</p>
+            <div class="di-meta">
+              <span>来源：皓镧资产</span>
+              <span>阅读 880</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="dyna-item">
+          <div class="di-date">2026-03-12</div>
+          <div class="dyna-card">
+            <div class="di-tags">
+              <span class="di-tag cat green">公益活动</span>
+            </div>
+            <h4>皓镧资产走进社区：金融知识科普公益活动</h4>
+            <p>公司组织 12 名顾问走进周边社区，开展为期一周的金融知识科普公益活动，涵盖征信保护、融资防骗、家庭资产配置等主题，累计服务社区居民 300 余人次，践行企业社会责任。</p>
+            <div class="di-meta">
+              <span>来源：皓镧资产</span>
+              <span>阅读 540</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 侧边栏 -->
+      <aside class="dyna-side">
+        <!-- 数据概览 -->
+        <div class="side-box">
+          <h4>数据概览<span class="en">OVERVIEW</span></h4>
+          <div class="stat-grid">
+            <div class="stat-item">
+              <div class="num">5+</div>
+              <div class="label">发展年限</div>
+            </div>
+            <div class="stat-item">
+              <div class="num">180+</div>
+              <div class="label">团队人数</div>
+            </div>
+            <div class="stat-item">
+              <div class="num">18</div>
+              <div class="label">合作银行</div>
+            </div>
+            <div class="stat-item">
+              <div class="num">2000+</div>
+              <div class="label">服务客户</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 动态日历 -->
+        <div class="side-box">
+          <h4>本月动态<span class="en">CALENDAR</span></h4>
+          <div class="cal-box">
+            <div class="cal-month">2026 年 8 月</div>
+            <div class="cal-grid">
+              <div class="cal-h">日</div><div class="cal-h">一</div><div class="cal-h">二</div>
+              <div class="cal-h">三</div><div class="cal-h">四</div><div class="cal-h">五</div>
+              <div class="cal-h">六</div>
+              <div class="cal-d empty">.</div><div class="cal-d empty">.</div>
+              <div class="cal-d empty">.</div><div class="cal-d empty">.</div>
+              <div class="cal-d empty">.</div><div class="cal-d empty">.</div>
+              <div class="cal-d">1</div>
+              <div class="cal-d">2</div><div class="cal-d">3</div><div class="cal-d">4</div>
+              <div class="cal-d">5</div><div class="cal-d">6</div><div class="cal-d">7</div>
+              <div class="cal-d">8</div>
+              <div class="cal-d">9</div>
+              <div class="cal-d has-event red">10</div>
+              <div class="cal-d">11</div><div class="cal-d">12</div>
+              <div class="cal-d">13</div><div class="cal-d has-event">14</div>
+              <div class="cal-d">15</div>
+              <div class="cal-d">16</div><div class="cal-d">17</div>
+              <div class="cal-d">18</div><div class="cal-d">19</div>
+              <div class="cal-d">20</div><div class="cal-d">21</div>
+              <div class="cal-d">22</div><div class="cal-d has-event">23</div>
+              <div class="cal-d">24</div>
+              <div class="cal-d">25</div><div class="cal-d">26</div>
+              <div class="cal-d">27</div><div class="cal-d">28</div>
+              <div class="cal-d">29</div><div class="cal-d">30</div>
+              <div class="cal-d">31</div>
+            </div>
+            <div class="cal-legend">
+              <span><i class="gold"></i>常规动态</span>
+              <span><i class="red"></i>重要事件</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 2. 客户案例 + 服务优势 -->
+  <!-- ========================================== -->
+  <section id="cases">
+    <h2 class="sec-title">客户案例与服务优势</h2>
+    <p class="sec-subtitle">CLIENT CASES &amp; SERVICE ADVANTAGES</p>
+    <p class="sec-desc">每一个成功案例都是皓镧专业能力的证明，每一项服务优势都是客户选择皓镧的理由。以真实案例说话，以硬核实力赢得信任。</p>
+
+    <!-- 精选案例 -->
+    <div class="case-featured">
+      <div class="cf-visual">
+        <div class="cf-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 L14 8 L20 8 L15 12 L17 18 L12 14 L7 18 L9 12 L4 8 L10 8 Z"/></svg>
+          精选案例
+        </div>
+        <h3>房产抵押融资 800 万元，48 小时极速放款</h3>
+        <p class="cf-summary">客户为中小企业主，急需资金用于原材料采购。传统银行审批周期长达 2-3 周，皓镧资产通过战略合作银行的绿色审批通道，48 小时内完成评估、面签、抵押登记到放款全流程。</p>
+        <div class="cf-tags">
+          <span>房产抵押</span>
+          <span>极速放款</span>
+          <span>绿色通道</span>
+          <span>企业经营</span>
+        </div>
+      </div>
+      <div class="cf-body">
+        <div class="cf-label">客户感言</div>
+        <p class="cf-quote">"当时原材料价格处于低位，晚一天到账就多花好几万。皓镧的顾问从接单到放款全程跟进，48 小时拿到 800 万，帮我们抢到了最佳采购窗口。"</p>
+        <div class="cf-stats">
+          <div class="st">
+            <div class="v">800万</div>
+            <div class="l">融资金额</div>
+          </div>
+          <div class="st">
+            <div class="v">48h</div>
+            <div class="l">放款周期</div>
+          </div>
+          <div class="st">
+            <div class="v">4.2%</div>
+            <div class="l">年化利率</div>
+          </div>
+        </div>
+        <div class="cf-client">
+          客户：<b>张先生</b> · 制造业企业主 · 北京
+        </div>
+      </div>
+    </div>
+
+    <!-- 案例列表 -->
+    <div class="case-grid">
+      <div class="case-card">
+        <div class="case-banner b1">
+          <span class="case-badge">企业经营贷</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 12h18"/></svg>
+        </div>
+        <div class="case-body">
+          <h4>企业经营贷 500 万助力餐饮连锁扩张</h4>
+          <div class="case-meta">
+            <span>企业经营贷</span><span>无抵押</span><span>3 年期</span>
+          </div>
+          <p>客户经营连锁餐饮 6 家门店，计划新开 3 家但缺少启动资金。皓镧匹配纯信用经营贷产品，无需抵押物，3 个工作日完成审批放款。</p>
+          <div class="case-footer">
+            <span class="amount">500 万元</span>
+            <span class="date">2026-07</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-banner b2">
+          <span class="case-badge">个人信用融资</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
+        </div>
+        <div class="case-body">
+          <h4>个人信用贷 30 万解决紧急医疗费用</h4>
+          <div class="case-meta">
+            <span>个人信用</span><span>免担保</span><span>先息后本</span>
+          </div>
+          <p>客户家中老人突发疾病需手术，自有资金不足。皓镧顾问当日对接银行信用贷产品，凭借客户良好征信记录，24 小时内获批 30 万元信用贷款。</p>
+          <div class="case-footer">
+            <span class="amount">30 万元</span>
+            <span class="date">2026-06</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-banner b3">
+          <span class="case-badge">车辆融资</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 13l2-5a3 3 0 0 1 3-2h8a3 3 0 0 1 3 2l2 5"/><path d="M3 13v5h2v-2h14v2h2v-5"/><circle cx="7" cy="16" r="1.5"/><circle cx="17" cy="16" r="1.5"/></svg>
+        </div>
+        <div class="case-body">
+          <h4>车辆抵押融资 15 万，押证不押车</h4>
+          <div class="case-meta">
+            <span>车辆融资</span><span>押证不押车</span><span>当日放款</span>
+          </div>
+          <p>客户为个体工商户，短期资金周转需求。皓镧安排车辆抵押贷款方案，仅需抵押登记证书，车辆可正常使用。当日评估放款 15 万元。</p>
+          <div class="case-footer">
+            <span class="amount">15 万元</span>
+            <span class="date">2026-05</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-banner b2">
+          <span class="case-badge">房产抵押</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg>
+        </div>
+        <div class="case-body">
+          <h4>房产抵押经营贷 1200 万，到期无缝续贷</h4>
+          <div class="case-meta">
+            <span>房产抵押</span><span>无还本续贷</span><span>5 年期</span>
+          </div>
+          <p>客户原有房产抵押贷款到期，面临过桥资金压力。皓镧提前 30 天启动续贷方案，通过"无还本续贷"产品实现零过桥成本续贷 1200 万元。</p>
+          <div class="case-footer">
+            <span class="amount">1200 万元</span>
+            <span class="date">2026-04</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-banner b1">
+          <span class="case-badge">企业经营贷</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 2v20M5 7l7-5 7 5M5 17l7 5 7-5"/></svg>
+        </div>
+        <div class="case-body">
+          <h4>科创企业贴息贷款 300 万，节省利息 15 万</h4>
+          <div class="case-meta">
+            <span>贴息政策</span><span>科创企业</span><span>2 年期</span>
+          </div>
+          <p>客户为科技型中小企业，皓镧顾问精准匹配最新贴息政策，协助申报科创企业专项贷款 300 万元，享受 50% 贴息，两年节省利息 15 万元。</p>
+          <div class="case-footer">
+            <span class="amount">300 万元</span>
+            <span class="date">2026-03</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-banner b3">
+          <span class="case-badge">组合方案</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 12l3-3 3 3-3 3zM12 7l3-3 3 3-3 3zM12 17l3-3 3 3-3 3zM18 12l3-3 3 3-3 3z"/></svg>
+        </div>
+        <div class="case-body">
+          <h4>房产+信用组合融资 600 万，优化资金成本</h4>
+          <div class="case-meta">
+            <span>组合方案</span><span>成本优化</span><span>3 年期</span>
+          </div>
+          <p>客户需求 600 万但房产估值仅支持 400 万抵押额度。皓镧设计"房产抵押 400 万 + 企业信用 200 万"组合方案，综合利率低于纯信用贷 2 个百分点。</p>
+          <div class="case-footer">
+            <span class="amount">600 万元</span>
+            <span class="date">2026-02</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 服务优势 -->
+    <h3 class="sec-title" style="font-size: 24px; margin-top: 20px;">我们的服务优势</h3>
+    <p class="sec-subtitle">CORE ADVANTAGES</p>
+
+    <div class="adv-grid">
+      <div class="adv-card">
+        <div class="adv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h7v8l10-12h-7V2z"/></svg>
+        </div>
+        <h4>极速放款</h4>
+        <p>战略合作银行绿色审批通道，房产抵押最快 48 小时放款，车辆融资当日到账，个人信用贷 24 小时内获批。</p>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L4 6v6c0 5 4 9 8 10 4-1 8-5 8-10V6l-8-4z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <h4>合规风控</h4>
+        <p>所有合作机构均为持牌金融机构，资金用途全流程合规管理，风控体系通过银行级标准认证，保障客户信息安全。</p>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+        </div>
+        <h4>一站式比价</h4>
+        <p>对接 18 家银行 30+ 款产品，顾问一站式比对年化利率、额度、期限与还款方式，为客户匹配综合成本最低的融资方案。</p>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-9 8.5 8.5 8.5 0 0 1-7.6-4.7L3 21l1.9-1.4A8.38 8.38 0 0 1 12 3a8.5 8.5 0 0 1 9 8.5z"/></svg>
+        </div>
+        <h4>全程陪跑</h4>
+        <p>从咨询对接到结清解押，专属顾问全程跟进每个环节。贷前方案制定、贷中审批协调、贷后还款提醒，服务不因放款而终止。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 3. 服务场景展示 -->
+  <!-- ========================================== -->
+  <section id="scenes">
+    <h2 class="sec-title">服务场景展示</h2>
+    <p class="sec-subtitle">SERVICE SCENARIOS</p>
+    <p class="sec-desc">不同客户、不同需求、不同场景，皓镧资产以专业能力精准匹配。以下六大服务场景，覆盖个人与企业全生命周期融资需求。</p>
+
+    <div class="scene-grid">
+      <div class="scene-card">
+        <div class="scene-banner s1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg>
+          <div class="scene-label">SCENE 01 · 房产抵押融资</div>
+        </div>
+        <div class="scene-body">
+          <h4>房产抵押融资</h4>
+          <p>业主以自有房产作为抵押物获取大额融资。皓镧资产对接多家银行房产抵押产品，评估公允、利率最优、放款最快 48 小时。支持住宅、商铺、写字楼等多类型不动产。</p>
+          <div class="scene-tags">
+            <span>额度高</span><span>利率低</span><span>期限灵活</span><span>住宅/商铺</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="scene-card">
+        <div class="scene-banner s2">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 12h18"/></svg>
+          <div class="scene-label">SCENE 02 · 企业经营融资</div>
+        </div>
+        <div class="scene-body">
+          <h4>企业经营融资</h4>
+          <p>中小企业主以公司经营资质申请经营贷，用于采购、扩张、周转等经营用途。皓镧协助匹配纯信用经营贷、抵押经营贷、贴息经营贷等多种产品方案。</p>
+          <div class="scene-tags">
+            <span>免抵押</span><span>贴息政策</span><span>额度高</span><span>3-5 年期</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="scene-card">
+        <div class="scene-banner s3">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
+          <div class="scene-label">SCENE 03 · 个人信用融资</div>
+        </div>
+        <div class="scene-body">
+          <h4>个人信用融资</h4>
+          <p>凭借个人征信与收入记录，无需抵押担保即可获取信用贷款。适合紧急资金需求、消费支出、家庭周转等场景。皓镧根据客户征信画像精准匹配最优银行产品。</p>
+          <div class="scene-tags">
+            <span>免担保</span><span>审批快</span><span>先息后本</span><span>灵活还款</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="scene-card">
+        <div class="scene-banner s4">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 13l2-5a3 3 0 0 1 3-2h8a3 3 0 0 1 3 2l2 5"/><path d="M3 13v5h2v-2h14v2h2v-5"/><circle cx="7" cy="16" r="1.5"/><circle cx="17" cy="16" r="1.5"/></svg>
+          <div class="scene-label">SCENE 04 · 车辆抵押融资</div>
+        </div>
+        <div class="scene-body">
+          <h4>车辆抵押融资</h4>
+          <p>车主以自有车辆作为抵押物获取短期周转资金，押证不押车，车辆可正常使用。皓镧对接汽车金融公司与银行车贷产品，当日评估、当日放款，灵活便捷。</p>
+          <div class="scene-tags">
+            <span>押证不押车</span><span>当日放款</span><span>额度评估快</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="scene-card">
+        <div class="scene-banner s5">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 12l3-3 3 3-3 3zM12 7l3-3 3 3-3 3zM12 17l3-3 3 3-3 3zM18 12l3-3 3 3-3 3z"/></svg>
+          <div class="scene-label">SCENE 05 · 组合融资方案</div>
+        </div>
+        <div class="scene-body">
+          <h4>组合融资方案</h4>
+          <p>当单一融资方式无法满足额度需求或成本最优时，皓镧设计"抵押+信用""经营贷+消费贷"等组合方案，在满足额度要求的同时优化综合融资成本。</p>
+          <div class="scene-tags">
+            <span>成本优化</span><span>额度叠加</span><span>多元组合</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="scene-card">
+        <div class="scene-banner s6">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 21h18M5 21V11l7-7 7 7v10"/><path d="M9 21v-6h6v6"/></svg>
+          <div class="scene-label">SCENE 06 · 续贷与过桥服务</div>
+        </div>
+        <div class="scene-body">
+          <h4>续贷与过桥服务</h4>
+          <p>贷款到期需续贷或过桥周转时，皓镧提前规划续贷方案，优先匹配"无还本续贷"产品消除过桥成本；确需过桥时精确计算周转天数，将过桥成本压至最低。</p>
+          <div class="scene-tags">
+            <span>无还本续贷</span><span>过桥优化</span><span>提前规划</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ========== 页脚 ========== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <svg class="logo-mark" width="44" height="44" viewBox="0 0 64 64" fill="none">
+        <path d="M32 4 L58 18 L58 46 L32 60 L6 46 L6 18 Z" stroke="#C9A961" stroke-width="3" fill="none"/>
+        <path d="M22 22 L42 22 M22 32 L42 32 M22 42 L32 42" stroke="#C9A961" stroke-width="3"/>
+      </svg>
+      <span class="lt">皓镧资产</span>
+    </div>
+    <div class="footer-info">
+      <div><b>联系电话：</b>010-8888 8888</div>
+      <div><b>邮箱：</b>hr@haolanzichan.cn</div>
+      <div><b>地址：</b>北京市朝阳区金融街 · 财富中心</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // 日历日期点击高亮
+  document.querySelectorAll('.cal-d').forEach(function(d) {
+    if (d.classList.contains('empty')) return;
+    d.addEventListener('click', function() {
+      document.querySelectorAll('.cal-d').forEach(function(x) { x.style.outline = ''; });
+      this.style.outline = '2px solid var(--gold)';
+    });
+  });
+</script>
+</body>
+</html>
