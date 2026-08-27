@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<html lang="zh-CN" data-page-node-id="tFd6aFlHsvYuHVlMnHZPHQ">
+<head data-page-node-id="NkuSnMDAQjtQaI7h5MboS8">
+<meta charset="UTF-8" data-page-node-id="xMAL1hvxi3l1QwiCIa2Cl4" />
+<meta name="viewport" content="width=device-width, initial-scale=1" data-page-node-id="XDqS765TXXuICPLHb6H2pL" />
 <title>服务流程 - 皓镧资产</title>
 <style>
   /* ========== 品牌变量 ========== */
@@ -12,8 +12,6 @@
     --gold-soft: #E8D9A8;
     --red: #C8102E;
     --red-deep: #B91D2E;
-    --green-deep: #1F3A2E;
-    --green-darker: #142720;
     --ink: #1A1A1A;
     --muted: #6B6B6B;
     --line: #E8E2D4;
@@ -31,23 +29,23 @@
   }
   a { color: inherit; text-decoration: none; }
 
-  /* ========== 顶部黑色双层导航 ========== */
-  .topbar { background: #111; color: #fff; border-bottom: 1px solid rgba(201,169,97,0.18); }
+  /* ========== 顶部导航 ========== */
+  .topbar { background: linear-gradient(135deg, #E6C094 0%, #D4A574 100%); color: #22334F; border-bottom: 2px solid rgba(34,51,79,0.2); box-shadow: 0 2px 10px rgba(34,51,79,0.15); }
   .topbar-inner { max-width: 1280px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; gap: 36px; }
   .logo { display: flex; align-items: center; padding: 14px 0; flex-shrink: 0; }
   .logo-card {
     display: inline-flex; align-items: center; background: #fff;
     padding: 8px 16px; border-radius: 4px; height: 56px;
-    box-shadow: 0 0 0 1px rgba(201,169,97,0.25);
+    box-shadow: 0 0 0 1px rgba(34,51,79,0.25);
   }
   .logo-card img { height: 44px; width: auto; display: block; }
   .nav { display: flex; flex-direction: column; gap: 6px; margin-left: auto; padding: 14px 0; }
   .nav-row { display: flex; gap: 30px; font-size: 14px; }
-  .nav-row.top a { color: rgba(255,255,255,0.85); transition: color .2s; padding: 4px 0; }
-  .nav-row.top a:hover, .nav-row.top a.active { color: var(--gold); }
-  .nav-row.bottom { font-size: 12px; color: rgba(255,255,255,0.5); gap: 26px; }
-  .nav-row.bottom a:hover { color: var(--gold); }
-  .topbar-tools { display: flex; align-items: center; gap: 18px; padding: 0 0 0 24px; color: rgba(255,255,255,0.6); font-size: 13px; flex-shrink: 0; }
+  .nav-row.top a { color: rgba(34,51,79,0.88); transition: color .2s; padding: 4px 0; }
+  .nav-row.top a:hover, .nav-row.top a.active { color: var(--red); }
+  .nav-row.bottom { font-size: 12px; color: rgba(34,51,79,0.6); gap: 26px; }
+  .nav-row.bottom a:hover { color: var(--red); }
+  .topbar-tools { display: flex; align-items: center; gap: 18px; padding: 0 0 0 24px; color: rgba(34,51,79,0.6); font-size: 13px; flex-shrink: 0; }
   .topbar-tools .icon { width: 16px; height: 16px; opacity: .7; }
 
   /* ========== 主区 ========== */
@@ -179,7 +177,8 @@
 
   /* ========== 页脚 ========== */
   .footer {
-    background: linear-gradient(180deg, var(--green-deep) 0%, var(--green-darker) 100%);
+    background: #22334F;
+    border-top: 3px solid #D4A574;
     color: rgba(255,255,255,0.7); padding: 40px 32px;
   }
   .footer-inner {
@@ -187,9 +186,9 @@
     display: flex; align-items: center; justify-content: space-between; gap: 40px;
   }
   .footer-logo { display: flex; align-items: center; gap: 14px; }
-  .footer-logo .lt { color: var(--gold); font-size: 24px; font-weight: 600; letter-spacing: 4px; }
+  .footer-logo .lt { color: #D4A574; font-size: 24px; font-weight: 600; letter-spacing: 4px; }
   .footer-info { display: flex; flex-direction: column; gap: 6px; font-size: 13px; text-align: right; }
-  .footer-info b { color: var(--gold); font-weight: 600; }
+  .footer-info b { color: #D4A574; font-weight: 600; }
 
   /* ========== 响应式 ========== */
   @media (max-width: 960px) {
@@ -205,106 +204,126 @@
     .footer-info { text-align: center; }
     main { padding: 40px 20px; }
   }
+
+  /* ========== 手机竖屏响应式 ========== */
+  @media (max-width: 760px) {
+    .flow-track { grid-template-columns: repeat(2, 1fr); gap: 30px 12px; }
+    .flow-circle { width: 64px; height: 64px; }
+    .flow-wrap { padding: 44px 16px 48px; }
+    .step-grid { grid-template-columns: 1fr; gap: 16px; }
+    .promise-grid { grid-template-columns: 1fr; }
+    .notice { padding: 22px 20px; }
+    .topbar-inner { padding: 0 16px; gap: 12px; }
+    .nav { padding: 10px 0; }
+    .nav-row { gap: 12px; font-size: 13px; }
+    .nav-row.top a { padding: 3px 0; }
+    main { padding: 36px 16px 50px; }
+    section { margin-bottom: 60px; }
+    .sec-title { font-size: 24px; letter-spacing: 3px; }
+    .sec-subtitle { letter-spacing: 2px; margin-bottom: 36px; }
+    .step-title { font-size: 14px; }
+    .footer { padding: 32px 20px; }
+  }
 </style>
 </head>
-<body>
+<body data-page-node-id="UJ5uEOeA0t785PSxDvGcnW">
 
 <!-- ========== 顶部导航（真实 logo） ========== -->
-<header class="topbar">
-  <div class="topbar-inner">
-    <a href="./index.html" class="logo" aria-label="皓镧资产">
-      <span class="logo-card">
-        <img src="./assets/logo.jpg" alt="皓镧资产" />
+<header class="topbar" data-page-node-id="bC355SZZQzSe4wQm8C2yK1">
+  <div class="topbar-inner" data-page-node-id="QHXnt2J8pJBfp5LCpXfJHU">
+    <a href="./index.html" class="logo" aria-label="皓镧资产" data-page-node-id="dKYC5VO3OmvLoZA04eBDCR">
+      <span class="logo-card" data-page-node-id="JTKHnm98UHP4H5tECI4Qk2">
+        <img src="./assets/logo.jpg" alt="皓镧资产" data-page-node-id="mM4xyxsIafMUinWarja3lL" />
       </span>
     </a>
-    <nav class="nav" aria-label="主导航">
-      <div class="nav-row top">
-        <a href="./about.html">关于我们</a>
-        <a href="./business.html">主营业务</a>
-        <a href="./service.html" class="active">服务流程</a>
-        <a href="./team.html">精英团队</a>
-        <a href="./policy.html">政策解读</a>
-        <a href="./notice.html">企业公告</a>
-        <a href="./academy.html">皓镧商学院</a>
-        <a href="./video.html">短视频专区</a>
-        <a href="./join.html">加入我们</a>
-        <a href="./contact.html">联系我们</a>
+    <nav class="nav" aria-label="主导航" data-page-node-id="CJuBuKgWXsqBfLjmRquq2a">
+      <div class="nav-row top" data-page-node-id="1GR3jzXoeT59KpzOoU4Har">
+        <a href="./about.html" data-page-node-id="70dH3HdHyTvXWCVF0uMmlo">关于我们</a>
+        <a href="./business.html" data-page-node-id="HVkvyesYTfPgs5EIaAaPSS">主营业务</a>
+        <a href="./service.html" class="active" data-page-node-id="cmEfJ3y1aO5s4ZE0RqNwob">服务流程</a>
+        <a href="./team.html" data-page-node-id="oVavz1qV67zH7yaYhqlzZ6">精英团队</a>
+        <a href="./policy.html" data-page-node-id="SeKos3DY0GN3rVwIFxKgSr">政策解读</a>
+        <a href="./notice.html" data-page-node-id="tz6eKzGOuinp27yrno4AWV">企业公告</a>
+        <a href="./academy.html" data-page-node-id="JTsnrNwElJgCGtI6g7vcOF">皓镧商学院</a>
+        <a href="./video.html" data-page-node-id="qgaYmfOkyhoyU4SNEXgNZw">短视频专区</a>
+        <a href="./join.html" data-page-node-id="XuevtoAeRa6AUiIfsSA5RL">加入我们</a>
+        <a href="./contact.html" data-page-node-id="VjfBMY4FJygBOrZBDmBfMR">联系我们</a>
       </div>
     </nav>
   </div>
 </header>
 
-<main>
+<main data-page-node-id="7IO1YACU66suYtH9eBVbUx">
 
   <!-- ========================================== -->
   <!-- 1. 服务流程总览 + 横向流程节点图 -->
   <!-- ========================================== -->
-  <section id="overview">
-    <h2 class="sec-title">服务流程</h2>
-    <p class="sec-subtitle">SERVICE PROCESS</p>
+  <section id="overview" data-page-node-id="fojYDHX71D3IVrUurwfOwe">
+    <h2 class="sec-title" data-page-node-id="r3aRoIXqSxk3nyyvppxYs1">服务流程</h2>
+    <p class="sec-subtitle" data-page-node-id="kINd77axDDOuxsgb7Cq3sy">SERVICE PROCESS</p>
 
-    <div class="intro-block">
-      <div class="intro-text">
-        <h3>六步标准流程 · 专业贯穿始终</h3>
-        <p class="lead">
+    <div class="intro-block" data-page-node-id="uDVn1Ku0YTAYCFj7MFj7j8">
+      <div class="intro-text" data-page-node-id="Qc4njxX6loyuUP6h7yO4qg">
+        <h3 data-page-node-id="8N4JaAHaIGysg379rZ5sRz">六步标准流程 · 专业贯穿始终</h3>
+        <p class="lead" data-page-node-id="9IPxIlS2oqr2tR8bKlp7iD">
           皓镧资产以"标准化、透明化、专人化"为核心，建立覆盖咨询到售后的六步服务流程。每一步均有专属团队跟进，让融资办理清晰可控、省心省力。
         </p>
-        <p>
+        <p data-page-node-id="Ra1z5Fpd0FfKqyQyPAgWc1">
           从需求对接到放款落地，再到长期售后陪伴，我们以专业风控与高效服务贯穿全周期，致力为每一位客户提供安全、顺畅、可托付的融资服务体验。
         </p>
       </div>
     </div>
 
-    <div class="flow-wrap">
-      <div class="flow">
-        <div class="flow-track">
-          <div class="flow-node">
-            <div class="flow-circle">
-              <span class="step-badge">1</span>
-              <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 10 H32 V26 H20 L13 32 V26 H8 Z"/><path d="M13 16 H27 M13 21 H22"/></svg>
+    <div class="flow-wrap" data-page-node-id="nI8luYoXlRc5udl9XzAiHi">
+      <div class="flow" data-page-node-id="Ja2QhXVltnEJKIm8Dri7u5">
+        <div class="flow-track" data-page-node-id="VhOOZ7YRKSgEqhxH78KmjG">
+          <div class="flow-node" data-page-node-id="zU47aA3uEuvrE07AZOj6yG">
+            <div class="flow-circle" data-page-node-id="JVfimYjJwptP3E0jA0vqNl">
+              <span class="step-badge" data-page-node-id="2jaJmbgwskdjYOBO4JesDi">1</span>
+              <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="g732hiJfM7qDaBseBXVIIP"><path d="M8 10 H32 V26 H20 L13 32 V26 H8 Z" data-page-node-id="FCjU33UFgqrfvlxzSA0UEj"/><path d="M13 16 H27 M13 21 H22" data-page-node-id="0UDpSceD0VQovGGpCc7rwE"/></svg>
             </div>
-            <div class="step-title">咨询对接</div>
-            <p class="step-desc">专属顾问一对一沟通需求</p>
+            <div class="step-title" data-page-node-id="VcFwKCPk9G1yfvT68hMX6H">咨询对接</div>
+            <p class="step-desc" data-page-node-id="64Sq7RU0FSHk7L51Xm4Jkv">专属顾问一对一沟通需求</p>
           </div>
-          <div class="flow-node">
-            <div class="flow-circle">
-              <span class="step-badge">2</span>
-              <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 8 H26 L32 14 V32 H10 Z"/><path d="M26 8 V14 H32"/><circle cx="20" cy="22" r="5"/><path d="M23.5 25.5 L27 29"/></svg>
+          <div class="flow-node" data-page-node-id="jUzgyr4B86GhTTg0fd5Dzf">
+            <div class="flow-circle" data-page-node-id="a26SRPaehChaazE4oqR59G">
+              <span class="step-badge" data-page-node-id="crWji0ZlPQMg4KxfqjObZY">2</span>
+              <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="zEsOSyR6TSJmaef5uBXrVS"><path d="M10 8 H26 L32 14 V32 H10 Z" data-page-node-id="d4OyIzxA3BnMoUgVTir6YD"/><path d="M26 8 V14 H32" data-page-node-id="YKDFEv6zwsh9FajUOs6AXA"/><circle cx="20" cy="22" r="5" data-page-node-id="H3bgvTLQCxxlzUBXo7H1kT"/><path d="M23.5 25.5 L27 29" data-page-node-id="EQnpwIkHCDkqjsh8j0KU0N"/></svg>
             </div>
-            <div class="step-title">资料评估</div>
-            <p class="step-desc">综合核验资产与信用状况</p>
+            <div class="step-title" data-page-node-id="olIk5nKE08hVGbJEUjjFPf">资料评估</div>
+            <p class="step-desc" data-page-node-id="gpKem54kGPuuhslF7gH9Dk">综合核验资产与信用状况</p>
           </div>
-          <div class="flow-node">
-            <div class="flow-circle">
-              <span class="step-badge">3</span>
-              <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 32 V14 L20 8 L32 14 V32 Z"/><path d="M14 32 V22 H26 V32"/><path d="M18 26 H22"/></svg>
+          <div class="flow-node" data-page-node-id="03AeozBEL7H0bMzEmbaTSB">
+            <div class="flow-circle" data-page-node-id="mSLsYdtWTz5xPKdr7DD5LB">
+              <span class="step-badge" data-page-node-id="GoBmo0o2X66dVUuMxAkFSV">3</span>
+              <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="U2rjRQ78tPG4QZqD3dtQqL"><path d="M8 32 V14 L20 8 L32 14 V32 Z" data-page-node-id="dwAEscROSTtROVH3eocdgN"/><path d="M14 32 V22 H26 V32" data-page-node-id="B4njdcV0MtEAyTQDcw4auK"/><path d="M18 26 H22" data-page-node-id="ajcSIGPRBiHi7n1DUzsEJ2"/></svg>
             </div>
-            <div class="step-title">方案制定</div>
-            <p class="step-desc">量身定制融资方案</p>
+            <div class="step-title" data-page-node-id="niGdYKB8qlmjB4icdpYFGC">方案制定</div>
+            <p class="step-desc" data-page-node-id="Ot889jNS0BIHvCxEBQl5tr">量身定制融资方案</p>
           </div>
-          <div class="flow-node">
-            <div class="flow-circle">
-              <span class="step-badge">4</span>
-              <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 14 H14 L20 20 L26 14 H32 V28 H8 Z"/><path d="M14 14 V8 H26 V14"/><path d="M16 22 H24 M16 26 H22"/></svg>
+          <div class="flow-node" data-page-node-id="t3XpZR89hGOLAD3BFZSHpc">
+            <div class="flow-circle" data-page-node-id="oJo3inst7zbeYjxRq0lsui">
+              <span class="step-badge" data-page-node-id="Jhek3FfxoMBsWoXvEtGFaD">4</span>
+              <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="cm0F0s2qNq4KZBnM5lOGcZ"><path d="M8 14 H14 L20 20 L26 14 H32 V28 H8 Z" data-page-node-id="BTxABFcFsP80RCP4r9FGiP"/><path d="M14 14 V8 H26 V14" data-page-node-id="wje8RJoWejLuDX08JXyhHQ"/><path d="M16 22 H24 M16 26 H22" data-page-node-id="dLjGKISdI79KokZ9iyYrqY"/></svg>
             </div>
-            <div class="step-title">协助办理</div>
-            <p class="step-desc">专人跟进手续全环节</p>
+            <div class="step-title" data-page-node-id="uVwxjA2SeLYCUgfxDITM1H">协助办理</div>
+            <p class="step-desc" data-page-node-id="tvgD0soIeK1HkwAOdUzsGz">专人跟进手续全环节</p>
           </div>
-          <div class="flow-node">
-            <div class="flow-circle">
-              <span class="step-badge">5</span>
-              <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><circle cx="20" cy="20" r="12"/><path d="M20 13 V20 L25 24"/><path d="M14 8 L8 10 M26 8 L32 10"/></svg>
+          <div class="flow-node" data-page-node-id="A6ERqeUuCp3gflBQM4xBAF">
+            <div class="flow-circle" data-page-node-id="Y5aJwjkIHribCNGWXHmdor">
+              <span class="step-badge" data-page-node-id="SkTFTI6qjDzaETPnKMzVPE">5</span>
+              <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="lhtHQfeyKVOGobnF1nT5Sc"><circle cx="20" cy="20" r="12" data-page-node-id="IwQhbs53E11dHQz9ZmxBVl"/><path d="M20 13 V20 L25 24" data-page-node-id="ECkXIs1sHvhSmXJGntW2rf"/><path d="M14 8 L8 10 M26 8 L32 10" data-page-node-id="S9nYH3z8UiyVWchvqiJgXz"/></svg>
             </div>
-            <div class="step-title">放款落地</div>
-            <p class="step-desc">资金及时安全到账</p>
+            <div class="step-title" data-page-node-id="hzp0hxKQjRkHgKC0mbM0GX">放款落地</div>
+            <p class="step-desc" data-page-node-id="oxENkZQ34AgL851mw37dfo">资金及时安全到账</p>
           </div>
-          <div class="flow-node">
-            <div class="flow-circle">
-              <span class="step-badge">6</span>
-              <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 L32 12 V22 C32 29 26 34 20 36 C14 34 8 29 8 22 V12 Z"/><path d="M15 21 L19 25 L26 18"/></svg>
+          <div class="flow-node" data-page-node-id="r815ezyDQ3E4IFOk9QDkx5">
+            <div class="flow-circle" data-page-node-id="P5UGgibyc5m0pr3YLIM2xD">
+              <span class="step-badge" data-page-node-id="izQ2Y29abZoI276VTOSorm">6</span>
+              <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="f2LOM1ncTzaWeyweg2JKf5"><path d="M20 6 L32 12 V22 C32 29 26 34 20 36 C14 34 8 29 8 22 V12 Z" data-page-node-id="Wk6TpgxGLys5D6XJATnFTG"/><path d="M15 21 L19 25 L26 18" data-page-node-id="c1SfsoWa8XB70FV1ZUN60l"/></svg>
             </div>
-            <div class="step-title">售后服务</div>
-            <p class="step-desc">全周期跟踪长期陪伴</p>
+            <div class="step-title" data-page-node-id="hBZSY0lk9tW1Z2tNIYLCiP">售后服务</div>
+            <p class="step-desc" data-page-node-id="MPOHF0pE7iX2Ca0cU2Y9Hd">全周期跟踪长期陪伴</p>
           </div>
         </div>
       </div>
@@ -314,116 +333,116 @@
   <!-- ========================================== -->
   <!-- 2. 各步骤详情 -->
   <!-- ========================================== -->
-  <section id="detail">
-    <h2 class="sec-title">流程详解</h2>
-    <p class="sec-subtitle">PROCESS DETAILS</p>
+  <section id="detail" data-page-node-id="zd2QIcM5vDxEhNa6FCUbo9">
+    <h2 class="sec-title" data-page-node-id="j3sHrbW4s3aP01mPsIGhd4">流程详解</h2>
+    <p class="sec-subtitle" data-page-node-id="Bex4tFKnhCpiubB9NilO6A">PROCESS DETAILS</p>
 
-    <div class="step-grid">
+    <div class="step-grid" data-page-node-id="jbYI2cD9bWpg9wIAgB94CG">
 
       <!-- ① 咨询对接 -->
-      <article class="step-card">
-        <div class="sc-side">
-          <div class="sc-num">①</div>
-          <svg class="sc-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 10 H32 V26 H20 L13 32 V26 H8 Z"/><path d="M13 16 H27 M13 21 H22"/></svg>
+      <article class="step-card" data-page-node-id="JjFYFYtrc8HLG7FlVnSknF">
+        <div class="sc-side" data-page-node-id="Uedxy8eFKntxqv0SgEvERV">
+          <div class="sc-num" data-page-node-id="6qb64mwxykqPDSjIyjoOFX">①</div>
+          <svg class="sc-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="8iKS4k0GEW0EaGz74WZJAJ"><path d="M8 10 H32 V26 H20 L13 32 V26 H8 Z" data-page-node-id="EU9rs6XBgCDaPv26R7DQtA"/><path d="M13 16 H27 M13 21 H22" data-page-node-id="l81k0UEpmFCZ5djPFDeiOw"/></svg>
         </div>
-        <div class="sc-main">
-          <h4>咨询对接</h4>
-          <p>客户通过电话、官网或到访等方式发起咨询，专属顾问一对一对接，深入了解资金需求、资产情况与使用场景，初步判断适配的业务方向与可行性。</p>
-          <div class="sc-points">
-            <span class="sc-point">需求沟通</span>
-            <span class="sc-point">资质初评</span>
-            <span class="sc-point">业务匹配</span>
-            <span class="sc-point">专属顾问</span>
+        <div class="sc-main" data-page-node-id="xFeqX6VSSOqr7AE30iTS6r">
+          <h4 data-page-node-id="puJh1kARzCZXGuLipLfL4J">咨询对接</h4>
+          <p data-page-node-id="EZNgYT8RCaLzC5RXUU6ENR">客户通过电话、官网或到访等方式发起咨询，专属顾问一对一对接，深入了解资金需求、资产情况与使用场景，初步判断适配的业务方向与可行性。</p>
+          <div class="sc-points" data-page-node-id="yLnY2azYXBbC2aF9qpxbPq">
+            <span class="sc-point" data-page-node-id="VAHvXHgO3hx1k09i03Y0Fx">需求沟通</span>
+            <span class="sc-point" data-page-node-id="k8EQhaqsLGAakjhvpGMFVQ">资质初评</span>
+            <span class="sc-point" data-page-node-id="gDvIuVHDCLo3BvIlJDY1vL">业务匹配</span>
+            <span class="sc-point" data-page-node-id="HuRxonJeuiQPGU4uvUaFXl">专属顾问</span>
           </div>
         </div>
       </article>
 
       <!-- ② 资料评估 -->
-      <article class="step-card">
-        <div class="sc-side">
-          <div class="sc-num">②</div>
-          <svg class="sc-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 8 H26 L32 14 V32 H10 Z"/><path d="M26 8 V14 H32"/><circle cx="20" cy="22" r="5"/><path d="M23.5 25.5 L27 29"/></svg>
+      <article class="step-card" data-page-node-id="EgVUHcSH80GvDjnDHEidFq">
+        <div class="sc-side" data-page-node-id="9ZxdtnOEZi5flQ6QvZ5AQA">
+          <div class="sc-num" data-page-node-id="cmvx1uUMCjtoPLWRkW7Jmg">②</div>
+          <svg class="sc-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="06cicHIVxRsm2BlGk4s73o"><path d="M10 8 H26 L32 14 V32 H10 Z" data-page-node-id="B6vANUKzuUNZqVaFIKXFm6"/><path d="M26 8 V14 H32" data-page-node-id="5P84P6qsHTzuq320pZNvyc"/><circle cx="20" cy="22" r="5" data-page-node-id="cVpWQ0KpaQbFPeRjVs3vCU"/><path d="M23.5 25.5 L27 29" data-page-node-id="58WQUhtGDN6mbiWkfQEm2a"/></svg>
         </div>
-        <div class="sc-main">
-          <h4>资料评估</h4>
-          <p>协助客户准备并提交相关资料，专业团队对资产状况、信用记录、还款能力等进行综合评估，出具客观审慎的评估意见，为方案制定提供依据。</p>
-          <div class="sc-points">
-            <span class="sc-point">资料收集</span>
-            <span class="sc-point">资产核验</span>
-            <span class="sc-point">信用评估</span>
-            <span class="sc-point">风险初审</span>
+        <div class="sc-main" data-page-node-id="TCYD8qb3cusGtKAuN32z5n">
+          <h4 data-page-node-id="OKQc1wwv9eeTA0zjI4VjsX">资料评估</h4>
+          <p data-page-node-id="gYvYBgglMWcMPR3IDGNF9D">协助客户准备并提交相关资料，专业团队对资产状况、信用记录、还款能力等进行综合评估，出具客观审慎的评估意见，为方案制定提供依据。</p>
+          <div class="sc-points" data-page-node-id="AB55Hpbswd94cyOxJTZSFB">
+            <span class="sc-point" data-page-node-id="4OqAF37iTKRYojSL9PgdF2">资料收集</span>
+            <span class="sc-point" data-page-node-id="w3nSZo8wWdvLqIlS1ykRFn">资产核验</span>
+            <span class="sc-point" data-page-node-id="bTq2MTesex78Y9hCxQQFSC">信用评估</span>
+            <span class="sc-point" data-page-node-id="RDqTsI3tr92K68Lexu83C4">风险初审</span>
           </div>
         </div>
       </article>
 
       <!-- ③ 方案制定 -->
-      <article class="step-card">
-        <div class="sc-side">
-          <div class="sc-num">③</div>
-          <svg class="sc-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 32 V14 L20 8 L32 14 V32 Z"/><path d="M14 32 V22 H26 V32"/><path d="M18 26 H22"/></svg>
+      <article class="step-card" data-page-node-id="wcJXjqfUbzJjTnvB9gK16t">
+        <div class="sc-side" data-page-node-id="PxrnoFvml6hBnUpqSW7Cpz">
+          <div class="sc-num" data-page-node-id="R7QLFkMQlrMDkLUSIeGJHN">③</div>
+          <svg class="sc-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="hBA2qcpgfIQnkj1EAv1OOi"><path d="M8 32 V14 L20 8 L32 14 V32 Z" data-page-node-id="phpdYmEzD23EQtGLVIK5op"/><path d="M14 32 V22 H26 V32" data-page-node-id="fLDyjHO4SnpBiWsITmzyVI"/><path d="M18 26 H22" data-page-node-id="hstlXZITaJuO7ruTzF6iB0"/></svg>
         </div>
-        <div class="sc-main">
-          <h4>方案制定</h4>
-          <p>基于评估结果量身定制融资方案，明确额度、期限、还款方式等核心要素，向客户充分说明方案细节、成本构成与注意事项，确保知情自愿。</p>
-          <div class="sc-points">
-            <span class="sc-point">方案设计</span>
-            <span class="sc-point">额度测算</span>
-            <span class="sc-point">还款规划</span>
-            <span class="sc-point">方案讲解</span>
+        <div class="sc-main" data-page-node-id="lrez0Ta2iH8pBq62HYigpu">
+          <h4 data-page-node-id="OMNYLHlDtnRO3r5baUG9ao">方案制定</h4>
+          <p data-page-node-id="atM6XQ41xaPBZXodoV02a3">基于评估结果量身定制融资方案，明确额度、期限、还款方式等核心要素，向客户充分说明方案细节、成本构成与注意事项，确保知情自愿。</p>
+          <div class="sc-points" data-page-node-id="iSyFAfXYP1vEloAIzqR1Xi">
+            <span class="sc-point" data-page-node-id="ynxYVaYe1u8CpDvGqvLUDt">方案设计</span>
+            <span class="sc-point" data-page-node-id="w7TR2l9qQLVANWwD3c1sB7">额度测算</span>
+            <span class="sc-point" data-page-node-id="BVudQvgHor3UAvb4JbCx3K">还款规划</span>
+            <span class="sc-point" data-page-node-id="c3j1Jiq6MNp6yH9lDGxhBy">方案讲解</span>
           </div>
         </div>
       </article>
 
       <!-- ④ 协助办理 -->
-      <article class="step-card">
-        <div class="sc-side">
-          <div class="sc-num">④</div>
-          <svg class="sc-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 14 H14 L20 20 L26 14 H32 V28 H8 Z"/><path d="M14 14 V8 H26 V14"/><path d="M16 22 H24 M16 26 H22"/></svg>
+      <article class="step-card" data-page-node-id="laYSNX8jye3ikGIcAxlabC">
+        <div class="sc-side" data-page-node-id="eAkpdVrsHgRlD3Ei1PGVKN">
+          <div class="sc-num" data-page-node-id="MQBfkCryQ6XOsi25R82DuD">④</div>
+          <svg class="sc-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="FhAS4f4x3sTXyxtHYG1q3z"><path d="M8 14 H14 L20 20 L26 14 H32 V28 H8 Z" data-page-node-id="yE41SGEj5Cd8qYQdel7kDF"/><path d="M14 14 V8 H26 V14" data-page-node-id="UKngPi2ABUnf2C8sNdpt2V"/><path d="M16 22 H24 M16 26 H22" data-page-node-id="WqMs0IYGZTkP1rgERTOxZj"/></svg>
         </div>
-        <div class="sc-main">
-          <h4>协助办理</h4>
-          <p>全程协助客户办理相关手续，包括合同签署、抵押登记等环节，专人跟进每个节点，确保流程合规、高效、顺畅，让客户省时省心。</p>
-          <div class="sc-points">
-            <span class="sc-point">合同签署</span>
-            <span class="sc-point">抵押登记</span>
-            <span class="sc-point">手续代办</span>
-            <span class="sc-point">进度跟进</span>
+        <div class="sc-main" data-page-node-id="C9FjkycxykvIcbrzcxMt4S">
+          <h4 data-page-node-id="2eFWfVAypptRJDVSlPqFRM">协助办理</h4>
+          <p data-page-node-id="09EcT67GSMXXtPQzjDT0jB">全程协助客户办理相关手续，包括合同签署、抵押登记等环节，专人跟进每个节点，确保流程合规、高效、顺畅，让客户省时省心。</p>
+          <div class="sc-points" data-page-node-id="zQkezufmiPbTOIZmVu2nXL">
+            <span class="sc-point" data-page-node-id="pReE2bgiMCU81pPLFHKJgd">合同签署</span>
+            <span class="sc-point" data-page-node-id="l1FhwFvXaCo6RCAzHEeLtS">抵押登记</span>
+            <span class="sc-point" data-page-node-id="44dPzzjwrGVIy4q7vTfUbB">手续代办</span>
+            <span class="sc-point" data-page-node-id="d43Cjr1fB52HBfUfjhdg9C">进度跟进</span>
           </div>
         </div>
       </article>
 
       <!-- ⑤ 放款落地 -->
-      <article class="step-card">
-        <div class="sc-side">
-          <div class="sc-num">⑤</div>
-          <svg class="sc-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><circle cx="20" cy="20" r="12"/><path d="M20 13 V20 L25 24"/><path d="M14 8 L8 10 M26 8 L32 10"/></svg>
+      <article class="step-card" data-page-node-id="BEFwLUaW4QzZyi2c6mGPkh">
+        <div class="sc-side" data-page-node-id="ZKYZuxUOV7jY2ZR6ZdQzdW">
+          <div class="sc-num" data-page-node-id="qlAIid67bjI9EsM4JqiQau">⑤</div>
+          <svg class="sc-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="bI5vzqRescGtEZQZvzVWC9"><circle cx="20" cy="20" r="12" data-page-node-id="HeyHy01UQ1vRSzDAX9QWti"/><path d="M20 13 V20 L25 24" data-page-node-id="jOrLrTvxfwNskfNCB5v1M4"/><path d="M14 8 L8 10 M26 8 L32 10" data-page-node-id="wVyLWVTwuw2dXPKDoTDPam"/></svg>
         </div>
-        <div class="sc-main">
-          <h4>放款落地</h4>
-          <p>完成全部审批与手续后，协调资金及时到位，确保款项安全到账，并向客户确认放款结果、还款安排与后续注意事项，环节闭环可查。</p>
-          <div class="sc-points">
-            <span class="sc-point">审批放行</span>
-            <span class="sc-point">资金到位</span>
-            <span class="sc-point">到账确认</span>
-            <span class="sc-point">还款告知</span>
+        <div class="sc-main" data-page-node-id="X6Hy0fYJ7yZAmqVsHPB8K9">
+          <h4 data-page-node-id="4dBlEDujhBgc9imXNd1JmB">放款落地</h4>
+          <p data-page-node-id="TGvL8Hf6QCNH5Z0DAjUa5y">完成全部审批与手续后，协调资金及时到位，确保款项安全到账，并向客户确认放款结果、还款安排与后续注意事项，环节闭环可查。</p>
+          <div class="sc-points" data-page-node-id="vwppKUw4bqX7cozvADYfGE">
+            <span class="sc-point" data-page-node-id="AoMvff49j89W92dYwW8x1X">审批放行</span>
+            <span class="sc-point" data-page-node-id="NUn42HacZ26QZ8zwHicDd5">资金到位</span>
+            <span class="sc-point" data-page-node-id="oCqFG8TnMsNXkTdFAJEsTV">到账确认</span>
+            <span class="sc-point" data-page-node-id="OhFdCf6AUnKlf400QfOPTH">还款告知</span>
           </div>
         </div>
       </article>
 
       <!-- ⑥ 售后服务 -->
-      <article class="step-card">
-        <div class="sc-side">
-          <div class="sc-num">⑥</div>
-          <svg class="sc-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 L32 12 V22 C32 29 26 34 20 36 C14 34 8 29 8 22 V12 Z"/><path d="M15 21 L19 25 L26 18"/></svg>
+      <article class="step-card" data-page-node-id="ygF2EWMkf9yhHswtnGeq4W">
+        <div class="sc-side" data-page-node-id="TPg7PKHSPBZiVOOYoDt9Ti">
+          <div class="sc-num" data-page-node-id="6gLXGaDHNTnPxdG1UseEAv">⑥</div>
+          <svg class="sc-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="Q9Ae8k5aVRdGTgaCBMTMtP"><path d="M20 6 L32 12 V22 C32 29 26 34 20 36 C14 34 8 29 8 22 V12 Z" data-page-node-id="gnGviaN4x6w4Tm3Gr4HHCi"/><path d="M15 21 L19 25 L26 18" data-page-node-id="2Y2GOub3Bs6XF7DZE3tSP8"/></svg>
         </div>
-        <div class="sc-main">
-          <h4>售后服务</h4>
-          <p>放款并非结束，而是服务的开始。提供还款提醒、结清协助、续贷对接等全周期跟踪服务，做客户长期的财务伙伴，持续守护每一份托付。</p>
-          <div class="sc-points">
-            <span class="sc-point">还款提醒</span>
-            <span class="sc-point">结清协助</span>
-            <span class="sc-point">续贷对接</span>
-            <span class="sc-point">长期陪伴</span>
+        <div class="sc-main" data-page-node-id="1MYJsZUWyrYIE4fpGWVLjQ">
+          <h4 data-page-node-id="fQwwDJ4bXuq6KLOlvMrfHM">售后服务</h4>
+          <p data-page-node-id="vrAoL8qIfLmEavnSJP5Sgf">放款并非结束，而是服务的开始。提供还款提醒、结清协助、续贷对接等全周期跟踪服务，做客户长期的财务伙伴，持续守护每一份托付。</p>
+          <div class="sc-points" data-page-node-id="MeWb7zbL1lTJH5DQArPiQm">
+            <span class="sc-point" data-page-node-id="B8pA15UPZ6srt5PkmrDCsf">还款提醒</span>
+            <span class="sc-point" data-page-node-id="jazsGuAhZORQgc4e44aSNz">结清协助</span>
+            <span class="sc-point" data-page-node-id="uRnCjrY8Yaj1oleKGkr9Wv">续贷对接</span>
+            <span class="sc-point" data-page-node-id="1aYZqQwnjcq9fcmCiKsNi9">长期陪伴</span>
           </div>
         </div>
       </article>
@@ -434,30 +453,30 @@
   <!-- ========================================== -->
   <!-- 3. 服务承诺 -->
   <!-- ========================================== -->
-  <section id="promise">
-    <h2 class="sec-title">服务承诺</h2>
-    <p class="sec-subtitle">OUR COMMITMENT</p>
+  <section id="promise" data-page-node-id="EKSNIb0rapI2RUGlBJRsju">
+    <h2 class="sec-title" data-page-node-id="OEp93myHeTSnYQKFoHBjjo">服务承诺</h2>
+    <p class="sec-subtitle" data-page-node-id="TAFY297A1h9zskyLgvjJyS">OUR COMMITMENT</p>
 
-    <div class="promise-grid">
-      <article class="promise-card">
-        <svg class="icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2"><circle cx="22" cy="22" r="14"/><circle cx="22" cy="22" r="8"/><path d="M22 8 V14 M22 30 V36 M8 22 H14 M30 22 H36"/></svg>
-        <h4>流程透明</h4>
-        <p>每个环节标准清晰、进度可查，客户全程知情，无隐形费用与套路。</p>
+    <div class="promise-grid" data-page-node-id="wkC1MhdQ5chlINlnV2v3xz">
+      <article class="promise-card" data-page-node-id="6iwo9YyUANKAePe9X0060v">
+        <svg class="icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="2vH0U1CUV7sxay4d69PXmP"><circle cx="22" cy="22" r="14" data-page-node-id="DJBjNclGTBITHn5bG1wIjB"/><circle cx="22" cy="22" r="8" data-page-node-id="yKr2YQs5VYRPQxtDiiO7LZ"/><path d="M22 8 V14 M22 30 V36 M8 22 H14 M30 22 H36" data-page-node-id="hHcOGEz3q2tOd4NiQ78HDm"/></svg>
+        <h4 data-page-node-id="ZB5EAQ9qhtbSFLkU2BKcmR">流程透明</h4>
+        <p data-page-node-id="NmLvxGKuFpzo0DqlptmiVR">每个环节标准清晰、进度可查，客户全程知情，无隐形费用与套路。</p>
       </article>
-      <article class="promise-card">
-        <svg class="icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 22 L16 22 L20 12 L26 32 L30 22 L38 22"/></svg>
-        <h4>高效响应</h4>
-        <p>专属顾问快速对接，关键节点及时反馈，缩短等待、提升体验。</p>
+      <article class="promise-card" data-page-node-id="ciAWwwtxGxGw3yvOz71lka">
+        <svg class="icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="Qutq5EFXekLHtKRJ03pZbD"><path d="M6 22 L16 22 L20 12 L26 32 L30 22 L38 22" data-page-node-id="wHmKPXjtKEmPaj0pw9WEXz"/></svg>
+        <h4 data-page-node-id="eHgkiWTmjSm5a2t8xcIsCi">高效响应</h4>
+        <p data-page-node-id="KmRvCQTLdn46NGHEY3SfGV">专属顾问快速对接，关键节点及时反馈，缩短等待、提升体验。</p>
       </article>
-      <article class="promise-card">
-        <svg class="icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 6 L34 12 V24 C34 31 28 36 22 38 C16 36 10 31 10 24 V12 Z"/><path d="M16 22 L20 26 L29 17"/></svg>
-        <h4>全程跟踪</h4>
-        <p>从咨询到售后专人贯穿全周期，环节衔接顺畅，服务不断档。</p>
+      <article class="promise-card" data-page-node-id="2V3xngEDfNN2yY2ELitvmw">
+        <svg class="icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="PX0dqtzH8ECmDKGMdEugU9"><path d="M22 6 L34 12 V24 C34 31 28 36 22 38 C16 36 10 31 10 24 V12 Z" data-page-node-id="Rr5BLM6CxdM6nv3cGekRAq"/><path d="M16 22 L20 26 L29 17" data-page-node-id="DminljgxH2ki2eSjT0LSf0"/></svg>
+        <h4 data-page-node-id="IAFC6GhHUO5kO54hFPZaUO">全程跟踪</h4>
+        <p data-page-node-id="RNKOgOOuSZWkuZmYRGqUCj">从咨询到售后专人贯穿全周期，环节衔接顺畅，服务不断档。</p>
       </article>
-      <article class="promise-card">
-        <svg class="icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2"><rect x="10" y="16" width="24" height="20" rx="2"/><path d="M16 16 V12 C16 9 18 8 22 8 C26 8 28 9 28 12 V16"/><circle cx="22" cy="26" r="2"/></svg>
-        <h4>隐私保护</h4>
-        <p>严格保护客户资料与业务信息，合规使用、安全存储，守护信任。</p>
+      <article class="promise-card" data-page-node-id="vUMeZe4U2kUvtdbu51iA5S">
+        <svg class="icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="BAFHBKizsDGyVCbECfO6lY"><rect x="10" y="16" width="24" height="20" rx="2" data-page-node-id="wCwG5ZwjN2vBOHOp3zoaNt"/><path d="M16 16 V12 C16 9 18 8 22 8 C26 8 28 9 28 12 V16" data-page-node-id="mFx2ylFsudqZVb5CTORauF"/><circle cx="22" cy="26" r="2" data-page-node-id="jeVR5lmYTDp6E5IgC1ICqB"/></svg>
+        <h4 data-page-node-id="TE0z7kI0UGUjN2g85WDKYG">隐私保护</h4>
+        <p data-page-node-id="PInRjweaiV6pfkcJV2fwEP">严格保护客户资料与业务信息，合规使用、安全存储，守护信任。</p>
       </article>
     </div>
   </section>
@@ -465,13 +484,13 @@
   <!-- ========================================== -->
   <!-- 4. 温馨提示 -->
   <!-- ========================================== -->
-  <section id="notice">
-    <div class="notice">
-      <svg class="n-icon" viewBox="0 0 46 46" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 6 L40 38 H6 Z"/><path d="M23 20 V28"/><circle cx="23" cy="33" r="1.2" fill="currentColor"/></svg>
-      <div class="n-body">
-        <h4>办理须知</h4>
-        <p>
-          办理融资业务请提供真实、有效的资料，最终额度、利率与期限以审批结果为准。服务过程中皓镧资产<b>不收取任何未事先告知的费用</b>，所有环节均依规操作。请通过官方渠道咨询办理，理性评估自身还款能力，防范金融风险。
+  <section id="notice" data-page-node-id="ME5mrHhiRO732XuOl7HxR9">
+    <div class="notice" data-page-node-id="KBsoVpt01A1UCBqXbSx1J8">
+      <svg class="n-icon" viewBox="0 0 46 46" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="iHro9MUMiClVqiw6AGXFGC"><path d="M23 6 L40 38 H6 Z" data-page-node-id="zo2fhRznT3F5pOrXe3WJZo"/><path d="M23 20 V28" data-page-node-id="Zam9nq37hCTZE3SzzUB1dS"/><circle cx="23" cy="33" r="1.2" fill="currentColor" data-page-node-id="xFhuwwbJt516UQ3FTcNEZI"/></svg>
+      <div class="n-body" data-page-node-id="gALhdeJCHI0Jko5mBOpPBP">
+        <h4 data-page-node-id="UpmH99U6N2Va3TBcaVM8vG">办理须知</h4>
+        <p data-page-node-id="GuqT23219SSIeN5m2UMCmZ">
+          办理融资业务请提供真实、有效的资料，最终额度、利率与期限以审批结果为准。服务过程中皓镧资产<b data-page-node-id="yYraKeRI6JMIAgruRhTtE8">不收取任何未事先告知的费用</b>，所有环节均依规操作。请通过官方渠道咨询办理，理性评估自身还款能力，防范金融风险。
         </p>
       </div>
     </div>
@@ -480,19 +499,19 @@
 </main>
 
 <!-- ========== 页脚 ========== -->
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-logo">
-      <svg class="logo-mark" width="44" height="44" viewBox="0 0 64 64" fill="none">
-        <path d="M32 4 L58 18 L58 46 L32 60 L6 46 L6 18 Z" stroke="#C9A961" stroke-width="3" fill="none"/>
-        <path d="M22 22 L42 22 M22 32 L42 32 M22 42 L32 42" stroke="#C9A961" stroke-width="3"/>
+<footer class="footer" data-page-node-id="zRs9d1O2xUKwLYxmLJDZQO">
+  <div class="footer-inner" data-page-node-id="KJ0lTBdStWq9mEi6CyMtFW">
+    <div class="footer-logo" data-page-node-id="AfcqBMnr0A5AFFY1VnGabu">
+      <svg class="logo-mark" width="44" height="44" viewBox="0 0 64 64" fill="none" data-page-node-id="m8wZY6da1dgwnDHed3lXGq">
+        <path d="M32 4 L58 18 L58 46 L32 60 L6 46 L6 18 Z" stroke="#D4A574" stroke-width="3" fill="none" data-page-node-id="sPIdB7Sb9p0zZKcvkJEU1l"/>
+        <path d="M22 22 L42 22 M22 32 L42 32 M22 42 L32 42" stroke="#D4A574" stroke-width="3" data-page-node-id="RbumMb3HhXr0N1FP67hpm3"/>
       </svg>
-      <span class="lt">皓镧资产</span>
+      <span class="lt" data-page-node-id="FHH6e5CHUICo9GM9q4AFaF">皓镧资产</span>
     </div>
-    <div class="footer-info">
-      <div><b>联系电话：</b>010-8888 8888</div>
-      <div><b>邮箱：</b>hr@haolanzichan.cn</div>
-      <div><b>地址：</b>北京市朝阳区金融街 · 财富中心</div>
+    <div class="footer-info" data-page-node-id="TAjEStvKYxzD0yBYwCqgFB">
+      <div data-page-node-id="EfjdfswrewNjU3xjo4oAf1"><b data-page-node-id="7pZOVHDyXh5DfXvmj7wrGR">联系电话：</b>010-8888 8888</div>
+      <div data-page-node-id="2OKaznQA7MSRvP2liQdj9D"><b data-page-node-id="EsrGjYplb2CMr8jvbZEVFT">邮箱：</b>hr@haolanzichan.cn</div>
+      <div data-page-node-id="90ZSovo7AHbgkgQgjIGxBr"><b data-page-node-id="RvPd33mcIrNcA1XU0p0pqI">地址：</b>北京市朝阳区金融街 · 财富中心</div>
     </div>
   </div>
 </footer>

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<html lang="zh-CN" data-page-node-id="iODGXmoUZCroSJ7GwB9omL">
+<head data-page-node-id="QeStgq7eC99P3L4TSPxOFL">
+<meta charset="UTF-8" data-page-node-id="rB3i3dLvd2RGA7MUdzs0FU" />
+<meta name="viewport" content="width=device-width, initial-scale=1" data-page-node-id="hde5pCt3zgWExY2TfAhtzD" />
 <title>政策解读 - 皓镧资产</title>
 <style>
   /* ========== 品牌变量 ========== */
@@ -12,8 +12,6 @@
     --gold-soft: #E8D9A8;
     --red: #C8102E;
     --red-deep: #B91D2E;
-    --green-deep: #1F3A2E;
-    --green-darker: #142720;
     --ink: #1A1A1A;
     --muted: #6B6B6B;
     --line: #E8E2D4;
@@ -32,23 +30,23 @@
   a { color: inherit; text-decoration: none; }
 
   /* ========== 顶部黑色导航（单层 10 项） ========== */
-  .topbar { background: #111; color: #fff; border-bottom: 1px solid rgba(201,169,97,0.18); }
+  .topbar { background: linear-gradient(135deg, #E6C094 0%, #D4A574 100%); color: #22334F; border-bottom: 2px solid rgba(34,51,79,0.2); box-shadow: 0 2px 10px rgba(34,51,79,0.15); }
   .topbar-inner { max-width: 1280px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; gap: 36px; }
   .logo { display: flex; align-items: center; padding: 14px 0; flex-shrink: 0; }
   .logo-card {
     display: inline-flex; align-items: center; background: #fff;
     padding: 8px 16px; border-radius: 4px; height: 56px;
-    box-shadow: 0 0 0 1px rgba(201,169,97,0.25);
+    box-shadow: 0 0 0 1px rgba(34,51,79,0.25);
   }
   .logo-card img { height: 44px; width: auto; display: block; }
   .nav { display: flex; flex-direction: column; gap: 6px; margin-left: auto; padding: 14px 0; }
   .nav-row { display: flex; gap: 30px; font-size: 14px; }
-  .nav-row.top a { color: rgba(255,255,255,0.85); transition: color .2s; padding: 4px 0; white-space: nowrap; }
-  .nav-row.top a:hover, .nav-row.top a.active { color: var(--gold); }
+  .nav-row.top a { color: rgba(34,51,79,0.88); transition: color .2s; padding: 4px 0; white-space: nowrap; }
+  .nav-row.top a:hover, .nav-row.top a.active { color: var(--red); }
 
   /* ========== 页面横幅 ========== */
   .page-banner {
-    background: linear-gradient(135deg, var(--green-deep) 0%, #2a4a3a 100%);
+    background: linear-gradient(135deg, #2C2C2C 0%, #1A1A1A 100%);
     padding: 60px 32px 50px; text-align: center; position: relative; overflow: hidden;
   }
   .page-banner::before {
@@ -105,7 +103,7 @@
     border-color: var(--gold); color: var(--gold-deep);
   }
   .filter-tag.active {
-    background: var(--green-deep); color: #fff; border-color: var(--green-deep);
+    background: #2C2C2C; color: #fff; border-color: #2C2C2C;
   }
 
   /* ========== 资讯文章列表（左右布局） ========== */
@@ -146,7 +144,7 @@
     padding: 2px 10px; border-radius: 3px; letter-spacing: 1px;
   }
   .news-card .content .cat-tag.hot { background: var(--red); }
-  .news-card .content .cat-tag.new { background: var(--green-deep); }
+  .news-card .content .cat-tag.new { background: #2C2C2C; }
   .news-card .content h3 {
     font-size: 18px; font-weight: 600; color: var(--ink); line-height: 1.5;
     margin-bottom: 8px; transition: color .2s;
@@ -188,7 +186,7 @@
   }
   .rank-item:nth-child(1) .num { background: var(--red); }
   .rank-item:nth-child(2) .num { background: var(--gold-deep); }
-  .rank-item:nth-child(3) .num { background: var(--green-deep); }
+  .rank-item:nth-child(3) .num { background: #2C2C2C; }
   .rank-item .info { flex: 1; min-width: 0; }
   .rank-item .info .t {
     font-size: 13px; color: var(--ink); line-height: 1.5; font-weight: 500;
@@ -235,7 +233,7 @@
   }
   .pagination a:hover { border-color: var(--gold); color: var(--gold-deep); }
   .pagination a.active {
-    background: var(--green-deep); color: #fff; border-color: var(--green-deep);
+    background: #2C2C2C; color: #fff; border-color: #2C2C2C;
   }
 
   /* ========== 知识科普区 ========== */
@@ -272,7 +270,7 @@
   }
   .kw-banner svg { width: 44px; height: 44px; opacity: 0.92; }
   .kw-banner.k1 { background: linear-gradient(135deg, #C8102E, #e63950); }
-  .kw-banner.k2 { background: linear-gradient(135deg, #1F3A2E, #2d5a42); }
+  .kw-banner.k2 { background: linear-gradient(135deg, #2C2C2C, #2d5a42); }
   .kw-banner.k3 { background: linear-gradient(135deg, #B8941F, #D4AF37); }
   .kw-banner .badge {
     position: absolute; top: 10px; right: 10px; font-size: 11px;
@@ -335,7 +333,7 @@
   .credit-icon.c1 { background: rgba(200,16,46,0.1); }
   .credit-icon.c1 svg { color: var(--red); }
   .credit-icon.c2 { background: rgba(31,58,46,0.1); }
-  .credit-icon.c2 svg { color: var(--green-deep); }
+  .credit-icon.c2 svg { color: #2C2C2C; }
   .credit-icon.c3 { background: rgba(184,148,31,0.12); }
   .credit-icon.c3 svg { color: var(--gold-deep); }
   .credit-card h4 {
@@ -391,7 +389,8 @@
 
   /* ========== 页脚 ========== */
   .footer {
-    background: linear-gradient(180deg, var(--green-deep) 0%, var(--green-darker) 100%);
+    background: #22334F;
+    border-top: 3px solid #D4A574;
     color: rgba(255,255,255,0.7); padding: 40px 32px;
   }
   .footer-inner {
@@ -399,9 +398,9 @@
     display: flex; align-items: center; justify-content: space-between; gap: 40px;
   }
   .footer-logo { display: flex; align-items: center; gap: 14px; }
-  .footer-logo .lt { color: var(--gold); font-size: 24px; font-weight: 600; letter-spacing: 4px; }
+  .footer-logo .lt { color: #D4A574; font-size: 24px; font-weight: 600; letter-spacing: 4px; }
   .footer-info { display: flex; flex-direction: column; gap: 6px; font-size: 13px; text-align: right; }
-  .footer-info b { color: var(--gold); font-weight: 600; }
+  .footer-info b { color: #D4A574; font-weight: 600; }
 
   /* ========== 响应式 ========== */
   @media (max-width: 1080px) {
@@ -429,265 +428,274 @@
     .page-banner h1 { font-size: 28px; letter-spacing: 5px; }
     .kw-tab { padding: 10px 20px; font-size: 14px; }
   }
+
+  /* ========== 手机端通用优化（追加） ========== */
+  @media (max-width: 760px) {
+    .sec-title { font-size: 24px; letter-spacing: 3px; }
+    .sec-subtitle { letter-spacing: 2px; margin-bottom: 36px; }
+    .nav-row { gap: 12px; font-size: 13px; }
+    .nav { padding: 10px 0; }
+    .topbar-inner { padding: 0 16px; gap: 12px; }
+  }
 </style>
 </head>
-<body>
+<body data-page-node-id="gH9VGkTbSi9lChyw1afrZY">
 
 <!-- ========== 顶部导航（真实 logo） ========== -->
-<header class="topbar">
-  <div class="topbar-inner">
-    <a href="./index.html" class="logo" aria-label="皓镧资产">
-      <span class="logo-card">
-        <img src="./assets/logo.jpg" alt="皓镧资产" />
+<header class="topbar" data-page-node-id="rJSnnBcPoUEG107clYJGwx">
+  <div class="topbar-inner" data-page-node-id="wC8ibTj89kmq6vznUo6C3S">
+    <a href="./index.html" class="logo" aria-label="皓镧资产" data-page-node-id="YTNC2oIjiiHbpL2NeGm2O6">
+      <span class="logo-card" data-page-node-id="JfTjNiYEh19seWaUQFQYEE">
+        <img src="./assets/logo.jpg" alt="皓镧资产" data-page-node-id="9rZ1GzxiZuZR9fuzGIW4RF" />
       </span>
     </a>
-    <nav class="nav" aria-label="主导航">
-      <div class="nav-row top">
-        <a href="./about.html">关于我们</a>
-        <a href="./business.html">主营业务</a>
-        <a href="./service.html">服务流程</a>
-        <a href="./team.html">精英团队</a>
-        <a href="./policy.html" class="active">政策解读</a>
-        <a href="./notice.html">企业公告</a>
-        <a href="./academy.html">皓镧商学院</a>
-        <a href="./video.html">短视频专区</a>
-        <a href="./join.html">加入我们</a>
-        <a href="./contact.html">联系我们</a>
+    <nav class="nav" aria-label="主导航" data-page-node-id="e0VgIlTOI3uZ6CFQXnkzbn">
+      <div class="nav-row top" data-page-node-id="TuVAHoInDbhXuxpHJxKVI7">
+        <a href="./about.html" data-page-node-id="y9B8GaMR74M5OE1s6pSzzo">关于我们</a>
+        <a href="./business.html" data-page-node-id="8iPwxcXcADyB81hjir4rnf">主营业务</a>
+        <a href="./service.html" data-page-node-id="nrQuI4QaCjbvNH8I6RHAFm">服务流程</a>
+        <a href="./team.html" data-page-node-id="YcnqW37oL8hRSB1vENxRxg">精英团队</a>
+        <a href="./policy.html" class="active" data-page-node-id="z12axjoSH4mKfR2IJVllM6">政策解读</a>
+        <a href="./notice.html" data-page-node-id="6p4D2K2hBr61PjBDNvrClm">企业公告</a>
+        <a href="./academy.html" data-page-node-id="roK4k44qrOFLWGVd5EQgwQ">皓镧商学院</a>
+        <a href="./video.html" data-page-node-id="NotEs7QHHLwFHG0yYrCl4H">短视频专区</a>
+        <a href="./join.html" data-page-node-id="JolEayfC36Rg3ZhRgtIr9H">加入我们</a>
+        <a href="./contact.html" data-page-node-id="hXadZQvMJCn0zNjzrESNl0">联系我们</a>
       </div>
     </nav>
   </div>
 </header>
 
 <!-- ========== 页面横幅 ========== -->
-<div class="page-banner">
-  <h1>政策解读</h1>
-  <p class="en">POLICY &amp; KNOWLEDGE</p>
-  <p class="desc">紧跟行业资讯与金融政策导向，深度解读最新法规动态；以专业知识科普为辅，提供融资避坑指南、征信知识普及与办理小贴士，助您融资决策更从容。</p>
+<div class="page-banner" data-page-node-id="H6yK2CnZEOuGoapGTQB8s4">
+  <h1 data-page-node-id="5av0mXxFoR4hKOnzDobGAO">政策解读</h1>
+  <p class="en" data-page-node-id="HoiVwEaLfEIDB1zUilg01Y">POLICY &amp; KNOWLEDGE</p>
+  <p class="desc" data-page-node-id="HD3Qoz4YT1oYMzCm9loIaG">紧跟行业资讯与金融政策导向，深度解读最新法规动态；以专业知识科普为辅，提供融资避坑指南、征信知识普及与办理小贴士，助您融资决策更从容。</p>
 </div>
 
-<main>
+<main data-page-node-id="gfC7569vJBzhQ7bnLEvJO5">
 
   <!-- ========================================== -->
   <!-- 1. 行业资讯与金融政策解读 -->
   <!-- ========================================== -->
-  <section id="news">
-    <h2 class="sec-title">行业资讯与金融政策解读</h2>
-    <p class="sec-subtitle">INDUSTRY NEWS &amp; POLICY ANALYSIS</p>
+  <section id="news" data-page-node-id="JvafiISC9CdAPeXleHmdIs">
+    <h2 class="sec-title" data-page-node-id="DBgYtkQE2SDyoG408U9acy">行业资讯与金融政策解读</h2>
+    <p class="sec-subtitle" data-page-node-id="3yLOZUIszhnIBt6zeNuKxw">INDUSTRY NEWS &amp; POLICY ANALYSIS</p>
 
     <!-- 分类筛选标签 -->
-    <div class="filter-bar">
-      <span class="filter-tag active">全部</span>
-      <span class="filter-tag">房产抵押</span>
-      <span class="filter-tag">企业经营贷</span>
-      <span class="filter-tag">个人融资</span>
-      <span class="filter-tag">车辆融资</span>
-      <span class="filter-tag">行业动态</span>
-      <span class="filter-tag">监管法规</span>
+    <div class="filter-bar" data-page-node-id="gnD2uCfvJ5CuefGzEm31ZM">
+      <span class="filter-tag active" data-page-node-id="q6oHz8yNGnDybAHP9cZAmV">全部</span>
+      <span class="filter-tag" data-page-node-id="Gtl7KHEQg4GFfELkJHdu5k">房产抵押</span>
+      <span class="filter-tag" data-page-node-id="lUE6kNBwqxwAHAtH3fk3zn">企业经营贷</span>
+      <span class="filter-tag" data-page-node-id="4dTBmKS6a9MpFT8BWWrzbM">个人融资</span>
+      <span class="filter-tag" data-page-node-id="7CIOp7xN0RzAvYv7GOqQyD">车辆融资</span>
+      <span class="filter-tag" data-page-node-id="KU09tiUSDC3lVvChDA3KQp">行业动态</span>
+      <span class="filter-tag" data-page-node-id="f60PNrAMedvLDWLHMf2MLR">监管法规</span>
     </div>
 
-    <div class="news-layout">
+    <div class="news-layout" data-page-node-id="HIA1gz4icPAULlVCV9RgC3">
       <!-- 文章列表 -->
-      <div class="news-list">
+      <div class="news-list" data-page-node-id="sCvug4KdqW8i5iotpGk6K1">
 
-        <article class="news-card">
-          <div class="date-block">
-            <div class="day">12</div>
-            <div class="month">8月</div>
-            <div class="year">2026</div>
+        <article class="news-card" data-page-node-id="DtnkArZZ5HGbHv2sTlfC7q">
+          <div class="date-block" data-page-node-id="d2i257QylwadgP7WcoDSZd">
+            <div class="day" data-page-node-id="FSaZApAQyKxL67TzpJWZqH">12</div>
+            <div class="month" data-page-node-id="p0mZmO0ru7iHKxAKn0xih4">8月</div>
+            <div class="year" data-page-node-id="cbMiG35Gte623bQaGB4vFf">2026</div>
           </div>
-          <div class="content">
-            <div class="tag-row">
-              <span class="cat-tag hot">热门</span>
-              <span class="cat-tag">房产抵押</span>
+          <div class="content" data-page-node-id="jEPViqhLfRJLb2G6UU9eFY">
+            <div class="tag-row" data-page-node-id="Glql1kGENZHseh4Jdbtrrw">
+              <span class="cat-tag hot" data-page-node-id="JNn0VYcWUfIeYJN1cuKOdB">热门</span>
+              <span class="cat-tag" data-page-node-id="oDMABEt8aI1I2QsD6XhMkd">房产抵押</span>
             </div>
-            <h3>LPR 连续下调对房产抵押贷款的影响深度分析</h3>
-            <p class="summary">央行宣布 LPR 不对称降息，5 年期以上 LPR 下调 25 个基点。本文从贷款成本、审批节奏、抵押估值三个维度，解读此次降息对房产抵押融资市场的实质影响，以及借款人如何把握窗口期。</p>
-            <div class="meta">
-              <span>来源：皓镧政策研究室</span>
-              <span>阅读 2,480</span>
+            <h3 data-page-node-id="BbpsAElDsU6zFjkUC0gwj6">LPR 连续下调对房产抵押贷款的影响深度分析</h3>
+            <p class="summary" data-page-node-id="BmhFqXh0rtzOEVcLBNbe4W">央行宣布 LPR 不对称降息，5 年期以上 LPR 下调 25 个基点。本文从贷款成本、审批节奏、抵押估值三个维度，解读此次降息对房产抵押融资市场的实质影响，以及借款人如何把握窗口期。</p>
+            <div class="meta" data-page-node-id="pJP88oFIkALFuHlCwygJSK">
+              <span data-page-node-id="FR9jIU47var10QMkfneFBU">来源：皓镧政策研究室</span>
+              <span data-page-node-id="lleISXZFsaqBBDeZVj13oT">阅读 2,480</span>
             </div>
           </div>
         </article>
 
-        <article class="news-card">
-          <div class="date-block">
-            <div class="day">08</div>
-            <div class="month">8月</div>
-            <div class="year">2026</div>
+        <article class="news-card" data-page-node-id="FjpmQSDFQLI4bcp5dVvawk">
+          <div class="date-block" data-page-node-id="2bqUxxHjFyrCIw6SasMX43">
+            <div class="day" data-page-node-id="fD3Ul8wGs4lTeSd3Kj7adZ">08</div>
+            <div class="month" data-page-node-id="NXAplWwWhkVBxp7h3U41Zb">8月</div>
+            <div class="year" data-page-node-id="f24u4z6zBUwijV44dqvMLL">2026</div>
           </div>
-          <div class="content">
-            <div class="tag-row">
-              <span class="cat-tag new">最新</span>
-              <span class="cat-tag">企业经营贷</span>
+          <div class="content" data-page-node-id="DsGxopuaaQFb3YZynIDvAp">
+            <div class="tag-row" data-page-node-id="I7ZkUz3mcORqfxKOVqdtDQ">
+              <span class="cat-tag new" data-page-node-id="uBlenARIDfsVkLLGUbRUEJ">最新</span>
+              <span class="cat-tag" data-page-node-id="hHT9DYUsVHbWhsi2pVzkSo">企业经营贷</span>
             </div>
-            <h3>中小微企业融资支持新政：贴息范围扩大至全行业</h3>
-            <p class="summary">国务院办公厅发布《关于进一步加强中小微企业融资服务的指导意见》，将贷款贴息范围从科技创新型扩展至全行业，单户最高贴息额度提升至 100 万元。皓镧资产为您逐条拆解政策要点与申报条件。</p>
-            <div class="meta">
-              <span>来源：皓镧政策研究室</span>
-              <span>阅读 1,860</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="news-card">
-          <div class="date-block">
-            <div class="day">02</div>
-            <div class="month">8月</div>
-            <div class="year">2026</div>
-          </div>
-          <div class="content">
-            <div class="tag-row">
-              <span class="cat-tag">监管法规</span>
-            </div>
-            <h3>银保监会新规：个人消费贷资金用途穿透式管理升级</h3>
-            <p class="summary">银保监会印发《关于规范个人消费贷款资金用途管理的通知》，要求银行对消费贷资金流向实施穿透式监控，明确禁止流入股市、楼市。本文解读新规对个人信用融资申请的实际影响与合规操作建议。</p>
-            <div class="meta">
-              <span>来源：皓镧政策研究室</span>
-              <span>阅读 1,520</span>
+            <h3 data-page-node-id="lBRV5v0oqJaRA0g9lCBzgR">中小微企业融资支持新政：贴息范围扩大至全行业</h3>
+            <p class="summary" data-page-node-id="CjIzgEvbxQrW5KbVAi749P">国务院办公厅发布《关于进一步加强中小微企业融资服务的指导意见》，将贷款贴息范围从科技创新型扩展至全行业，单户最高贴息额度提升至 100 万元。皓镧资产为您逐条拆解政策要点与申报条件。</p>
+            <div class="meta" data-page-node-id="SDCejYdDOSG8ZkQLceFZFP">
+              <span data-page-node-id="NsYVwhgz0lf8GOVYCajY1f">来源：皓镧政策研究室</span>
+              <span data-page-node-id="PIGvVPzZ9m91ERqNowyntR">阅读 1,860</span>
             </div>
           </div>
         </article>
 
-        <article class="news-card">
-          <div class="date-block">
-            <div class="day">26</div>
-            <div class="month">7月</div>
-            <div class="year">2026</div>
+        <article class="news-card" data-page-node-id="NREduyt7ZRUhZKV4XWbKDc">
+          <div class="date-block" data-page-node-id="IN6ziyYtjFLgXCycJKALiD">
+            <div class="day" data-page-node-id="9yTY1lSMYM7PsAguAwv7s0">02</div>
+            <div class="month" data-page-node-id="qxdoPtk4LofGeaT6apH0s6">8月</div>
+            <div class="year" data-page-node-id="Oa3R4r5ntrFEGwY3nK2ZhH">2026</div>
           </div>
-          <div class="content">
-            <div class="tag-row">
-              <span class="cat-tag">车辆融资</span>
+          <div class="content" data-page-node-id="abv2OrtHXePIGCzqIqFZUv">
+            <div class="tag-row" data-page-node-id="8Yl8MXc02sUgYYOhOMAMMs">
+              <span class="cat-tag" data-page-node-id="niIG4fYDuCStw2iInjICxA">监管法规</span>
             </div>
-            <h3>汽车金融公司管理办法修订要点：融资渠道拓宽与风控强化</h3>
-            <p class="summary">国家金融监督管理总局发布修订后的《汽车金融公司管理办法》，新增资产证券化与发行金融债券等融资渠道，同时提高最低注册资本至 20 亿元。解读新规对车辆融资市场格局的重塑效应。</p>
-            <div class="meta">
-              <span>来源：皓镧政策研究室</span>
-              <span>阅读 1,180</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="news-card">
-          <div class="date-block">
-            <div class="day">20</div>
-            <div class="month">7月</div>
-            <div class="year">2026</div>
-          </div>
-          <div class="content">
-            <div class="tag-row">
-              <span class="cat-tag">行业动态</span>
-            </div>
-            <h3>2026 年上半年融资市场数据回顾与下半年趋势展望</h3>
-            <p class="summary">央行发布 2026 上半年金融统计报告：人民币贷款增加 15.2 万亿元，同比多增 1.8 万亿元。企业经营贷与个人消费贷增速领跑。本文从宏观数据切入，展望下半年融资成本走势与政策方向。</p>
-            <div class="meta">
-              <span>来源：皓镧政策研究室</span>
-              <span>阅读 980</span>
+            <h3 data-page-node-id="wgq6X4pg9KgtpvNBN3FLh7">银保监会新规：个人消费贷资金用途穿透式管理升级</h3>
+            <p class="summary" data-page-node-id="8rsMmSLcRqQXu3zG6M48sO">银保监会印发《关于规范个人消费贷款资金用途管理的通知》，要求银行对消费贷资金流向实施穿透式监控，明确禁止流入股市、楼市。本文解读新规对个人信用融资申请的实际影响与合规操作建议。</p>
+            <div class="meta" data-page-node-id="wn7VioptVDEo6QO7NjurQf">
+              <span data-page-node-id="9IGTduobR8NVmyqBVkJP4j">来源：皓镧政策研究室</span>
+              <span data-page-node-id="VHEMBw86B0k4cfCHJkWRst">阅读 1,520</span>
             </div>
           </div>
         </article>
 
-        <article class="news-card">
-          <div class="date-block">
-            <div class="day">14</div>
-            <div class="month">7月</div>
-            <div class="year">2026</div>
+        <article class="news-card" data-page-node-id="XeYV00NqOlOSnBQtm2I94n">
+          <div class="date-block" data-page-node-id="eqSxnlvBRSaY47sYlHuG2D">
+            <div class="day" data-page-node-id="CZ6ca96YAdqCD728Z6JiF6">26</div>
+            <div class="month" data-page-node-id="lJzIT1wkX4phQT6HR9KWuC">7月</div>
+            <div class="year" data-page-node-id="d8OtsaAyxuGPkyQABtHqjV">2026</div>
           </div>
-          <div class="content">
-            <div class="tag-row">
-              <span class="cat-tag">房产抵押</span>
+          <div class="content" data-page-node-id="l8A4xtPkPdYeN2n42GkGHx">
+            <div class="tag-row" data-page-node-id="sXSWfPgdeFjDLrRN8hfSSy">
+              <span class="cat-tag" data-page-node-id="CjoqZTk4xoYig4o0Rk4NjT">车辆融资</span>
             </div>
-            <h3>不动产登记新规实施：抵押登记办理时限压缩至 3 个工作日</h3>
-            <p class="summary">自然资源部《关于进一步优化不动产登记流程的通知》正式实施，抵押登记、转移登记等高频事项承诺时限压缩至 3 个工作日。本文解读新规对房产抵押贷款放款效率的提升作用。</p>
-            <div class="meta">
-              <span>来源：皓镧政策研究室</span>
-              <span>阅读 860</span>
+            <h3 data-page-node-id="NIwEjhbE1ojH93HQylMH56">汽车金融公司管理办法修订要点：融资渠道拓宽与风控强化</h3>
+            <p class="summary" data-page-node-id="uA9UQGYwCZRu6oDSFkudtN">国家金融监督管理总局发布修订后的《汽车金融公司管理办法》，新增资产证券化与发行金融债券等融资渠道，同时提高最低注册资本至 20 亿元。解读新规对车辆融资市场格局的重塑效应。</p>
+            <div class="meta" data-page-node-id="H4PwJBINff5eHOle3ppJi0">
+              <span data-page-node-id="TKttQCgARLi4Avckr75ZSJ">来源：皓镧政策研究室</span>
+              <span data-page-node-id="XZ9mxgEb20ChXtwIz2fnUP">阅读 1,180</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="news-card" data-page-node-id="LlqO7cS04o5XTsBI0WBY3M">
+          <div class="date-block" data-page-node-id="xNEZNMiLmY6W1OEMYigjXJ">
+            <div class="day" data-page-node-id="AshsWtnCVeCEAwLuM8rWsB">20</div>
+            <div class="month" data-page-node-id="ZuuCV75o6jVpo6AGGzYFFL">7月</div>
+            <div class="year" data-page-node-id="XADQWY3B0mHWpyfrXkP09A">2026</div>
+          </div>
+          <div class="content" data-page-node-id="s6s8yBVusdYXKDD0LLyACj">
+            <div class="tag-row" data-page-node-id="WGwwhD9oZKFJrisOsW4vWT">
+              <span class="cat-tag" data-page-node-id="vAymuNXNjHUBUZTcqQWPSX">行业动态</span>
+            </div>
+            <h3 data-page-node-id="LHi178GqwFa0BfU6rs8awF">2026 年上半年融资市场数据回顾与下半年趋势展望</h3>
+            <p class="summary" data-page-node-id="YrAgUZUrrFYAkaM9t1wJ5Q">央行发布 2026 上半年金融统计报告：人民币贷款增加 15.2 万亿元，同比多增 1.8 万亿元。企业经营贷与个人消费贷增速领跑。本文从宏观数据切入，展望下半年融资成本走势与政策方向。</p>
+            <div class="meta" data-page-node-id="tCW5HgJ1SioMayCVrcYTty">
+              <span data-page-node-id="ySUlayS8a1kJI2nGKwdZX6">来源：皓镧政策研究室</span>
+              <span data-page-node-id="DQ3dvcBiWYsuZ5XjeZyWlw">阅读 980</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="news-card" data-page-node-id="HDQo3DfY7MAe8bS4YDo97u">
+          <div class="date-block" data-page-node-id="hWIR5KffmHHAPviiAySoUZ">
+            <div class="day" data-page-node-id="FAX2Q6lr9rV9TDarjF0C8Q">14</div>
+            <div class="month" data-page-node-id="z9HWnqq5iYA2Q2Gh937UlI">7月</div>
+            <div class="year" data-page-node-id="OuZNSmxOIjUPBjeB4Zy3bT">2026</div>
+          </div>
+          <div class="content" data-page-node-id="yr7wDGQSN3CWdrr7et33Mr">
+            <div class="tag-row" data-page-node-id="NjTA6klX7pB1mP0myZn2Tj">
+              <span class="cat-tag" data-page-node-id="I9KdYQMEhmyCh22ClnCgxm">房产抵押</span>
+            </div>
+            <h3 data-page-node-id="sPVd2sCZHeL9Mzy1mlBUhh">不动产登记新规实施：抵押登记办理时限压缩至 3 个工作日</h3>
+            <p class="summary" data-page-node-id="soeeuAEIUh4yBfoAE447A3">自然资源部《关于进一步优化不动产登记流程的通知》正式实施，抵押登记、转移登记等高频事项承诺时限压缩至 3 个工作日。本文解读新规对房产抵押贷款放款效率的提升作用。</p>
+            <div class="meta" data-page-node-id="aeeLdbRqLnkkGEHJpB6DBX">
+              <span data-page-node-id="7i8Erb88Zwg7mN5urlPCYx">来源：皓镧政策研究室</span>
+              <span data-page-node-id="8dB46JilpwoiiztrRQbXHD">阅读 860</span>
             </div>
           </div>
         </article>
 
         <!-- 分页 -->
-        <div class="pagination">
-          <a class="active">1</a>
-          <a>2</a>
-          <a>3</a>
-          <a>下一页</a>
+        <div class="pagination" data-page-node-id="fzetqamCb5yoFjca21Srw7">
+          <a class="active" data-page-node-id="3hVAzCPtjsn1h41r4ApDlE">1</a>
+          <a data-page-node-id="xH33bi711xMhdSl6yVy4c3">2</a>
+          <a data-page-node-id="xUQd9wlBEqbEjS9S3etxfW">3</a>
+          <a data-page-node-id="IWz2JOlRjuKuGjri8vRkZb">下一页</a>
         </div>
 
       </div>
 
       <!-- 侧边栏 -->
-      <aside class="sidebar">
+      <aside class="sidebar" data-page-node-id="cElpFynzqFKk22i5D3Uu8g">
 
         <!-- 热门排行 -->
-        <div class="side-box">
-          <h4>热门排行<span class="en">HOT ARTICLES</span></h4>
-          <div class="rank-list">
-            <div class="rank-item">
-              <span class="num">1</span>
-              <div class="info">
-                <div class="t">LPR 连续下调对房产抵押贷款的影响深度分析</div>
-                <div class="d">2026-08-12</div>
+        <div class="side-box" data-page-node-id="R1V0Y7KST9W8NmH5KUNkeK">
+          <h4 data-page-node-id="mnnlPR7Q7RD6SAzZt3IHyh">热门排行<span class="en" data-page-node-id="YIZhrFC6wtPg0yMSVAoZTH">HOT ARTICLES</span></h4>
+          <div class="rank-list" data-page-node-id="mbXP5WdTvqQclUJ0vtkKZ4">
+            <div class="rank-item" data-page-node-id="8WRACTy38FBiHtXMU1dlLS">
+              <span class="num" data-page-node-id="GGP6gmIBiVbpFpY2EnIElD">1</span>
+              <div class="info" data-page-node-id="IZ9aSohUmnFR81B6akrGkK">
+                <div class="t" data-page-node-id="XIB0wkMlH64Vzw8nKDqYL1">LPR 连续下调对房产抵押贷款的影响深度分析</div>
+                <div class="d" data-page-node-id="l2E5yInspBA5inVFeRW2FE">2026-08-12</div>
               </div>
             </div>
-            <div class="rank-item">
-              <span class="num">2</span>
-              <div class="info">
-                <div class="t">中小微企业融资支持新政：贴息范围扩大至全行业</div>
-                <div class="d">2026-08-08</div>
+            <div class="rank-item" data-page-node-id="v9FllPzUOPHt9ubn9DFTC9">
+              <span class="num" data-page-node-id="xrZuARRw6ZUsKNyG2pfvlL">2</span>
+              <div class="info" data-page-node-id="ME2p1DzEYkBAM1n4r4mkrp">
+                <div class="t" data-page-node-id="1dWAVFxrHx1ppBqk6i6JL0">中小微企业融资支持新政：贴息范围扩大至全行业</div>
+                <div class="d" data-page-node-id="lcuc1t3pXKWElA3Rf5arJB">2026-08-08</div>
               </div>
             </div>
-            <div class="rank-item">
-              <span class="num">3</span>
-              <div class="info">
-                <div class="t">银保监会新规：个人消费贷资金用途穿透式管理升级</div>
-                <div class="d">2026-08-02</div>
+            <div class="rank-item" data-page-node-id="vDUwPLUfnzJz0fNBfaAz6m">
+              <span class="num" data-page-node-id="Vq579NF9Da2TjwDEQFd0wa">3</span>
+              <div class="info" data-page-node-id="AxQrPC8zXUjFBV8vQTyLPg">
+                <div class="t" data-page-node-id="ibuRLa2w4MX28sLBqubORC">银保监会新规：个人消费贷资金用途穿透式管理升级</div>
+                <div class="d" data-page-node-id="syiFLra6pST9WosuxcUzQD">2026-08-02</div>
               </div>
             </div>
-            <div class="rank-item">
-              <span class="num">4</span>
-              <div class="info">
-                <div class="t">不动产登记新规：抵押登记时限压缩至 3 个工作日</div>
-                <div class="d">2026-07-14</div>
+            <div class="rank-item" data-page-node-id="UPZ4RtJI3YmJnEegUj8jAR">
+              <span class="num" data-page-node-id="Z4ItW3LOBEAHpDK8Gsf4UN">4</span>
+              <div class="info" data-page-node-id="Tn7j5pDAbL8Rc3HiT4iXt5">
+                <div class="t" data-page-node-id="EqCYW3gJzzSdcHY8g4U0AK">不动产登记新规：抵押登记时限压缩至 3 个工作日</div>
+                <div class="d" data-page-node-id="YfaFvZ1HEy6Huv8E7BXeW5">2026-07-14</div>
               </div>
             </div>
-            <div class="rank-item">
-              <span class="num">5</span>
-              <div class="info">
-                <div class="t">2026 上半年融资市场数据回顾与下半年展望</div>
-                <div class="d">2026-07-20</div>
+            <div class="rank-item" data-page-node-id="EdFNgWUdl76NwCF5Fh6s8F">
+              <span class="num" data-page-node-id="zbsAYScrk60CkE7RlTCBdh">5</span>
+              <div class="info" data-page-node-id="Nfjt2divViZNw85keUV2sF">
+                <div class="t" data-page-node-id="bfSFytOBw0rRe9Cu4tDVEE">2026 上半年融资市场数据回顾与下半年展望</div>
+                <div class="d" data-page-node-id="5BTNHLQVGLS2nrxe3w7qN1">2026-07-20</div>
               </div>
             </div>
           </div>
         </div>
 
         <!-- 标签云 -->
-        <div class="side-box">
-          <h4>关键词<span class="en">TAGS</span></h4>
-          <div class="tag-cloud">
-            <a>LPR降息</a>
-            <a>房产抵押</a>
-            <a>经营贷</a>
-            <a>消费贷</a>
-            <a>贴息政策</a>
-            <a>车辆融资</a>
-            <a>银保监会</a>
-            <a>中小微企业</a>
-            <a>融资成本</a>
-            <a>风控新规</a>
-            <a>不动产登记</a>
-            <a>资金用途</a>
+        <div class="side-box" data-page-node-id="cQa8c5jqnrjYlnANUryFzG">
+          <h4 data-page-node-id="8E2MgeZP0PlzFmDwCmANk5">关键词<span class="en" data-page-node-id="03shIerXyJpEXi1fZm5n35">TAGS</span></h4>
+          <div class="tag-cloud" data-page-node-id="UaurGHoyAk8NDA9J0fXdG0">
+            <a data-page-node-id="zr5YaLEFGDUCPmpMKzPQKC">LPR降息</a>
+            <a data-page-node-id="F7ALkrTQvBP4Rdy5EBP8Lr">房产抵押</a>
+            <a data-page-node-id="brtvw19CTwTMTL4WS5ZbtU">经营贷</a>
+            <a data-page-node-id="Uvm1ykGtCVCxgpMAdfqwio">消费贷</a>
+            <a data-page-node-id="wCwNxXBSrKNMIzIG78WOoO">贴息政策</a>
+            <a data-page-node-id="6V4FzHfb9HYFnovCPq5vKp">车辆融资</a>
+            <a data-page-node-id="Ku5ZFyf5obNH3jddHMZET9">银保监会</a>
+            <a data-page-node-id="snCTkwY4HgVelHtCmDX81y">中小微企业</a>
+            <a data-page-node-id="8eFpYoPKrqZSBI5ph9aWNY">融资成本</a>
+            <a data-page-node-id="E65syECZyyT9sBtvS5eFsQ">风控新规</a>
+            <a data-page-node-id="nNEDFiv7ZqE4dnoaAgrRcp">不动产登记</a>
+            <a data-page-node-id="C9Acau9qM558Pw37UQbmgf">资金用途</a>
           </div>
         </div>
 
         <!-- 订阅 -->
-        <div class="side-box subscribe-box">
-          <h4>政策订阅<span class="en">SUBSCRIBE</span></h4>
-          <p>订阅皓镧政策速递，第一时间获取最新行业资讯与政策解读。</p>
-          <div class="subscribe-input">
-            <input type="email" placeholder="输入您的邮箱" />
-            <button>订阅</button>
+        <div class="side-box subscribe-box" data-page-node-id="fJLD0DwGyNRqcGbvx30NsA">
+          <h4 data-page-node-id="yhbNGvylSTOvHbeAXco75n">政策订阅<span class="en" data-page-node-id="JVp4IrmQ1nwbUkFYP8YEZl">SUBSCRIBE</span></h4>
+          <p data-page-node-id="8VyhAvBGn8NRoBQVELubAn">订阅皓镧政策速递，第一时间获取最新行业资讯与政策解读。</p>
+          <div class="subscribe-input" data-page-node-id="42z9opG63VWTmSWl35GK9S">
+            <input type="email" placeholder="输入您的邮箱" data-page-node-id="UbufAcMhDyQvZhDDRLHjeQ" />
+            <button data-page-node-id="8WxEFs72FFENrEFMm1kLvP">订阅</button>
           </div>
-          <p class="subscribe-tip">我们尊重您的隐私，不会向第三方分享邮箱信息。</p>
+          <p class="subscribe-tip" data-page-node-id="7VTMBWp6jwcZlbeL3kU46g">我们尊重您的隐私，不会向第三方分享邮箱信息。</p>
         </div>
 
       </aside>
@@ -697,247 +705,247 @@
   <!-- ========================================== -->
   <!-- 2. 知识科普 -->
   <!-- ========================================== -->
-  <section id="knowledge">
-    <h2 class="sec-title">知识科普</h2>
-    <p class="sec-subtitle">FINANCIAL KNOWLEDGE</p>
-    <p class="sec-desc">
+  <section id="knowledge" data-page-node-id="OG1s46Oj065pWf6YXR5GBv">
+    <h2 class="sec-title" data-page-node-id="1iWOhGVpHZvif7HdX2YgjI">知识科普</h2>
+    <p class="sec-subtitle" data-page-node-id="dILwVoKrgLJvO3CDIV9zTF">FINANCIAL KNOWLEDGE</p>
+    <p class="sec-desc" data-page-node-id="bzG0CIhhZq3H5FXQVsyCHh">
       融资路上的每一步都需要专业知识护航。皓镧资产以多年实操经验，为您整理融资避坑指南、征信知识科普与办理小贴士，让专业门槛不再成为融资障碍。
     </p>
 
     <!-- 子分类导航 -->
-    <div class="kw-nav" id="kwTabs">
-      <span class="kw-tab active" data-target="pitfall">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 L2 22 L22 22 Z"/><path d="M12 9 L12 15"/><circle cx="12" cy="18" r="0.5" fill="currentColor"/></svg>
+    <div class="kw-nav" id="kwTabs" data-page-node-id="nV7Ku97ik6OgekQl316FA9">
+      <span class="kw-tab active" data-target="pitfall" data-page-node-id="PjFfoDNXINAAEc2gIErw6u">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="iSvra3RJm9AYcbWTGcJas4"><path d="M12 2 L2 22 L22 22 Z" data-page-node-id="C0e8dLB8f0iJn3Uhy1pADJ"/><path d="M12 9 L12 15" data-page-node-id="qoSQdWrFwxpNK8AeeI5Od2"/><circle cx="12" cy="18" r="0.5" fill="currentColor" data-page-node-id="hRg8aX0JUJDUDpMr0k67hA"/></svg>
         融资避坑指南
       </span>
-      <span class="kw-tab" data-target="credit">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10 L21 10"/><path d="M7 15 L11 15"/></svg>
+      <span class="kw-tab" data-target="credit" data-page-node-id="oTCK8O2mLOC6Q7vKQfuzwC">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="OWmlcDp2pnHlDINNjr3oI2"><rect x="3" y="5" width="18" height="14" rx="2" data-page-node-id="mOrDV3GNxkVS4Kk3i0zcei"/><path d="M3 10 L21 10" data-page-node-id="rSXV8g949hWzJ9DywHCDPJ"/><path d="M7 15 L11 15" data-page-node-id="31dMkH5FPjjBFRzIYSeTyO"/></svg>
         征信知识
       </span>
-      <span class="kw-tab" data-target="tips">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 7 L12 13"/><circle cx="12" cy="16" r="0.5" fill="currentColor"/></svg>
+      <span class="kw-tab" data-target="tips" data-page-node-id="OtwabTbcNeRF2JZ7nAFNWI">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="EW0rbv3ZfHKqT5HB1EPNMo"><circle cx="12" cy="12" r="10" data-page-node-id="PECjFqvR8Pdc0tlu257Cej"/><path d="M12 7 L12 13" data-page-node-id="HUzOCsEgvOZGOA2ADmD2Xn"/><circle cx="12" cy="16" r="0.5" fill="currentColor" data-page-node-id="LKbFnWSR0BnKzFtTVh5xYs"/></svg>
         办理小贴士
       </span>
     </div>
 
     <!-- ===== 2-A. 融资避坑指南 ===== -->
-    <div class="kw-panel" id="pitfall">
-      <div class="pitfall-list">
-        <div class="pitfall-item">
-          <div class="pitfall-num">1</div>
-          <div class="pitfall-text">
-            <h4>警惕"低息"陷阱：名义利率与实际利率的区别</h4>
-            <p>部分机构以"月息低至 X 厘"吸引客户，但实际年化利率远高于宣传值。务必要求对方出具书面年化利率（APR），以真实成本做比较，而非被"月供低"话术迷惑。</p>
+    <div class="kw-panel" id="pitfall" data-page-node-id="O6Sx2tCMdTfgMOPblN22Du">
+      <div class="pitfall-list" data-page-node-id="wMm4ds3QyM7LwdLQ11JfUo">
+        <div class="pitfall-item" data-page-node-id="CMuCSBaQCfve1nw8GgjY82">
+          <div class="pitfall-num" data-page-node-id="F3klIRHJQhZgTWCwtFE7aq">1</div>
+          <div class="pitfall-text" data-page-node-id="HzZ9tIwXXg5W1m8wF6ytQ7">
+            <h4 data-page-node-id="ODd8FcgscSYkDkoPDEvo1B">警惕"低息"陷阱：名义利率与实际利率的区别</h4>
+            <p data-page-node-id="b1v6qvSlCp3Rw3RYaGubvX">部分机构以"月息低至 X 厘"吸引客户，但实际年化利率远高于宣传值。务必要求对方出具书面年化利率（APR），以真实成本做比较，而非被"月供低"话术迷惑。</p>
           </div>
         </div>
-        <div class="pitfall-item">
-          <div class="pitfall-num">2</div>
-          <div class="pitfall-text">
-            <h4>手续费隐形加价：问清"全包成本"</h4>
-            <p>除了利息外，评估费、公证费、抵押登记费、账户管理费等名目繁多。签约前请对方逐项列出全部费用清单，计算"综合融资成本"，避免签约后被动加价。</p>
+        <div class="pitfall-item" data-page-node-id="Qq741OGvr8UiyY2ugAB0CP">
+          <div class="pitfall-num" data-page-node-id="OCwI6y2ToJq1uQUWYDDADY">2</div>
+          <div class="pitfall-text" data-page-node-id="363J3gH9w5lxD7tYW3HV0I">
+            <h4 data-page-node-id="zIiPgOdhUgWEIyRS3hfD7m">手续费隐形加价：问清"全包成本"</h4>
+            <p data-page-node-id="3cVZgjITnzPWpC5z9ptX38">除了利息外，评估费、公证费、抵押登记费、账户管理费等名目繁多。签约前请对方逐项列出全部费用清单，计算"综合融资成本"，避免签约后被动加价。</p>
           </div>
         </div>
-        <div class="pitfall-item">
-          <div class="pitfall-num">3</div>
-          <div class="pitfall-text">
-            <h4>合同条款埋雷：提前还款违约金与强制绑定期</h4>
-            <p>部分贷款合同约定 2-3 年内提前还款需支付 3%-5% 违约金，或强制绑定代发工资、购买保险等附加条件。签约前逐条阅读违约条款与附加条件，保护自身灵活还款权。</p>
+        <div class="pitfall-item" data-page-node-id="fnalJIr1aBTZsA59Cqrj4r">
+          <div class="pitfall-num" data-page-node-id="7PGnxoNh0LCuXtVgQn777q">3</div>
+          <div class="pitfall-text" data-page-node-id="FKJdwRANilVdZRM5BU3bTU">
+            <h4 data-page-node-id="YNSoYRZHnmN4dhcOtzEVIi">合同条款埋雷：提前还款违约金与强制绑定期</h4>
+            <p data-page-node-id="NnoLK0thgQSnxKRh6apuYE">部分贷款合同约定 2-3 年内提前还款需支付 3%-5% 违约金，或强制绑定代发工资、购买保险等附加条件。签约前逐条阅读违约条款与附加条件，保护自身灵活还款权。</p>
           </div>
         </div>
-        <div class="pitfall-item">
-          <div class="pitfall-num">4</div>
-          <div class="pitfall-text">
-            <h4>抵押物估值猫腻：自行核实市场公允价</h4>
-            <p>部分评估机构与贷款机构关联，可能高估或低估房产价值。建议自行查询同小区近期成交价，或委托独立第三方评估，确保抵押物估值公允，额度不被刻意压低。</p>
+        <div class="pitfall-item" data-page-node-id="CanGxCC0eeiYMqqkygwp6X">
+          <div class="pitfall-num" data-page-node-id="Qjs3EP9b4DQMw4JsuEJCFw">4</div>
+          <div class="pitfall-text" data-page-node-id="yODDdCQD5tKpfOVasqIvV7">
+            <h4 data-page-node-id="h8cbIEYhjkyEMRO1vENOHX">抵押物估值猫腻：自行核实市场公允价</h4>
+            <p data-page-node-id="4hi4WWs7WeYDHEXjVgLzVz">部分评估机构与贷款机构关联，可能高估或低估房产价值。建议自行查询同小区近期成交价，或委托独立第三方评估，确保抵押物估值公允，额度不被刻意压低。</p>
           </div>
         </div>
-        <div class="pitfall-item">
-          <div class="pitfall-num">5</div>
-          <div class="pitfall-text">
-            <h4>资金用途合规红线：消费贷严禁流入股市楼市</h4>
-            <p>银保监会新规要求消费贷资金穿透式管理，流入股市、楼市将被提前收回贷款并影响征信。申请前务必明确真实用途，保留消费凭证，切勿心存侥幸违规挪用。</p>
+        <div class="pitfall-item" data-page-node-id="p7dsUgLdyz0UmUbclJh1yi">
+          <div class="pitfall-num" data-page-node-id="m1GD2RNPJkJ4Z7l6aWspXx">5</div>
+          <div class="pitfall-text" data-page-node-id="bUJyyK9DDoc5DDduOQHCOY">
+            <h4 data-page-node-id="56uJ7DXFdzsyrtnrq5NJCO">资金用途合规红线：消费贷严禁流入股市楼市</h4>
+            <p data-page-node-id="64GDU0F52lO9m2gd4FZVxp">银保监会新规要求消费贷资金穿透式管理，流入股市、楼市将被提前收回贷款并影响征信。申请前务必明确真实用途，保留消费凭证，切勿心存侥幸违规挪用。</p>
           </div>
         </div>
-        <div class="pitfall-item">
-          <div class="pitfall-num">6</div>
-          <div class="pitfall-text">
-            <h4>"包装贷款"风险：虚构资质可能触犯刑法</h4>
-            <p>部分中介提供"包装流水""挂靠公司"等虚假资质服务，一旦银行贷后核查发现，不仅贷款被追回，还可能涉嫌贷款诈骗罪。务必以真实资质申请，宁可额度低也不要触红线。</p>
+        <div class="pitfall-item" data-page-node-id="1B2ksmuhSYmLOVfgjJGmWH">
+          <div class="pitfall-num" data-page-node-id="CEwEoEKD6jUS6wHJqeP9W7">6</div>
+          <div class="pitfall-text" data-page-node-id="2VzMjbwqjs1tbdYJtP37qG">
+            <h4 data-page-node-id="vuWOUhZeYoS7s2TDuCDanw">"包装贷款"风险：虚构资质可能触犯刑法</h4>
+            <p data-page-node-id="WbDrLFr4RGfgj2GptT0oG7">部分中介提供"包装流水""挂靠公司"等虚假资质服务，一旦银行贷后核查发现，不仅贷款被追回，还可能涉嫌贷款诈骗罪。务必以真实资质申请，宁可额度低也不要触红线。</p>
           </div>
         </div>
-        <div class="pitfall-item">
-          <div class="pitfall-num">7</div>
-          <div class="pitfall-text">
-            <h4>过桥资金成本陷阱：短期周转不是免费午餐</h4>
-            <p>续贷前的过桥资金按日计息，日息看似低但年化极高。务必精确计算续贷到账周期，尽量缩短过桥天数，或选择有银行"无还本续贷"承诺的方案，避免过桥成本吞噬利润。</p>
+        <div class="pitfall-item" data-page-node-id="oMu8IcYa8CFas7yCIKX6bN">
+          <div class="pitfall-num" data-page-node-id="0eLIYJZeBNPEiH2JopQqBs">7</div>
+          <div class="pitfall-text" data-page-node-id="hcavJo3t6qhgEtgEbE8cvC">
+            <h4 data-page-node-id="IP8Fhek0iTDOjnVHma9MAY">过桥资金成本陷阱：短期周转不是免费午餐</h4>
+            <p data-page-node-id="c3EhtmNZeU7fSQDEByD9YY">续贷前的过桥资金按日计息，日息看似低但年化极高。务必精确计算续贷到账周期，尽量缩短过桥天数，或选择有银行"无还本续贷"承诺的方案，避免过桥成本吞噬利润。</p>
           </div>
         </div>
-        <div class="pitfall-item">
-          <div class="pitfall-num">8</div>
-          <div class="pitfall-text">
-            <h4>中介冒充银行：核实放款机构资质</h4>
-            <p>部分机构以"银行直贷""银行优选"为名吸引客户，实际为中间转介。签约前请通过金融监管总局官网查询放款机构金融许可证，确认最终放款方为持牌金融机构。</p>
+        <div class="pitfall-item" data-page-node-id="e12vqBqmKEW7X9uuQ0TBeF">
+          <div class="pitfall-num" data-page-node-id="XB3by36zvRHERbFR4F09PT">8</div>
+          <div class="pitfall-text" data-page-node-id="WqLYPlQp2q33c7uFMFe0rl">
+            <h4 data-page-node-id="EhevgEDryPm0CGGCQlcw4p">中介冒充银行：核实放款机构资质</h4>
+            <p data-page-node-id="oz2YDzscrcjEVp4htcbUBZ">部分机构以"银行直贷""银行优选"为名吸引客户，实际为中间转介。签约前请通过金融监管总局官网查询放款机构金融许可证，确认最终放款方为持牌金融机构。</p>
           </div>
         </div>
       </div>
     </div>
 
     <!-- ===== 2-B. 征信知识 ===== -->
-    <div class="kw-panel" id="credit" style="display:none;">
-      <div class="credit-grid">
-        <div class="credit-card">
-          <div class="credit-icon c1">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 L4 6 L4 12 C4 17 8 21 12 22 C16 21 20 17 20 12 L20 6 Z"/><path d="M9 12 L11 14 L15 10"/></svg>
+    <div class="kw-panel" id="credit" style="display:none;" data-page-node-id="MnxbPOyQy935ctOsoASQ5f">
+      <div class="credit-grid" data-page-node-id="t2YJsv6VlZVS13BuqHmsC9">
+        <div class="credit-card" data-page-node-id="kIZjmsVqCQC1jLkdVjrJhN">
+          <div class="credit-icon c1" data-page-node-id="UDH4Qg2YmIw8Ol2w2F3tMm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="Smt7gD94lVxL7dgyuAuFYv"><path d="M12 2 L4 6 L4 12 C4 17 8 21 12 22 C16 21 20 17 20 12 L20 6 Z" data-page-node-id="fvpPpRvhtG8P4fe5ySi6UB"/><path d="M9 12 L11 14 L15 10" data-page-node-id="XoDJpo5BjQGLDHv9MYaRsu"/></svg>
           </div>
-          <h4>征信报告是什么</h4>
-          <p>个人征信报告由中国人民银行征信中心出具，记录您的信用卡、贷款、担保等信用行为，是银行审批贷款的核心依据。</p>
-          <ul class="tips-list">
-            <li>每年可免费查询 2 次个人信用报告</li>
-            <li>查询渠道：央行征信中心官网 / 部分银行 APP</li>
-            <li>建议每半年自查一次，及时发现问题</li>
+          <h4 data-page-node-id="SSDqYADRBoCswse97t9zwJ">征信报告是什么</h4>
+          <p data-page-node-id="zPsZTzq1MpMeWapnDWR1fG">个人征信报告由中国人民银行征信中心出具，记录您的信用卡、贷款、担保等信用行为，是银行审批贷款的核心依据。</p>
+          <ul class="tips-list" data-page-node-id="vyAkMRiwwcTZ6JxsXRKLi5">
+            <li data-page-node-id="T9fIWxF08Y40NAvmhseOvK">每年可免费查询 2 次个人信用报告</li>
+            <li data-page-node-id="4acP9YwurIVAt49jSTDwM8">查询渠道：央行征信中心官网 / 部分银行 APP</li>
+            <li data-page-node-id="xQSG5fsWQR4kB16gbYIEDL">建议每半年自查一次，及时发现问题</li>
           </ul>
         </div>
-        <div class="credit-card">
-          <div class="credit-icon c2">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6 L12 12 L16 14"/></svg>
+        <div class="credit-card" data-page-node-id="KE0vwHBy7MoiAECXRMlS25">
+          <div class="credit-icon c2" data-page-node-id="6g3vZ4xXBKMiz7GuHiBjPI">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="nhKPdxgPDLD4ON3dRC6aq0"><circle cx="12" cy="12" r="10" data-page-node-id="ASuEporWLGdBJ9kMa65Piw"/><path d="M12 6 L12 12 L16 14" data-page-node-id="6nf9L7ifgjWlrOrH2XPUGq"/></svg>
           </div>
-          <h4>逾期记录的影响</h4>
-          <p>逾期是影响征信评分的最主要因素。不同程度的逾期对贷款审批的影响差异巨大，了解规则才能有效规避。</p>
-          <ul class="tips-list">
-            <li>1-30 天逾期：轻微影响，部分银行仍可受理</li>
-            <li>31-90 天逾期：严重影响，多数银行拒贷</li>
-            <li>90 天以上 / 连三累六：基本无法获批贷款</li>
-            <li>逾期记录自还清之日起保留 5 年</li>
+          <h4 data-page-node-id="2zS5tD0g4vtA8jiw4titLN">逾期记录的影响</h4>
+          <p data-page-node-id="5ZFNYlLB8RDwvnZAs7mxi7">逾期是影响征信评分的最主要因素。不同程度的逾期对贷款审批的影响差异巨大，了解规则才能有效规避。</p>
+          <ul class="tips-list" data-page-node-id="ZHwHBlkJt2791QjjrrvUNf">
+            <li data-page-node-id="ANDVcjc0SOkez4zjTwlIpe">1-30 天逾期：轻微影响，部分银行仍可受理</li>
+            <li data-page-node-id="RxSabs6QtkeuXuWnEtkCxL">31-90 天逾期：严重影响，多数银行拒贷</li>
+            <li data-page-node-id="dQ6yBC5AN4cpE3aENE7ZvN">90 天以上 / 连三累六：基本无法获批贷款</li>
+            <li data-page-node-id="ypi46APCCIlFopP2Ad3z45">逾期记录自还清之日起保留 5 年</li>
           </ul>
         </div>
-        <div class="credit-card">
-          <div class="credit-icon c3">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12 L7 12 M17 12 L21 12"/><circle cx="12" cy="12" r="3"/><path d="M9 12 L15 12"/></svg>
+        <div class="credit-card" data-page-node-id="G299BfRmJfQTSWuDbWpJgM">
+          <div class="credit-icon c3" data-page-node-id="nligUFgMqo48Hy1gSRHqEF">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="9BsKy6BjAqDJlAYO1LXkE7"><path d="M3 12 L7 12 M17 12 L21 12" data-page-node-id="G16QSuORcnUVaPGiwflxPp"/><circle cx="12" cy="12" r="3" data-page-node-id="tRC03sSVkH8DRIYOl9FUSU"/><path d="M9 12 L15 12" data-page-node-id="BkxDpHUEVLKCESK1FHtzAt"/></svg>
           </div>
-          <h4>硬查询与征信"花了"</h4>
-          <p>短期内频繁被不同机构查询征信（硬查询），会让银行认为您"资金饥渴"，影响审批通过率和利率定价。</p>
-          <ul class="tips-list">
-            <li>本人查询（软查询）不影响征信评分</li>
-            <li>贷款审批 / 信用卡审批属于硬查询</li>
-            <li>建议 1 个月内硬查询不超过 3 次</li>
-            <li>不要同时向多家机构"广撒网"申请</li>
+          <h4 data-page-node-id="8EO1pEDSWqeE50QNGUJFYF">硬查询与征信"花了"</h4>
+          <p data-page-node-id="PwXMgmzWPpsymBQAhUs87p">短期内频繁被不同机构查询征信（硬查询），会让银行认为您"资金饥渴"，影响审批通过率和利率定价。</p>
+          <ul class="tips-list" data-page-node-id="cbQHICGdJY1j3n0jVGVbc5">
+            <li data-page-node-id="2GtA8CNwHXFaKkOVIImD5U">本人查询（软查询）不影响征信评分</li>
+            <li data-page-node-id="g01CQSo57lxEBwqiVPDBEH">贷款审批 / 信用卡审批属于硬查询</li>
+            <li data-page-node-id="sW5xN4cFRoBvy9FyXiL5ZT">建议 1 个月内硬查询不超过 3 次</li>
+            <li data-page-node-id="iKKxMVBhcaWFrtBj8savvj">不要同时向多家机构"广撒网"申请</li>
           </ul>
         </div>
-        <div class="credit-card">
-          <div class="credit-icon c1">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10 L21 10"/><path d="M7 15 L13 15"/></svg>
+        <div class="credit-card" data-page-node-id="G9EsK8QjzxJOGHb908Lq5A">
+          <div class="credit-icon c1" data-page-node-id="S6V77eK3dzcyz5luvHbeOg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="N7BspVWHehYJgaNBBfGVkA"><rect x="3" y="5" width="18" height="14" rx="2" data-page-node-id="SuDYF55J6eZ1KGvAP2iJCK"/><path d="M3 10 L21 10" data-page-node-id="ta4ZJcFjHfqLPjscGRWbKL"/><path d="M7 15 L13 15" data-page-node-id="LFVHD77IPVywsxfQdQ6RfB"/></svg>
           </div>
-          <h4>信用卡使用率</h4>
-          <p>信用卡总额度的使用比例直接影响征信评分。长期高比例使用会让银行认为您负债压力大、还款能力不足。</p>
-          <ul class="tips-list">
-            <li>建议单卡使用率不超过额度的 70%</li>
-            <li>多卡总额度使用率建议低于 50%</li>
-            <li>全额还款优于最低还款，避免循环利息</li>
-            <li>申请贷款前 3 个月适当降低信用卡使用</li>
+          <h4 data-page-node-id="5AFY3jDaU5CBsKkBGj1zsX">信用卡使用率</h4>
+          <p data-page-node-id="R1ks241N2oM939Ix96xSDo">信用卡总额度的使用比例直接影响征信评分。长期高比例使用会让银行认为您负债压力大、还款能力不足。</p>
+          <ul class="tips-list" data-page-node-id="Rr7d4pQuJjBLtG9NluEKwG">
+            <li data-page-node-id="Z5GxCfpu77BeE6eFliL0TJ">建议单卡使用率不超过额度的 70%</li>
+            <li data-page-node-id="GMISXYrEKdNCEBcudOBF4W">多卡总额度使用率建议低于 50%</li>
+            <li data-page-node-id="dfIwtPJDtWH2bFQx7GgWZ5">全额还款优于最低还款，避免循环利息</li>
+            <li data-page-node-id="2wtV0KO8dlk0jXERQyULES">申请贷款前 3 个月适当降低信用卡使用</li>
           </ul>
         </div>
-        <div class="credit-card">
-          <div class="credit-icon c2">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 L12 21"/><path d="M8 7 L12 3 L16 7"/><path d="M8 17 L12 21 L16 17"/></svg>
+        <div class="credit-card" data-page-node-id="CneJ4R4aBQ0EOBf6NMeEgb">
+          <div class="credit-icon c2" data-page-node-id="m89M2uSasnKTE25qHIk1pu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="vBvPXyQq8DpSFDD9GXJsmr"><path d="M12 3 L12 21" data-page-node-id="MsxjoWFrjpKsb7motvp7RI"/><path d="M8 7 L12 3 L16 7" data-page-node-id="ej4fWH7eGDeazESW1c74Om"/><path d="M8 17 L12 21 L16 17" data-page-node-id="5OVW3SD391piwai8kjaOBH"/></svg>
           </div>
-          <h4>担保与共同借款</h4>
-          <p>为他人提供担保或共同借款，会以"或有负债"形式计入您的征信报告。主借款人逾期，担保人征信同步受损。</p>
-          <ul class="tips-list">
-            <li>担保前评估对方还款能力与信用状况</li>
-            <li>一般保证与连带责任保证的法律后果不同</li>
-            <li>担保记录会占用您自身的负债空间</li>
-            <li>已结清的担保记录保留 5 年后自动消除</li>
+          <h4 data-page-node-id="aqGp52BaChUnrLky3UTWDE">担保与共同借款</h4>
+          <p data-page-node-id="L0ARi8FVX1APwB7RriHE8P">为他人提供担保或共同借款，会以"或有负债"形式计入您的征信报告。主借款人逾期，担保人征信同步受损。</p>
+          <ul class="tips-list" data-page-node-id="UAlixckOEPkADr5BJ7dut2">
+            <li data-page-node-id="I02fR1sGPD6pGwkbQlBWXa">担保前评估对方还款能力与信用状况</li>
+            <li data-page-node-id="Xr5gsPzYyxKOBBbd8XoBtF">一般保证与连带责任保证的法律后果不同</li>
+            <li data-page-node-id="snTNMCUSveAVAQnI4pYQgX">担保记录会占用您自身的负债空间</li>
+            <li data-page-node-id="qwXx98eKruaZmlTdiRbElp">已结清的担保记录保留 5 年后自动消除</li>
           </ul>
         </div>
-        <div class="credit-card">
-          <div class="credit-icon c3">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12 L9 16 L19 6"/></svg>
+        <div class="credit-card" data-page-node-id="ENPZZJFKAnfHRFAvVbOfRJ">
+          <div class="credit-icon c3" data-page-node-id="pQ8qQAeOTbdXhtatEgsdoi">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="Y1DfF3XeuS4PxSI7B92xD7"><path d="M5 12 L9 16 L19 6" data-page-node-id="hNJ0Ggw546llQ0UbQEYFIn"/></svg>
           </div>
-          <h4>征信修复与异议</h4>
-          <p>征信报告有误可以申请异议处理，但任何声称"付费洗白征信"的广告均为骗局。合规修复只有官方渠道一条路。</p>
-          <ul class="tips-list">
-            <li>向征信中心或数据报送机构提交异议申请</li>
-            <li>正常异议处理周期约 15-20 个工作日</li>
-            <li>非本人原因导致的逾期可申请标注说明</li>
-            <li>警惕"征信修复""征信洗白"骗局</li>
+          <h4 data-page-node-id="k9CIzQ9UQWirEE0L2p80GO">征信修复与异议</h4>
+          <p data-page-node-id="Mv9F7kdJMR2t5D5sk6N14b">征信报告有误可以申请异议处理，但任何声称"付费洗白征信"的广告均为骗局。合规修复只有官方渠道一条路。</p>
+          <ul class="tips-list" data-page-node-id="cjGRUjjWg4SXqXZSGlzqLB">
+            <li data-page-node-id="nVqheACR3ytZOITjipuOaR">向征信中心或数据报送机构提交异议申请</li>
+            <li data-page-node-id="cQOiGa8hvO4nnOHjFQg5jO">正常异议处理周期约 15-20 个工作日</li>
+            <li data-page-node-id="itqBJBCflnvikfN7HPmEO9">非本人原因导致的逾期可申请标注说明</li>
+            <li data-page-node-id="G8A0c0dbgKSHkA156gGSsq">警惕"征信修复""征信洗白"骗局</li>
           </ul>
         </div>
       </div>
     </div>
 
     <!-- ===== 2-C. 办理小贴士 ===== -->
-    <div class="kw-panel" id="tips" style="display:none;">
-      <div class="tips-timeline">
-        <div class="tip-step">
-          <div class="step-head">
-            <span class="step-num">STEP 01</span>
-            <span class="step-title">贷前准备：材料齐全是高效的第一步</span>
+    <div class="kw-panel" id="tips" style="display:none;" data-page-node-id="vBjY8fQ1B0Z5hxjNTrfJ4r">
+      <div class="tips-timeline" data-page-node-id="EQay5icB6lepkdrWSxDTFZ">
+        <div class="tip-step" data-page-node-id="eHn9aPXaVGvG7aFV8mBCLl">
+          <div class="step-head" data-page-node-id="CAc5KE0ClYLKLebc0G4y6W">
+            <span class="step-num" data-page-node-id="3AbaLrdiaU5D27tZ4JcWeN">STEP 01</span>
+            <span class="step-title" data-page-node-id="nvGBWVMSghUXBCIcvGnFll">贷前准备：材料齐全是高效的第一步</span>
           </div>
-          <div class="step-body">
+          <div class="step-body" data-page-node-id="DgMFEz5VPsdemKrq8gTp7Z">
             申请融资前，提前准备好身份证、户口本、婚姻证明、收入流水、资产证明等基础材料。企业经营贷还需提供营业执照、公司章程、财务报表与纳税记录。材料越齐全，审批越快，反复补件是延误放款的首要原因。
           </div>
-          <div class="step-tags">
-            <span>身份证件</span><span>收入流水</span><span>资产证明</span><span>企业资质</span>
+          <div class="step-tags" data-page-node-id="Wr6wstIUIg77jT4zMkRCSi">
+            <span data-page-node-id="tKVCQtAUVVTDS21QUaHHXm">身份证件</span><span data-page-node-id="80LmUklV94pJP19GoUWQto">收入流水</span><span data-page-node-id="mMRXZHBEFY3WqRsAFXyBpE">资产证明</span><span data-page-node-id="Jqwd5Ym66V6UZXKR8SoBGK">企业资质</span>
           </div>
         </div>
-        <div class="tip-step">
-          <div class="step-head">
-            <span class="step-num">STEP 02</span>
-            <span class="step-title">机构选择：比对至少 2-3 家机构方案</span>
+        <div class="tip-step" data-page-node-id="bHwGjVPR7jV7l8Fm9q1yhY">
+          <div class="step-head" data-page-node-id="wMz0FtGVezue1EjB7AMdEz">
+            <span class="step-num" data-page-node-id="4W1geojIRTJBZQ4ZqCJUOY">STEP 02</span>
+            <span class="step-title" data-page-node-id="fQYxjWCr2aUUyT1IiDpRnw">机构选择：比对至少 2-3 家机构方案</span>
           </div>
-          <div class="step-body">
+          <div class="step-body" data-page-node-id="qF5YAs1lkyFcOgVle97XjF">
             不同银行的偏好客群、利率定价、审批速度差异较大。建议同时咨询 2-3 家机构，比对年化利率、还款方式（等额本息 / 先息后本）、额度和期限，选择综合成本最低且匹配自身还款节奏的方案。皓镧资产顾问可一站式比对多家银行产品。
           </div>
-          <div class="step-tags">
-            <span>年化利率</span><span>还款方式</span><span>额度期限</span>
+          <div class="step-tags" data-page-node-id="uWWT2b6FZIyOvAKLAvPyxB">
+            <span data-page-node-id="0m85ne6KrNBc3seo0HYDpN">年化利率</span><span data-page-node-id="GPakrjjBva67Ukbq1M4Vvt">还款方式</span><span data-page-node-id="CGXjzuJxFUgy3VmlwXTCBf">额度期限</span>
           </div>
         </div>
-        <div class="tip-step">
-          <div class="step-head">
-            <span class="step-num">STEP 03</span>
-            <span class="step-title">面签环节：核实合同核心条款</span>
+        <div class="tip-step" data-page-node-id="GP6GtJxBMfsg4PouREmyrW">
+          <div class="step-head" data-page-node-id="5TUgDRhqcfYqB37WLxSDDB">
+            <span class="step-num" data-page-node-id="6I88cl7gXsbfIKzmOQV84D">STEP 03</span>
+            <span class="step-title" data-page-node-id="Ax75FFXRueEafa6JKjR0jx">面签环节：核实合同核心条款</span>
           </div>
-          <div class="step-body">
+          <div class="step-body" data-page-node-id="LQAIj69HUT2VgkU7AIw87y">
             面签时重点核实：贷款金额、年化利率（APR）、贷款期限、还款方式、提前还款违约金条款、放款时间承诺。如合同金额与口头承诺不一致，务必当场提出。签前可要求带走合同样本回家研读，正规机构不会拒绝。
           </div>
-          <div class="step-tags">
-            <span>年化利率</span><span>违约金条款</span><span>放款时效</span>
+          <div class="step-tags" data-page-node-id="7BpdGoz2fvQmaEK9aNVI4n">
+            <span data-page-node-id="JAkWSIlCOxPOCudl10pTU5">年化利率</span><span data-page-node-id="FotGVX5fg8ZTnkZwSSWjyB">违约金条款</span><span data-page-node-id="TqXZCtbevOlh88qwD7WVbj">放款时效</span>
           </div>
         </div>
-        <div class="tip-step">
-          <div class="step-head">
-            <span class="step-num">STEP 04</span>
-            <span class="step-title">抵押登记：配合出证加速放款</span>
+        <div class="tip-step" data-page-node-id="emOgPcfDTGNVxlagCSIqLN">
+          <div class="step-head" data-page-node-id="QtNNfWZv07taitbLrLOrFX">
+            <span class="step-num" data-page-node-id="DTZ8TRK8B6A7o3yK8rxikf">STEP 04</span>
+            <span class="step-title" data-page-node-id="9GF5H5CPWABCPDKC9KtMMe">抵押登记：配合出证加速放款</span>
           </div>
-          <div class="step-body">
+          <div class="step-body" data-page-node-id="7cDcXuZYzmEJI377f599MS">
             房产抵押贷款需办理抵押登记后方可放款。新规下登记时限已压缩至 3 个工作日，但需配合提交不动产登记申请书、身份证明、抵押合同等材料。皓镧资产与多地登记中心建立绿色通道，可协助加急办理，部分紧急件 1 个工作日出证。
           </div>
-          <div class="step-tags">
-            <span>不动产登记</span><span>绿色通道</span><span>加急出证</span>
+          <div class="step-tags" data-page-node-id="5jPKRZLOsPNrDZ0qVssU08">
+            <span data-page-node-id="Yd6LQ6GRv0NlWMRBVSUn8f">不动产登记</span><span data-page-node-id="VWFQ7BcR61v5iQXwd9JIUy">绿色通道</span><span data-page-node-id="WmcHq1DUBVDjFiRncQ6rVQ">加急出证</span>
           </div>
         </div>
-        <div class="tip-step">
-          <div class="step-head">
-            <span class="step-num">STEP 05</span>
-            <span class="step-title">贷后管理：按时还款与用途留痕</span>
+        <div class="tip-step" data-page-node-id="VfGLxs1W5BOydr7YDCU2FP">
+          <div class="step-head" data-page-node-id="RekfNRgTxtjRUBVSWS4Hwh">
+            <span class="step-num" data-page-node-id="2mzRgE180ciJH0vOaGISNr">STEP 05</span>
+            <span class="step-title" data-page-node-id="huw9eyVRjdyyxH1VoSKSQE">贷后管理：按时还款与用途留痕</span>
           </div>
-          <div class="step-body">
+          <div class="step-body" data-page-node-id="rBgZvu2A9yEDuzLQH70lkP">
             放款后请按时还款，避免逾期影响征信。消费贷需保留资金用途凭证（发票、合同等）至少 1 年，以备银行贷后检查。经营贷需确保资金用于企业经营用途，避免流入个人账户或投资领域。建议设置自动还款提醒，确保不遗漏。
           </div>
-          <div class="step-tags">
-            <span>按时还款</span><span>用途凭证</span><span>贷后检查</span>
+          <div class="step-tags" data-page-node-id="0fmWspLAvFLXBMbjRhUY9R">
+            <span data-page-node-id="26EFAe9IDDYEYb1N8fPEc3">按时还款</span><span data-page-node-id="h0Gi8E9kIS0WHvE0zolTTm">用途凭证</span><span data-page-node-id="Yul2sEHK00nOgdkCebJr1B">贷后检查</span>
           </div>
         </div>
-        <div class="tip-step">
-          <div class="step-head">
-            <span class="step-num">STEP 06</span>
-            <span class="step-title">结清解押：别忘了最后一环</span>
+        <div class="tip-step" data-page-node-id="vZfDJBbReNZcYoGALqF3Bk">
+          <div class="step-head" data-page-node-id="NSyt69jZKBN7vHvAj6Yu5F">
+            <span class="step-num" data-page-node-id="1L3wmys0qHPRiNfakLkAhC">STEP 06</span>
+            <span class="step-title" data-page-node-id="s307NdqlxBAVZpkGzMO5UO">结清解押：别忘了最后一环</span>
           </div>
-          <div class="step-body">
+          <div class="step-body" data-page-node-id="TFWxIGQZpQJF8DB3wmraAJ">
             贷款结清后，需向银行索取结清证明并办理抵押注销登记，房产才完全恢复自由状态。如计划结清后出售或再次抵押，务必预留 5-10 个工作日办理解押手续。皓镧资产提供结清解押全程协助服务。
           </div>
-          <div class="step-tags">
-            <span>结清证明</span><span>注销登记</span><span>解押手续</span>
+          <div class="step-tags" data-page-node-id="pNqZpfyqoFjRRF2dfdM9k5">
+            <span data-page-node-id="sG9LzIsaC9xYS8yUlpj7Sr">结清证明</span><span data-page-node-id="B6GRaYbwNAVFADe9RTQ0Fb">注销登记</span><span data-page-node-id="9UfwGl1W2slL0d7iMKFtTk">解押手续</span>
           </div>
         </div>
       </div>
@@ -948,19 +956,19 @@
 </main>
 
 <!-- ========== 页脚 ========== -->
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-logo">
-      <svg class="logo-mark" width="44" height="44" viewBox="0 0 64 64" fill="none">
-        <path d="M32 4 L58 18 L58 46 L32 60 L6 46 L6 18 Z" stroke="#C9A961" stroke-width="3" fill="none"/>
-        <path d="M22 22 L42 22 M22 32 L42 32 M22 42 L32 42" stroke="#C9A961" stroke-width="3"/>
+<footer class="footer" data-page-node-id="1IkB8gFvzX8ht6FdDBJfYj">
+  <div class="footer-inner" data-page-node-id="3uHgU1FzO6plSYjOM1xfmH">
+    <div class="footer-logo" data-page-node-id="DPxDwTFXTaMxBuHVdXLU8B">
+      <svg class="logo-mark" width="44" height="44" viewBox="0 0 64 64" fill="none" data-page-node-id="EymG07jjfwABz3EsI3Oigy">
+        <path d="M32 4 L58 18 L58 46 L32 60 L6 46 L6 18 Z" stroke="#D4A574" stroke-width="3" fill="none" data-page-node-id="nd47GLSe6FI4aIGjwp5u6N"/>
+        <path d="M22 22 L42 22 M22 32 L42 32 M22 42 L32 42" stroke="#D4A574" stroke-width="3" data-page-node-id="1LlMPCN6cv1no1cT34c3i8"/>
       </svg>
-      <span class="lt">皓镧资产</span>
+      <span class="lt" data-page-node-id="7rBzIUf2C77l8kUWdXvL14">皓镧资产</span>
     </div>
-    <div class="footer-info">
-      <div><b>联系电话：</b>010-8888 8888</div>
-      <div><b>邮箱：</b>hr@haolanzichan.cn</div>
-      <div><b>地址：</b>北京市朝阳区金融街 · 财富中心</div>
+    <div class="footer-info" data-page-node-id="B1YDQGQ3MXZ2U4PVEzBZqo">
+      <div data-page-node-id="PQlSf0O2KKMURuZ7qZTkCE"><b data-page-node-id="sLjj33alWMXoMaDwjFqRt7">联系电话：</b>010-8888 8888</div>
+      <div data-page-node-id="qxV3EnRhsmrCx8EZS8RlBr"><b data-page-node-id="MRXPU1BdMSmTebWGBjBAd0">邮箱：</b>hr@haolanzichan.cn</div>
+      <div data-page-node-id="ChBtAwDTrIMMQK4HKwsSzH"><b data-page-node-id="JeupR66ImNAjSfLdtWd2ua">地址：</b>北京市朝阳区金融街 · 财富中心</div>
     </div>
   </div>
 </footer>

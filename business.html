@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<html lang="zh-CN" data-page-node-id="nW319kz9ZM0dAi56yeFyzw">
+<head data-page-node-id="sXa7Vfj0AGbu9U9U9kfdMM">
+<meta charset="UTF-8" data-page-node-id="re69W8VFirrlWhK1zfnVRa" />
+<meta name="viewport" content="width=device-width, initial-scale=1" data-page-node-id="8UtnttXak8t1jGFQ8Ev2Yg" />
 <title>主营业务 - 皓镧资产</title>
 <style>
   /* ========== 品牌变量 ========== */
@@ -12,8 +12,6 @@
     --gold-soft: #E8D9A8;
     --red: #C8102E;
     --red-deep: #B91D2E;
-    --green-deep: #1F3A2E;
-    --green-darker: #142720;
     --ink: #1A1A1A;
     --muted: #6B6B6B;
     --line: #E8E2D4;
@@ -31,23 +29,23 @@
   }
   a { color: inherit; text-decoration: none; }
 
-  /* ========== 顶部黑色双层导航 ========== */
-  .topbar { background: #111; color: #fff; border-bottom: 1px solid rgba(201,169,97,0.18); }
+  /* ========== 顶部导航 ========== */
+  .topbar { background: linear-gradient(135deg, #E6C094 0%, #D4A574 100%); color: #22334F; border-bottom: 2px solid rgba(34,51,79,0.2); box-shadow: 0 2px 10px rgba(34,51,79,0.15); }
   .topbar-inner { max-width: 1280px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; gap: 36px; }
   .logo { display: flex; align-items: center; padding: 14px 0; flex-shrink: 0; }
   .logo-card {
     display: inline-flex; align-items: center; background: #fff;
     padding: 8px 16px; border-radius: 4px; height: 56px;
-    box-shadow: 0 0 0 1px rgba(201,169,97,0.25);
+    box-shadow: 0 0 0 1px rgba(34,51,79,0.25);
   }
   .logo-card img { height: 44px; width: auto; display: block; }
   .nav { display: flex; flex-direction: column; gap: 6px; margin-left: auto; padding: 14px 0; }
   .nav-row { display: flex; gap: 30px; font-size: 14px; }
-  .nav-row.top a { color: rgba(255,255,255,0.85); transition: color .2s; padding: 4px 0; }
-  .nav-row.top a:hover, .nav-row.top a.active { color: var(--gold); }
-  .nav-row.bottom { font-size: 12px; color: rgba(255,255,255,0.5); gap: 26px; }
-  .nav-row.bottom a:hover { color: var(--gold); }
-  .topbar-tools { display: flex; align-items: center; gap: 18px; padding: 0 0 0 24px; color: rgba(255,255,255,0.6); font-size: 13px; flex-shrink: 0; }
+  .nav-row.top a { color: rgba(34,51,79,0.88); transition: color .2s; padding: 4px 0; }
+  .nav-row.top a:hover, .nav-row.top a.active { color: var(--red); }
+  .nav-row.bottom { font-size: 12px; color: rgba(34,51,79,0.6); gap: 26px; }
+  .nav-row.bottom a:hover { color: var(--red); }
+  .topbar-tools { display: flex; align-items: center; gap: 18px; padding: 0 0 0 24px; color: rgba(34,51,79,0.6); font-size: 13px; flex-shrink: 0; }
   .topbar-tools .icon { width: 16px; height: 16px; opacity: .7; }
 
   /* ========== 主区 ========== */
@@ -186,7 +184,8 @@
 
   /* ========== 页脚 ========== */
   .footer {
-    background: linear-gradient(180deg, var(--green-deep) 0%, var(--green-darker) 100%);
+    background: #22334F;
+    border-top: 3px solid #D4A574;
     color: rgba(255,255,255,0.7); padding: 40px 32px;
   }
   .footer-inner {
@@ -194,9 +193,9 @@
     display: flex; align-items: center; justify-content: space-between; gap: 40px;
   }
   .footer-logo { display: flex; align-items: center; gap: 14px; }
-  .footer-logo .lt { color: var(--gold); font-size: 24px; font-weight: 600; letter-spacing: 4px; }
+  .footer-logo .lt { color: #D4A574; font-size: 24px; font-weight: 600; letter-spacing: 4px; }
   .footer-info { display: flex; flex-direction: column; gap: 6px; font-size: 13px; text-align: right; }
-  .footer-info b { color: var(--gold); font-weight: 600; }
+  .footer-info b { color: #D4A574; font-weight: 600; }
 
   /* ========== 响应式 ========== */
   @media (max-width: 960px) {
@@ -216,80 +215,98 @@
     .footer-info { text-align: center; }
     main { padding: 40px 20px; }
   }
+
+  /* ========== 手机竖屏响应式 ========== */
+  @media (max-width: 760px) {
+    .sub-grid.cols-3, .sub-grid.cols-4, .adv-grid { grid-template-columns: 1fr; }
+    .biz-side { flex-direction: column; text-align: center; align-items: center; padding: 26px 20px; }
+    .biz-side .biz-num { font-size: 26px; }
+    .biz-main { padding: 24px 20px; }
+    .notice { padding: 22px 20px; }
+    .topbar-inner { padding: 0 16px; gap: 12px; }
+    .nav { padding: 10px 0; }
+    .nav-row { gap: 12px; font-size: 13px; }
+    .nav-row.top a { padding: 3px 0; }
+    main { padding: 36px 16px 50px; }
+    section { margin-bottom: 60px; }
+    .sec-title { font-size: 24px; letter-spacing: 3px; }
+    .sec-subtitle { letter-spacing: 2px; margin-bottom: 36px; }
+    .footer { padding: 32px 20px; }
+  }
 </style>
 </head>
-<body>
+<body data-page-node-id="xQgSYa5VAdQbGfmyiF73ND">
 
 <!-- ========== 顶部导航（真实 logo） ========== -->
-<header class="topbar">
-  <div class="topbar-inner">
-    <a href="./index.html" class="logo" aria-label="皓镧资产">
-      <span class="logo-card">
-        <img src="./assets/logo.jpg" alt="皓镧资产" />
+<header class="topbar" data-page-node-id="EMiOqUi8b86MwrEaGqDVy8">
+  <div class="topbar-inner" data-page-node-id="cEHYnicewSqfdEZ1HJ2kvK">
+    <a href="./index.html" class="logo" aria-label="皓镧资产" data-page-node-id="mUtvNWpJDuxB1UD2JQHHhb">
+      <span class="logo-card" data-page-node-id="aJRoAoqgMrbCvaQtZATmNd">
+        <img src="./assets/logo.jpg" alt="皓镧资产" data-page-node-id="c2D8oDMGujdEBBwPvN3RXm" />
       </span>
     </a>
-    <nav class="nav" aria-label="主导航">
-      <div class="nav-row top">
-        <a href="./about.html">关于我们</a>
-        <a href="./business.html" class="active">主营业务</a>
-        <a href="./service.html">服务流程</a>
-        <a href="./team.html">精英团队</a>
-        <a href="./policy.html">政策解读</a>
-        <a href="./notice.html">企业公告</a>
-        <a href="./academy.html">皓镧商学院</a>
-        <a href="./video.html">短视频专区</a>
-        <a href="./join.html">加入我们</a>
-        <a href="./contact.html">联系我们</a>
+    <nav class="nav" aria-label="主导航" data-page-node-id="enYgfnlte6l1xr0TNTWo22">
+      <div class="nav-row top" data-page-node-id="iZLqWGVQNQvx3l9GD3NTB8">
+        <a href="./about.html" data-page-node-id="LLPlxgkrAq7Fl3FYBw4MMj">关于我们</a>
+        <a href="./business.html" class="active" data-page-node-id="xOqsLjPylJ6AdcgbXO0lW2">主营业务</a>
+        <a href="./service.html" data-page-node-id="QS62eKNp12WAzB5EbgrqGs">服务流程</a>
+        <a href="./team.html" data-page-node-id="MDesoUCm7AiGnspT6ugqrO">精英团队</a>
+        <a href="./policy.html" data-page-node-id="jSOhSxjjOv9hjh1NhlUgD1">政策解读</a>
+        <a href="./notice.html" data-page-node-id="CsdoXcV6AOizoEVDmuOoMX">企业公告</a>
+        <a href="./academy.html" data-page-node-id="t1Wf7S1Wf6zcS62xEzd9CX">皓镧商学院</a>
+        <a href="./video.html" data-page-node-id="TIkFoEGT7HVFLtZCEHQ99I">短视频专区</a>
+        <a href="./join.html" data-page-node-id="5VYtnDAQIPU9S7HgRyvsSk">加入我们</a>
+        <a href="./contact.html" data-page-node-id="yBe75YwRFzISHetpL0kmlg">联系我们</a>
       </div>
     </nav>
   </div>
 </header>
 
-<main>
+<main data-page-node-id="4rYPYzYVodtM0SeyolEHLX">
 
   <!-- ========================================== -->
   <!-- 1. 主营业务总览 -->
   <!-- ========================================== -->
-  <section id="overview">
-    <h2 class="sec-title">主营业务</h2>
-    <p class="sec-subtitle">CORE BUSINESS</p>
+  <section id="overview" data-page-node-id="5v7vdbX7VUxjWlxBuSfnJb">
+    <h2 class="sec-title" data-page-node-id="gjRAO2K6vq6cumaKoKHb4W">主营业务</h2>
+    <p class="sec-subtitle" data-page-node-id="96MakD19jOfwW4TJfbkwQE">CORE BUSINESS</p>
 
-    <div class="intro-block">
-      <div class="intro-text">
-        <h3>多元业务布局 · 专业资产服务</h3>
-        <p class="lead">
+    <div class="intro-block" data-page-node-id="F3t0ExHbeUKyZZ7xHo2WFu">
+      <div class="intro-text" data-page-node-id="xW04PAUxG5Z8vLamzQ4b74">
+        <h3 data-page-node-id="17B44jPlXQ5WyG12Ptmu4g">多元业务布局 · 专业资产服务</h3>
+        <p class="lead" data-page-node-id="8gjyb0JFz9isIkVJZ1KV9D">
           皓镧资产以资产端为核心、以服务为延伸，围绕客户在不同阶段的资金需求，构建了覆盖房产抵押、企业经营贷、个人信用融资、车辆相关融资四大业务板块的综合服务体系。
         </p>
-        <p>
+        <p data-page-node-id="omU2M83DAKPptf5lZQR1tX">
           我们依托专业化的风控团队与全流程合规体系，为高净值客户、中小微企业及个人提供安全、高效、量身定制的融资解决方案，致力做客户值得托付的长期合作伙伴。
         </p>
       </div>
     </div>
 
-    <div class="sub-grid cols-4">
-      <article class="info-card">
-        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 34 V18 L20 8 L34 18 V34 Z"/><path d="M14 34 V24 H26 V34"/><path d="M20 8 V14"/></svg>
-        <span class="num-tag">① 业务一</span>
-        <h3>房产抵押</h3>
-        <p class="desc">盘活不动产资产<br/>额度高 · 放款快<br/>灵活高效</p>
+    <div class="sub-grid cols-4" data-page-node-id="1RjaFQfmrtC1XxD50zjhAr">
+      <article class="info-card" data-page-node-id="DSBSFFiwus1A593SMJxWSi">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="LbgwNTzwjLpzm11OT0hFKA"><path d="M6 34 V18 L20 8 L34 18 V34 Z" data-page-node-id="nwM0dQGnzBUaUoFq8ONFP8"/><path d="M14 34 V24 H26 V34" data-page-node-id="QxIzxACxWJPXtHiCD1hB9T"/><path d="M20 8 V14" data-page-node-id="5e3NEFB8kEy2Iy4PygDczE"/></svg>
+        <span class="num-tag" data-page-node-id="Q5h7fgaRxlAoEQn0hK7iBF">① 业务一</span>
+        <h3 data-page-node-id="N8FGRYUCK2H5nVQr9qijGk">房产抵押</h3>
+        <p class="desc" data-page-node-id="XTP4CaaSIGQBJY64j3OZea">盘活不动产资产<br data-page-node-id="SgkTIRqFpBg0BPCFRUi0Yw"/>额度高 · 放款快<br data-page-node-id="vBIXxtUgMaHgNYNwU5Gykg"/>灵活高效</p>
       </article>
-      <article class="info-card">
-        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="10" width="28" height="22" rx="2"/><path d="M6 16 H34"/><circle cx="12" cy="24" r="2"/><circle cx="20" cy="24" r="2"/><circle cx="28" cy="24" r="2"/></svg>
-        <span class="num-tag">② 业务二</span>
-        <h3>企业经营贷</h3>
-        <p class="desc">助力企业经营<br/>专款专用 · 还款灵活<br/>赋能发展</p>
+      <article class="info-card" data-page-node-id="vKLiQsAH2Q7UAc8cZQDrQh">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="KPn8BY8KjueQ1YhEAnHZqk"><rect x="6" y="10" width="28" height="22" rx="2" data-page-node-id="V3J5KcAFoTDupUS3r5qvIC"/><path d="M6 16 H34" data-page-node-id="2F7ohDszuj9qTV1b1zBs7V"/><circle cx="12" cy="24" r="2" data-page-node-id="peAlxZvv9OpXvvdgu8N9BB"/><circle cx="20" cy="24" r="2" data-page-node-id="arqowzpES4tL2ZypDHAmyd"/><circle cx="28" cy="24" r="2" data-page-node-id="uVK7y9YofDY2Cl1vNj3tqU"/></svg>
+        <span class="num-tag" data-page-node-id="CBGqcWqKTBbxTzNKDVVVbw">② 业务二</span>
+        <h3 data-page-node-id="X4CUQIlSgY5RX64qJS8Q9C">企业经营贷</h3>
+        <p class="desc" data-page-node-id="mZBLLus2Z7KnE7ayuCHh68">助力企业经营<br data-page-node-id="fKueYiGIbBn1lVjX11JsPp"/>专款专用 · 还款灵活<br data-page-node-id="ssqcxTjgA3vYafsja5mPBV"/>赋能发展</p>
       </article>
-      <article class="info-card">
-        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><circle cx="20" cy="14" r="6"/><path d="M8 34 C8 27 14 24 20 24 C26 24 32 27 32 34"/><path d="M20 8 V6 M24 10 L26 8 M16 10 L14 8"/></svg>
-        <span class="num-tag">③ 业务三</span>
-        <h3>个人信用融资</h3>
-        <p class="desc">凭信用即可办理<br/>免抵押 · 审批快<br/>用途广泛</p>
+      <article class="info-card" data-page-node-id="svH5gwYewqQ1xwS1Eb91Or">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="Dh27hH2eLyactEM1VK7wE2"><circle cx="20" cy="14" r="6" data-page-node-id="dCDqVtPjmswv6hJ9ctu052"/><path d="M8 34 C8 27 14 24 20 24 C26 24 32 27 32 34" data-page-node-id="75rXRCQF4rpZnnfCIGtjxm"/><path d="M20 8 V6 M24 10 L26 8 M16 10 L14 8" data-page-node-id="S68InJl08dcAkNX3VdZtBg"/></svg>
+        <span class="num-tag" data-page-node-id="idr0Xg56DQjEqsaqa7qWWE">③ 业务三</span>
+        <h3 data-page-node-id="p32P3LSOHX0HEo8JiS2zna">个人信用融资</h3>
+        <p class="desc" data-page-node-id="dlTDLK6O6Eg4RA8y9P9yIJ">凭信用即可办理<br data-page-node-id="0jq9ZdcSO0by5CorutsXOS"/>免抵押 · 审批快<br data-page-node-id="9KHzkyy1OpTIWV7Afo6YaD"/>用途广泛</p>
       </article>
-      <article class="info-card">
-        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 26 L10 18 H30 L34 26 V32 H6 Z"/><circle cx="13" cy="32" r="3"/><circle cx="27" cy="32" r="3"/><path d="M10 18 L12 12 H28 L30 18"/></svg>
-        <span class="num-tag">④ 业务四</span>
-        <h3>车辆相关融资</h3>
-        <p class="desc">盘活车辆资产<br/>押证不押车 · 手续简<br/>到账迅速</p>
+      <article class="info-card" data-page-node-id="BVoVidigAEVrvRJ9duYZTo">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="UqJ4JRotqOh8FYLjiVroTE"><path d="M6 26 L10 18 H30 L34 26 V32 H6 Z" data-page-node-id="1ZpKBRO1OtSUJAVt01FFXH"/><circle cx="13" cy="32" r="3" data-page-node-id="nnqb6zHo5iTYB3wDxKEDNZ"/><circle cx="27" cy="32" r="3" data-page-node-id="o50Uw6nhSuB9P52KD2EBTD"/><path d="M10 18 L12 12 H28 L30 18" data-page-node-id="TNfyAVYF9TT9HlfcUyQ3r2"/></svg>
+        <span class="num-tag" data-page-node-id="aEDYjQAYEeeHyRwoV38qCL">④ 业务四</span>
+        <h3 data-page-node-id="pNe74oP1K8P5HVbx88NuJZ">车辆相关融资</h3>
+        <p class="desc" data-page-node-id="oZq7DId4vKhA5QACmpFzwk">盘活车辆资产<br data-page-node-id="QgaPb2aCu5wRXEJt36kXxz"/>押证不押车 · 手续简<br data-page-node-id="KEeD5cL8lmpcVmMduo5uhv"/>到账迅速</p>
       </article>
     </div>
   </section>
@@ -297,116 +314,116 @@
   <!-- ========================================== -->
   <!-- 2. 业务详情 -->
   <!-- ========================================== -->
-  <section id="detail">
-    <h2 class="sec-title">业务详情</h2>
-    <p class="sec-subtitle">BUSINESS DETAILS</p>
+  <section id="detail" data-page-node-id="Gne35cKJZ6zkms0GS897A1">
+    <h2 class="sec-title" data-page-node-id="XD9C04kazpB841YVugDZob">业务详情</h2>
+    <p class="sec-subtitle" data-page-node-id="tO3GAD3AHe5z2HHyCgC9j5">BUSINESS DETAILS</p>
 
-    <div class="biz-list">
+    <div class="biz-list" data-page-node-id="6pgpXCNhEdKxub38uioz0O">
 
       <!-- ① 房产抵押 -->
-      <article class="biz-detail">
-        <div class="biz-side">
-          <svg class="biz-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 40 V22 L24 10 L40 22 V40 Z"/><path d="M18 40 V28 H30 V40"/><path d="M24 10 V16"/></svg>
-          <div class="biz-num">①</div>
-          <h3>房产抵押</h3>
-          <span class="biz-en">PROPERTY MORTGAGE</span>
+      <article class="biz-detail" data-page-node-id="znKRE9n8vGuqeFFHqcJw3R">
+        <div class="biz-side" data-page-node-id="XiQCajJ6IjSe3k7dwm7BcI">
+          <svg class="biz-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="qeZfya9ZmvwEa3B8YVKrzz"><path d="M8 40 V22 L24 10 L40 22 V40 Z" data-page-node-id="ylyNcRxsPtq1fL3SivBWCr"/><path d="M18 40 V28 H30 V40" data-page-node-id="FOVWB1aioAhBDAA5tp0tpG"/><path d="M24 10 V16" data-page-node-id="S9OhXnDx5yIbvsyvyusViw"/></svg>
+          <div class="biz-num" data-page-node-id="Wa4X1gDI593eMa6BMxfgxh">①</div>
+          <h3 data-page-node-id="ealJI87pscplpWImxxjrOu">房产抵押</h3>
+          <span class="biz-en" data-page-node-id="gByyArhngO6anTYMFrPaoD">PROPERTY MORTGAGE</span>
         </div>
-        <div class="biz-main">
-          <p class="biz-lead">
+        <div class="biz-main" data-page-node-id="SgvraGXUpMh5cjnvLJAQf1">
+          <p class="biz-lead" data-page-node-id="FUYPG59uxhEvWYjM9HFYue">
             以自有或第三方名下房产作为抵押物，为客户盘活不动产资产，匹配灵活、高效的融资方案。涵盖住宅、商铺、写字楼等多种物业类型，满足资金周转、经营扩大、置业置换等多元需求。
           </p>
-          <div class="biz-features">
-            <div class="biz-feature"><span class="dot">1</span><div><b>额度充足</b><br/><span>按房产评估价值成数核定，满足大额资金需求</span></div></div>
-            <div class="biz-feature"><span class="dot">2</span><div><b>期限灵活</b><br/><span>短至数月、长至数年，按需匹配还款节奏</span></div></div>
-            <div class="biz-feature"><span class="dot">3</span><div><b>利率优惠</b><br/><span>抵押担保降低风险，享受更具竞争力的成本</span></div></div>
-            <div class="biz-feature"><span class="dot">4</span><div><b>放款高效</b><br/><span>专业团队全程跟进，流程透明、到账及时</span></div></div>
+          <div class="biz-features" data-page-node-id="hTx1aZv1RFT6Sgmw8gPvxf">
+            <div class="biz-feature" data-page-node-id="8JBjueSGzkCHLSBZECKL77"><span class="dot" data-page-node-id="dXHaXgGuZexVRCvcNNAfxz">1</span><div data-page-node-id="nkrEdjBkB37x4nZzpR9nuE"><b data-page-node-id="QMbYHN9w7UzRPHD0mskjCW">额度充足</b><br data-page-node-id="JkPh4n0RwE2ZayefZTAg6H"/><span data-page-node-id="vdYD0yoyBLFAYmj3BOaIfz">按房产评估价值成数核定，满足大额资金需求</span></div></div>
+            <div class="biz-feature" data-page-node-id="P6e4QM5USlyMi7IER6ixvj"><span class="dot" data-page-node-id="TwhhIDFU7nHgzradvcjiLE">2</span><div data-page-node-id="LYaEP5q0NrgZTvcGVRGs3J"><b data-page-node-id="9RHsk2NfuKsUTGHMYg1KhW">期限灵活</b><br data-page-node-id="TgIj7tQU46c49wxO6aI1Kp"/><span data-page-node-id="92CNEyalHEuwaQ4ZIviTYt">短至数月、长至数年，按需匹配还款节奏</span></div></div>
+            <div class="biz-feature" data-page-node-id="2HSHBMboWYUQDimiE6elaP"><span class="dot" data-page-node-id="crorhQeQrGALf9IJwEbURV">3</span><div data-page-node-id="TOdn3gxjICp7cFggAznjqJ"><b data-page-node-id="XM5ybTIJ8Y2irD102io5HC">利率优惠</b><br data-page-node-id="bMETfTXwmEoFda3imDsdeZ"/><span data-page-node-id="zUGyXGLIPzq4whO5PNuAMI">抵押担保降低风险，享受更具竞争力的成本</span></div></div>
+            <div class="biz-feature" data-page-node-id="J7canNtYXzFDJ3kqLJlGxj"><span class="dot" data-page-node-id="pOqvhuDAJ7rLR4Iu1MsDSg">4</span><div data-page-node-id="4u2CbdgMiA251xFNkEvbBC"><b data-page-node-id="UCt82MKiNX2ZfRBLolVCUL">放款高效</b><br data-page-node-id="pju4fBayf1cPrHrHPziNfW"/><span data-page-node-id="VnXAbPC6PSZSfU9DesIRYx">专业团队全程跟进，流程透明、到账及时</span></div></div>
           </div>
-          <div class="biz-tags">
-            <span class="lbl">适用人群</span>
-            <span class="biz-tag">名下有房产的个人</span>
-            <span class="biz-tag">有资金周转需求的企业</span>
-            <span class="biz-tag">经营扩大 / 置业置换</span>
+          <div class="biz-tags" data-page-node-id="OABrROHpYxC131FCN5QSHe">
+            <span class="lbl" data-page-node-id="LFuadVUEiNK7JHrPMVcOkB">适用人群</span>
+            <span class="biz-tag" data-page-node-id="ERq4ykFax3v9QiyMgdTuSU">名下有房产的个人</span>
+            <span class="biz-tag" data-page-node-id="szQlFBJQ21S0EycwkReSsa">有资金周转需求的企业</span>
+            <span class="biz-tag" data-page-node-id="YTNojDuCVYmn97FEHrM4p0">经营扩大 / 置业置换</span>
           </div>
         </div>
       </article>
 
       <!-- ② 企业经营贷 -->
-      <article class="biz-detail">
-        <div class="biz-side">
-          <svg class="biz-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="12" width="32" height="26" rx="2"/><path d="M8 20 H40"/><circle cx="16" cy="30" r="2.5"/><circle cx="24" cy="30" r="2.5"/><circle cx="32" cy="30" r="2.5"/><path d="M16 12 V8 H32 V12"/></svg>
-          <div class="biz-num">②</div>
-          <h3>企业经营贷</h3>
-          <span class="biz-en">ENTERPRISE LOAN</span>
+      <article class="biz-detail" data-page-node-id="7RupgeArpfjf1Cs3N9frSr">
+        <div class="biz-side" data-page-node-id="umRBwvmn5wupBC8YWinkpu">
+          <svg class="biz-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="Pc2TKQQtQHxldfLsjARFY5"><rect x="8" y="12" width="32" height="26" rx="2" data-page-node-id="GHrMFmDsnb70xKPEvaJamH"/><path d="M8 20 H40" data-page-node-id="hr5pacg1O4HloIzYuryHxf"/><circle cx="16" cy="30" r="2.5" data-page-node-id="dEfJQ8V3XLCyVw59hn6tMo"/><circle cx="24" cy="30" r="2.5" data-page-node-id="zGU29RxuPEoxRFJdKbRfD9"/><circle cx="32" cy="30" r="2.5" data-page-node-id="CAkPxTCVGJkRGToxmo3VbV"/><path d="M16 12 V8 H32 V12" data-page-node-id="hHKj8CF0USq1eD1DA6OKTa"/></svg>
+          <div class="biz-num" data-page-node-id="ElYZNAfRNEXBilqWghJ3Ww">②</div>
+          <h3 data-page-node-id="BYaH7gjgnqgUwe6c6YE1oo">企业经营贷</h3>
+          <span class="biz-en" data-page-node-id="LPwNsX9e6F7a3O3cFULcIP">ENTERPRISE LOAN</span>
         </div>
-        <div class="biz-main">
-          <p class="biz-lead">
+        <div class="biz-main" data-page-node-id="X6K3yWkbpx9QJqu4ojjKeM">
+          <p class="biz-lead" data-page-node-id="VhYvcjHuWpGmIeoRsGqw6R">
             面向中小微企业及个体工商户，以企业经营状况与现金流为核心依据，提供专项经营性融资支持。专款专用、助力经营，解决企业在采购、扩产、周转等环节的资金需求，陪伴企业稳健成长。
           </p>
-          <div class="biz-features">
-            <div class="biz-feature"><span class="dot">1</span><div><b>专款专用</b><br/><span>定向支持企业经营，资金用途清晰合规</span></div></div>
-            <div class="biz-feature"><span class="dot">2</span><div><b>额度循环</b><br/><span>授信额度可循环使用，随借随还、降低成本</span></div></div>
-            <div class="biz-feature"><span class="dot">3</span><div><b>还款灵活</b><br/><span>等额本息 / 先息后本等多种方式可选</span></div></div>
-            <div class="biz-feature"><span class="dot">4</span><div><b>助力经营</b><br/><span>匹配企业真实经营周期，缓解阶段性资金压力</span></div></div>
+          <div class="biz-features" data-page-node-id="qFKSA0DNKdKEl0aQwBvGLQ">
+            <div class="biz-feature" data-page-node-id="hmONcqQm7ywJmFBnSz65le"><span class="dot" data-page-node-id="coIU79z2MCnrJg9HndSPOz">1</span><div data-page-node-id="aF3VtNgFNCr0SrpYYWzqOh"><b data-page-node-id="DphZcK6JDALnEhADoSvrbr">专款专用</b><br data-page-node-id="v8XdEGSB3rYfPjC7zIB3oE"/><span data-page-node-id="GVC5UDgMLy5xHaXEinMF3g">定向支持企业经营，资金用途清晰合规</span></div></div>
+            <div class="biz-feature" data-page-node-id="XyUvNaUglFBZjRjZ2sawX2"><span class="dot" data-page-node-id="oXgytmkWmNYG7jRgQzVFb5">2</span><div data-page-node-id="wV9qUpwy9VNGLRa81qzBLK"><b data-page-node-id="6XViYPUMBeWdpZehcbbgfi">额度循环</b><br data-page-node-id="vn6xlM6EvfBjo7aTWGhd5F"/><span data-page-node-id="ozaACWHo0L4HsWfPDD34Ue">授信额度可循环使用，随借随还、降低成本</span></div></div>
+            <div class="biz-feature" data-page-node-id="cKBGLwkGzLr474aopG5ARg"><span class="dot" data-page-node-id="zl8cZoWGx7kQNSAX76aRGc">3</span><div data-page-node-id="Z6Bx0stzL84EAD0FH3Auqt"><b data-page-node-id="V0W5Q9ePd29fFxhMCUEXSe">还款灵活</b><br data-page-node-id="hDS2AFlHxp2ngKrDUCwoYM"/><span data-page-node-id="dRUOUfG5D8XBjfQBN8xnkD">等额本息 / 先息后本等多种方式可选</span></div></div>
+            <div class="biz-feature" data-page-node-id="u2jDqDCieU7g5kpOvUlPRR"><span class="dot" data-page-node-id="LEahTydvmiKg0J0febiGYc">4</span><div data-page-node-id="QbP7tkIleWTUCJGWzDfgHw"><b data-page-node-id="mguZujyOaeEUBwiqDLkML7">助力经营</b><br data-page-node-id="5B3S4B3xRESzX03ZigGRex"/><span data-page-node-id="AZnNKwR2SViwp8RGY1Lp7J">匹配企业真实经营周期，缓解阶段性资金压力</span></div></div>
           </div>
-          <div class="biz-tags">
-            <span class="lbl">适用人群</span>
-            <span class="biz-tag">中小微企业</span>
-            <span class="biz-tag">个体工商户</span>
-            <span class="biz-tag">经营满一定期限</span>
+          <div class="biz-tags" data-page-node-id="5hItyu3UEhqCeZ7Uv0yzxp">
+            <span class="lbl" data-page-node-id="DGhNOKR44EJVYnSaL24hIi">适用人群</span>
+            <span class="biz-tag" data-page-node-id="d3qSafqRUkETOP0K7obrQR">中小微企业</span>
+            <span class="biz-tag" data-page-node-id="tw74bHQyK9Q2PUoRsUC3Yj">个体工商户</span>
+            <span class="biz-tag" data-page-node-id="DfAuVj5iwPMy0SWtAsuDSZ">经营满一定期限</span>
           </div>
         </div>
       </article>
 
       <!-- ③ 个人信用融资 -->
-      <article class="biz-detail">
-        <div class="biz-side">
-          <svg class="biz-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><circle cx="24" cy="16" r="7"/><path d="M10 40 C10 31 17 27 24 27 C31 27 38 31 38 40"/><path d="M24 9 V7 M30 12 L32 10 M18 12 L16 10"/></svg>
-          <div class="biz-num">③</div>
-          <h3>个人信用融资</h3>
-          <span class="biz-en">PERSONAL CREDIT</span>
+      <article class="biz-detail" data-page-node-id="XBdti1vGxDLYbawyLDXLqj">
+        <div class="biz-side" data-page-node-id="JhZf7ghtM7vVuCQTciQv6c">
+          <svg class="biz-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="eGzBZZWPr1liwz7tVRThKU"><circle cx="24" cy="16" r="7" data-page-node-id="lEGr8R16RIJj8Hvduq9zPB"/><path d="M10 40 C10 31 17 27 24 27 C31 27 38 31 38 40" data-page-node-id="yQLv8iibrKANTuvzA8k4EU"/><path d="M24 9 V7 M30 12 L32 10 M18 12 L16 10" data-page-node-id="NqHWLH6Pm07FpCAQeuwo3K"/></svg>
+          <div class="biz-num" data-page-node-id="ZIktNAOCPK449mRBzAqDBY">③</div>
+          <h3 data-page-node-id="FKINBdMFe0cphi3ORbNBS3">个人信用融资</h3>
+          <span class="biz-en" data-page-node-id="EG9UrAEUvf1tUMwXxlFSI2">PERSONAL CREDIT</span>
         </div>
-        <div class="biz-main">
-          <p class="biz-lead">
+        <div class="biz-main" data-page-node-id="EDWNYju2PiBlf0s8cMrygQ">
+          <p class="biz-lead" data-page-node-id="UpWXUDaOHD4ZJICcH18dbo">
             凭借个人信用资质，无需提供抵押物，即可办理便捷的信用类融资服务。流程简化、审批高效，满足消费、装修、教育、资金周转等多元化个人资金需求，让信用转化为切实可用的价值。
           </p>
-          <div class="biz-features">
-            <div class="biz-feature"><span class="dot">1</span><div><b>免抵押</b><br/><span>凭个人信用即可申请，无需提供实物担保</span></div></div>
-            <div class="biz-feature"><span class="dot">2</span><div><b>流程简便</b><br/><span>资料精简、线上协同，办理体验轻松顺畅</span></div></div>
-            <div class="biz-feature"><span class="dot">3</span><div><b>审批高效</b><br/><span>专业团队快速评估，缩短等待、及时响应</span></div></div>
-            <div class="biz-feature"><span class="dot">4</span><div><b>用途广泛</b><br/><span>覆盖消费、装修、教育、周转等多种场景</span></div></div>
+          <div class="biz-features" data-page-node-id="nyXdEJjjl4yZSdRU7pDqqP">
+            <div class="biz-feature" data-page-node-id="qqSHh33kKZOEAL6JLKxgsd"><span class="dot" data-page-node-id="ccnqMbbMeXHhD0yqpBH6GO">1</span><div data-page-node-id="rZ5lIwSdXwRpJfUHIXN630"><b data-page-node-id="dq6WCjKu5t6tzcrvWS07RV">免抵押</b><br data-page-node-id="w9rKGQg8AHld0Y7ktEWfBb"/><span data-page-node-id="bc6EL2rAD2uIvOoYZzkB2V">凭个人信用即可申请，无需提供实物担保</span></div></div>
+            <div class="biz-feature" data-page-node-id="hxkENGiso1WGTqVZP87B9I"><span class="dot" data-page-node-id="B5XikDucPSPNCyhJzg9FE1">2</span><div data-page-node-id="11xq32ORjKFMHNzZr20dUw"><b data-page-node-id="F0mUAjleNc9zV2q8ASssqZ">流程简便</b><br data-page-node-id="45ftDwX1YC8PVvPWa8Eqnr"/><span data-page-node-id="kPJlPWstptm84tvuT3ibDb">资料精简、线上协同，办理体验轻松顺畅</span></div></div>
+            <div class="biz-feature" data-page-node-id="0B53MxNy7hRMkHDxLAdWAp"><span class="dot" data-page-node-id="kbTWLraBhWK29qekdKNT5j">3</span><div data-page-node-id="C8iUXxErrU7jHaiC19uG7v"><b data-page-node-id="9p3yRVRsvmomb64CV1lrRb">审批高效</b><br data-page-node-id="sTT4s3B5vGMXE1msgRN3c1"/><span data-page-node-id="5c0LpW476uPk6QC1IELAJB">专业团队快速评估，缩短等待、及时响应</span></div></div>
+            <div class="biz-feature" data-page-node-id="JdiuzhrkJrSrauKR2YGkac"><span class="dot" data-page-node-id="EB144SzY8mNGOT8vaDuXUt">4</span><div data-page-node-id="LReTQYl0OchlrJBpDAd0jm"><b data-page-node-id="anLVH2trTu1QAyp7RwpT0k">用途广泛</b><br data-page-node-id="YKtw7bFIO1zr3IRr4xlBjS"/><span data-page-node-id="mAL42I5nLhKSPXykZY9rHj">覆盖消费、装修、教育、周转等多种场景</span></div></div>
           </div>
-          <div class="biz-tags">
-            <span class="lbl">适用人群</span>
-            <span class="biz-tag">信用良好的个人</span>
-            <span class="biz-tag">有稳定收入来源</span>
-            <span class="biz-tag">消费 / 周转需求</span>
+          <div class="biz-tags" data-page-node-id="Vdm7OPwyhMkEXhrnTND2Dk">
+            <span class="lbl" data-page-node-id="4ADOhqiyumVsx8Isl66Yk8">适用人群</span>
+            <span class="biz-tag" data-page-node-id="lLDh7jsrDHb1OnFryUr3kk">信用良好的个人</span>
+            <span class="biz-tag" data-page-node-id="64ODOOdGnkIxVQJkHLUa7s">有稳定收入来源</span>
+            <span class="biz-tag" data-page-node-id="OFouQi0P4X9GRFKeC0TjIj">消费 / 周转需求</span>
           </div>
         </div>
       </article>
 
       <!-- ④ 车辆相关融资 -->
-      <article class="biz-detail">
-        <div class="biz-side">
-          <svg class="biz-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 30 L11 20 H37 L42 30 V38 H6 Z"/><circle cx="15" cy="38" r="3.5"/><circle cx="33" cy="38" r="3.5"/><path d="M11 20 L13 14 H35 L37 20"/></svg>
-          <div class="biz-num">④</div>
-          <h3>车辆相关融资</h3>
-          <span class="biz-en">VEHICLE FINANCING</span>
+      <article class="biz-detail" data-page-node-id="JLbpx9zgJj0qdzYR86tIfS">
+        <div class="biz-side" data-page-node-id="YvGo37p0HHQgqD119MchXy">
+          <svg class="biz-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="Ft8c1ewAGHx9BBozaiJ5Ou"><path d="M6 30 L11 20 H37 L42 30 V38 H6 Z" data-page-node-id="LFkHMMnlGvjNDbaB1AuVQH"/><circle cx="15" cy="38" r="3.5" data-page-node-id="qV7ZegBCEuRTZYn8FlIDVU"/><circle cx="33" cy="38" r="3.5" data-page-node-id="QBPNv0Rf82TG3sBhmft8xB"/><path d="M11 20 L13 14 H35 L37 20" data-page-node-id="eiHJjvuJeQ8U3OYCVfattU"/></svg>
+          <div class="biz-num" data-page-node-id="AoCFvKYFK7vwA7DqQRd0My">④</div>
+          <h3 data-page-node-id="aDGpgcSjWHSerzuStG30Z2">车辆相关融资</h3>
+          <span class="biz-en" data-page-node-id="I4A5gDrhoAeo4lDxeFeXVC">VEHICLE FINANCING</span>
         </div>
-        <div class="biz-main">
-          <p class="biz-lead">
+        <div class="biz-main" data-page-node-id="doK8NcRxe4rpHtNejsP2kJ">
+          <p class="biz-lead" data-page-node-id="stsZeYQ4uJpMvKuNUTDaPk">
             以自有车辆抵押或购车融资等方式，为客户提供灵活的车相关融资服务，盘活车辆资产价值。押证不押车、手续简便、到账迅速，兼顾融资效率与日常用车便利，满足短期资金周转与购车需求。
           </p>
-          <div class="biz-features">
-            <div class="biz-feature"><span class="dot">1</span><div><b>押证不押车</b><br/><span>抵押登记即可，车辆日常使用不受影响</span></div></div>
-            <div class="biz-feature"><span class="dot">2</span><div><b>额度较高</b><br/><span>按车辆评估价值核定，匹配合理融资额度</span></div></div>
-            <div class="biz-feature"><span class="dot">3</span><div><b>手续简便</b><br/><span>流程精简、专人协助，办理省时省心</span></div></div>
-            <div class="biz-feature"><span class="dot">4</span><div><b>到账迅速</b><br/><span>审核高效、放款及时，快速缓解资金需求</span></div></div>
+          <div class="biz-features" data-page-node-id="H5gByd04FoIye50uaXLAem">
+            <div class="biz-feature" data-page-node-id="HFidccS4N2lb4qsVgun3Hm"><span class="dot" data-page-node-id="Sxh2DHE60d6fnlRbtzB1oO">1</span><div data-page-node-id="1PBKevcbywwJobdDUYJVG8"><b data-page-node-id="UfyKOlfFxYeEIF1H5sysMD">押证不押车</b><br data-page-node-id="BkxHHOZyIabrZOn5iU7WT7"/><span data-page-node-id="YWvvlX1N8neBWywdzE67c0">抵押登记即可，车辆日常使用不受影响</span></div></div>
+            <div class="biz-feature" data-page-node-id="FCJfDTd7cuv2FLv9uKYjjx"><span class="dot" data-page-node-id="TQWlkgHQyXydDEhih054hU">2</span><div data-page-node-id="dKY2vYiSonc7foSmdJyH7X"><b data-page-node-id="ye12hgnm1RXPTC26wEZmXd">额度较高</b><br data-page-node-id="PaRPFD8WngNUy4700cGyBw"/><span data-page-node-id="JQVKBPeXFff5aFPk4gDfBi">按车辆评估价值核定，匹配合理融资额度</span></div></div>
+            <div class="biz-feature" data-page-node-id="ysjE2WmubvKeGDKt5X6ZLA"><span class="dot" data-page-node-id="Ksg0ZSQpJdS37qRqKYhZ7D">3</span><div data-page-node-id="eNDXjX9jbmD9JtUuWZJsvo"><b data-page-node-id="jm3juMJTztsBQKihbaP0wH">手续简便</b><br data-page-node-id="XmyRatp0fyMtxI4kdbSkf9"/><span data-page-node-id="T952s7GAXDdIZGTk9RBheK">流程精简、专人协助，办理省时省心</span></div></div>
+            <div class="biz-feature" data-page-node-id="B8ipD7M5cjHcAtTyT18Kt3"><span class="dot" data-page-node-id="xg14npCvazZKRFYLVCJndn">4</span><div data-page-node-id="iPlPGFk6ogbVBWjnCA0Jzy"><b data-page-node-id="fAEBZpnnvBNwgvVa3grwWz">到账迅速</b><br data-page-node-id="u29nbStwlUfycNgowK3Dbr"/><span data-page-node-id="ifiiAWoVlJxMKdAk5Fs3O2">审核高效、放款及时，快速缓解资金需求</span></div></div>
           </div>
-          <div class="biz-tags">
-            <span class="lbl">适用人群</span>
-            <span class="biz-tag">名下有车辆的个人</span>
-            <span class="biz-tag">有车辆资产的企业</span>
-            <span class="biz-tag">短期周转 / 购车</span>
+          <div class="biz-tags" data-page-node-id="nU7dW4Kb3PL6qpoINMBi2d">
+            <span class="lbl" data-page-node-id="xI7CqqqNYI80PaLU2jCBbW">适用人群</span>
+            <span class="biz-tag" data-page-node-id="xS0AdcbvvypMoiT693g4I9">名下有车辆的个人</span>
+            <span class="biz-tag" data-page-node-id="DAsq9YpTAUvSYAn3qcL2mF">有车辆资产的企业</span>
+            <span class="biz-tag" data-page-node-id="M5GPAB2XD0pbTX1F0jOMDC">短期周转 / 购车</span>
           </div>
         </div>
       </article>
@@ -417,30 +434,30 @@
   <!-- ========================================== -->
   <!-- 3. 我们的优势 -->
   <!-- ========================================== -->
-  <section id="advantage">
-    <h2 class="sec-title">我们的优势</h2>
-    <p class="sec-subtitle">OUR ADVANTAGES</p>
+  <section id="advantage" data-page-node-id="SPgPmlI35AH1vvLbYDAafU">
+    <h2 class="sec-title" data-page-node-id="3JFRJZqrh4NvugFCwTz5K8">我们的优势</h2>
+    <p class="sec-subtitle" data-page-node-id="8ra7tR5c7TfYSZFdNr2LLC">OUR ADVANTAGES</p>
 
-    <div class="adv-grid">
-      <article class="adv-card">
-        <svg class="icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 6 L34 12 V24 C34 31 28 36 22 38 C16 36 10 31 10 24 V12 Z"/><path d="M16 22 L20 26 L29 17"/></svg>
-        <h4>专业团队</h4>
-        <p>资深风控与资产管理团队，行业经验丰富，为客户提供专业可信赖的融资方案。</p>
+    <div class="adv-grid" data-page-node-id="pZ2vhMtUYFHQJvEwsV6GIu">
+      <article class="adv-card" data-page-node-id="tegxBgNStmGaelLpL8fA8z">
+        <svg class="icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="WMfYsi9q6mJduE4HKoiMuk"><path d="M22 6 L34 12 V24 C34 31 28 36 22 38 C16 36 10 31 10 24 V12 Z" data-page-node-id="9hfowDoHpfZpUeFeYdXaaW"/><path d="M16 22 L20 26 L29 17" data-page-node-id="rQtFxIybLvu75jjqNva5lL"/></svg>
+        <h4 data-page-node-id="mmP6VwJBjCTdV2C7raArNs">专业团队</h4>
+        <p data-page-node-id="5btNEs1T31NNfgedCnhUHf">资深风控与资产管理团队，行业经验丰富，为客户提供专业可信赖的融资方案。</p>
       </article>
-      <article class="adv-card">
-        <svg class="icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2"><circle cx="22" cy="22" r="14"/><path d="M22 14 V22 L28 26"/></svg>
-        <h4>严控风险</h4>
-        <p>覆盖立项、尽调、审核、贷后的全流程风控体系，层层把关、稳健运行。</p>
+      <article class="adv-card" data-page-node-id="EPGkpfzOJu67Se3QKcygrA">
+        <svg class="icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="YaGDqn83iSZJZ00kGSSr7X"><circle cx="22" cy="22" r="14" data-page-node-id="D1LvHCCHUhxKk0eAyAQh5Q"/><path d="M22 14 V22 L28 26" data-page-node-id="K15xGj3Kj43KukGMaXZtu7"/></svg>
+        <h4 data-page-node-id="R0OXMMBMKW3L89xgb2zBiA">严控风险</h4>
+        <p data-page-node-id="DjRcBJjfoNpayvtPgYrEGZ">覆盖立项、尽调、审核、贷后的全流程风控体系，层层把关、稳健运行。</p>
       </article>
-      <article class="adv-card">
-        <svg class="icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 22 L18 32 L36 12"/></svg>
-        <h4>高效服务</h4>
-        <p>流程透明、响应迅速，专人全程跟进，让融资办理省时、省心、省力。</p>
+      <article class="adv-card" data-page-node-id="ioFQFv139gAtc4alX9k59p">
+        <svg class="icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="b8CoopE2hP9mZtfVYbsYES"><path d="M8 22 L18 32 L36 12" data-page-node-id="Cp4uvTCNBfBqaqbkjGy0A1"/></svg>
+        <h4 data-page-node-id="sLMDZ1vYGuBhxUNCEex8eW">高效服务</h4>
+        <p data-page-node-id="uHv0aBtAXXAhmHhuhGEaJN">流程透明、响应迅速，专人全程跟进，让融资办理省时、省心、省力。</p>
       </article>
-      <article class="adv-card">
-        <svg class="icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2"><rect x="10" y="14" width="24" height="20" rx="2"/><path d="M10 20 H34 M16 28 H20 M26 28 H30"/></svg>
-        <h4>合规经营</h4>
-        <p>持牌规范、信息透明，严格遵守金融监管要求，保障客户合法权益。</p>
+      <article class="adv-card" data-page-node-id="4naAYaiGaCOYcNSZOhqmQr">
+        <svg class="icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="kVIMLdn2NyZahjGl1pEDCi"><rect x="10" y="14" width="24" height="20" rx="2" data-page-node-id="X0unGIDo4CDsiZmAt6Zh5O"/><path d="M10 20 H34 M16 28 H20 M26 28 H30" data-page-node-id="ntcdB8IGqbOx10UwdTJBFm"/></svg>
+        <h4 data-page-node-id="DHL89e4k3Xy2b4k5tfgxcE">合规经营</h4>
+        <p data-page-node-id="4zYlZnEwGJqDKEt7lqhalF">持牌规范、信息透明，严格遵守金融监管要求，保障客户合法权益。</p>
       </article>
     </div>
   </section>
@@ -448,13 +465,13 @@
   <!-- ========================================== -->
   <!-- 4. 合规提示 -->
   <!-- ========================================== -->
-  <section id="notice">
-    <div class="notice">
-      <svg class="n-icon" viewBox="0 0 46 46" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 6 L40 38 H6 Z"/><path d="M23 20 V28"/><circle cx="23" cy="33" r="1.2" fill="currentColor"/></svg>
-      <div class="n-body">
-        <h4>风险提示与合规声明</h4>
-        <p>
-          融资服务需根据个人及企业实际资质办理，额度、利率、期限以最终审批结果为准。皓镧资产坚持<b>真实、客观、审慎</b>的宣传原则，不夸大收益、不虚假承诺、不诱导融资，严格遵守国家金融监管相关法律法规。请广大客户通过正规渠道办理业务，理性评估自身还款能力，防范金融风险。
+  <section id="notice" data-page-node-id="5RhCyxzTUfJUlLXfOJn0Gm">
+    <div class="notice" data-page-node-id="7ZaHsWxXPoWwNThUOvJZqo">
+      <svg class="n-icon" viewBox="0 0 46 46" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="NIHQXSE4Hsj1BZAHj2Bguv"><path d="M23 6 L40 38 H6 Z" data-page-node-id="KHdFk45jsBBFb8RFKDN37L"/><path d="M23 20 V28" data-page-node-id="3bgIGl3qivBKUssjbw6oS1"/><circle cx="23" cy="33" r="1.2" fill="currentColor" data-page-node-id="KHAQkAUS4eLukDOYrYZtcB"/></svg>
+      <div class="n-body" data-page-node-id="oKW8itw7VwlKcKLIlPIQhz">
+        <h4 data-page-node-id="9u8efEDJUqOerM3ZsoyxZj">风险提示与合规声明</h4>
+        <p data-page-node-id="AI6GADAedLUe2Khb5dA4pL">
+          融资服务需根据个人及企业实际资质办理，额度、利率、期限以最终审批结果为准。皓镧资产坚持<b data-page-node-id="TwqzBC6I9JeyvBOSAA71Yh">真实、客观、审慎</b>的宣传原则，不夸大收益、不虚假承诺、不诱导融资，严格遵守国家金融监管相关法律法规。请广大客户通过正规渠道办理业务，理性评估自身还款能力，防范金融风险。
         </p>
       </div>
     </div>
@@ -463,19 +480,19 @@
 </main>
 
 <!-- ========== 页脚 ========== -->
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-logo">
-      <svg class="logo-mark" width="44" height="44" viewBox="0 0 64 64" fill="none">
-        <path d="M32 4 L58 18 L58 46 L32 60 L6 46 L6 18 Z" stroke="#C9A961" stroke-width="3" fill="none"/>
-        <path d="M22 22 L42 22 M22 32 L42 32 M22 42 L32 42" stroke="#C9A961" stroke-width="3"/>
+<footer class="footer" data-page-node-id="ODNRZcHuZvgQe9bnzZfWQ8">
+  <div class="footer-inner" data-page-node-id="ong05Zu8nFxMUbeWRHbX42">
+    <div class="footer-logo" data-page-node-id="xGgJeKOdK2GVKM5b8QLl4R">
+      <svg class="logo-mark" width="44" height="44" viewBox="0 0 64 64" fill="none" data-page-node-id="VMxwZPxkuK02An0RBaf55t">
+        <path d="M32 4 L58 18 L58 46 L32 60 L6 46 L6 18 Z" stroke="#D4A574" stroke-width="3" fill="none" data-page-node-id="I5Tdv0zIZc0kYrzA258kL5"/>
+        <path d="M22 22 L42 22 M22 32 L42 32 M22 42 L32 42" stroke="#D4A574" stroke-width="3" data-page-node-id="EmvFDWWWba7JbVEuZxRIT6"/>
       </svg>
-      <span class="lt">皓镧资产</span>
+      <span class="lt" data-page-node-id="sspPa6djnFXz1kHNPG9gBL">皓镧资产</span>
     </div>
-    <div class="footer-info">
-      <div><b>联系电话：</b>010-8888 8888</div>
-      <div><b>邮箱：</b>hr@haolanzichan.cn</div>
-      <div><b>地址：</b>北京市朝阳区金融街 · 财富中心</div>
+    <div class="footer-info" data-page-node-id="5DEh6Xj8p5c7N2iUSzv3ZI">
+      <div data-page-node-id="VIB6h7C0boW7juSkBYhq29"><b data-page-node-id="O4JdACjV4EsALeBPI7Lhmi">联系电话：</b>010-8888 8888</div>
+      <div data-page-node-id="0rqhJG1LfWdBfcoSlXtAZ3"><b data-page-node-id="ptkwEQKfF3lXTFd3fh8rQ8">邮箱：</b>hr@haolanzichan.cn</div>
+      <div data-page-node-id="tCBVCmQDDhXv8ic2EuUt8A"><b data-page-node-id="OIQNgrJGmwEVmAsiGc8cpC">地址：</b>北京市朝阳区金融街 · 财富中心</div>
     </div>
   </div>
 </footer>

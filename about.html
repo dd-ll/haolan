@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<html lang="zh-CN" data-page-node-id="HCdNgiVgCNgdOQJEhMlsS5">
+<head data-page-node-id="BCUdopGRGlsgfFw9Lhtojz">
+<meta charset="UTF-8" data-page-node-id="50CaAmPhWImmjetEAS641S" />
+<meta name="viewport" content="width=device-width, initial-scale=1" data-page-node-id="1g6i4Q6mPxvQOFXVE8uTc1" />
 <title>关于我们 - 皓镧资产</title>
 <style>
   /* ========== 品牌变量 ========== */
@@ -12,8 +12,6 @@
     --gold-soft: #E8D9A8;
     --red: #C8102E;
     --red-deep: #B91D2E;
-    --green-deep: #1F3A2E;
-    --green-darker: #142720;
     --ink: #1A1A1A;
     --muted: #6B6B6B;
     --line: #E8E2D4;
@@ -31,23 +29,23 @@
   }
   a { color: inherit; text-decoration: none; }
 
-  /* ========== 顶部黑色双层导航 ========== */
-  .topbar { background: #111; color: #fff; border-bottom: 1px solid rgba(201,169,97,0.18); }
+  /* ========== 顶部导航 ========== */
+  .topbar { background: linear-gradient(135deg, #E6C094 0%, #D4A574 100%); color: #22334F; border-bottom: 2px solid rgba(34,51,79,0.2); box-shadow: 0 2px 10px rgba(34,51,79,0.15); }
   .topbar-inner { max-width: 1280px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; gap: 36px; }
   .logo { display: flex; align-items: center; padding: 14px 0; flex-shrink: 0; }
   .logo-card {
     display: inline-flex; align-items: center; background: #fff;
     padding: 8px 16px; border-radius: 4px; height: 56px;
-    box-shadow: 0 0 0 1px rgba(201,169,97,0.25);
+    box-shadow: 0 0 0 1px rgba(34,51,79,0.25);
   }
   .logo-card img { height: 44px; width: auto; display: block; }
   .nav { display: flex; flex-direction: column; gap: 6px; margin-left: auto; padding: 14px 0; }
   .nav-row { display: flex; gap: 30px; font-size: 14px; }
-  .nav-row.top a { color: rgba(255,255,255,0.85); transition: color .2s; padding: 4px 0; }
-  .nav-row.top a:hover, .nav-row.top a.active { color: var(--gold); }
-  .nav-row.bottom { font-size: 12px; color: rgba(255,255,255,0.5); gap: 26px; }
-  .nav-row.bottom a:hover { color: var(--gold); }
-  .topbar-tools { display: flex; align-items: center; gap: 18px; padding: 0 0 0 24px; color: rgba(255,255,255,0.6); font-size: 13px; flex-shrink: 0; }
+  .nav-row.top a { color: rgba(34,51,79,0.88); transition: color .2s; padding: 4px 0; }
+  .nav-row.top a:hover, .nav-row.top a.active { color: var(--red); }
+  .nav-row.bottom { font-size: 12px; color: rgba(34,51,79,0.6); gap: 26px; }
+  .nav-row.bottom a:hover { color: var(--red); }
+  .topbar-tools { display: flex; align-items: center; gap: 18px; padding: 0 0 0 24px; color: rgba(34,51,79,0.6); font-size: 13px; flex-shrink: 0; }
   .topbar-tools .icon { width: 16px; height: 16px; opacity: .7; }
 
   /* ========== 主区 ========== */
@@ -130,7 +128,7 @@
   .honor-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(184,148,31,0.18); }
   .honor-visual {
     aspect-ratio: 16/9; position: relative; overflow: hidden;
-    background: linear-gradient(135deg, var(--green-deep), var(--ink));
+    background: linear-gradient(135deg, #2C2C2C, var(--ink));
   }
   .honor-visual::before {
     content: ""; position: absolute; inset: 0;
@@ -220,7 +218,8 @@
 
   /* ========== 页脚 ========== */
   .footer {
-    background: linear-gradient(180deg, var(--green-deep) 0%, var(--green-darker) 100%);
+    background: #22334F;
+    border-top: 3px solid #D4A574;
     color: rgba(255,255,255,0.7); padding: 40px 32px;
   }
   .footer-inner {
@@ -228,9 +227,9 @@
     display: flex; align-items: center; justify-content: space-between; gap: 40px;
   }
   .footer-logo { display: flex; align-items: center; gap: 14px; }
-  .footer-logo .lt { color: var(--gold); font-size: 24px; font-weight: 600; letter-spacing: 4px; }
+  .footer-logo .lt { color: #D4A574; font-size: 24px; font-weight: 600; letter-spacing: 4px; }
   .footer-info { display: flex; flex-direction: column; gap: 6px; font-size: 13px; text-align: right; }
-  .footer-info b { color: var(--gold); font-weight: 600; }
+  .footer-info b { color: #D4A574; font-weight: 600; }
 
   /* ========== 响应式 ========== */
   @media (max-width: 960px) {
@@ -252,91 +251,114 @@
     .footer-info { text-align: center; }
     main { padding: 40px 20px; }
   }
+
+  /* ========== 手机竖屏响应式 ========== */
+  @media (max-width: 760px) {
+    .sub-grid.cols-3, .sub-grid.cols-4 { grid-template-columns: 1fr; }
+    .timeline-track { grid-template-columns: 1fr; gap: 24px 0; }
+    .tl-card { width: 100%; }
+    .timeline-wrap { padding: 44px 20px 52px; }
+    .topbar-inner { padding: 0 16px; gap: 12px; }
+    .nav { padding: 10px 0; }
+    .nav-row { gap: 12px; font-size: 13px; }
+    .nav-row.top a { padding: 3px 0; }
+    main { padding: 36px 16px 50px; }
+    section { margin-bottom: 60px; }
+    .sec-title { font-size: 24px; letter-spacing: 3px; }
+    .sec-subtitle { letter-spacing: 2px; margin-bottom: 36px; }
+    .intro-text h3 { font-size: 20px; }
+    .intro-text .lead { font-size: 14px; }
+    .text-card { padding: 28px 20px; }
+    .info-card { padding: 28px 16px 24px; }
+    .honor-body { padding: 22px 20px 26px; }
+    .honor-visual .badge { left: 14px; top: 14px; }
+    .footer { padding: 32px 20px; }
+  }
 </style>
 </head>
-<body>
+<body data-page-node-id="Qs0tTi79y5xvMebHziKLM1">
 
 <!-- ========== 顶部导航（真实 logo） ========== -->
-<header class="topbar">
-  <div class="topbar-inner">
-    <a href="./index.html" class="logo" aria-label="皓镧资产">
-      <span class="logo-card">
-        <img src="./assets/logo.jpg" alt="皓镧资产" />
+<header class="topbar" data-page-node-id="4mUjfRQQat1ZIcg1FTV8g9">
+  <div class="topbar-inner" data-page-node-id="I5hzGX256FiQJdZdWXpBGZ">
+    <a href="./index.html" class="logo" aria-label="皓镧资产" data-page-node-id="8fhTx2AxiwEAHAQLCZGjCQ">
+      <span class="logo-card" data-page-node-id="oLyd3H1qcCkXlumVFkAMzc">
+        <img src="./assets/logo.jpg" alt="皓镧资产" data-page-node-id="kk0Eet5w4rjDKE8yjyRYS4" />
       </span>
     </a>
-    <nav class="nav" aria-label="主导航">
-      <div class="nav-row top">
-        <a href="./about.html" class="active">关于我们</a>
-        <a href="./business.html">主营业务</a>
-        <a href="./service.html">服务流程</a>
-        <a href="./team.html">精英团队</a>
-        <a href="./policy.html">政策解读</a>
-        <a href="./notice.html">企业公告</a>
-        <a href="./academy.html">皓镧商学院</a>
-        <a href="./video.html">短视频专区</a>
-        <a href="./join.html">加入我们</a>
-        <a href="./contact.html">联系我们</a>
+    <nav class="nav" aria-label="主导航" data-page-node-id="FTF8joQbPEYrmYTA4KMoy1">
+      <div class="nav-row top" data-page-node-id="CIJ4cVQF3TMiH8q1DsiQX7">
+        <a href="./about.html" class="active" data-page-node-id="bASzpEwIYyeRqUXaBHBpfO">关于我们</a>
+        <a href="./business.html" data-page-node-id="SxbtohTwUNJjoViY5yx4fl">主营业务</a>
+        <a href="./service.html" data-page-node-id="XK4eHZkKFGzdFQReARhjcO">服务流程</a>
+        <a href="./team.html" data-page-node-id="grVRHqS2O5SoOaEAHf4qAB">精英团队</a>
+        <a href="./policy.html" data-page-node-id="NL2qI3Tpgrpo4zCi23koIL">政策解读</a>
+        <a href="./notice.html" data-page-node-id="wqmPxIQUHHKN5No2uDaCq4">企业公告</a>
+        <a href="./academy.html" data-page-node-id="rDkIE6IVHEPHREKoNUnOh1">皓镧商学院</a>
+        <a href="./video.html" data-page-node-id="nheDT0nsCP7uegGBePZIn3">短视频专区</a>
+        <a href="./join.html" data-page-node-id="2teRSafHyh8GVKIAWIT8Up">加入我们</a>
+        <a href="./contact.html" data-page-node-id="GVUVIcILiSsNf0uSJ8bfZD">联系我们</a>
       </div>
     </nav>
   </div>
 </header>
 
-<main>
+<main data-page-node-id="DpX7VnIs7qA4GD9Sfr31xH">
 
   <!-- ========================================== -->
   <!-- 1. 发展历程大事记（S 形 5 节点） -->
   <!-- ========================================== -->
-  <section id="milestones">
-    <h2 class="sec-title">发展历程大事记</h2>
-    <p class="sec-subtitle">DEVELOPMENT MILESTONES</p>
+  <section id="milestones" data-page-node-id="57QwcWCV9urjJuD6L92T9O">
+    <h2 class="sec-title" data-page-node-id="edrWFatk57OkacoCdklViq">发展历程大事记</h2>
+    <p class="sec-subtitle" data-page-node-id="3kHrnCO62KIwIpzmGYhztH">DEVELOPMENT MILESTONES</p>
 
-    <div class="timeline-wrap">
-      <div class="timeline">
-        <div class="timeline-track">
+    <div class="timeline-wrap" data-page-node-id="A309PJHJtYTxPLmLaruiBG">
+      <div class="timeline" data-page-node-id="R7LwrNUMY4u1H6oCvOl4pj">
+        <div class="timeline-track" data-page-node-id="VSFlDvfwjLUtuVGqyXPA91">
           <!-- 1 -->
-          <div class="tl-item">
-            <div class="tl-card">
-              <div class="y">2021<small>.11.26</small></div>
-              <div class="t">公司成立</div>
+          <div class="tl-item" data-page-node-id="s5oPSQDWPApaKVBvUyIL3p">
+            <div class="tl-card" data-page-node-id="mH2ZX7oMqg2OgcAeHHVdTY">
+              <div class="y" data-page-node-id="khkmy0pvR3gG6hZSvrtIlo">2021<small data-page-node-id="wXK1IvBAtNh6z1lGq7eohY">.11.26</small></div>
+              <div class="t" data-page-node-id="b0nPzxJCxHJaXD9bgpb3UT">公司成立</div>
             </div>
-            <div class="tl-mid"><span class="tl-dot"></span></div>
-            <p class="tl-detail">以创业者支持者为起点，开启充满挑战与机遇的征程。</p>
+            <div class="tl-mid" data-page-node-id="ern0Rgi4rz3HkFj79YEhn8"><span class="tl-dot" data-page-node-id="bPYagZnOx3BcdEkNvsrlKC"></span></div>
+            <p class="tl-detail" data-page-node-id="eCXsDrCmoiig9DdheA9rvI">以创业者支持者为起点，开启充满挑战与机遇的征程。</p>
           </div>
           <!-- 2 -->
-          <div class="tl-item">
-            <p class="tl-detail">业务模式升级，紧跟时代步伐、拓展视野格局，为公司的稳健发展奠定坚实基础。</p>
-            <div class="tl-mid"><span class="tl-dot"></span></div>
-            <div class="tl-card">
-              <div class="y">2022<small>.08</small></div>
-              <div class="t">搬迁至时代国际中心</div>
+          <div class="tl-item" data-page-node-id="wE78H47jepCZo4Hbafiok9">
+            <p class="tl-detail" data-page-node-id="s9f8dZwqZ89eOnFJGDtniY">业务模式升级，紧跟时代步伐、拓展视野格局，为公司的稳健发展奠定坚实基础。</p>
+            <div class="tl-mid" data-page-node-id="skrSGt1dIv8QQMc7tDT6FV"><span class="tl-dot" data-page-node-id="zXr8A950nPoN9Yl2DyxHoL"></span></div>
+            <div class="tl-card" data-page-node-id="rikTljiLHkrT9ElUdzOqDa">
+              <div class="y" data-page-node-id="jt7K6J6sMxbDagYqP7hLPx">2022<small data-page-node-id="L8foMCQOErNuZ09YenhB7f">.08</small></div>
+              <div class="t" data-page-node-id="kYQU4PLtAffoH9HGdrsOdY">搬迁至时代国际中心</div>
             </div>
           </div>
           <!-- 3 -->
-          <div class="tl-item">
-            <div class="tl-card">
-              <div class="y">2023<small>.07</small></div>
-              <div class="t">增项实业投资、自媒体运营</div>
+          <div class="tl-item" data-page-node-id="v6XGMiGx1scOhDKAyiTHiJ">
+            <div class="tl-card" data-page-node-id="GSynBFt1GCmNG5dzGYcE5t">
+              <div class="y" data-page-node-id="hxA2STau7mN9flQgmVOzZl">2023<small data-page-node-id="ab9YJgpK7r4TbwuyZnamVX">.07</small></div>
+              <div class="t" data-page-node-id="D6CHFVaD3ZAdP0GUo2MdHK">增项实业投资、自媒体运营</div>
             </div>
-            <div class="tl-mid"><span class="tl-dot"></span></div>
-            <p class="tl-detail">新增实业投资与自媒体运营业务板块，拓展多元化业务格局，以更丰富的服务能力赋能客户与品牌价值。</p>
+            <div class="tl-mid" data-page-node-id="11aAAuMDADVS6xel9QkBd8"><span class="tl-dot" data-page-node-id="M3LejtRhlBi5inmZ6sAJnA"></span></div>
+            <p class="tl-detail" data-page-node-id="0l7YyDTBB9zQ8ip4J8ZfIa">新增实业投资与自媒体运营业务板块，拓展多元化业务格局，以更丰富的服务能力赋能客户与品牌价值。</p>
           </div>
           <!-- 4 -->
-          <div class="tl-item">
-            <p class="tl-detail">办公空间升级、团队规模扩至 180+ 人，开启品牌精细化运营与全国化布局。</p>
-            <div class="tl-mid"><span class="tl-dot"></span></div>
-            <div class="tl-card">
-              <div class="y">2024<small>.08</small></div>
-              <div class="t">团队扩至 180+ 人</div>
+          <div class="tl-item" data-page-node-id="FWYDESDc4zUp3zfJg48C8J">
+            <p class="tl-detail" data-page-node-id="CiimUAuOZF3AE3WktSgB52">办公空间升级、团队规模扩至 180+ 人，开启品牌精细化运营与全国化布局。</p>
+            <div class="tl-mid" data-page-node-id="iggXfKqwWGhs9t4GeKDs3G"><span class="tl-dot" data-page-node-id="gc12GBXZKaDlnzMf20CPKK"></span></div>
+            <div class="tl-card" data-page-node-id="0sTAoClFgYODJS4edygvD5">
+              <div class="y" data-page-node-id="bE7XzJhWzRCovGNDLFx2GK">2024<small data-page-node-id="8raHsqAEumjxDyL60vnmio">.08</small></div>
+              <div class="t" data-page-node-id="T1RpKJ8EP2vf1JneTqfaqk">团队扩至 180+ 人</div>
             </div>
           </div>
           <!-- 5 -->
-          <div class="tl-item">
-            <div class="tl-card">
-              <div class="y">2025</div>
-              <div class="t">成立皓镧企业、新增品牌皓镧奢选</div>
+          <div class="tl-item" data-page-node-id="xPOCLEAPxQJcUVHdTJurw3">
+            <div class="tl-card" data-page-node-id="q5Wh7k1Ylx1Hf10MJoJyV6">
+              <div class="y" data-page-node-id="4Vr2jwPb1xaKWxhso0wYV2">2025</div>
+              <div class="t" data-page-node-id="8MVOOKTaMDCJFD2ruJ2ep6">成立皓镧企业、新增品牌皓镧奢选</div>
             </div>
-            <div class="tl-mid"><span class="tl-dot"></span></div>
-            <p class="tl-detail">成立皓镧企业，全新推出"皓镧奢选"品牌，品牌矩阵进一步完善，迈入多元化集团化发展新阶段。</p>
+            <div class="tl-mid" data-page-node-id="AS81zmthZsOclITyc4KmpD"><span class="tl-dot" data-page-node-id="KoEuAe8gClf4cf5T9MLslq"></span></div>
+            <p class="tl-detail" data-page-node-id="eHnpmYoJmVJuu4JzeovPVs">成立皓镧企业，全新推出"皓镧奢选"品牌，品牌矩阵进一步完善，迈入多元化集团化发展新阶段。</p>
           </div>
         </div>
       </div>
@@ -346,40 +368,40 @@
   <!-- ========================================== -->
   <!-- 2. 公司简介（直接进入，无红色 hero） -->
   <!-- ========================================== -->
-  <section id="intro">
-    <h2 class="sec-title">公司简介</h2>
-    <p class="sec-subtitle">COMPANY PROFILE</p>
+  <section id="intro" data-page-node-id="2lPULdNLQorjmo3s5026we">
+    <h2 class="sec-title" data-page-node-id="IUQzyItMuNcCA1zbbGYV2s">公司简介</h2>
+    <p class="sec-subtitle" data-page-node-id="WtCc4MbGVJNiXNqN7UOA4g">COMPANY PROFILE</p>
 
-    <div class="intro-block">
-      <div class="intro-text">
-        <h3>稳健资产管理 · 创造长期价值</h3>
-        <p class="lead">
+    <div class="intro-block" data-page-node-id="dE6NgiQBlUkNzSPUa5lHt2">
+      <div class="intro-text" data-page-node-id="bMO5nWmQ19GOh65e7Til7I">
+        <h3 data-page-node-id="JCVUR61Z2W92mMpC2CjhNq">稳健资产管理 · 创造长期价值</h3>
+        <p class="lead" data-page-node-id="VEQcn4EMhgyRARlcAnwAqL">
           皓镧资产管理有限公司创立于 2021 年，是一家以稳健经营理念为核心，专业从事资产管理、财富管理、投资咨询及综合金融服务的综合性机构。
         </p>
-        <p>
+        <p data-page-node-id="z1q7OgWGuxogvET9Z2dnng">
           我们深知每一份托付都承载着客户的信任与期望，因此始终以"严格风控、合规先行"为经营底线。依托专业化的资产管理团队与多元化的业务布局，业务涵盖房产抵押融资、企业信贷、个人信用融资、车辆融资、企业服务等多个领域，形成了以资产端为核心、以服务为延伸的完整业务生态。
         </p>
-        <div class="quote">
-          历经多年稳健发展，皓镧资产已服务数千家客户。我们坚信，唯有<strong>稳健</strong>方能致远，唯有<strong>专业</strong>方能托付。
+        <div class="quote" data-page-node-id="xEc7jMA0OqbHg1AGmt5HIl">
+          历经多年稳健发展，皓镧资产已服务数千家客户。我们坚信，唯有<strong data-page-node-id="Q6YBZFNFo6xitDXbjRQLV3">稳健</strong>方能致远，唯有<strong data-page-node-id="RsNvgyGOqB0a8dIM0SAKww">专业</strong>方能托付。
         </div>
       </div>
     </div>
 
-    <div class="sub-grid cols-3">
-      <article class="text-card">
-        <div class="num">①</div>
-        <h4>发展历程</h4>
-        <p>自 2021 年成立以来，皓镧资产从初创团队成长为多元化资产服务机构，历经业务拓展、规模升级、品牌重塑等里程碑，每一步都走得稳健而坚实，持续为客户创造长期价值。</p>
+    <div class="sub-grid cols-3" data-page-node-id="6NWLB1BpmvSX4XdR26wjpB">
+      <article class="text-card" data-page-node-id="4tDCJ7uHGwg5xY3jZfqMpv">
+        <div class="num" data-page-node-id="WjYaoXdFmrIcFF7Uosr5bX">①</div>
+        <h4 data-page-node-id="SCm5LbGc4kvGrS360wtDOK">发展历程</h4>
+        <p data-page-node-id="jkHen9tkNJd9SdkKkf10gk">自 2021 年成立以来，皓镧资产从初创团队成长为多元化资产服务机构，历经业务拓展、规模升级、品牌重塑等里程碑，每一步都走得稳健而坚实，持续为客户创造长期价值。</p>
       </article>
-      <article class="text-card">
-        <div class="num">②</div>
-        <h4>企业定位</h4>
-        <p>以资产端为核心、以服务为延伸的综合性资产管理机构，专注为高净值客户、机构投资人及优质中小企业提供专业、安全、高效的资产配置方案与综合金融服务。</p>
+      <article class="text-card" data-page-node-id="3uBSLpFXYJSmyXCsOKJhXA">
+        <div class="num" data-page-node-id="PxcjQWq5qBkMsD6FWYWgdR">②</div>
+        <h4 data-page-node-id="h30gQsady75eQkQb0uRvIG">企业定位</h4>
+        <p data-page-node-id="SwiMfH3jg2zGnzBWD0inAi">以资产端为核心、以服务为延伸的综合性资产管理机构，专注为高净值客户、机构投资人及优质中小企业提供专业、安全、高效的资产配置方案与综合金融服务。</p>
       </article>
-      <article class="text-card">
-        <div class="num">③</div>
-        <h4>经营理念与愿景</h4>
-        <p>秉持"稳健资产管理，创造长期价值"的核心理念，以合规为基、以专业为本、以服务为魂，致力成为中国最受信赖的综合性资产管理机构，做时间的朋友。</p>
+      <article class="text-card" data-page-node-id="pp6FEzCIAGd1uNWLZSucGl">
+        <div class="num" data-page-node-id="BhoBuE065YIUQzvcvOW6hZ">③</div>
+        <h4 data-page-node-id="QinfvDd3mCEyHNxwtgf1r9">经营理念与愿景</h4>
+        <p data-page-node-id="F7sHA07Pg5OHuDiXiw3T3n">秉持"稳健资产管理，创造长期价值"的核心理念，以合规为基、以专业为本、以服务为魂，致力成为中国最受信赖的综合性资产管理机构，做时间的朋友。</p>
       </article>
     </div>
   </section>
@@ -387,25 +409,25 @@
   <!-- ========================================== -->
   <!-- 3. 企业资质与合规说明 -->
   <!-- ========================================== -->
-  <section id="compliance">
-    <h2 class="sec-title">企业资质与合规说明</h2>
-    <p class="sec-subtitle">QUALIFICATIONS &amp; COMPLIANCE</p>
+  <section id="compliance" data-page-node-id="EytIJp31n0hoSGP3H95aLL">
+    <h2 class="sec-title" data-page-node-id="FuZKZXeV4esdrvMfNMxKkl">企业资质与合规说明</h2>
+    <p class="sec-subtitle" data-page-node-id="1CerBuTq5xkInMSVS7xy16">QUALIFICATIONS &amp; COMPLIANCE</p>
 
-    <div class="sub-grid cols-3">
-      <article class="text-card">
-        <div class="num">①</div>
-        <h4>经营规范</h4>
-        <p>建立覆盖项目立项、尽调审核、贷后管理的全流程风险控制体系，严格遵循国家金融监管要求，确保每项业务合规稳健运行，以制度化保障经营安全与客户权益。</p>
+    <div class="sub-grid cols-3" data-page-node-id="6S6zvQ99hD0clEkzATOHr3">
+      <article class="text-card" data-page-node-id="wBpfii81qZ4nyj8QHoHcBe">
+        <div class="num" data-page-node-id="BnaE4KAnNGQngkv8pb5oxp">①</div>
+        <h4 data-page-node-id="KruDdAmpto4G6yBynbhDl7">经营规范</h4>
+        <p data-page-node-id="tnvJApRGP4pdSNkgpooJ0F">建立覆盖项目立项、尽调审核、贷后管理的全流程风险控制体系，严格遵循国家金融监管要求，确保每项业务合规稳健运行，以制度化保障经营安全与客户权益。</p>
       </article>
-      <article class="text-card">
-        <div class="num">②</div>
-        <h4>服务宗旨</h4>
-        <p>诚信为本、客户至上、稳健经营。以客户需求为导向，以专业能力为支撑，为每一位客户提供量身定制的资产配置方案与全周期跟踪服务，守护每一份托付。</p>
+      <article class="text-card" data-page-node-id="060fPUzMe1z3v1tKfIdunR">
+        <div class="num" data-page-node-id="8Bx8H5ApSLOZv6TKwrOLJy">②</div>
+        <h4 data-page-node-id="WUvs71HYxQ2AMpAMgFHfHh">服务宗旨</h4>
+        <p data-page-node-id="3c2mIS0o5FxHeH9DBaQg4D">诚信为本、客户至上、稳健经营。以客户需求为导向，以专业能力为支撑，为每一位客户提供量身定制的资产配置方案与全周期跟踪服务，守护每一份托付。</p>
       </article>
-      <article class="text-card">
-        <div class="num">③</div>
-        <h4>规避金融违规宣传</h4>
-        <p>坚持真实、客观、审慎的宣传原则，不夸大收益、不虚假承诺、不诱导投资，严格遵守金融广告相关法律法规，保障客户知情权与自主选择权。</p>
+      <article class="text-card" data-page-node-id="5tM0kFYTAOuwlGDWtAFiCJ">
+        <div class="num" data-page-node-id="kU9U7b7o7tQDIUvchtoNdk">③</div>
+        <h4 data-page-node-id="6DNyhRpHEBHxI8ABvnA64Q">规避金融违规宣传</h4>
+        <p data-page-node-id="U917COGJXydiS8mWV2Qss7">坚持真实、客观、审慎的宣传原则，不夸大收益、不虚假承诺、不诱导投资，严格遵守金融广告相关法律法规，保障客户知情权与自主选择权。</p>
       </article>
     </div>
   </section>
@@ -413,31 +435,31 @@
   <!-- ========================================== -->
   <!-- 4. 企业荣誉 -->
   <!-- ========================================== -->
-  <section id="honor">
-    <h2 class="sec-title">企业荣誉</h2>
-    <p class="sec-subtitle">CORPORATE HONORS</p>
+  <section id="honor" data-page-node-id="dGaayEMQSRkjldiiFCwcgL">
+    <h2 class="sec-title" data-page-node-id="oTMq6hv4KArp0geo9srG9x">企业荣誉</h2>
+    <p class="sec-subtitle" data-page-node-id="UzVB8U2vnTgMyShcE9txeY">CORPORATE HONORS</p>
 
-    <div class="sub-grid cols-2">
-      <article class="honor-card">
-        <div class="honor-visual">
-          <span class="badge">公益</span>
-          <span class="ph">公益活动展示</span>
+    <div class="sub-grid cols-2" data-page-node-id="mkMHFCkJWG3sPaZtz7YcfR">
+      <article class="honor-card" data-page-node-id="4kt693BhNrDaz9VEif8AC4">
+        <div class="honor-visual" data-page-node-id="4fdgeWyKC5C9bMhcFTPf75">
+          <span class="badge" data-page-node-id="82HVRvAzszZEsjQvx9zkq4">公益</span>
+          <span class="ph" data-page-node-id="yHIpWiCYTQyFH76xGY2q3l">公益活动展示</span>
         </div>
-        <div class="honor-body">
-          <div class="num">①</div>
-          <h4>公益活动展示</h4>
-          <p>积极践行企业社会责任，持续投入扶贫济困、教育支援、社区服务等公益领域。从物资捐赠到志愿服务，皓镧资产以实际行动回馈社会，传递企业温度，践行"稳健经营、回馈社会"的责任承诺。</p>
+        <div class="honor-body" data-page-node-id="yw3haiEZnd2XcJQbfQIW4g">
+          <div class="num" data-page-node-id="463clEeHqLIvdooHmMYOG8">①</div>
+          <h4 data-page-node-id="5isL6CPSHRmvk3fTGcTJEd">公益活动展示</h4>
+          <p data-page-node-id="uG3VpSgZvIM2dfRclTrPPG">积极践行企业社会责任，持续投入扶贫济困、教育支援、社区服务等公益领域。从物资捐赠到志愿服务，皓镧资产以实际行动回馈社会，传递企业温度，践行"稳健经营、回馈社会"的责任承诺。</p>
         </div>
       </article>
-      <article class="honor-card">
-        <div class="honor-visual">
-          <span class="badge">6·26</span>
-          <span class="ph">禁毒日主题宣传</span>
+      <article class="honor-card" data-page-node-id="M5wKPirYepoi91JGNTjI1m">
+        <div class="honor-visual" data-page-node-id="ZhFZfHdy8nrJefXxaJnxop">
+          <span class="badge" data-page-node-id="JGyRNVl7lQ9rg7Stwn1pYM">6·26</span>
+          <span class="ph" data-page-node-id="c9kVevxLf13pdlG1gr6d0i">禁毒日主题宣传</span>
         </div>
-        <div class="honor-body">
-          <div class="num">②</div>
-          <h4>禁毒日主题宣传</h4>
-          <p>每年 6·26 国际禁毒日期间开展主题宣传活动，通过知识科普、社区宣讲、横幅签名等形式，提升公众识毒、防毒、拒毒意识，传递"健康人生、绿色无毒"理念，为共建无毒社会贡献力量。</p>
+        <div class="honor-body" data-page-node-id="6d8hLGvvDchqK7y3vZh94a">
+          <div class="num" data-page-node-id="VevOO5OFm5FBnKzEXXgoC1">②</div>
+          <h4 data-page-node-id="qCNcIhuJTQXShvZSCB9tDm">禁毒日主题宣传</h4>
+          <p data-page-node-id="h72Mxq9jEdYsn7dqotAdTv">每年 6·26 国际禁毒日期间开展主题宣传活动，通过知识科普、社区宣讲、横幅签名等形式，提升公众识毒、防毒、拒毒意识，传递"健康人生、绿色无毒"理念，为共建无毒社会贡献力量。</p>
         </div>
       </article>
     </div>
@@ -446,34 +468,34 @@
   <!-- ========================================== -->
   <!-- 5. 企业文化 -->
   <!-- ========================================== -->
-  <section id="culture">
-    <h2 class="sec-title">企业文化</h2>
-    <p class="sec-subtitle">CORPORATE CULTURE</p>
+  <section id="culture" data-page-node-id="W4V5swa6Rlhy8PjEJfB1qR">
+    <h2 class="sec-title" data-page-node-id="pLH0Hxc1ApzDS5uupZGKK9">企业文化</h2>
+    <p class="sec-subtitle" data-page-node-id="MYTpmgo0ysF0X1bcS3DCeI">CORPORATE CULTURE</p>
 
-    <div class="sub-grid cols-4">
-      <article class="info-card">
-        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 L32 12 V22 C32 28 26 33 20 35 C14 33 8 28 8 22 V12 Z"/><path d="M15 20 L19 24 L26 17"/></svg>
-        <span class="num-tag">① 价值观</span>
-        <h3>价值观</h3>
-        <p class="desc">稳健、诚信<br/>专业、共赢<br/>坚持长期主义<br/>合规风控为生命线</p>
+    <div class="sub-grid cols-4" data-page-node-id="i3QACDqSlfc6XF8fvBINPc">
+      <article class="info-card" data-page-node-id="jjH3RsFFhUOFyx53VBdcpZ">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="e9jNR6X6IYZkxTyZ6N5D1S"><path d="M20 6 L32 12 V22 C32 28 26 33 20 35 C14 33 8 28 8 22 V12 Z" data-page-node-id="dOGFXzMPQLxvAYyZnjlNHL"/><path d="M15 20 L19 24 L26 17" data-page-node-id="6V76asQzdCeAdK3pkHxEGY"/></svg>
+        <span class="num-tag" data-page-node-id="Jyhfb5sIT0sTquLoNIegxq">① 价值观</span>
+        <h3 data-page-node-id="XaEk2AzqwYrHDB1unoG2H9">价值观</h3>
+        <p class="desc" data-page-node-id="MIgPo7TMP5NhKzH2wQ0DtG">稳健、诚信<br data-page-node-id="u2jOfBFg8YWqwyUHBWdVo7"/>专业、共赢<br data-page-node-id="sPTDUd8AT2IBOD3Hp9EQNd"/>坚持长期主义<br data-page-node-id="2AsUtnlITJ21QsPwnwzILI"/>合规风控为生命线</p>
       </article>
-      <article class="info-card">
-        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><circle cx="13" cy="16" r="4"/><circle cx="27" cy="16" r="4"/><path d="M6 32 C6 27 9 24 13 24 M34 32 C34 27 31 24 27 24 M14 24 C17 24 23 24 26 24"/></svg>
-        <span class="num-tag">② 团队氛围</span>
-        <h3>团队氛围</h3>
-        <p class="desc">专业、和谐、向上<br/>开放协作<br/>鼓励持续学习<br/>人人有归属与舞台</p>
+      <article class="info-card" data-page-node-id="ldtVjAKNb7ZjG6pVecymwg">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="B4JEDcliZjtWWtanhxEVuM"><circle cx="13" cy="16" r="4" data-page-node-id="HaDHLiDoJsLrBwSmZlshqq"/><circle cx="27" cy="16" r="4" data-page-node-id="SlCp11gFjnD4j3CildCNKj"/><path d="M6 32 C6 27 9 24 13 24 M34 32 C34 27 31 24 27 24 M14 24 C17 24 23 24 26 24" data-page-node-id="wtRFpwoc2atiW6GTOKQwOH"/></svg>
+        <span class="num-tag" data-page-node-id="ZwRmXKtpMTBYMfvweRp2Xs">② 团队氛围</span>
+        <h3 data-page-node-id="HdAWChnJWDNvXK8EaLARV0">团队氛围</h3>
+        <p class="desc" data-page-node-id="F4gsS0zp14kk2XgmrIpqze">专业、和谐、向上<br data-page-node-id="PaE0v7cHBvI5KuR1EQvRQ9"/>开放协作<br data-page-node-id="GUlaJRbfZAZiPgrhNvpcCE"/>鼓励持续学习<br data-page-node-id="VGyYE64aOgl9depMlUvgEM"/>人人有归属与舞台</p>
       </article>
-      <article class="info-card">
-        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 32 V20 L20 12 L32 20 V32 Z"/><path d="M16 32 V24 H24 V32"/></svg>
-        <span class="num-tag">③ 皓镧商学院</span>
-        <h3>皓镧商学院</h3>
-        <p class="desc">公司人才孵化平台<br/>系统化专业培训<br/>行业前沿分享<br/>培养资管行业精英</p>
+      <article class="info-card" data-page-node-id="kVEcZJbRRwAIjSBQwNXrl1">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="BYoHtB0WZz3ipQo9mfj1UE"><path d="M8 32 V20 L20 12 L32 20 V32 Z" data-page-node-id="dVihZd3v0qIO46hO5YirL4"/><path d="M16 32 V24 H24 V32" data-page-node-id="RPma9oka9uIUMpGVEbMMPn"/></svg>
+        <span class="num-tag" data-page-node-id="wd6eiJwPaF5PaMJAbd51hU">③ 皓镧商学院</span>
+        <h3 data-page-node-id="3wlemeYcoLW5wKL4bGXaLy">皓镧商学院</h3>
+        <p class="desc" data-page-node-id="BtK65pJbVZsTO1BNCjO6xe">公司人才孵化平台<br data-page-node-id="VyUGHGA5X6vBLxP3UK5yFF"/>系统化专业培训<br data-page-node-id="nDrOQHeQQUYw0FUUpPEUQP"/>行业前沿分享<br data-page-node-id="yWA1R4gQ2JDHEzAu2tE0zh"/>培养资管行业精英</p>
       </article>
-      <article class="info-card">
-        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><circle cx="20" cy="14" r="6"/><path d="M8 34 C8 27 14 24 20 24 C26 24 32 27 32 34"/></svg>
-        <span class="num-tag">④ 员工团建</span>
-        <h3>员工团建活动</h3>
-        <p class="desc">定期团建旅行<br/>主题沙龙<br/>文体活动<br/>共筑有温度的文化</p>
+      <article class="info-card" data-page-node-id="0vP2Wn8jsQHvUHA7HHS8Vt">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="YbNvMrPz0Tm0loEx3AMInh"><circle cx="20" cy="14" r="6" data-page-node-id="7yR00yDGnH9LFQGFJjUMwm"/><path d="M8 34 C8 27 14 24 20 24 C26 24 32 27 32 34" data-page-node-id="vR8xnQwEy4sZ70uCK9pEaj"/></svg>
+        <span class="num-tag" data-page-node-id="EcGp1Vf3o65CLKK50Mj4wf">④ 员工团建</span>
+        <h3 data-page-node-id="FK8c0eS3tH0Lk5QPhAY6CX">员工团建活动</h3>
+        <p class="desc" data-page-node-id="TEjBOdawNBV9fecWuB3v1U">定期团建旅行<br data-page-node-id="hbjASTX9Mx0Ji0rc4p45V9"/>主题沙龙<br data-page-node-id="M3zDfXFGSUBClpajnBP4F5"/>文体活动<br data-page-node-id="WSQPlac4izCfDk6rp5JxDl"/>共筑有温度的文化</p>
       </article>
     </div>
   </section>
@@ -481,19 +503,19 @@
 </main>
 
 <!-- ========== 页脚 ========== -->
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-logo">
-      <svg class="logo-mark" width="44" height="44" viewBox="0 0 64 64" fill="none">
-        <path d="M32 4 L58 18 L58 46 L32 60 L6 46 L6 18 Z" stroke="#C9A961" stroke-width="3" fill="none"/>
-        <path d="M22 22 L42 22 M22 32 L42 32 M22 42 L32 42" stroke="#C9A961" stroke-width="3"/>
+<footer class="footer" data-page-node-id="WxKr5vA4FYWiv4NSxSupnP">
+  <div class="footer-inner" data-page-node-id="kqMtmAbK1MOAtFEogGr59f">
+    <div class="footer-logo" data-page-node-id="iacNLQpdZ21GaA7TCRstMO">
+      <svg class="logo-mark" width="44" height="44" viewBox="0 0 64 64" fill="none" data-page-node-id="ggmcxAqtrPZjAODrAnKbTP">
+        <path d="M32 4 L58 18 L58 46 L32 60 L6 46 L6 18 Z" stroke="#D4A574" stroke-width="3" fill="none" data-page-node-id="Xj1GvT20UISvEWrtfAeKp7"/>
+        <path d="M22 22 L42 22 M22 32 L42 32 M22 42 L32 42" stroke="#D4A574" stroke-width="3" data-page-node-id="eof68wQKyCCFLnvHPZqqZZ"/>
       </svg>
-      <span class="lt">皓镧资产</span>
+      <span class="lt" data-page-node-id="zVifApPE5pRQyuELqaNPTH">皓镧资产</span>
     </div>
-    <div class="footer-info">
-      <div><b>联系电话：</b>010-8888 8888</div>
-      <div><b>邮箱：</b>hr@haolanzichan.cn</div>
-      <div><b>地址：</b>北京市朝阳区金融街 · 财富中心</div>
+    <div class="footer-info" data-page-node-id="Xvc07bRYnqomaRemOcLCVZ">
+      <div data-page-node-id="Xq56FC3WPZOAQLHulTILy8"><b data-page-node-id="Mvqq6UW0DEcrsismQj1Ftr">联系电话：</b>010-8888 8888</div>
+      <div data-page-node-id="r60ksZlxiBK3bGa8pIIXJT"><b data-page-node-id="fPvRG971xJKdnQMlFoXjFz">邮箱：</b>hr@haolanzichan.cn</div>
+      <div data-page-node-id="IF4JZEbpFdZW0O8TDpeLXi"><b data-page-node-id="0xBGbCSUAXRiEQqSl07Z1U">地址：</b>北京市朝阳区金融街 · 财富中心</div>
     </div>
   </div>
 </footer>

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<html lang="zh-CN" data-page-node-id="ow4D0IUUOEdtO8Y5vNxRqQ">
+<head data-page-node-id="A1GSJoBEG2TYatCc1XOC5x">
+<meta charset="UTF-8" data-page-node-id="doCxIRHJxMrtTOTX7ffGSM" />
+<meta name="viewport" content="width=device-width, initial-scale=1" data-page-node-id="vnvjVNqvZ5JhHhCPsBM8NU" />
 <title>短视频专区 - 皓镧资产</title>
 <style>
   /* ========== 品牌变量 ========== */
@@ -12,8 +12,6 @@
     --gold-soft: #E8D9A8;
     --red: #C8102E;
     --red-deep: #B91D2E;
-    --green-deep: #1F3A2E;
-    --green-darker: #142720;
     --ink: #1A1A1A;
     --muted: #6B6B6B;
     --line: #E8E2D4;
@@ -32,23 +30,23 @@
   a { color: inherit; text-decoration: none; }
 
   /* ========== 顶部黑色导航（单层 10 项） ========== */
-  .topbar { background: #111; color: #fff; border-bottom: 1px solid rgba(201,169,97,0.18); }
+  .topbar { background: linear-gradient(135deg, #E6C094 0%, #D4A574 100%); color: #22334F; border-bottom: 2px solid rgba(34,51,79,0.2); box-shadow: 0 2px 10px rgba(34,51,79,0.15); }
   .topbar-inner { max-width: 1280px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; gap: 36px; }
   .logo { display: flex; align-items: center; padding: 14px 0; flex-shrink: 0; }
   .logo-card {
     display: inline-flex; align-items: center; background: #fff;
     padding: 8px 16px; border-radius: 4px; height: 56px;
-    box-shadow: 0 0 0 1px rgba(201,169,97,0.25);
+    box-shadow: 0 0 0 1px rgba(34,51,79,0.25);
   }
   .logo-card img { height: 44px; width: auto; display: block; }
   .nav { display: flex; flex-direction: column; gap: 6px; margin-left: auto; padding: 14px 0; }
   .nav-row { display: flex; gap: 30px; font-size: 14px; }
-  .nav-row.top a { color: rgba(255,255,255,0.85); transition: color .2s; padding: 4px 0; white-space: nowrap; }
-  .nav-row.top a:hover, .nav-row.top a.active { color: var(--gold); }
+  .nav-row.top a { color: rgba(34,51,79,0.88); transition: color .2s; padding: 4px 0; white-space: nowrap; }
+  .nav-row.top a:hover, .nav-row.top a.active { color: var(--red); }
 
   /* ========== 页面横幅 ========== */
   .page-banner {
-    background: linear-gradient(135deg, var(--green-deep) 0%, #2a4a3a 100%);
+    background: linear-gradient(135deg, #2C2C2C 0%, #1A1A1A 100%);
     padding: 60px 32px 50px; text-align: center; position: relative; overflow: hidden;
   }
   .page-banner::before {
@@ -107,7 +105,7 @@
     background:
       radial-gradient(ellipse 60% 50% at 30% 40%, rgba(201,169,97,0.28), transparent 60%),
       radial-gradient(ellipse 50% 60% at 75% 70%, rgba(200,16,46,0.22), transparent 60%),
-      linear-gradient(135deg, #16241d 0%, #1F3A2E 55%, #142720 100%);
+      linear-gradient(135deg, #16241d 0%, #2C2C2C 55%, #142720 100%);
     display: flex; align-items: center; justify-content: center;
   }
   .player-frame .ph svg.skyline {
@@ -203,7 +201,7 @@
     position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
   }
   /* 分类配色封面 */
-  .ph.c-green { background: radial-gradient(ellipse 55% 45% at 30% 35%, rgba(201,169,97,0.3), transparent 60%), linear-gradient(135deg, #16241d, #1F3A2E 60%, #142720); }
+  .ph.c-green { background: radial-gradient(ellipse 55% 45% at 30% 35%, rgba(201,169,97,0.3), transparent 60%), linear-gradient(135deg, #16241d, #2C2C2C 60%, #142720); }
   .ph.c-red { background: radial-gradient(ellipse 55% 45% at 70% 35%, rgba(201,169,97,0.25), transparent 60%), linear-gradient(135deg, #5c0a17, var(--red-deep) 60%, #7c1122); }
   .ph.c-gold { background: radial-gradient(ellipse 55% 45% at 40% 60%, rgba(255,255,255,0.18), transparent 60%), linear-gradient(135deg, #8a6d1e, var(--gold-deep) 60%, #6d5617); }
   .ph.c-ink { background: radial-gradient(ellipse 55% 45% at 60% 30%, rgba(201,169,97,0.22), transparent 60%), linear-gradient(135deg, #111, #2a2a2a 60%, #1a1a1a); }
@@ -280,7 +278,8 @@
 
   /* ========== 页脚 ========== */
   .footer {
-    background: linear-gradient(180deg, var(--green-deep) 0%, var(--green-darker) 100%);
+    background: #22334F;
+    border-top: 3px solid #D4A574;
     color: rgba(255,255,255,0.7); padding: 40px 32px;
   }
   .footer-inner {
@@ -288,9 +287,9 @@
     display: flex; align-items: center; justify-content: space-between; gap: 40px;
   }
   .footer-logo { display: flex; align-items: center; gap: 14px; }
-  .footer-logo .lt { color: var(--gold); font-size: 24px; font-weight: 600; letter-spacing: 4px; }
+  .footer-logo .lt { color: #D4A574; font-size: 24px; font-weight: 600; letter-spacing: 4px; }
   .footer-info { display: flex; flex-direction: column; gap: 6px; font-size: 13px; text-align: right; }
-  .footer-info b { color: var(--gold); font-weight: 600; }
+  .footer-info b { color: #D4A574; font-weight: 600; }
 
   /* ========== 响应式 ========== */
   @media (max-width: 1080px) {
@@ -311,98 +310,107 @@
     .page-banner h1 { font-size: 28px; letter-spacing: 5px; }
     .upload-bar { flex-direction: column; text-align: center; }
   }
+
+  /* ========== 手机端通用优化（追加） ========== */
+  @media (max-width: 760px) {
+    .sec-title { font-size: 24px; letter-spacing: 3px; }
+    .sec-subtitle { letter-spacing: 2px; margin-bottom: 36px; }
+    .nav-row { gap: 12px; font-size: 13px; }
+    .nav { padding: 10px 0; }
+    .topbar-inner { padding: 0 16px; gap: 12px; }
+  }
 </style>
 </head>
-<body>
+<body data-page-node-id="bGFjKNwMnJGjvjh8FEVguz">
 
 <!-- ========== 顶部导航（真实 logo） ========== -->
-<header class="topbar">
-  <div class="topbar-inner">
-    <a href="./index.html" class="logo" aria-label="皓镧资产">
-      <span class="logo-card">
-        <img src="./assets/logo.jpg" alt="皓镧资产" />
+<header class="topbar" data-page-node-id="CVpEcbemXzsNCjWxRhFowW">
+  <div class="topbar-inner" data-page-node-id="blSsLNLXDlJBpxE0dlgvYo">
+    <a href="./index.html" class="logo" aria-label="皓镧资产" data-page-node-id="8qELIDI57mGmpLH66TuWQ9">
+      <span class="logo-card" data-page-node-id="0v1aHGqjWTF2RzKsHSAK4o">
+        <img src="./assets/logo.jpg" alt="皓镧资产" data-page-node-id="tnNCTsSSQ7KzDzm0IBKQlD" />
       </span>
     </a>
-    <nav class="nav" aria-label="主导航">
-      <div class="nav-row top">
-        <a href="./about.html">关于我们</a>
-        <a href="./business.html">主营业务</a>
-        <a href="./service.html">服务流程</a>
-        <a href="./team.html">精英团队</a>
-        <a href="./policy.html">政策解读</a>
-        <a href="./notice.html">企业公告</a>
-        <a href="./academy.html">皓镧商学院</a>
-        <a href="./video.html" class="active">短视频专区</a>
-        <a href="./join.html">加入我们</a>
-        <a href="./contact.html">联系我们</a>
+    <nav class="nav" aria-label="主导航" data-page-node-id="4bf5hOSg8iKOPRDDplQqjM">
+      <div class="nav-row top" data-page-node-id="fHHzD3adXMzfe5VuFLs9Em">
+        <a href="./about.html" data-page-node-id="VR3VMIURoF1kmN8GMAXc2Z">关于我们</a>
+        <a href="./business.html" data-page-node-id="aVwmpqBSt0pCGgroPPRtOd">主营业务</a>
+        <a href="./service.html" data-page-node-id="kUJIWyT5yHpOvdaifci9KX">服务流程</a>
+        <a href="./team.html" data-page-node-id="wHlYELpjQZD056h90IjxDr">精英团队</a>
+        <a href="./policy.html" data-page-node-id="QYhTBlWYQJMkcwd1QA1M1q">政策解读</a>
+        <a href="./notice.html" data-page-node-id="iz6boxB3Qttrer7Q5ofQfC">企业公告</a>
+        <a href="./academy.html" data-page-node-id="iPnicIYNnf4q71XctUAtw1">皓镧商学院</a>
+        <a href="./video.html" class="active" data-page-node-id="PddHfqKZXEKUBserVqHQx7">短视频专区</a>
+        <a href="./join.html" data-page-node-id="kruEv9beykCx1Q5AFBXIaQ">加入我们</a>
+        <a href="./contact.html" data-page-node-id="kYRGgoogK1cdpmf53LtSmM">联系我们</a>
       </div>
     </nav>
   </div>
 </header>
 
 <!-- ========== 页面横幅 ========== -->
-<div class="page-banner">
-  <h1>短视频专区</h1>
-  <p class="en">SHORT VIDEO ZONE</p>
-  <p class="desc">汇集皓镧资产官方短视频内容——公司口播、活动宣传、品牌形象与金融知识科普，用镜头记录皓镧的每一个精彩瞬间。</p>
+<div class="page-banner" data-page-node-id="HoXRE614nNfINJNRr8jn7A">
+  <h1 data-page-node-id="N03BA8rwD0Mc7MO2DC0CgG">短视频专区</h1>
+  <p class="en" data-page-node-id="BdYAuQe0cEAwu4BWZHsd5l">SHORT VIDEO ZONE</p>
+  <p class="desc" data-page-node-id="4PQ9U0flwAQjz1psXEOs0d">汇集皓镧资产官方短视频内容——公司口播、活动宣传、品牌形象与金融知识科普，用镜头记录皓镧的每一个精彩瞬间。</p>
 </div>
 
-<main>
+<main data-page-node-id="UtAHZim7D94HquWr6SHnSQ">
 
   <!-- ========================================== -->
   <!-- 1. 精选推荐 -->
   <!-- ========================================== -->
-  <section id="featured">
-    <h2 class="sec-title">精选推荐</h2>
-    <p class="sec-subtitle">FEATURED VIDEOS</p>
+  <section id="featured" data-page-node-id="Mkcr1J5KDtkfNb8aUdkC1N">
+    <h2 class="sec-title" data-page-node-id="P1XsbZ9QwZTdWqp2UgFTpn">精选推荐</h2>
+    <p class="sec-subtitle" data-page-node-id="GjvP5IVsR5dj39CYqtcsWi">FEATURED VIDEOS</p>
 
-    <div class="featured-video">
+    <div class="featured-video" data-page-node-id="8ceO0M4R9iXiguEBmqEK84">
       <!-- 播放器 -->
-      <div class="player-card">
-        <div class="player-frame" id="mainPlayer">
-          <div class="ph">
-            <svg class="skyline" viewBox="0 0 1200 200" preserveAspectRatio="none" fill="rgba(201,169,97,0.35)">
-              <path d="M0 200 L0 140 L60 140 L60 100 L110 100 L110 150 L170 150 L170 80 L200 50 L230 80 L230 150 L300 150 L300 120 L360 120 L360 160 L430 160 L430 70 L460 40 L490 70 L490 160 L560 160 L560 110 L620 110 L620 150 L690 150 L690 90 L730 60 L770 90 L770 150 L840 150 L840 130 L900 130 L900 160 L960 160 L960 100 L1010 70 L1060 100 L1060 160 L1120 160 L1120 130 L1200 130 L1200 200 Z"/>
+      <div class="player-card" data-page-node-id="VrZgIx96j8SLE3ksxtsjRN">
+        <div class="player-frame" id="mainPlayer" data-page-node-id="48NjuHw552cb8wYQzDUIPT">
+          <div class="ph" data-page-node-id="BJOshCNtvHYRsRZL3NZFT1">
+            <svg class="skyline" viewBox="0 0 1200 200" preserveAspectRatio="none" fill="rgba(201,169,97,0.35)" data-page-node-id="sCVKEyqVEt19ftRDMDxnFV">
+              <path d="M0 200 L0 140 L60 140 L60 100 L110 100 L110 150 L170 150 L170 80 L200 50 L230 80 L230 150 L300 150 L300 120 L360 120 L360 160 L430 160 L430 70 L460 40 L490 70 L490 160 L560 160 L560 110 L620 110 L620 150 L690 150 L690 90 L730 60 L770 90 L770 150 L840 150 L840 130 L900 130 L900 160 L960 160 L960 100 L1010 70 L1060 100 L1060 160 L1120 160 L1120 130 L1200 130 L1200 200 Z" data-page-node-id="wMy9NNIH31ENCK8WmH5KRv"/>
             </svg>
-            <div class="play-btn">
-              <svg viewBox="0 0 24 24"><path d="M8 5 L19 12 L8 19 Z"/></svg>
+            <div class="play-btn" data-page-node-id="KLLeeVPJXOtTQG2rcvTGJF">
+              <svg viewBox="0 0 24 24" data-page-node-id="JPATSTN8NWX9s3yGtm63TK"><path d="M8 5 L19 12 L8 19 Z" data-page-node-id="cLzd2DEG2D8KFbgjg70nNH"/></svg>
             </div>
-            <span class="badge-hot">精选</span>
-            <span class="dur">02:45</span>
+            <span class="badge-hot" data-page-node-id="XOvWZmUkaOcMsrJtydReBz">精选</span>
+            <span class="dur" data-page-node-id="na6w3MEn0xmdtaj3jRYgz6">02:45</span>
           </div>
         </div>
-        <div class="player-info">
-          <h4 id="playerTitle">皓镧资产 2026 品牌宣传片 · 五载同行，与您共成长</h4>
-          <div class="meta">
-            <span>分类：<b>品牌宣传片</b></span>
-            <span>播放 <b>52.8万</b></span>
-            <span>发布时间：2026-08-01</span>
+        <div class="player-info" data-page-node-id="SoLENnVeT6BRpNKkys0cb6">
+          <h4 id="playerTitle" data-page-node-id="lwHWQkS3VqtdCZsxR1hI4d">皓镧资产 2026 品牌宣传片 · 五载同行，与您共成长</h4>
+          <div class="meta" data-page-node-id="BQjB4sBCdzzaFG4iFI2H6A">
+            <span data-page-node-id="9QkK82XiYuWuTuQo5pLQwn">分类：<b data-page-node-id="wRyGIvmbR0HIij1mHMRdFx">品牌宣传片</b></span>
+            <span data-page-node-id="1IQInH73bKFxr8ILxCFfM1">播放 <b data-page-node-id="w0xM0GmiXrSHeHjsVmpkKS">52.8万</b></span>
+            <span data-page-node-id="W9pkaYMUrKpr1WGHF05wOK">发布时间：2026-08-01</span>
           </div>
         </div>
       </div>
 
       <!-- 热播榜 -->
-      <div class="rank-box">
-        <h4>热播榜 TOP5<span class="en">TRENDING NOW</span></h4>
-        <div class="rank-item" data-title="【口播】2026 房贷利率新政三分钟看懂" data-dur="03:12" data-views="36.2万">
-          <span class="no">1</span>
-          <div><div class="t">【口播】2026 房贷利率新政三分钟看懂</div><div class="m">公司口播 · 36.2万 播放</div></div>
+      <div class="rank-box" data-page-node-id="YINfkPYpBvV7ANn0lv55sB">
+        <h4 data-page-node-id="4ZVSvcX4cNUjCm9rjl2TgB">热播榜 TOP5<span class="en" data-page-node-id="ZiqwADCkvnlw6lrCHBU0Fq">TRENDING NOW</span></h4>
+        <div class="rank-item" data-title="【口播】2026 房贷利率新政三分钟看懂" data-dur="03:12" data-views="36.2万" data-page-node-id="Z3TCWE5UMUx1IXq8pWZYId">
+          <span class="no" data-page-node-id="koeRQTUzDUtRIJgVAKgwSU">1</span>
+          <div data-page-node-id="1TCMqoeLwx1tufsBs50vgr"><div class="t" data-page-node-id="DWVsxTPMGxSo12jA22rkWZ">【口播】2026 房贷利率新政三分钟看懂</div><div class="m" data-page-node-id="KSB381imEd6pHBUFdLyw6y">公司口播 · 36.2万 播放</div></div>
         </div>
-        <div class="rank-item" data-title="皓镧资产 2026 品牌宣传片 · 五载同行" data-dur="02:45" data-views="52.8万">
-          <span class="no">2</span>
-          <div><div class="t">皓镧资产 2026 品牌宣传片 · 五载同行</div><div class="m">品牌宣传片 · 52.8万 播放</div></div>
+        <div class="rank-item" data-title="皓镧资产 2026 品牌宣传片 · 五载同行" data-dur="02:45" data-views="52.8万" data-page-node-id="A9RJGTTdf07hurKBzHgAWh">
+          <span class="no" data-page-node-id="wYH9kIehdFpyuLoi2Xa0cE">2</span>
+          <div data-page-node-id="AKiNs5D5UwaFsYZynNfFjy"><div class="t" data-page-node-id="w9yHX4CXzGcgJc722IDiwb">皓镧资产 2026 品牌宣传片 · 五载同行</div><div class="m" data-page-node-id="5MU9Sbolwsh1h9JlpjxrtE">品牌宣传片 · 52.8万 播放</div></div>
         </div>
-        <div class="rank-item" data-title="【活动】2026 年度战略合作签约仪式全程回顾" data-dur="04:38" data-views="28.6万">
-          <span class="no">3</span>
-          <div><div class="t">【活动】2026 年度战略合作签约仪式全程回顾</div><div class="m">活动宣传片 · 28.6万 播放</div></div>
+        <div class="rank-item" data-title="【活动】2026 年度战略合作签约仪式全程回顾" data-dur="04:38" data-views="28.6万" data-page-node-id="plMsy1GSHUlvjTDwwuP392">
+          <span class="no" data-page-node-id="puvdQq74viIuCGG43IIglL">3</span>
+          <div data-page-node-id="quLcqsta47V8yQgvhCZmYs"><div class="t" data-page-node-id="t5tXdablxxbcGfBLjVRbue">【活动】2026 年度战略合作签约仪式全程回顾</div><div class="m" data-page-node-id="NSCFdKnY7CNOJZyQcF0Ewi">活动宣传片 · 28.6万 播放</div></div>
         </div>
-        <div class="rank-item" data-title="【科普】征信报告怎么看？这五个指标最关键" data-dur="02:58" data-views="21.4万">
-          <span class="no">4</span>
-          <div><div class="t">【科普】征信报告怎么看？这五个指标最关键</div><div class="m">知识科普 · 21.4万 播放</div></div>
+        <div class="rank-item" data-title="【科普】征信报告怎么看？这五个指标最关键" data-dur="02:58" data-views="21.4万" data-page-node-id="k0OvUgy48qkguHFCyvV8iQ">
+          <span class="no" data-page-node-id="t3NFQmFbXr2nDBzGyyJksk">4</span>
+          <div data-page-node-id="LLCZhNBjXFgEV8UVc5gli3"><div class="t" data-page-node-id="rEhsPVq84haOOoZw2yPzLG">【科普】征信报告怎么看？这五个指标最关键</div><div class="m" data-page-node-id="UpRqz0d443t6ztUOoDgxPO">知识科普 · 21.4万 播放</div></div>
         </div>
-        <div class="rank-item" data-title="【活动】皓镧商学院首期内训营结业典礼精彩瞬间" data-dur="03:26" data-views="18.9万">
-          <span class="no">5</span>
-          <div><div class="t">【活动】皓镧商学院首期内训营结业典礼精彩瞬间</div><div class="m">活动宣传片 · 18.9万 播放</div></div>
+        <div class="rank-item" data-title="【活动】皓镧商学院首期内训营结业典礼精彩瞬间" data-dur="03:26" data-views="18.9万" data-page-node-id="uZDiLxxDwGeF3G9A25I03t">
+          <span class="no" data-page-node-id="UHm8riuXC5sWktF6oG1vor">5</span>
+          <div data-page-node-id="tr4SEJcS9k8sUWxxPpDDyF"><div class="t" data-page-node-id="J72GvXcDtUBgvU2SEJNSKt">【活动】皓镧商学院首期内训营结业典礼精彩瞬间</div><div class="m" data-page-node-id="AAeLa8MwiMeLOG6MR0uRHH">活动宣传片 · 18.9万 播放</div></div>
         </div>
       </div>
     </div>
@@ -411,245 +419,245 @@
   <!-- ========================================== -->
   <!-- 2. 视频库 -->
   <!-- ========================================== -->
-  <section id="library">
-    <h2 class="sec-title">视频库</h2>
-    <p class="sec-subtitle">VIDEO LIBRARY</p>
-    <p class="sec-desc">覆盖公司口播、活动宣传、品牌形象、知识科普四大内容板块，持续更新中。</p>
+  <section id="library" data-page-node-id="53dM3HW83brakGixDTeUxD">
+    <h2 class="sec-title" data-page-node-id="t3sGx5zo8Y39EHs4H0UT3W">视频库</h2>
+    <p class="sec-subtitle" data-page-node-id="WPTJGtPZ8ZBnOi2BlDALMt">VIDEO LIBRARY</p>
+    <p class="sec-desc" data-page-node-id="qfCiUE3NQGCAYsLGVMHTe4">覆盖公司口播、活动宣传、品牌形象、知识科普四大内容板块，持续更新中。</p>
 
     <!-- 分类筛选 -->
-    <div class="vfilter" id="vfilter">
-      <div class="fbtn active" data-cat="all">全部</div>
-      <div class="fbtn" data-cat="koubo">公司口播</div>
-      <div class="fbtn" data-cat="huodong">活动宣传片</div>
-      <div class="fbtn" data-cat="pinpai">品牌宣传片</div>
-      <div class="fbtn" data-cat="kepu">知识科普</div>
+    <div class="vfilter" id="vfilter" data-page-node-id="7dfJQKYwHVysXYhb9bJVZW">
+      <div class="fbtn active" data-cat="all" data-page-node-id="lkBv0evuFn9kA9VsXDU4CZ">全部</div>
+      <div class="fbtn" data-cat="koubo" data-page-node-id="gqFgW3hfqnvpXSr1KjHVS7">公司口播</div>
+      <div class="fbtn" data-cat="huodong" data-page-node-id="vUHGVCctEXMwId5Ta817HA">活动宣传片</div>
+      <div class="fbtn" data-cat="pinpai" data-page-node-id="6dbqaiGYB0XMFzQfWSvmOg">品牌宣传片</div>
+      <div class="fbtn" data-cat="kepu" data-page-node-id="kEyAhjpcV14tCPUfK0ciU1">知识科普</div>
     </div>
 
-    <div class="video-grid" id="videoGrid">
+    <div class="video-grid" id="videoGrid" data-page-node-id="4jSbBGOXHXwvaCCK78pDmO">
       <!-- 公司口播 -->
-      <div class="v-card" data-cat="koubo">
-        <div class="v-thumb">
-          <div class="ph c-green">
-            <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M9 9 C7.5 10 7.5 14 9 15 M13 9 C11.5 10 11.5 14 13 15 M16.5 10.5 C15.8 11.2 15.8 12.8 16.5 13.5"/></svg></span>
+      <div class="v-card" data-cat="koubo" data-page-node-id="YNn21gi0Hin4QAX56QaJhx">
+        <div class="v-thumb" data-page-node-id="ZpzdBmI3TDfpfik2wxeE6O">
+          <div class="ph c-green" data-page-node-id="KR2vTTseG9abh4VkRvlKYT">
+            <span class="glyph" data-page-node-id="wa4JXIAYEVq4uKPKACjzt8"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="CDrWC9uXwUuYHs46CLx2J3"><rect x="3" y="5" width="18" height="14" rx="3" data-page-node-id="4oq3NEStfPxqMJKtjBzxPN"/><path d="M9 9 C7.5 10 7.5 14 9 15 M13 9 C11.5 10 11.5 14 13 15 M16.5 10.5 C15.8 11.2 15.8 12.8 16.5 13.5" data-page-node-id="OQofgA2QAwXOFrbeiExFtG"/></svg></span>
           </div>
-          <div class="mini-play"><span class="pb"><svg viewBox="0 0 24 24"><path d="M8 5 L19 12 L8 19 Z"/></svg></span></div>
-          <span class="cat-chip">公司口播</span>
-          <span class="dur">03:12</span>
+          <div class="mini-play" data-page-node-id="Cmtn2EUPsTNi1QRdgN3iGs"><span class="pb" data-page-node-id="631r0toIFbYy0m6UHOBN0L"><svg viewBox="0 0 24 24" data-page-node-id="UUQj0sedZ5aZRUIHEK6igq"><path d="M8 5 L19 12 L8 19 Z" data-page-node-id="yp0YyevCr57gbftNiGJ6Fj"/></svg></span></div>
+          <span class="cat-chip" data-page-node-id="9lh2aJ2Ji9SeRDLMnityDW">公司口播</span>
+          <span class="dur" data-page-node-id="sEmGWKbxjdWSWx9ftDAihF">03:12</span>
         </div>
-        <div class="v-info">
-          <h4>【口播】2026 房贷利率新政三分钟看懂</h4>
-          <div class="meta"><span>播放 <b>36.2万</b></span><span>点赞 1.2万</span><span>08-12</span></div>
+        <div class="v-info" data-page-node-id="hS6s74dHGXn11hMIZOmxbm">
+          <h4 data-page-node-id="wTABqmlaCP1mAla2wiqeEJ">【口播】2026 房贷利率新政三分钟看懂</h4>
+          <div class="meta" data-page-node-id="77GM0gJWSBXYk4ohPMM1uj"><span data-page-node-id="cGjoLOikyAqqID0y0BQUgs">播放 <b data-page-node-id="QsLJtze3cpSg3GzH88YPwM">36.2万</b></span><span data-page-node-id="Inen1NOW2OOR6ZmfleaLsJ">点赞 1.2万</span><span data-page-node-id="rtFTtXtwMQzAYjcdLK976D">08-12</span></div>
         </div>
       </div>
-      <div class="v-card" data-cat="koubo">
-        <div class="v-thumb">
-          <div class="ph c-green">
-            <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M9 9 C7.5 10 7.5 14 9 15 M13 9 C11.5 10 11.5 14 13 15"/></svg></span>
+      <div class="v-card" data-cat="koubo" data-page-node-id="blUCkUKFGWA7t2Z7nRIk3H">
+        <div class="v-thumb" data-page-node-id="TOTi9ZwcefXNIibg3HzTL1">
+          <div class="ph c-green" data-page-node-id="E4muGDLTmSSUF9TxtOSyGj">
+            <span class="glyph" data-page-node-id="rBvp02wCG897mimpz5pMHr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="4DCWCCvKwFa3QjxM0zc8L1"><rect x="3" y="5" width="18" height="14" rx="3" data-page-node-id="wnbOGAIXaNsAetGqrJrb6s"/><path d="M9 9 C7.5 10 7.5 14 9 15 M13 9 C11.5 10 11.5 14 13 15" data-page-node-id="NGqe9Su73SnUUglC01LNqv"/></svg></span>
           </div>
-          <div class="mini-play"><span class="pb"><svg viewBox="0 0 24 24"><path d="M8 5 L19 12 L8 19 Z"/></svg></span></div>
-          <span class="cat-chip">公司口播</span>
-          <span class="dur">02:36</span>
+          <div class="mini-play" data-page-node-id="U5pRtVcUOAdQW0F8U5TqOS"><span class="pb" data-page-node-id="vgr1V3sfUpyB8N5XSnfsaj"><svg viewBox="0 0 24 24" data-page-node-id="pkiRcVKTHFq3U5BsHImIj7"><path d="M8 5 L19 12 L8 19 Z" data-page-node-id="vLCSjjsjEvvg0gJKLLyHOk"/></svg></span></div>
+          <span class="cat-chip" data-page-node-id="qgAdK9HE8XUJuhzgrZDOx7">公司口播</span>
+          <span class="dur" data-page-node-id="RRkiRtcEcq7eWbVBtGRYsP">02:36</span>
         </div>
-        <div class="v-info">
-          <h4>【口播】企业经营贷的三大误区，你踩过几个？</h4>
-          <div class="meta"><span>播放 <b>15.7万</b></span><span>点赞 8,600</span><span>08-05</span></div>
+        <div class="v-info" data-page-node-id="XjExvPj300Vi7cRcYV0RJz">
+          <h4 data-page-node-id="nB1dBsSST6C4rCgPDeS45V">【口播】企业经营贷的三大误区，你踩过几个？</h4>
+          <div class="meta" data-page-node-id="YeIpPXhXudWjoLk4T8jzl1"><span data-page-node-id="T5gUWGBcV5TwTykdqsDttw">播放 <b data-page-node-id="FrhQYU3ndFASH0L62LF3PX">15.7万</b></span><span data-page-node-id="5zubmibzpRkaL6e55nmjdF">点赞 8,600</span><span data-page-node-id="0dMiAsVtOm8MBr1kqzFHKD">08-05</span></div>
         </div>
       </div>
-      <div class="v-card" data-cat="koubo">
-        <div class="v-thumb">
-          <div class="ph c-green">
-            <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M12 9 L12 15 M9 12 L15 12"/></svg></span>
+      <div class="v-card" data-cat="koubo" data-page-node-id="IIYAbhbQrDeBZGWtL0BilT">
+        <div class="v-thumb" data-page-node-id="KdLYCEQlCLHLYW0o8mFeN5">
+          <div class="ph c-green" data-page-node-id="B2CqzjnSWdPfe2BZiHLNUe">
+            <span class="glyph" data-page-node-id="9qWOdPuEhHEjGwo0jlLmTO"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="tb199DZHn2EUAZKWp83EXT"><rect x="3" y="5" width="18" height="14" rx="3" data-page-node-id="sWqxuPvJCrF72Dz5TOgvaQ"/><path d="M12 9 L12 15 M9 12 L15 12" data-page-node-id="UxvtWdFHv4WwAyLQXBtZx2"/></svg></span>
           </div>
-          <div class="mini-play"><span class="pb"><svg viewBox="0 0 24 24"><path d="M8 5 L19 12 L8 19 Z"/></svg></span></div>
-          <span class="cat-chip">公司口播</span>
-          <span class="dur">02:18</span>
+          <div class="mini-play" data-page-node-id="pZkX19Q0xBjrynk1x1GQDo"><span class="pb" data-page-node-id="MmFTY34EzZbogfwDRht6xf"><svg viewBox="0 0 24 24" data-page-node-id="nS0LCrXn1QThRcFQoY18OV"><path d="M8 5 L19 12 L8 19 Z" data-page-node-id="rKrASaKdMr1t8dDwde2rSw"/></svg></span></div>
+          <span class="cat-chip" data-page-node-id="KIOyyrvBHL4tTz8oxfagSx">公司口播</span>
+          <span class="dur" data-page-node-id="DIGap3oX5t2B4kwccY6SHI">02:18</span>
         </div>
-        <div class="v-info">
-          <h4>【口播】融资避坑第一课：先看资质，再谈利率</h4>
-          <div class="meta"><span>播放 <b>12.3万</b></span><span>点赞 7,200</span><span>07-28</span></div>
+        <div class="v-info" data-page-node-id="AgLNdsugRKgSYFuKGb6YwB">
+          <h4 data-page-node-id="EEHUHHCWAG8bgfZpX3GuOH">【口播】融资避坑第一课：先看资质，再谈利率</h4>
+          <div class="meta" data-page-node-id="WVGwJ4R05HnNolBMyDnvh7"><span data-page-node-id="EocGnVPlgRLA9Nm4CHB5Vw">播放 <b data-page-node-id="jJBBOVHhMdEi6f0HrDbzvG">12.3万</b></span><span data-page-node-id="awqOL5XWfEMUSvDK0PAY6L">点赞 7,200</span><span data-page-node-id="6EFTeAfLtxkiRQ9CsK1EWk">07-28</span></div>
         </div>
       </div>
 
       <!-- 活动宣传片 -->
-      <div class="v-card" data-cat="huodong">
-        <div class="v-thumb">
-          <div class="ph c-red">
-            <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 21 L4 8 L12 3 L20 8 L20 21"/><path d="M9 21 L9 13 L15 13 L15 21"/><path d="M2 21 L22 21"/></svg></span>
+      <div class="v-card" data-cat="huodong" data-page-node-id="D90DNreypnZlBDvYKfZtyG">
+        <div class="v-thumb" data-page-node-id="OFWYs4Wpack6sDW5ctevtR">
+          <div class="ph c-red" data-page-node-id="X0N81pCeh9nok7j8Flzb3r">
+            <span class="glyph" data-page-node-id="tCSAreJU4ro0uaw7XpQF7V"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="6sGrMAZgExq4yCgttmYboN"><path d="M4 21 L4 8 L12 3 L20 8 L20 21" data-page-node-id="iRNCEc8MG3bemB9c6BedDY"/><path d="M9 21 L9 13 L15 13 L15 21" data-page-node-id="wylAt2XQtsZedRiNPOiftt"/><path d="M2 21 L22 21" data-page-node-id="CpBkHBthuU3IAILg2sW8Em"/></svg></span>
           </div>
-          <div class="mini-play"><span class="pb"><svg viewBox="0 0 24 24"><path d="M8 5 L19 12 L8 19 Z"/></svg></span></div>
-          <span class="cat-chip">活动宣传片</span>
-          <span class="dur">04:38</span>
+          <div class="mini-play" data-page-node-id="DL9OaCCsySBtrY3v6pYyxo"><span class="pb" data-page-node-id="afAbriBFmVeTrGFeOTqpQg"><svg viewBox="0 0 24 24" data-page-node-id="wGsI4ZjBnaMZjPECHghuwr"><path d="M8 5 L19 12 L8 19 Z" data-page-node-id="3pDEIyExoLTEEPQgHzpVOF"/></svg></span></div>
+          <span class="cat-chip" data-page-node-id="oFWBKBtbINgrFNyv9dEZZG">活动宣传片</span>
+          <span class="dur" data-page-node-id="DGcH4FFPxnmZJt8FQyC7Zn">04:38</span>
         </div>
-        <div class="v-info">
-          <h4>【活动】2026 年度战略合作签约仪式全程回顾</h4>
-          <div class="meta"><span>播放 <b>28.6万</b></span><span>点赞 9,800</span><span>08-10</span></div>
+        <div class="v-info" data-page-node-id="oCDnuZmviJocRS17WlElxk">
+          <h4 data-page-node-id="vddGtdaEKd9FpAmsBn1OmR">【活动】2026 年度战略合作签约仪式全程回顾</h4>
+          <div class="meta" data-page-node-id="0qCsRxA5JYRnwbxqjlDR4k"><span data-page-node-id="A4NYYnJGJfMige2jU85TOO">播放 <b data-page-node-id="231DRuYrMQeRH2ICr5lc2x">28.6万</b></span><span data-page-node-id="RXP1pzREVKLubBxu3FAuQ7">点赞 9,800</span><span data-page-node-id="BkynSTIxJdPALVEDEXeKvx">08-10</span></div>
         </div>
       </div>
-      <div class="v-card" data-cat="huodong">
-        <div class="v-thumb">
-          <div class="ph c-red">
-            <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3 L14.5 8.5 L20.5 9.2 L16 13.3 L17.3 19.5 L12 16.4 L6.7 19.5 L8 13.3 L3.5 9.2 L9.5 8.5 Z"/></svg></span>
+      <div class="v-card" data-cat="huodong" data-page-node-id="oIDW1bP4Z0r9YWon4Ef7UJ">
+        <div class="v-thumb" data-page-node-id="EFOBImsUQ7QmZnbU0ADK1a">
+          <div class="ph c-red" data-page-node-id="UXfHqXZnENM5dZkAUHLBsn">
+            <span class="glyph" data-page-node-id="eHHDpokHRhWsPiAhtZ8WAc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="hsJs55UPta6qhlLvUN1lIh"><path d="M12 3 L14.5 8.5 L20.5 9.2 L16 13.3 L17.3 19.5 L12 16.4 L6.7 19.5 L8 13.3 L3.5 9.2 L9.5 8.5 Z" data-page-node-id="HG083ASiiaL9vM62y48FGz"/></svg></span>
           </div>
-          <div class="mini-play"><span class="pb"><svg viewBox="0 0 24 24"><path d="M8 5 L19 12 L8 19 Z"/></svg></span></div>
-          <span class="cat-chip">活动宣传片</span>
-          <span class="dur">03:26</span>
+          <div class="mini-play" data-page-node-id="BRwkuA3VZAaCcZIlYxzgNG"><span class="pb" data-page-node-id="G2dMo7UxrUfpvfSFAbENSe"><svg viewBox="0 0 24 24" data-page-node-id="zCNe2NmG8ceQnITvCovSOK"><path d="M8 5 L19 12 L8 19 Z" data-page-node-id="AkrYTr9xNd3KVSBLBHmkfv"/></svg></span></div>
+          <span class="cat-chip" data-page-node-id="UAgkQVG8RzGdhtkTEhlpDQ">活动宣传片</span>
+          <span class="dur" data-page-node-id="I03HdRHiX1EG6fhYlEnFdV">03:26</span>
         </div>
-        <div class="v-info">
-          <h4>【活动】皓镧商学院首期内训营结业典礼精彩瞬间</h4>
-          <div class="meta"><span>播放 <b>18.9万</b></span><span>点赞 6,500</span><span>07-18</span></div>
+        <div class="v-info" data-page-node-id="tiKXTJ1dazjkZre3NH4T92">
+          <h4 data-page-node-id="JF6o3q6YIjrGyJWUunbPO2">【活动】皓镧商学院首期内训营结业典礼精彩瞬间</h4>
+          <div class="meta" data-page-node-id="XXaOCSLpXxHXiAxHxz9GP6"><span data-page-node-id="ODT5L1H2MM2s76jhgZNCgs">播放 <b data-page-node-id="QiTv8mGLBFnMDjWsLt8Ors">18.9万</b></span><span data-page-node-id="q3c05M5vBy1bAKVePvMdjL">点赞 6,500</span><span data-page-node-id="KSrPmUS6RDpwHwYJSXlnbz">07-18</span></div>
         </div>
       </div>
-      <div class="v-card" data-cat="huodong">
-        <div class="v-thumb">
-          <div class="ph c-red">
-            <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7 L12 12 L15.5 14"/></svg></span>
+      <div class="v-card" data-cat="huodong" data-page-node-id="HZlJbZ6wHbDWVTPrwQLzpo">
+        <div class="v-thumb" data-page-node-id="5sbKaQT6musypkNeMQtclo">
+          <div class="ph c-red" data-page-node-id="Lr1q1cfDC3MoKCzAABdQBs">
+            <span class="glyph" data-page-node-id="m4AQe4lKRmwSzIwBv12JWX"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="HaRKcVUaEuNSkQpfLxc089"><circle cx="12" cy="12" r="9" data-page-node-id="G1iHlv64KNDHubPozQPPXe"/><path d="M12 7 L12 12 L15.5 14" data-page-node-id="3FxtlLv5VJ5tLmIL1HHDl4"/></svg></span>
           </div>
-          <div class="mini-play"><span class="pb"><svg viewBox="0 0 24 24"><path d="M8 5 L19 12 L8 19 Z"/></svg></span></div>
-          <span class="cat-chip">活动宣传片</span>
-          <span class="dur">02:52</span>
+          <div class="mini-play" data-page-node-id="FvXOHKmSCujv8HtjEnAkK9"><span class="pb" data-page-node-id="NyX35izVtL49drNNDgFRNe"><svg viewBox="0 0 24 24" data-page-node-id="yryDCQ5zUb7wpR2s6xwKjl"><path d="M8 5 L19 12 L8 19 Z" data-page-node-id="BCWz4OvBNYRPUz7yR3spXi"/></svg></span></div>
+          <span class="cat-chip" data-page-node-id="JkYPQRRqArEoF7b4aPphWg">活动宣传片</span>
+          <span class="dur" data-page-node-id="7W1CTtaXUnbBHyX9JCkcTC">02:52</span>
         </div>
-        <div class="v-info">
-          <h4>【活动】社区金融公益科普活动 · 走进阳光社区</h4>
-          <div class="meta"><span>播放 <b>9.6万</b></span><span>点赞 4,300</span><span>06-30</span></div>
+        <div class="v-info" data-page-node-id="Skc87Yg5g2aH5AvhIiZGs8">
+          <h4 data-page-node-id="Z63ddNHS0K6girSWBiecA2">【活动】社区金融公益科普活动 · 走进阳光社区</h4>
+          <div class="meta" data-page-node-id="CunximocFQdkBBVAJmfy3e"><span data-page-node-id="E3aAl7YuH738SqQkhAEmCg">播放 <b data-page-node-id="teT8Bj8pQB37oAtsXKczpG">9.6万</b></span><span data-page-node-id="bmNayJjB19aFv7xpTzWo7T">点赞 4,300</span><span data-page-node-id="DwULsooVPwCGKMOqWXDtTo">06-30</span></div>
         </div>
       </div>
 
       <!-- 品牌宣传片 -->
-      <div class="v-card" data-cat="pinpai">
-        <div class="v-thumb">
-          <div class="ph c-gold">
-            <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M32 4 L58 18 L58 46 L32 60 L6 46 L6 18 Z" transform="scale(0.3) translate(8,8)"/><path d="M12 2 L15 8.5 L22 9.5 L17 14.5 L18 21.5 L12 18 L6 21.5 L7 14.5 L2 9.5 L9 8.5 Z"/></svg></span>
+      <div class="v-card" data-cat="pinpai" data-page-node-id="MKcWpCodsKoDd7FAAJ5z7u">
+        <div class="v-thumb" data-page-node-id="qfk4wUdC5YotJvxzw1DfZ5">
+          <div class="ph c-gold" data-page-node-id="OyDh6iVAHFu1e7WXysKFXY">
+            <span class="glyph" data-page-node-id="pfMqXszB5jgeq2QrQKojiC"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="FoR1mvCQXFwc6CtUMFMJIt"><path d="M32 4 L58 18 L58 46 L32 60 L6 46 L6 18 Z" transform="scale(0.3) translate(8,8)" data-page-node-id="FPnMGDc3iolm7KGrxYGb8m"/><path d="M12 2 L15 8.5 L22 9.5 L17 14.5 L18 21.5 L12 18 L6 21.5 L7 14.5 L2 9.5 L9 8.5 Z" data-page-node-id="NgZiv9jMc33s7oYZWdfvFv"/></svg></span>
           </div>
-          <div class="mini-play"><span class="pb"><svg viewBox="0 0 24 24"><path d="M8 5 L19 12 L8 19 Z"/></svg></span></div>
-          <span class="cat-chip">品牌宣传片</span>
-          <span class="dur">02:45</span>
+          <div class="mini-play" data-page-node-id="6MDcTGWrHlAfGZDCvGZq9R"><span class="pb" data-page-node-id="wkWTRlwM6yZuzuWpeOSWRU"><svg viewBox="0 0 24 24" data-page-node-id="mkYwH3RZozGQC8xP2Letbt"><path d="M8 5 L19 12 L8 19 Z" data-page-node-id="JhOmlEWP6oumnf74bHrHxf"/></svg></span></div>
+          <span class="cat-chip" data-page-node-id="BSiNiInOca0AW6hSRVXKme">品牌宣传片</span>
+          <span class="dur" data-page-node-id="PB4J60RHkEWEC2F4Qhqg3p">02:45</span>
         </div>
-        <div class="v-info">
-          <h4>皓镧资产 2026 品牌宣传片 · 五载同行，与您共成长</h4>
-          <div class="meta"><span>播放 <b>52.8万</b></span><span>点赞 2.1万</span><span>08-01</span></div>
+        <div class="v-info" data-page-node-id="Z759CBBD9bbyXTYi2EIMJ3">
+          <h4 data-page-node-id="FytDkkrWAkxYhQvgJUBMfc">皓镧资产 2026 品牌宣传片 · 五载同行，与您共成长</h4>
+          <div class="meta" data-page-node-id="ZT3rReSaPcGOxJa8JPBiUg"><span data-page-node-id="2nXWUrpytGN0vBm6EZjpgy">播放 <b data-page-node-id="VceKIu8cZP8I83MCucRHM1">52.8万</b></span><span data-page-node-id="vRm7nxawIGRMHpH8isZ8dF">点赞 2.1万</span><span data-page-node-id="QBWptkNESrEukk1bpTFr2X">08-01</span></div>
         </div>
       </div>
-      <div class="v-card" data-cat="pinpai">
-        <div class="v-thumb">
-          <div class="ph c-gold">
-            <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7 L4 17 L9 17 L9 7 Z"/><path d="M10 7 L10 17 L15 17 L15 7 Z"/><path d="M16 8 L20 8 L20 16 L16 16 Z"/><path d="M2 19 L22 19"/></svg></span>
+      <div class="v-card" data-cat="pinpai" data-page-node-id="4CGES28tdhKJyfGDzQCuzr">
+        <div class="v-thumb" data-page-node-id="rXF6RXCX4FyluLMDyPVNiE">
+          <div class="ph c-gold" data-page-node-id="WDp2duw6CxMjuOYCR1ld4n">
+            <span class="glyph" data-page-node-id="bLSgF9IPMKDQuwwxdcR4Cb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="oBGKqzNEtcJ53C3wD8ijpw"><path d="M4 7 L4 17 L9 17 L9 7 Z" data-page-node-id="2oqUq9phNzwG4MdwrPHYkJ"/><path d="M10 7 L10 17 L15 17 L15 7 Z" data-page-node-id="b7MPVrLXNFknWS0o1YZl3o"/><path d="M16 8 L20 8 L20 16 L16 16 Z" data-page-node-id="yAj8uxBu7icIe3Zh3O7ru6"/><path d="M2 19 L22 19" data-page-node-id="XJdiPm073yCna3joVgV6pA"/></svg></span>
           </div>
-          <div class="mini-play"><span class="pb"><svg viewBox="0 0 24 24"><path d="M8 5 L19 12 L8 19 Z"/></svg></span></div>
-          <span class="cat-chip">品牌宣传片</span>
-          <span class="dur">01:58</span>
+          <div class="mini-play" data-page-node-id="NBvVCRdJw15G4dFjTyq7au"><span class="pb" data-page-node-id="OJgQWK13Z8teBhKiXvvgls"><svg viewBox="0 0 24 24" data-page-node-id="aYK6Sc8sdzwNlXSTRO4Buq"><path d="M8 5 L19 12 L8 19 Z" data-page-node-id="jmljJa7OZa1euL3a87ukUl"/></svg></span></div>
+          <span class="cat-chip" data-page-node-id="KT9ELEOYyIsdrIjUgqXqHW">品牌宣传片</span>
+          <span class="dur" data-page-node-id="LHH6biZf3ZarZpRfT9Ikjk">01:58</span>
         </div>
-        <div class="v-info">
-          <h4>新品牌「皓镧奢选」首发形象片</h4>
-          <div class="meta"><span>播放 <b>24.5万</b></span><span>点赞 1.1万</span><span>05-20</span></div>
+        <div class="v-info" data-page-node-id="KMiw2Et1kws1HCEDVT5z1I">
+          <h4 data-page-node-id="FSZtCK8vnlvuGdjeJwWcuA">新品牌「皓镧奢选」首发形象片</h4>
+          <div class="meta" data-page-node-id="qMGDI6uwYvwiTJJit0G7PT"><span data-page-node-id="AAbzXBhMM7SJ8A9nTtffAx">播放 <b data-page-node-id="B75BTWwPUvF7FAaSXXEPN0">24.5万</b></span><span data-page-node-id="HNykfCjnLC3XG5iY8fHeIt">点赞 1.1万</span><span data-page-node-id="2ZWNiAPKol4hYCsQapw9Kt">05-20</span></div>
         </div>
       </div>
-      <div class="v-card" data-cat="pinpai">
-        <div class="v-thumb">
-          <div class="ph c-gold">
-            <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10 L8 7 C8 5 9.5 4 12 4 C14.5 4 16 5 16 7 L16 10"/><circle cx="12" cy="15" r="1.5"/></svg></span>
+      <div class="v-card" data-cat="pinpai" data-page-node-id="adgOPR7rkAqLu1CCD5tlBP">
+        <div class="v-thumb" data-page-node-id="CT7IHLGNtSnEcQMwQaCw9C">
+          <div class="ph c-gold" data-page-node-id="BZGXUgBnLpDjgYyl3fV6Om">
+            <span class="glyph" data-page-node-id="ARJcfHuwutGQAMTuz12olU"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="jpWfRkkHMubgSt7U1rhNRf"><rect x="4" y="10" width="16" height="10" rx="2" data-page-node-id="ztyRIe4WyXbgeJIdntHMOe"/><path d="M8 10 L8 7 C8 5 9.5 4 12 4 C14.5 4 16 5 16 7 L16 10" data-page-node-id="9WRD1Yp3aDsGuK78PxaIkr"/><circle cx="12" cy="15" r="1.5" data-page-node-id="OmVGJWXYtSdMnXqM4LUNm8"/></svg></span>
           </div>
-          <div class="mini-play"><span class="pb"><svg viewBox="0 0 24 24"><path d="M8 5 L19 12 L8 19 Z"/></svg></span></div>
-          <span class="cat-chip">品牌宣传片</span>
-          <span class="dur">03:05</span>
+          <div class="mini-play" data-page-node-id="e0JhGcdACTXuDDE6YPNVjD"><span class="pb" data-page-node-id="945mQPKFEjLlmsC2DM8Bdj"><svg viewBox="0 0 24 24" data-page-node-id="zNmS9dmFtpKHQP7iw3t6Du"><path d="M8 5 L19 12 L8 19 Z" data-page-node-id="b8aKEpDYQGDQhZDjG14x1F"/></svg></span></div>
+          <span class="cat-chip" data-page-node-id="unGRHNkkBZb7wkPc74sQ2P">品牌宣传片</span>
+          <span class="dur" data-page-node-id="ziIqNCCKBPTNSV3zZklPWN">03:05</span>
         </div>
-        <div class="v-info">
-          <h4>皓镧资产五周年 · 时间里的答案</h4>
-          <div class="meta"><span>播放 <b>31.2万</b></span><span>点赞 1.5万</span><span>05-08</span></div>
+        <div class="v-info" data-page-node-id="TxtjpmZY9RgfOmLJQOsInW">
+          <h4 data-page-node-id="6xLpIM6V6cGJ2CHp9QUOuo">皓镧资产五周年 · 时间里的答案</h4>
+          <div class="meta" data-page-node-id="CR5bnJOY76BRN0w4BQpGhf"><span data-page-node-id="sk7BB4ZGYHXoXyhaqF1WcW">播放 <b data-page-node-id="0f6BpHBf4VODkaVoHvduGE">31.2万</b></span><span data-page-node-id="In2kyrSvNq7QX2dp8UyQUT">点赞 1.5万</span><span data-page-node-id="mSDQcLCz7n5LawEjP6MYPx">05-08</span></div>
         </div>
       </div>
 
       <!-- 知识科普 -->
-      <div class="v-card" data-cat="kepu">
-        <div class="v-thumb">
-          <div class="ph c-ink">
-            <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 4 L19 4 L19 18 L15 18 L12 21 L9 18 L5 18 Z"/><path d="M9 9 L15 9 M9 13 L13 13"/></svg></span>
+      <div class="v-card" data-cat="kepu" data-page-node-id="Xgnuszgwlb40pZPonABG6r">
+        <div class="v-thumb" data-page-node-id="Am1TmvgiimWMZiiZZq21FA">
+          <div class="ph c-ink" data-page-node-id="ktUjGO2oxZmG8sxdq2Mb8U">
+            <span class="glyph" data-page-node-id="7sGHleY6Ujm2TVEiC9RAp5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="1e3sAxzxCYVLraJEfYkCKx"><path d="M5 4 L19 4 L19 18 L15 18 L12 21 L9 18 L5 18 Z" data-page-node-id="9D8pHdDmkV1Jgoi8CldC12"/><path d="M9 9 L15 9 M9 13 L13 13" data-page-node-id="mcVHi5tH1uEXvxjcPmaHXJ"/></svg></span>
           </div>
-          <div class="mini-play"><span class="pb"><svg viewBox="0 0 24 24"><path d="M8 5 L19 12 L8 19 Z"/></svg></span></div>
-          <span class="cat-chip">知识科普</span>
-          <span class="dur">02:58</span>
+          <div class="mini-play" data-page-node-id="abFaxPwAgZ7NwkAC15bowD"><span class="pb" data-page-node-id="wQhy0his8BssUYwuSCipvM"><svg viewBox="0 0 24 24" data-page-node-id="BaHh66GFfHkDWE4MGrWGei"><path d="M8 5 L19 12 L8 19 Z" data-page-node-id="6yceaEvf7YrH3C0NZttnkr"/></svg></span></div>
+          <span class="cat-chip" data-page-node-id="Q76gYMvxQc5gtlFtDSSXH6">知识科普</span>
+          <span class="dur" data-page-node-id="Dq25sGAWqOUe22KUzDjwCh">02:58</span>
         </div>
-        <div class="v-info">
-          <h4>【科普】征信报告怎么看？这五个指标最关键</h4>
-          <div class="meta"><span>播放 <b>21.4万</b></span><span>点赞 1.3万</span><span>08-08</span></div>
+        <div class="v-info" data-page-node-id="aXApBZXr8C77EQzispkv3n">
+          <h4 data-page-node-id="CE4zLT5IeIEScRnAjd7cFz">【科普】征信报告怎么看？这五个指标最关键</h4>
+          <div class="meta" data-page-node-id="t8EogsNVytFyM2hq05Ag7M"><span data-page-node-id="6oEDauBjTtFARM9HYcsIlg">播放 <b data-page-node-id="mQWXvMtyr8kQYCTsaFIgMI">21.4万</b></span><span data-page-node-id="gtNDFnZJHIyoCgBEgsMvFK">点赞 1.3万</span><span data-page-node-id="9qtN9FVfgtVIaYxbwHkAJG">08-08</span></div>
         </div>
       </div>
-      <div class="v-card" data-cat="kepu">
-        <div class="v-thumb">
-          <div class="ph c-ink">
-            <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 8 L12 12"/><path d="M8.5 14.5 C9.5 13.5 10.6 13 12 13 C13.4 13 14.5 13.5 15.5 14.5"/></svg></span>
+      <div class="v-card" data-cat="kepu" data-page-node-id="FjJenEgFgq0ZGWYeGkCbDD">
+        <div class="v-thumb" data-page-node-id="AHYxVEtN7ui4OHHHTBEsQp">
+          <div class="ph c-ink" data-page-node-id="nXzWqKmWpJQqUj09oCjodW">
+            <span class="glyph" data-page-node-id="2AkDkLF2Ftg85bBDlPdLCR"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="ROalL9j61kdaGNtCi0vdoc"><circle cx="12" cy="12" r="9" data-page-node-id="rvJYNK5PWE6gWcZa1fffuE"/><path d="M12 8 L12 12" data-page-node-id="Icx1LcDH3ZT2v3gFAFqxdM"/><path d="M8.5 14.5 C9.5 13.5 10.6 13 12 13 C13.4 13 14.5 13.5 15.5 14.5" data-page-node-id="eqoU25iCokBeOn8uH9R3Xn"/></svg></span>
           </div>
-          <div class="mini-play"><span class="pb"><svg viewBox="0 0 24 24"><path d="M8 5 L19 12 L8 19 Z"/></svg></span></div>
-          <span class="cat-chip">知识科普</span>
-          <span class="dur">02:24</span>
+          <div class="mini-play" data-page-node-id="7xtIVq9OwPEL1gPNqobLkI"><span class="pb" data-page-node-id="vtix7cDXgMUSwpkBkrAifo"><svg viewBox="0 0 24 24" data-page-node-id="XNmbmmnyeTPATEsSKElQEB"><path d="M8 5 L19 12 L8 19 Z" data-page-node-id="Hogr0O3nEG5JJto0eBrZau"/></svg></span></div>
+          <span class="cat-chip" data-page-node-id="zKsc95TtI40ftxLMxwLfGA">知识科普</span>
+          <span class="dur" data-page-node-id="GhpfpLX9clXLDX5MyVV5N0">02:24</span>
         </div>
-        <div class="v-info">
-          <h4>【科普】抵押贷款 vs 信用贷款，一张图讲清楚</h4>
-          <div class="meta"><span>播放 <b>16.8万</b></span><span>点赞 9,400</span><span>07-22</span></div>
+        <div class="v-info" data-page-node-id="qBXmfhWEIxmFx4H72OP9Yf">
+          <h4 data-page-node-id="0d9Gr2ok03UBUk1EkZnbKe">【科普】抵押贷款 vs 信用贷款，一张图讲清楚</h4>
+          <div class="meta" data-page-node-id="gSxZfUlZcKoSi9YGcMZ3mD"><span data-page-node-id="jUtlyi1aU4qWeMoVYtTajo">播放 <b data-page-node-id="IE7wFG0FUFBH7yqPeqb9Yw">16.8万</b></span><span data-page-node-id="L9cJR5x83NiZClLI6JRfh1">点赞 9,400</span><span data-page-node-id="YzMrFi2BM5CbE7OjAGEkHe">07-22</span></div>
         </div>
       </div>
-      <div class="v-card" data-cat="kepu">
-        <div class="v-thumb">
-          <div class="ph c-ink">
-            <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3 L2 8 L12 13 L22 8 Z"/><path d="M6 10.5 L6 15 C6 17 8.5 18.5 12 18.5 C15.5 18.5 18 17 18 15 L18 10.5"/></svg></span>
+      <div class="v-card" data-cat="kepu" data-page-node-id="JpLRbktr2gLC0JgSxNHwIY">
+        <div class="v-thumb" data-page-node-id="KmhdtAwpmzGMe0S8hzNceZ">
+          <div class="ph c-ink" data-page-node-id="VYb3DlyN4TCGdxOYPUf07u">
+            <span class="glyph" data-page-node-id="NxCYzxO2ELW8AqzmBEEX0K"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="FwMAIJEBJv3dDHFi2fjA0w"><path d="M12 3 L2 8 L12 13 L22 8 Z" data-page-node-id="nmSDi9s3TRTxbQa0PC6bT6"/><path d="M6 10.5 L6 15 C6 17 8.5 18.5 12 18.5 C15.5 18.5 18 17 18 15 L18 10.5" data-page-node-id="AAe4Qti88ZHrMv9GEYXvk3"/></svg></span>
           </div>
-          <div class="mini-play"><span class="pb"><svg viewBox="0 0 24 24"><path d="M8 5 L19 12 L8 19 Z"/></svg></span></div>
-          <span class="cat-chip">知识科普</span>
-          <span class="dur">03:40</span>
+          <div class="mini-play" data-page-node-id="Z2oyG1KxngOLetLJEbTSAa"><span class="pb" data-page-node-id="F0k2VGygFFSfBCqvfQXZA7"><svg viewBox="0 0 24 24" data-page-node-id="2GRNBlxG9YGVAobccau0kc"><path d="M8 5 L19 12 L8 19 Z" data-page-node-id="Zzl2HZz5CcLNkmcKYaA6CP"/></svg></span></div>
+          <span class="cat-chip" data-page-node-id="sg23t2d6l9QXhWFEJ7SBsf">知识科普</span>
+          <span class="dur" data-page-node-id="7rDZ79hozTLCsQFTchrbXy">03:40</span>
         </div>
-        <div class="v-info">
-          <h4>【科普】小微企业融资政策红利，别再错过</h4>
-          <div class="meta"><span>播放 <b>11.2万</b></span><span>点赞 5,800</span><span>07-10</span></div>
+        <div class="v-info" data-page-node-id="ltENxLYfexkoeZn8zNXpV7">
+          <h4 data-page-node-id="kkNjIvZgAzkbWWNA5FfFFs">【科普】小微企业融资政策红利，别再错过</h4>
+          <div class="meta" data-page-node-id="UmvAOk1YqUwYMZvCsoqYPL"><span data-page-node-id="zk7KDFeZDsvi7AEFjNVzNu">播放 <b data-page-node-id="LF9HKUdOxcItqQiqkbIqRt">11.2万</b></span><span data-page-node-id="1PYSOAHHY8dlVkjSQB6bXw">点赞 5,800</span><span data-page-node-id="mDVYGEfTuv4yTNwdeEU4DW">07-10</span></div>
         </div>
       </div>
     </div>
 
     <!-- 上传说明 -->
-    <div class="upload-bar">
-      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 16 L12 4 M7 9 L12 4 L17 9"/><path d="M4 16 L4 19 C4 20 5 21 6 21 L18 21 C19 21 20 20 20 19 L20 16"/></svg></div>
-      <div class="txt"><b>内容持续上传中：</b>本专区将陆续上传公司口播视频、活动宣传片、品牌形象片与金融知识科普内容。视频来源为皓镧资产互联网部官方摄制，正式上线后将替换为可直接播放的视频源，敬请期待。</div>
+    <div class="upload-bar" data-page-node-id="ZP8gHWyBLfDySwLRgccVgU">
+      <div class="icon" data-page-node-id="gXUEDbGGLdNMLtI2QpDC2x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="2zrEzj2VfRaPt6ThAyjOoe"><path d="M12 16 L12 4 M7 9 L12 4 L17 9" data-page-node-id="m8Oot1LpHqmJAKIn53kUUN"/><path d="M4 16 L4 19 C4 20 5 21 6 21 L18 21 C19 21 20 20 20 19 L20 16" data-page-node-id="f3JIfecAXWGOoRjQJFDVS7"/></svg></div>
+      <div class="txt" data-page-node-id="ckd61EBHMfWA3vA7FhWB5j"><b data-page-node-id="sWfhj6DmJ2fDgd0gthBiON">内容持续上传中：</b>本专区将陆续上传公司口播视频、活动宣传片、品牌形象片与金融知识科普内容。视频来源为皓镧资产互联网部官方摄制，正式上线后将替换为可直接播放的视频源，敬请期待。</div>
     </div>
   </section>
 
   <!-- ========================================== -->
   <!-- 3. 平台账号矩阵 -->
   <!-- ========================================== -->
-  <section id="platforms">
-    <h2 class="sec-title">平台账号矩阵</h2>
-    <p class="sec-subtitle">FOLLOW US</p>
-    <p class="sec-desc">皓镧资产官方新媒体矩阵，同名账号全网同步更新，关注我们获取第一手内容。</p>
+  <section id="platforms" data-page-node-id="FwqE4wkJVjDUrEZWiSBTtc">
+    <h2 class="sec-title" data-page-node-id="LrjAl2tfCxvoqlSaBOYK9B">平台账号矩阵</h2>
+    <p class="sec-subtitle" data-page-node-id="8bpZevFaKkR849MOIoiULd">FOLLOW US</p>
+    <p class="sec-desc" data-page-node-id="Zr7QM5wJ8G0QG0wHiD6FCG">皓镧资产官方新媒体矩阵，同名账号全网同步更新，关注我们获取第一手内容。</p>
 
-    <div class="plat-grid">
-      <div class="plat-card">
-        <div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M16.5 3 C13 3 10.5 5.4 10.5 8.8 C10.5 9.3 10.6 9.9 10.7 10.3 C7 10.6 4 8.7 1.8 5.6 C1.4 6.4 1.2 7.4 1.2 8.4 C1.2 10.4 2.2 12.1 3.7 13.1 C2.8 13 1.9 12.7 1.2 12.3 C1.2 15.1 3.1 17.3 5.6 17.9 C4.8 18.2 3.8 18.3 2.9 18.1 C3.8 20.2 5.8 21.6 8.1 21.7 C6 23.4 3.4 24.2 0.6 24.2 C6 24.2 11 22 14 18.4 C16.4 15.5 17.8 11.8 17.8 8.5 L17.8 8.5 C18.6 7.9 19.3 7.2 19.8 6.3 C19 6.7 18.2 7 17.3 7.1 C18.2 6.5 18.9 5.6 19.2 4.6 C18.3 5.2 17.4 5.6 16.4 5.9 C15.6 5 14.5 4.4 13.3 4.4"/></svg></div>
-        <h4>抖音</h4>
-        <div class="id">@皓镧资产官方</div>
-        <div class="fans">18.6万</div>
-        <div class="fans-label">粉丝</div>
-        <a class="go" href="#">关注账号</a>
+    <div class="plat-grid" data-page-node-id="nhMphnvHbegslxF2aIauqa">
+      <div class="plat-card" data-page-node-id="1nxyhllMYdhHFxrr2x4ZFj">
+        <div class="p-icon" data-page-node-id="XB2pPnWBB99tfHRVAnKr2G"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" data-page-node-id="QA3YQofc0Vzpmb3SBBAfBU"><path d="M16.5 3 C13 3 10.5 5.4 10.5 8.8 C10.5 9.3 10.6 9.9 10.7 10.3 C7 10.6 4 8.7 1.8 5.6 C1.4 6.4 1.2 7.4 1.2 8.4 C1.2 10.4 2.2 12.1 3.7 13.1 C2.8 13 1.9 12.7 1.2 12.3 C1.2 15.1 3.1 17.3 5.6 17.9 C4.8 18.2 3.8 18.3 2.9 18.1 C3.8 20.2 5.8 21.6 8.1 21.7 C6 23.4 3.4 24.2 0.6 24.2 C6 24.2 11 22 14 18.4 C16.4 15.5 17.8 11.8 17.8 8.5 L17.8 8.5 C18.6 7.9 19.3 7.2 19.8 6.3 C19 6.7 18.2 7 17.3 7.1 C18.2 6.5 18.9 5.6 19.2 4.6 C18.3 5.2 17.4 5.6 16.4 5.9 C15.6 5 14.5 4.4 13.3 4.4" data-page-node-id="Q9ZFj1B5jg37uRVk5sQWDm"/></svg></div>
+        <h4 data-page-node-id="jxyp5cNdqHrwwZUFDMAlTx">抖音</h4>
+        <div class="id" data-page-node-id="0oA0CA3MNoL6RIZ1WHFTQ8">@皓镧资产官方</div>
+        <div class="fans" data-page-node-id="6UefOOJvfvLGcTBGAAqNn8">18.6万</div>
+        <div class="fans-label" data-page-node-id="9qmDTU7TnlQG5KxMxu3sU4">粉丝</div>
+        <a class="go" href="#" data-page-node-id="itOFF6g7mqzRN31DPS9rcF">关注账号</a>
       </div>
-      <div class="plat-card">
-        <div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 C6.5 2 2 5.9 2 10.8 C2 13.5 3.4 15.9 5.7 17.5 L5.7 21.5 L9.5 19.5 C10.3 19.7 11.1 19.7 12 19.7 C17.5 19.7 22 15.8 22 10.8 C22 5.9 17.5 2 12 2 Z"/><path d="M8.5 9.5 L15.5 9.5 M8.5 13 L12.5 13"/></svg></div>
-        <h4>微信视频号</h4>
-        <div class="id">皓镧资产</div>
-        <div class="fans">12.4万</div>
-        <div class="fans-label">粉丝</div>
-        <a class="go" href="#">关注账号</a>
+      <div class="plat-card" data-page-node-id="vLbeZlEg0Omoxfr7LvCNOH">
+        <div class="p-icon" data-page-node-id="87NTEFkZr28LichDkVD4e8"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" data-page-node-id="kjIZC8IWdGNlm69HIPQC32"><path d="M12 2 C6.5 2 2 5.9 2 10.8 C2 13.5 3.4 15.9 5.7 17.5 L5.7 21.5 L9.5 19.5 C10.3 19.7 11.1 19.7 12 19.7 C17.5 19.7 22 15.8 22 10.8 C22 5.9 17.5 2 12 2 Z" data-page-node-id="TVlPoVLOtjIfp25kouZnbE"/><path d="M8.5 9.5 L15.5 9.5 M8.5 13 L12.5 13" data-page-node-id="CUa16aLxSU1n4lOMH8GAkA"/></svg></div>
+        <h4 data-page-node-id="Di3mjVyBe6KsJR8DOfjcEE">微信视频号</h4>
+        <div class="id" data-page-node-id="JRXwiAjHqVlf6Sr33epDFx">皓镧资产</div>
+        <div class="fans" data-page-node-id="Sclxlw8RdX5wgx5nFwfMig">12.4万</div>
+        <div class="fans-label" data-page-node-id="7cDevreSHmzTk4YKrBCQVC">粉丝</div>
+        <a class="go" href="#" data-page-node-id="NuFoq9CdIZl8NTD0GnWOD2">关注账号</a>
       </div>
-      <div class="plat-card">
-        <div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="6" width="18" height="12" rx="4"/><path d="M10 9.5 L15 12 L10 14.5 Z"/></svg></div>
-        <h4>哔哩哔哩</h4>
-        <div class="id">皓镧资产Official</div>
-        <div class="fans">6.8万</div>
-        <div class="fans-label">粉丝</div>
-        <a class="go" href="#">关注账号</a>
+      <div class="plat-card" data-page-node-id="TuPtgg7FYU7bZrGabUXTYl">
+        <div class="p-icon" data-page-node-id="rEWQce4stJAXUDHS1OkGPt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" data-page-node-id="UO8YGK4AD8XYzDpFeP0hMW"><rect x="3" y="6" width="18" height="12" rx="4" data-page-node-id="Way9Jt3BHvAgJpXdeFO0xK"/><path d="M10 9.5 L15 12 L10 14.5 Z" data-page-node-id="GHbavEJx0UDNaa5X5mIMyQ"/></svg></div>
+        <h4 data-page-node-id="PFBrPdgU8hPXNBsesLvi1V">哔哩哔哩</h4>
+        <div class="id" data-page-node-id="NmvVirVIsAlwqKnOkmoiGl">皓镧资产Official</div>
+        <div class="fans" data-page-node-id="yACrrDv5toXkAnFrNQBXkY">6.8万</div>
+        <div class="fans-label" data-page-node-id="1HcmZA1U6GZMhbxWQtThrB">粉丝</div>
+        <a class="go" href="#" data-page-node-id="6xs0GO1DWJJeXHuSzVW9BY">关注账号</a>
       </div>
-      <div class="plat-card">
-        <div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4 L20 4 L20 20 L16 20 L12 23 L8 20 L4 20 Z"/><path d="M9 10 L15 10 M9 14 L13 14"/></svg></div>
-        <h4>小红书</h4>
-        <div class="id">皓镧资产</div>
-        <div class="fans">4.2万</div>
-        <div class="fans-label">粉丝</div>
-        <a class="go" href="#">关注账号</a>
+      <div class="plat-card" data-page-node-id="LY0wtaRFGJ2xTPZJKo9FfI">
+        <div class="p-icon" data-page-node-id="PUbpSnOyAEInC4auPjz6Vj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" data-page-node-id="gysLEpNbc9kq0UpOHXl5An"><path d="M4 4 L20 4 L20 20 L16 20 L12 23 L8 20 L4 20 Z" data-page-node-id="mqag9kmSj0cv3kBiETG6ri"/><path d="M9 10 L15 10 M9 14 L13 14" data-page-node-id="tBv40lpitqlJW8TVfYRd3I"/></svg></div>
+        <h4 data-page-node-id="BvyzCz9c8Gvvy0Iw0HYJW6">小红书</h4>
+        <div class="id" data-page-node-id="rcpGuE5G4iFfKaJqU38qKW">皓镧资产</div>
+        <div class="fans" data-page-node-id="O1vO3XrB62mHpa4g6ZjvWQ">4.2万</div>
+        <div class="fans-label" data-page-node-id="d190HfyiROW8hjMyEfSopN">粉丝</div>
+        <a class="go" href="#" data-page-node-id="NholMnjzT1cBzhzMnwECwl">关注账号</a>
       </div>
     </div>
   </section>
@@ -657,19 +665,19 @@
 </main>
 
 <!-- ========== 页脚 ========== -->
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-logo">
-      <svg class="logo-mark" width="44" height="44" viewBox="0 0 64 64" fill="none">
-        <path d="M32 4 L58 18 L58 46 L32 60 L6 46 L6 18 Z" stroke="#C9A961" stroke-width="3" fill="none"/>
-        <path d="M22 22 L42 22 M22 32 L42 32 M22 42 L32 42" stroke="#C9A961" stroke-width="3"/>
+<footer class="footer" data-page-node-id="sPzl2v4iroefWT25YZBplQ">
+  <div class="footer-inner" data-page-node-id="qIrIgnmIBvOZu0QYOj7XSN">
+    <div class="footer-logo" data-page-node-id="Izm4X33jOYLeHU6kJbNCSw">
+      <svg class="logo-mark" width="44" height="44" viewBox="0 0 64 64" fill="none" data-page-node-id="nUXqVHwd9hPmdhJuqb3Aa6">
+        <path d="M32 4 L58 18 L58 46 L32 60 L6 46 L6 18 Z" stroke="#D4A574" stroke-width="3" fill="none" data-page-node-id="gSUX4sL0MkkG63BdWhdF7b"/>
+        <path d="M22 22 L42 22 M22 32 L42 32 M22 42 L32 42" stroke="#D4A574" stroke-width="3" data-page-node-id="9qRuMtKLXyM96XhBdnrXFX"/>
       </svg>
-      <span class="lt">皓镧资产</span>
+      <span class="lt" data-page-node-id="NwYaGF87kDKcRzOlTyc3JD">皓镧资产</span>
     </div>
-    <div class="footer-info">
-      <div><b>联系电话：</b>010-8888 8888</div>
-      <div><b>邮箱：</b>hr@haolanzichan.cn</div>
-      <div><b>地址：</b>北京市朝阳区金融街 · 财富中心</div>
+    <div class="footer-info" data-page-node-id="ZPbFvUsdloKGR6jvsgRVbN">
+      <div data-page-node-id="UFOeKrXy7yD2i6rFl6p4I2"><b data-page-node-id="AxL0psOzPgmMBPNhoHbWbH">联系电话：</b>010-8888 8888</div>
+      <div data-page-node-id="vKacH9CjTiHIwE2C0V65t3"><b data-page-node-id="VccKxLrARkdigasfcJuCIw">邮箱：</b>hr@haolanzichan.cn</div>
+      <div data-page-node-id="QN6xq4y0oiIVJQxkLEGbAJ"><b data-page-node-id="wCVmXNDQUMiV307qzI1p6g">地址：</b>北京市朝阳区金融街 · 财富中心</div>
     </div>
   </div>
 </footer>
