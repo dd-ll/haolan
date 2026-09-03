@@ -89,29 +89,8 @@
   }
 
   /* ========== 1. 公司动态 ========== */
-  /* 置顶公告条 */
-  .notice-bar {
-    display: flex; align-items: center; gap: 16px;
-    border: 1.5px solid var(--gold); border-radius: 10px;
-    background: linear-gradient(135deg, var(--bg-soft) 0%, #fff 100%);
-    padding: 18px 28px; margin-bottom: 40px; transition: all .25s;
-  }
-  .notice-bar:hover { box-shadow: 0 8px 24px rgba(184,148,31,0.12); }
-  .notice-bar .pin-badge {
-    flex-shrink: 0; display: flex; align-items: center; gap: 6px;
-    background: var(--red); color: #fff; font-size: 12px; font-weight: 600;
-    padding: 5px 14px; border-radius: 4px; letter-spacing: 1px;
-  }
-  .notice-bar .pin-badge svg { width: 14px; height: 14px; }
-  .notice-bar .nb-content { flex: 1; min-width: 0; }
-  .notice-bar .nb-content h4 {
-    font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 4px;
-  }
-  .notice-bar .nb-content p { font-size: 13px; color: var(--muted); }
-  .notice-bar .nb-date { flex-shrink: 0; font-size: 13px; color: var(--gold); font-weight: 600; }
-
   /* 动态时间线 */
-  .dyna-layout { display: grid; grid-template-columns: 1fr 340px; gap: 40px; }
+  .dyna-layout { display: block; }
 
   .dyna-timeline { position: relative; padding-left: 28px; }
   .dyna-timeline::before {
@@ -139,143 +118,20 @@
     border-color: var(--gold); box-shadow: 0 10px 28px rgba(184,148,31,0.1);
     transform: translateX(4px);
   }
-  .dyna-card .di-tags { display: flex; gap: 8px; margin-bottom: 10px; }
-  .dyna-card .di-tag {
-    font-size: 11px; padding: 3px 10px; border-radius: 3px; letter-spacing: 1px;
-  }
-  .dyna-card .di-tag.cat { background: var(--gold); color: #fff; }
-  .dyna-card .di-tag.cat.red { background: var(--red); }
-  .dyna-card .di-tag.cat.green { background: #2C2C2C; }
-  .dyna-card h4 {
-    font-size: 17px; font-weight: 600; color: var(--ink); line-height: 1.5;
-    margin-bottom: 8px; font-family: "STSong","SimSun",serif;
-    transition: color .2s;
-  }
-  .dyna-card:hover h4 { color: var(--red); }
-  .dyna-card p { font-size: 13px; color: var(--muted); line-height: 1.8; }
-  .dyna-card .di-meta {
-    display: flex; gap: 16px; margin-top: 12px; font-size: 12px; color: var(--muted);
-  }
-
-  /* 公司动态 - 侧边栏 */
-  .dyna-side { display: flex; flex-direction: column; gap: 28px; }
-  .side-box {
-    border: 1.5px solid var(--gold-soft); border-radius: 10px;
-    background: var(--bg-soft); padding: 24px;
-  }
-  .side-box h4 {
-    font-size: 16px; font-weight: 700; color: var(--ink);
-    letter-spacing: 3px; margin-bottom: 18px; padding-bottom: 12px;
-    border-bottom: 2px solid var(--gold);
-    font-family: "STSong","SimSun",serif;
-  }
-  .side-box h4 .en { font-size: 11px; color: var(--muted); letter-spacing: 2px; font-weight: 400; display: block; margin-top: 2px; }
-
-  /* 数据概览 */
-  .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .stat-item {
-    text-align: center; border: 1px solid var(--gold-soft); border-radius: 8px;
-    background: #fff; padding: 18px 12px;
-  }
-  .stat-item .num {
-    font-family: "STSong",serif; font-size: 28px; font-weight: 700;
-    color: var(--red); line-height: 1; margin-bottom: 6px;
-  }
-  .stat-item .label { font-size: 12px; color: var(--muted); letter-spacing: 1px; }
-
-  /* 动态日历 */
-  .cal-box { }
-  .cal-box .cal-month {
-    font-size: 14px; font-weight: 600; color: var(--ink); text-align: center;
-    margin-bottom: 14px; letter-spacing: 2px;
-  }
-  .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
-  .cal-grid .cal-h {
-    text-align: center; font-size: 11px; color: var(--muted); padding: 4px 0;
-  }
-  .cal-grid .cal-d {
-    text-align: center; font-size: 12px; color: var(--ink); padding: 6px 0;
-    border-radius: 4px; cursor: pointer; transition: all .2s;
-  }
-  .cal-grid .cal-d:hover { background: var(--gold-soft); }
-  .cal-grid .cal-d.has-event {
-    color: #fff; background: var(--gold); font-weight: 600;
-  }
-  .cal-grid .cal-d.has-event.red { background: var(--red); }
-  .cal-grid .cal-d.empty { color: transparent; }
-  .cal-box .cal-legend {
-    display: flex; justify-content: center; gap: 16px; margin-top: 14px;
-    font-size: 11px; color: var(--muted);
-  }
-  .cal-box .cal-legend span { display: flex; align-items: center; gap: 4px; }
-  .cal-box .cal-legend i {
-    display: inline-block; width: 10px; height: 10px; border-radius: 2px;
-  }
-  .cal-box .cal-legend i.gold { background: var(--gold); }
-  .cal-box .cal-legend i.red { background: var(--red); }
 
   /* ========== 2. 客户案例 + 服务优势 ========== */
   /* 精选案例 */
   .case-featured {
-    display: grid; grid-template-columns: 1.2fr 1fr; gap: 0;
     border: 1.5px solid var(--gold); border-radius: 12px; overflow: hidden;
     background: #fff; margin-bottom: 32px; transition: all .25s;
   }
   .case-featured:hover { box-shadow: 0 16px 40px rgba(184,148,31,0.14); }
   .case-featured .cf-visual {
     background: linear-gradient(135deg, #2C2C2C 0%, #2d5a42 100%);
-    padding: 40px 36px; display: flex; flex-direction: column; justify-content: center;
+    min-height: 250px; display: flex; align-items: center; justify-content: center;
     position: relative; overflow: hidden;
   }
-  .case-featured .cf-visual::before {
-    content: ""; position: absolute; top: 0; right: 0; width: 200px; height: 200px;
-    background: radial-gradient(circle, rgba(201,169,97,0.15), transparent 70%);
-  }
-  .case-featured .cf-badge {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: rgba(201,169,97,0.2); color: var(--gold);
-    font-size: 12px; padding: 5px 14px; border-radius: 20px; letter-spacing: 1px;
-    margin-bottom: 16px; width: fit-content;
-  }
-  .case-featured .cf-badge svg { width: 14px; height: 14px; }
-  .case-featured .cf-visual h3 {
-    font-family: "STSong","SimSun",serif; font-size: 24px; font-weight: 700;
-    color: #fff; margin-bottom: 14px; line-height: 1.4;
-  }
-  .case-featured .cf-visual .cf-summary {
-    font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.9; margin-bottom: 20px;
-  }
-  .case-featured .cf-visual .cf-tags { display: flex; gap: 8px; flex-wrap: wrap; }
-  .case-featured .cf-visual .cf-tags span {
-    font-size: 11px; padding: 4px 12px; border-radius: 20px;
-    border: 1px solid rgba(201,169,97,0.4); color: var(--gold); letter-spacing: 1px;
-  }
-  .case-featured .cf-body { padding: 36px; display: flex; flex-direction: column; }
-  .case-featured .cf-body .cf-label {
-    font-size: 12px; color: var(--gold-deep); font-weight: 600; letter-spacing: 2px;
-    margin-bottom: 10px;
-  }
-  .case-featured .cf-body .cf-quote {
-    font-size: 15px; color: var(--ink); line-height: 2; margin-bottom: 20px;
-    font-style: italic; border-left: 3px solid var(--gold); padding-left: 16px;
-  }
-  .case-featured .cf-body .cf-stats {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
-    padding: 18px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
-    margin-bottom: 18px;
-  }
-  .case-featured .cf-body .cf-stats .st { text-align: center; }
-  .case-featured .cf-body .cf-stats .st .v {
-    font-family: "STSong",serif; font-size: 22px; font-weight: 700;
-    color: var(--red); line-height: 1;
-  }
-  .case-featured .cf-body .cf-stats .st .l {
-    font-size: 11px; color: var(--muted); margin-top: 4px; letter-spacing: 1px;
-  }
-  .case-featured .cf-body .cf-client {
-    font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 8px;
-  }
-  .case-featured .cf-body .cf-client b { color: var(--ink); font-weight: 600; }
+  .case-featured .cf-star { width: 72px; height: 72px; color: var(--gold); opacity: .92; }
 
   /* 案例列表 */
   .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 48px; }
@@ -289,38 +145,12 @@
     box-shadow: 0 16px 36px rgba(184,148,31,0.12);
   }
   .case-banner {
-    height: 90px; display: flex; align-items: center; justify-content: center;
-    position: relative;
+    height: 150px; display: flex; align-items: center; justify-content: center;
   }
-  .case-banner svg { width: 40px; height: 40px; opacity: 0.9; }
+  .case-banner svg { width: 46px; height: 46px; opacity: 0.9; }
   .case-banner.b1 { background: linear-gradient(135deg, #C8102E, #e63950); }
   .case-banner.b2 { background: linear-gradient(135deg, #2C2C2C, #2d5a42); }
   .case-banner.b3 { background: linear-gradient(135deg, #B8941F, #D4AF37); }
-  .case-banner .case-badge {
-    position: absolute; top: 8px; right: 8px; font-size: 11px;
-    color: #fff; background: rgba(0,0,0,0.25); padding: 2px 10px; border-radius: 3px;
-  }
-  .case-body { padding: 22px 24px 24px; flex: 1; display: flex; flex-direction: column; }
-  .case-body h4 {
-    font-size: 16px; font-weight: 700; color: var(--ink); letter-spacing: 1px;
-    margin-bottom: 8px; line-height: 1.5; font-family: "STSong","SimSun",serif;
-    transition: color .2s;
-  }
-  .case-card:hover .case-body h4 { color: var(--red); }
-  .case-body .case-meta {
-    display: flex; gap: 12px; margin-bottom: 10px; flex-wrap: wrap;
-  }
-  .case-body .case-meta span {
-    font-size: 11px; padding: 2px 8px; border-radius: 3px;
-    background: var(--bg-soft); color: var(--gold-deep); letter-spacing: 1px;
-  }
-  .case-body p { font-size: 13px; color: var(--muted); line-height: 1.8; flex: 1; margin-bottom: 14px; }
-  .case-body .case-footer {
-    display: flex; justify-content: space-between; align-items: center;
-    font-size: 12px; border-top: 1px dashed var(--gold-soft); padding-top: 12px;
-  }
-  .case-body .case-footer .amount { color: var(--red); font-weight: 600; font-size: 13px; }
-  .case-body .case-footer .date { color: var(--muted); }
 
   /* 服务优势 */
   .adv-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
@@ -328,12 +158,14 @@
     border: 1.5px solid var(--gold); border-radius: 12px;
     background: linear-gradient(180deg, #fff 0%, var(--bg-soft) 100%);
     padding: 32px 24px; text-align: center; transition: all .25s; cursor: pointer;
+    min-height: 210px; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
   }
   .adv-card:hover {
     transform: translateY(-4px); box-shadow: 0 16px 36px rgba(184,148,31,0.16);
   }
   .adv-icon {
-    width: 60px; height: 60px; border-radius: 50%; margin: 0 auto 18px;
+    width: 60px; height: 60px; border-radius: 50%; margin: 0 auto;
     display: flex; align-items: center; justify-content: center;
     border: 2px solid var(--gold);
   }
@@ -346,11 +178,6 @@
   .adv-card:nth-child(3) .adv-icon svg { color: var(--gold-deep); }
   .adv-card:nth-child(4) .adv-icon { background: rgba(201,169,97,0.1); border-color: var(--gold); }
   .adv-card:nth-child(4) .adv-icon svg { color: var(--gold-deep); }
-  .adv-card h4 {
-    font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: 1px;
-    margin-bottom: 10px; font-family: "STSong","SimSun",serif;
-  }
-  .adv-card p { font-size: 13px; color: var(--muted); line-height: 1.9; }
 
   /* ========== 3. 服务场景展示 ========== */
   .scene-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -377,26 +204,7 @@
   .scene-banner.s4 { background: linear-gradient(135deg, #2a4a3a 0%, #2C2C2C 100%); }
   .scene-banner.s5 { background: linear-gradient(135deg, #B91D2E 0%, #8E0A1F 100%); }
   .scene-banner.s6 { background: linear-gradient(135deg, #B4941F 0%, #B8941F 100%); }
-  .scene-banner .scene-label {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    background: linear-gradient(180deg, transparent, rgba(0,0,0,0.4));
-    padding: 12px 20px 10px; color: #fff;
-    font-size: 11px; letter-spacing: 2px; z-index: 2;
-  }
-  .scene-body { padding: 24px 26px 28px; }
-  .scene-body h4 {
-    font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: 1px;
-    margin-bottom: 10px; font-family: "STSong","SimSun",serif;
-    transition: color .2s;
-  }
-  .scene-card:hover .scene-body h4 { color: var(--red); }
-  .scene-body p { font-size: 13px; color: var(--muted); line-height: 1.9; margin-bottom: 16px; }
-  .scene-body .scene-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-  .scene-body .scene-tags span {
-    font-size: 11px; padding: 4px 12px; border-radius: 20px;
-    border: 1px solid var(--gold-soft); color: var(--gold-deep);
-    background: var(--bg-soft); letter-spacing: 1px;
-  }
+  .scene-card { min-height: 100%; }
 
   /* ========== 页脚 ========== */
   .footer {
@@ -415,8 +223,6 @@
 
   /* ========== 响应式 ========== */
   @media (max-width: 1080px) {
-    .dyna-layout { grid-template-columns: 1fr; }
-    .case-featured { grid-template-columns: 1fr; }
     .case-grid { grid-template-columns: repeat(2, 1fr); }
     .adv-grid { grid-template-columns: repeat(2, 1fr); }
     .scene-grid { grid-template-columns: repeat(2, 1fr); }
@@ -433,9 +239,11 @@
     main { padding: 40px 20px; }
     .page-banner { padding: 40px 20px 36px; }
     .page-banner h1 { font-size: 28px; letter-spacing: 5px; }
-    .notice-bar { flex-direction: column; align-items: flex-start; gap: 10px; }
-    .stat-grid { grid-template-columns: 1fr; }
   }
+
+  /* ========== 内容清除后的空卡视觉补丁 ========== */
+  .dyna-card { min-height: 96px; display: flex; align-items: center; }
+  .case-card { min-height: 152px; }
 
   /* ========== 手机端通用优化（追加） ========== */
   @media (max-width: 760px) {
@@ -491,163 +299,42 @@
     <p class="sec-subtitle" data-page-node-id="EQmJJNvEc8gZ9h0X2M5Ebd">COMPANY DYNAMICS</p>
     <p class="sec-desc" data-page-node-id="6VlYuPgOBofyFjpYI8wOkp">记录皓镧资产发展的每一个重要时刻——从公司成立到业务拓展，从团队建设到品牌升级，每一步都脚踏实地。</p>
 
-    <!-- 置顶公告 -->
-    <div class="notice-bar" data-page-node-id="T6ABtgGXn7IygX2BbrpwOi">
-      <div class="pin-badge" data-page-node-id="B8psoQ4Pw5jaGdHlqf6Fav">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="4nDm1NxaT7NHbmMFDjkTmJ"><path d="M12 2 L14 8 L20 8 L15 12 L17 18 L12 14 L7 18 L9 12 L4 8 L10 8 Z" data-page-node-id="A5oxvhl1MVle3yQehg6rjq"/></svg>
-        置顶公告
-      </div>
-      <div class="nb-content" data-page-node-id="8dQ3YwCYxDAow4C6wwW7sE">
-        <h4 data-page-node-id="t6J7zt9OWZzVP4HTxNNCBY">皓镧资产 2026 年度战略合作签约仪式圆满举行</h4>
-        <p data-page-node-id="n6eLItZrqfDVGCCPD4EPy3">公司与多家银行机构签署年度战略合作协议，融资服务能力再上新台阶。</p>
-      </div>
-      <div class="nb-date" data-page-node-id="Q04VAWGlPaIwo7DOlRUia0">2026-08-10</div>
-    </div>
+
 
     <div class="dyna-layout" data-page-node-id="6XbkOrqNSeSZMWVhjbkh5I">
-      <!-- 动态时间线 -->
-      <div class="dyna-timeline" data-page-node-id="ZGGelxRL2lSNvECLNRzbnW">
+        <div class="dyna-timeline" data-page-node-id="ZGGelxRL2lSNvECLNRzbnW">
         <div class="dyna-item" data-page-node-id="bxo0mp7ckR98xNDRFOnp2f">
           <div class="di-date" data-page-node-id="Wqy9HXQjNuYc13diWbAR6y">2026-08-10</div>
           <div class="dyna-card" data-page-node-id="ktot6HUvKtv08kKF2J9oVn">
-            <div class="di-tags" data-page-node-id="aOsVqzVg7XGoH5nHNYqD84">
-              <span class="di-tag cat red" data-page-node-id="zgI1t0skW5ogQ3DRXPye2A">重要事件</span>
-              <span class="di-tag" data-page-node-id="VUVrr26z4rPOaGoS72bQbc">战略合作</span>
-            </div>
-            <h4 data-page-node-id="WiEXYaPQ73eKRnJqBajqkD">皓镧资产与三家银行签署年度战略合作协议</h4>
-            <p data-page-node-id="dclczBruHlQvxLI5OQZFdH">皓镧资产正式与工商银行、建设银行、招商银行签署 2026 年度战略合作协议，进一步拓宽融资渠道，提升放款效率与额度保障能力。签约后，公司可对接的银行产品从 12 款增至 18 款，覆盖房产抵押、企业经营贷、个人消费贷全品类。</p>
-            <div class="di-meta" data-page-node-id="8tu8X7uxMFY5Hi6ODtRclH">
-              <span data-page-node-id="82xDG1AW95pUTeTbzpln9v">来源：皓镧资产</span>
-              <span data-page-node-id="E4WHwAXgPPUSXjovKaUedR">阅读 1,280</span>
-            </div>
           </div>
         </div>
 
         <div class="dyna-item" data-page-node-id="HS937YSKddjwkSCmEvY0cM">
           <div class="di-date" data-page-node-id="9ObnAeWpOg8XNO4dgITaEt">2026-07-28</div>
           <div class="dyna-card" data-page-node-id="L2PVZ26pRDLmihWdfQnDDM">
-            <div class="di-tags" data-page-node-id="LiqeywuCzeu8VstJqrOjU8">
-              <span class="di-tag cat green" data-page-node-id="aSKxkH9LblDoRH4BGHMmsr">品牌升级</span>
-              <span class="di-tag" data-page-node-id="fHV0dvfPGzXaCjQAkP19ht">皓镧奢选</span>
-            </div>
-            <h4 data-page-node-id="AbdSqIvXm7oOSxHIQFFH3Q">皓镧品牌矩阵再添新成员：皓镧奢选正式发布</h4>
-            <p data-page-node-id="eFiq8gWDq3QyPjFBu5qgk0">继 2025 年成立皓镧企业后，公司旗下新品牌「皓镧奢选」正式发布运营。皓镧奢选定位于高端消费品供应链金融服务，标志皓镧资产从传统融资服务向多元化金融服务集团迈出关键一步。</p>
-            <div class="di-meta" data-page-node-id="dTLm9DwcmyB7NGAPViGOim">
-              <span data-page-node-id="rLn2bEZX8bWrRmFt2leHKF">来源：皓镧资产</span>
-              <span data-page-node-id="87YOSjsNiAWQK0GEmGgibN">阅读 960</span>
-            </div>
           </div>
         </div>
 
         <div class="dyna-item" data-page-node-id="aCFCbt3SsooqlKaeVm6lXs">
           <div class="di-date" data-page-node-id="BPKSC64pYw9zEUZ9wpEBCv">2026-06-15</div>
           <div class="dyna-card" data-page-node-id="7pUjqp79mdnqtFHmF5xHVv">
-            <div class="di-tags" data-page-node-id="6Us3X8nsrTU8uwoEJAUfiN">
-              <span class="di-tag cat" data-page-node-id="P0W2HBK2F5ZZ8DTgXw3ElL">团队建设</span>
-            </div>
-            <h4 data-page-node-id="EywfnN0DATPjcx0FwHlfGB">皓镧商学院首期内训圆满结业，47 名顾问获认证</h4>
-            <p data-page-node-id="WVWCfri2UCSjDygCPIpob5">皓镧商学院首期金融顾问内训课程历时 8 周，涵盖房产抵押实务、企业信贷风控、征信分析、客户服务等核心模块。47 名业务顾问通过考核并获得认证证书，专业能力再上新台阶。</p>
-            <div class="di-meta" data-page-node-id="YYHJfSvuMMoZSgkTvAOCue">
-              <span data-page-node-id="RdbCb2gEilsb3dbUWYMsJL">来源：皓镧资产</span>
-              <span data-page-node-id="tZ8qHA7mFbQoeTNIhDEUbH">阅读 720</span>
-            </div>
           </div>
         </div>
 
         <div class="dyna-item" data-page-node-id="ltOW2I1kutXhUpnwuMJlYa">
           <div class="di-date" data-page-node-id="T8N81koaZHvuLpEhpzRGdd">2026-05-20</div>
           <div class="dyna-card" data-page-node-id="AAECtWacBgvmE5QkW97Avu">
-            <div class="di-tags" data-page-node-id="1IH9kFAo9Mm1zqEKAGnrma">
-              <span class="di-tag cat" data-page-node-id="loRTCHE84BmKszA2CyE1IU">业务拓展</span>
-            </div>
-            <h4 data-page-node-id="HCeiyJ9VfTC7zvUGjxs0rr">互联网部正式成立，自媒体获客体系全面上线</h4>
-            <p data-page-node-id="hyF13SBpj8Ig4g6G9KmCAw">公司新设互联网部（6 人编制），统筹抖音短视频运营、线上获客与数据分析。首批 3 个抖音账号已上线运营，单月获客线索突破 500 条，线上引流占比首次超过传统渠道的 15%。</p>
-            <div class="di-meta" data-page-node-id="aj1vdVYcNJJ1v4m9BcS9yC">
-              <span data-page-node-id="SxS7mnXrt33DAkOMCDQQ2F">来源：皓镧资产</span>
-              <span data-page-node-id="CQC02zgOVK5eyuMrC5q04o">阅读 880</span>
-            </div>
           </div>
         </div>
 
         <div class="dyna-item" data-page-node-id="hqFaSxOt4WU9FOecLIsg0e">
           <div class="di-date" data-page-node-id="CEjKRwlVOGjBKQCMgHBo1e">2026-03-12</div>
           <div class="dyna-card" data-page-node-id="jaaKhUePbPVKFrVxuPstCp">
-            <div class="di-tags" data-page-node-id="TXnzyTzqACNwLp2DEyNqPN">
-              <span class="di-tag cat green" data-page-node-id="7qxVEKusm2wxYRFIXOWNJq">公益活动</span>
-            </div>
-            <h4 data-page-node-id="tsjnfMjZ6ZAumwchqryHQ8">皓镧资产走进社区：金融知识科普公益活动</h4>
-            <p data-page-node-id="dIBKGFrFAwQ9yOsyzPPjjm">公司组织 12 名顾问走进周边社区，开展为期一周的金融知识科普公益活动，涵盖征信保护、融资防骗、家庭资产配置等主题，累计服务社区居民 300 余人次，践行企业社会责任。</p>
-            <div class="di-meta" data-page-node-id="8TYuXqLw9ajRJryPniUPTB">
-              <span data-page-node-id="APgBCkOY8a2o6n2Ww5joG3">来源：皓镧资产</span>
-              <span data-page-node-id="EwWTuaJgG4Yoy4SCY8lEiV">阅读 540</span>
-            </div>
           </div>
         </div>
       </div>
 
-      <!-- 侧边栏 -->
-      <aside class="dyna-side" data-page-node-id="lmdpq0j5oAejl0jE1XcVHz">
-        <!-- 数据概览 -->
-        <div class="side-box" data-page-node-id="3jF4FB6e3faX22YmBjKZim">
-          <h4 data-page-node-id="M2WNkB6SddeDXpYEmT3Wi5">数据概览<span class="en" data-page-node-id="bBXowzCWmUikVbRCAjEnWA">OVERVIEW</span></h4>
-          <div class="stat-grid" data-page-node-id="vPEYiu7joZUg4LcBijCB7n">
-            <div class="stat-item" data-page-node-id="XXjHuMpe9ZNCkRfjSKxjwR">
-              <div class="num" data-page-node-id="RbU5BjAy6bTJfQiUnLW20H">5+</div>
-              <div class="label" data-page-node-id="FH7nHboHGjXsPet5Be4HyA">发展年限</div>
-            </div>
-            <div class="stat-item" data-page-node-id="5IXBGEfFIaA69L6ZAS20UF">
-              <div class="num" data-page-node-id="cdJc889xUyHWRFAiRPSru7">180+</div>
-              <div class="label" data-page-node-id="ANSBSnoEiCDbJIOpC8Ajrx">团队人数</div>
-            </div>
-            <div class="stat-item" data-page-node-id="wRrK61oFgQWMQWhHBXbzDF">
-              <div class="num" data-page-node-id="NeciHnHrEctQKSDkeEZDft">18</div>
-              <div class="label" data-page-node-id="r0QmhfgOoUDB19tYK1MG96">合作银行</div>
-            </div>
-            <div class="stat-item" data-page-node-id="EICPW9p8jaUfoKiVRshCtB">
-              <div class="num" data-page-node-id="ihvrZ4h4okqFEgdnxkjhwJ">2000+</div>
-              <div class="label" data-page-node-id="7yxJlAJNLQXf9QutC128gy">服务客户</div>
-            </div>
-          </div>
-        </div>
 
-        <!-- 动态日历 -->
-        <div class="side-box" data-page-node-id="hTfBH7B1jXYEhMxyiMDzJu">
-          <h4 data-page-node-id="kczkLHZIsrWrAfzr9BT5V4">本月动态<span class="en" data-page-node-id="Jfn2LGdDG5LZqKYUQVkDUc">CALENDAR</span></h4>
-          <div class="cal-box" data-page-node-id="YXSElV1U3p6zyRyBPdCc1m">
-            <div class="cal-month" data-page-node-id="ZLNotEj8xfOj1sHlXgd2S6">2026 年 8 月</div>
-            <div class="cal-grid" data-page-node-id="RgdapRRsGrDGNCTZPLIqI4">
-              <div class="cal-h" data-page-node-id="hfA37G4IFjDW84zzdxf0nf">日</div><div class="cal-h" data-page-node-id="Pm60PxIPV3uu4zq5qu9Azy">一</div><div class="cal-h" data-page-node-id="Oq5RtgI7YcyqpXOviVWb24">二</div>
-              <div class="cal-h" data-page-node-id="OO582dmM7swiDco0pQ0cVJ">三</div><div class="cal-h" data-page-node-id="GL86dOybnjCD1VLe3pXGgf">四</div><div class="cal-h" data-page-node-id="c0nBWBAiKiCeXo3RkVj3sh">五</div>
-              <div class="cal-h" data-page-node-id="FmDGVedepDQVAWoxU1kAlC">六</div>
-              <div class="cal-d empty" data-page-node-id="SdPS103cQ2JPB4w4gWQm4q">.</div><div class="cal-d empty" data-page-node-id="Lc8hsrK0tcwQQUVYL08DnL">.</div>
-              <div class="cal-d empty" data-page-node-id="ORkoboSl8agCmRaOSftHbZ">.</div><div class="cal-d empty" data-page-node-id="jMvNkEteJTMku6WEOSRoZ9">.</div>
-              <div class="cal-d empty" data-page-node-id="J9BqGBdKuAVsYJqjosUwQt">.</div><div class="cal-d empty" data-page-node-id="ugEPQNgyEW0kRbQoyQuCG6">.</div>
-              <div class="cal-d" data-page-node-id="0V391uCGGVFwFZQXOm0HvD">1</div>
-              <div class="cal-d" data-page-node-id="wJHvPryOx2ICypqZCkNlC0">2</div><div class="cal-d" data-page-node-id="wTyFza0VWGje5d0glaHuaq">3</div><div class="cal-d" data-page-node-id="ALZzilTMWN8tDioecOc3D3">4</div>
-              <div class="cal-d" data-page-node-id="XBmymXGzMhy2Xe7akBFngh">5</div><div class="cal-d" data-page-node-id="n0aQgvlidXrHB2mc2FUyAe">6</div><div class="cal-d" data-page-node-id="qVCMpG8WCy9pCJHj6s76F7">7</div>
-              <div class="cal-d" data-page-node-id="ic6Lf8SdeFUK9x2oPZtRka">8</div>
-              <div class="cal-d" data-page-node-id="mbd39BN54JVsQYtlrPJHyC">9</div>
-              <div class="cal-d has-event red" data-page-node-id="KQESEkRCNiiMmHi74hnCCV">10</div>
-              <div class="cal-d" data-page-node-id="kpCTpxttcULULVMXTXFWNh">11</div><div class="cal-d" data-page-node-id="1MjknY5VKeOb78q5BkICPt">12</div>
-              <div class="cal-d" data-page-node-id="ZxWUt8dvt4cDlSxP0qzDp6">13</div><div class="cal-d has-event" data-page-node-id="PRpytVCa5BmI7oeyAObabg">14</div>
-              <div class="cal-d" data-page-node-id="cnl0V2xKUhVE8slwn1ywJy">15</div>
-              <div class="cal-d" data-page-node-id="f0ALFsery660M9lfNLvDQX">16</div><div class="cal-d" data-page-node-id="Z6B5ubBqnt6y2FQbRlZxdc">17</div>
-              <div class="cal-d" data-page-node-id="VjAeLap5jvsissJjOLa6Tv">18</div><div class="cal-d" data-page-node-id="swuNS01yDhLYDdOe53nDR7">19</div>
-              <div class="cal-d" data-page-node-id="Aw0SkeD9uX2Cqqg1kADLal">20</div><div class="cal-d" data-page-node-id="sa5Q2F4mJivDKmAM9sjObO">21</div>
-              <div class="cal-d" data-page-node-id="e2D7t4oBPoLQSHY2cKAMIr">22</div><div class="cal-d has-event" data-page-node-id="J7MlMMc9DFRNqhBZ161eFy">23</div>
-              <div class="cal-d" data-page-node-id="DtvaKC2KRAsbl6vEgGTo9w">24</div>
-              <div class="cal-d" data-page-node-id="NlVluC9DXock4ycDne4nZ2">25</div><div class="cal-d" data-page-node-id="bi6FnZevZcWJFOYKfGJeQG">26</div>
-              <div class="cal-d" data-page-node-id="8L3cN3aOYRbE8EzrbrdEBq">27</div><div class="cal-d" data-page-node-id="7sXbslHaAtqU0tOBs5RJhU">28</div>
-              <div class="cal-d" data-page-node-id="xCAElqkbDMaLniR6iIcr4o">29</div><div class="cal-d" data-page-node-id="XQ4f2DdRTXMrUfavZEmTfo">30</div>
-              <div class="cal-d" data-page-node-id="NCjjvMRWrHTwA6cwcTRxyf">31</div>
-            </div>
-            <div class="cal-legend" data-page-node-id="Oial50smz9amkhH8Z6l6Vk">
-              <span data-page-node-id="AKkDP7GAk3VyOJ525QgLp7"><i class="gold" data-page-node-id="PIp8xmfpt0DKLmgKmrQ0Hx"></i>常规动态</span>
-              <span data-page-node-id="vDJtGrwmmXFWmdL7aO83V0"><i class="red" data-page-node-id="WrMA8Ow8fcaSpwFcHV0Igl"></i>重要事件</span>
-            </div>
-          </div>
-        </div>
-      </aside>
     </div>
   </section>
 
@@ -659,157 +346,59 @@
     <p class="sec-subtitle" data-page-node-id="L3C692ALc2QV4XeXjTi4HX">CLIENT CASES &amp; SERVICE ADVANTAGES</p>
     <p class="sec-desc" data-page-node-id="rTgMK5GMZZzNaW0yIScBPp">每一个成功案例都是皓镧专业能力的证明，每一项服务优势都是客户选择皓镧的理由。以真实案例说话，以硬核实力赢得信任。</p>
 
-    <!-- 精选案例 -->
     <div class="case-featured" data-page-node-id="v7RocrJ1Bx29d1r59bRwFM">
       <div class="cf-visual" data-page-node-id="Zfe3LniF4vkXcbHeVF90gf">
-        <div class="cf-badge" data-page-node-id="TAE9soSuK9zs2L3i3dCY3f">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="67Sltqs8RQ5by63tuerdXy"><path d="M12 2 L14 8 L20 8 L15 12 L17 18 L12 14 L7 18 L9 12 L4 8 L10 8 Z" data-page-node-id="KtnW4qoW3F6d0VQxtwC48F"/></svg>
-          精选案例
+          <svg class="cf-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <path d="M12 2 L14 8 L20 8 L15 12 L17 18 L12 14 L7 18 L9 12 L4 8 L10 8 Z"/>
+          </svg>
         </div>
-        <h3 data-page-node-id="Cyf2EdlY403WIl3oAM3T9k">房产抵押融资 800 万元，48 小时极速放款</h3>
-        <p class="cf-summary" data-page-node-id="0gGUhDff14tL5ZKWp9hleU">客户为中小企业主，急需资金用于原材料采购。传统银行审批周期长达 2-3 周，皓镧资产通过战略合作银行的绿色审批通道，48 小时内完成评估、面签、抵押登记到放款全流程。</p>
-        <div class="cf-tags" data-page-node-id="gvPXyysK4CL1j45Ds10PU0">
-          <span data-page-node-id="SRH0BpCg49woJXoLrwC6GJ">房产抵押</span>
-          <span data-page-node-id="yI4KOx5tzTz9GlrhppMti3">极速放款</span>
-          <span data-page-node-id="7siXtMkbCBvr6cjchw5YJj">绿色通道</span>
-          <span data-page-node-id="79wIEkGIyGNbjSutqAYdBF">企业经营</span>
-        </div>
-      </div>
-      <div class="cf-body" data-page-node-id="FHIV40rks3xzxTQoKEs851">
-        <div class="cf-label" data-page-node-id="cE7UdTktc6TonyUJRyVpNa">客户感言</div>
-        <p class="cf-quote" data-page-node-id="R4nmoyCAo6ACnVXtpUrX4D">"当时原材料价格处于低位，晚一天到账就多花好几万。皓镧的顾问从接单到放款全程跟进，48 小时拿到 800 万，帮我们抢到了最佳采购窗口。"</p>
-        <div class="cf-stats" data-page-node-id="ktBHXb2grUGmNVYJWuHjQG">
-          <div class="st" data-page-node-id="N4Cu8HmFHivyXvyc1cZDPk">
-            <div class="v" data-page-node-id="8GzjfAv8HMO6gijQLjN0Gx">800万</div>
-            <div class="l" data-page-node-id="Mrg1W7Bhdq5KKd413YiD2W">融资金额</div>
-          </div>
-          <div class="st" data-page-node-id="jaNBxcMIVHVp8r3llDrHHw">
-            <div class="v" data-page-node-id="OZtPCAFUvf659ZlPIE42IN">48h</div>
-            <div class="l" data-page-node-id="BJJDDHUzrUL7tlCt7CFqBM">放款周期</div>
-          </div>
-          <div class="st" data-page-node-id="wEmYP1tQpclaIXibd8yT0V">
-            <div class="v" data-page-node-id="XCdI89hkBNFOrAJpmtHRUc">4.2%</div>
-            <div class="l" data-page-node-id="QL1ZCTIKyR9eYBZtt7AM4f">年化利率</div>
-          </div>
-        </div>
-        <div class="cf-client" data-page-node-id="KaB39U3m7irRcgYVmpeh8g">
-          客户：<b data-page-node-id="pOy0YNuK7xixbW7kJdM0uM">张先生</b> · 制造业企业主 · 北京
-        </div>
-      </div>
+      
     </div>
 
-    <!-- 案例列表 -->
     <div class="case-grid" data-page-node-id="xmp10KuuSwnYJPM75JWDIn">
       <div class="case-card" data-page-node-id="hCqhFCB8RfuWfqOgomCdfs">
         <div class="case-banner b1" data-page-node-id="WQ4cKLlIhtAyLtQQjKJoYu">
-          <span class="case-badge" data-page-node-id="xRwbQzLoHnLqOiXuHMY2Li">企业经营贷</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" data-page-node-id="A0V9FDAYAvCuarV7IUdCjT"><rect x="3" y="7" width="18" height="13" rx="2" data-page-node-id="6w6LAxymLbtQidmLuZhEbj"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" data-page-node-id="gip052Nx7x7GZUWVMsP2RO"/><path d="M3 12h18" data-page-node-id="vsF6TDk4rJrKuIyFmwjZaD"/></svg>
         </div>
-        <div class="case-body" data-page-node-id="DcjpXZrcCaFUttasy9aCDX">
-          <h4 data-page-node-id="AiLSAOUW4qzGtCT7NZqS1Z">企业经营贷 500 万助力餐饮连锁扩张</h4>
-          <div class="case-meta" data-page-node-id="ELCyRENMnFasifEA3Ze65R">
-            <span data-page-node-id="01SoqAWOckgxWe6UoHtVTz">企业经营贷</span><span data-page-node-id="XStqPsbYDbTrxFdk2PWqc6">无抵押</span><span data-page-node-id="rkcsePbM4bz9f4x4HkLh2W">3 年期</span>
-          </div>
-          <p data-page-node-id="qOSHKpDMloIjxo1afcWrds">客户经营连锁餐饮 6 家门店，计划新开 3 家但缺少启动资金。皓镧匹配纯信用经营贷产品，无需抵押物，3 个工作日完成审批放款。</p>
-          <div class="case-footer" data-page-node-id="ae8SKSRvxr17rYAlKN53Xc">
-            <span class="amount" data-page-node-id="kGexOHaJn0Zu72MGlpDepg">500 万元</span>
-            <span class="date" data-page-node-id="bSWqrVuoN2wOd5yzEXXCXD">2026-07</span>
-          </div>
-        </div>
+        
       </div>
 
       <div class="case-card" data-page-node-id="LmB4BHTPGJ88ApXYcDTDMY">
         <div class="case-banner b2" data-page-node-id="B3hIMXTUh6TQxIORHGOGnP">
-          <span class="case-badge" data-page-node-id="AIARkMvqKlRaj6c6ZdIZJm">个人信用融资</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" data-page-node-id="aE3tFGHA4tewMtGUAy7pnT"><circle cx="12" cy="8" r="4" data-page-node-id="gcxc74HE7TWsC45YOOw6GR"/><path d="M4 21v-1a8 8 0 0 1 16 0v1" data-page-node-id="jbqf4s2jS5WBwY1NGX1yc1"/></svg>
         </div>
-        <div class="case-body" data-page-node-id="3Top5bFELC0rdFFwR7SIfL">
-          <h4 data-page-node-id="HSKe48j9QohY7uMeAEnrEX">个人信用贷 30 万解决紧急医疗费用</h4>
-          <div class="case-meta" data-page-node-id="MsqF5ZZ78C5s9cS0prGaSP">
-            <span data-page-node-id="g67DBZ2sJZB6A36GdO0zkL">个人信用</span><span data-page-node-id="QkwOuw4cO50CiPvH7xdfng">免担保</span><span data-page-node-id="ErxfeqxR0kb5xXSDuexJrv">先息后本</span>
-          </div>
-          <p data-page-node-id="TlvCEOLvVlJCLX5lb34EJa">客户家中老人突发疾病需手术，自有资金不足。皓镧顾问当日对接银行信用贷产品，凭借客户良好征信记录，24 小时内获批 30 万元信用贷款。</p>
-          <div class="case-footer" data-page-node-id="9SES0fZQzH3thH7cRV9G63">
-            <span class="amount" data-page-node-id="w8GfVzwncTYlgoyO84z8wT">30 万元</span>
-            <span class="date" data-page-node-id="EFcQHQ5sjS7XXNJUR2H40Y">2026-06</span>
-          </div>
-        </div>
+        
       </div>
 
       <div class="case-card" data-page-node-id="EDqXJbzDizS8ehkaKL9okw">
         <div class="case-banner b3" data-page-node-id="DSi7cqV14BaQwVZg1YxtLq">
-          <span class="case-badge" data-page-node-id="PjFVdoGbLSNp3jugtHSCDK">车辆融资</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" data-page-node-id="Km4EhuygUjAcJ1htLUfjAx"><path d="M3 13l2-5a3 3 0 0 1 3-2h8a3 3 0 0 1 3 2l2 5" data-page-node-id="NbEN14tLQAWzH24wTUWIDS"/><path d="M3 13v5h2v-2h14v2h2v-5" data-page-node-id="AHHOjDbmLJBxIq4cYcrrF6"/><circle cx="7" cy="16" r="1.5" data-page-node-id="iGITCPxX4oWCZFDqjDEyGj"/><circle cx="17" cy="16" r="1.5" data-page-node-id="Q6RKENbIaj06JML34WiU83"/></svg>
         </div>
-        <div class="case-body" data-page-node-id="4SHFTOiNK5Miu4vo7fJOyE">
-          <h4 data-page-node-id="vsEU4RDhqBS9Fw4KPXqGcP">车辆抵押融资 15 万，押证不押车</h4>
-          <div class="case-meta" data-page-node-id="fvzGjf1Bzb3ahjpJjNhGru">
-            <span data-page-node-id="E5v9YNiWDWBXYd921ntbQD">车辆融资</span><span data-page-node-id="TDHPLmOWkuqffzRdKEMTeI">押证不押车</span><span data-page-node-id="T6Adj3qtcYMw4NUiUrzmsv">当日放款</span>
-          </div>
-          <p data-page-node-id="rnbJJgCCYF9A9BDXtWihhw">客户为个体工商户，短期资金周转需求。皓镧安排车辆抵押贷款方案，仅需抵押登记证书，车辆可正常使用。当日评估放款 15 万元。</p>
-          <div class="case-footer" data-page-node-id="mGxw1Hf3IvVfETPB22hUG2">
-            <span class="amount" data-page-node-id="hpCD6oJCItHbojdx5tBdku">15 万元</span>
-            <span class="date" data-page-node-id="CexBuCOlC8ccnqOQLatAEg">2026-05</span>
-          </div>
-        </div>
+        
       </div>
 
       <div class="case-card" data-page-node-id="FxH9vwsESstctxhEY4rguC">
         <div class="case-banner b2" data-page-node-id="4N7m0DvUlrAWdbE3jb3ZrV">
-          <span class="case-badge" data-page-node-id="T7rpXSIm2sqLp0ZBlFNAaN">房产抵押</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" data-page-node-id="Y751FgbT3E79mbrbqaipEf"><path d="M3 21h18M5 21V8l7-5 7 5v13" data-page-node-id="f4HAnPgY6clHAzryBOFF0M"/><path d="M9 21v-6h6v6" data-page-node-id="hTT10ZveQTIyN8IjJi6E9p"/></svg>
         </div>
-        <div class="case-body" data-page-node-id="en1xBhffdPOpB1OAf5482r">
-          <h4 data-page-node-id="dqRbwWf8JVWF5DP9dMkKcr">房产抵押经营贷 1200 万，到期无缝续贷</h4>
-          <div class="case-meta" data-page-node-id="HZvBW0pLqL3fytectyLxfn">
-            <span data-page-node-id="hedMMrkKV8ZOoRYaLwMxuP">房产抵押</span><span data-page-node-id="o6bGY1F3QOB5kqY7pJnRP5">无还本续贷</span><span data-page-node-id="M06Jx7CaXt8ZcluEdClk3O">5 年期</span>
-          </div>
-          <p data-page-node-id="TTfsYmtrNwHl1x6RCEUClW">客户原有房产抵押贷款到期，面临过桥资金压力。皓镧提前 30 天启动续贷方案，通过"无还本续贷"产品实现零过桥成本续贷 1200 万元。</p>
-          <div class="case-footer" data-page-node-id="865a7fMbuJv0nvNR45jaeE">
-            <span class="amount" data-page-node-id="AT3UcnMhQmxgg0b87vFFdN">1200 万元</span>
-            <span class="date" data-page-node-id="scz3H97D6f3JA48ykivQw6">2026-04</span>
-          </div>
-        </div>
+        
       </div>
 
       <div class="case-card" data-page-node-id="tCBpxpdTlumKcLv9RxAgZ6">
         <div class="case-banner b1" data-page-node-id="Lk9msXhQfskQO5zJ29P6JI">
-          <span class="case-badge" data-page-node-id="kqZWCe26edDm2m9N6Kd5ue">企业经营贷</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" data-page-node-id="PC0nAgynbjfKYJqzWbo7oX"><path d="M12 2v20M5 7l7-5 7 5M5 17l7 5 7-5" data-page-node-id="r8TJEwnWTxbcWcS3oB0SbP"/></svg>
         </div>
-        <div class="case-body" data-page-node-id="jEsbAQQOECDpzk5UbLI5d1">
-          <h4 data-page-node-id="tF6rgEg1cBbHNXoFllmaVE">科创企业贴息贷款 300 万，节省利息 15 万</h4>
-          <div class="case-meta" data-page-node-id="gIAra5HWzs35pDvYheffK4">
-            <span data-page-node-id="jFrjAz7slGqGcU5pijnEey">贴息政策</span><span data-page-node-id="YKhIVz7T11UYX6Al8K4wgP">科创企业</span><span data-page-node-id="TyvDNVMEWEcqNuEdMzm0DC">2 年期</span>
-          </div>
-          <p data-page-node-id="ebNtbi0CNAo5JaRQPEq6i0">客户为科技型中小企业，皓镧顾问精准匹配最新贴息政策，协助申报科创企业专项贷款 300 万元，享受 50% 贴息，两年节省利息 15 万元。</p>
-          <div class="case-footer" data-page-node-id="72LKgzPNdq6C70jPdNQJHr">
-            <span class="amount" data-page-node-id="Hwhc3l5FiVF6HPx36JfTRq">300 万元</span>
-            <span class="date" data-page-node-id="84BfRsJnkKCTDCAFJu5jdE">2026-03</span>
-          </div>
-        </div>
+        
       </div>
 
       <div class="case-card" data-page-node-id="rPVtOqbsvID9N6TiPRHoKF">
         <div class="case-banner b3" data-page-node-id="kalHnNeAZAXqWljTpHEWxE">
-          <span class="case-badge" data-page-node-id="52ujVkfz3n0yoYITIKanW7">组合方案</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" data-page-node-id="iHBJ4SyoZao3GHW5zEcFmQ"><path d="M3 12l3-3 3 3-3 3zM12 7l3-3 3 3-3 3zM12 17l3-3 3 3-3 3zM18 12l3-3 3 3-3 3z" data-page-node-id="AaJe8CZSTUnDuwgFF0KUaU"/></svg>
         </div>
-        <div class="case-body" data-page-node-id="gCTXPR6DC2CxBgENF85SOl">
-          <h4 data-page-node-id="TN74lLXRacOH6cKsjXb5W3">房产+信用组合融资 600 万，优化资金成本</h4>
-          <div class="case-meta" data-page-node-id="CqG2QQeS1LAbJ8H8nrz4dH">
-            <span data-page-node-id="WKhEsVSGfQC2dUaR9JXLhT">组合方案</span><span data-page-node-id="eIuk7LQ8usw63ZJuOQM8OC">成本优化</span><span data-page-node-id="Ex2mUuwM1O6lLBJhWEMk5T">3 年期</span>
-          </div>
-          <p data-page-node-id="P8aPXFwMGiC2zxZP5rhP9f">客户需求 600 万但房产估值仅支持 400 万抵押额度。皓镧设计"房产抵押 400 万 + 企业信用 200 万"组合方案，综合利率低于纯信用贷 2 个百分点。</p>
-          <div class="case-footer" data-page-node-id="Xijky3UzgadxiKAXcffPCh">
-            <span class="amount" data-page-node-id="8oPwkLWYVRIb3GfB9Qcqti">600 万元</span>
-            <span class="date" data-page-node-id="VDo73YcUbhHUW12DotbTW0">2026-02</span>
-          </div>
-        </div>
+        
       </div>
     </div>
 
-    <!-- 服务优势 -->
     <h3 class="sec-title" style="font-size: 24px; margin-top: 20px;" data-page-node-id="yFy0nZDz8Rd0jpKRyBnmzn">我们的服务优势</h3>
     <p class="sec-subtitle" data-page-node-id="xHFWTVj3oWKsrJ7knqlhrh">CORE ADVANTAGES</p>
 
@@ -818,29 +407,21 @@
         <div class="adv-icon" data-page-node-id="pn7pPvgJWfERjirb5M7OJZ">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="yk3DWhucaKzl2RIw4OwEHt"><path d="M13 2L3 14h7v8l10-12h-7V2z" data-page-node-id="yVwA9lbQ5GPSWw2O7Eujfj"/></svg>
         </div>
-        <h4 data-page-node-id="lZs0Rfnb7ZYwH0kDW2nKTJ">极速放款</h4>
-        <p data-page-node-id="gE0f5kykl15VOeXPfjTrut">战略合作银行绿色审批通道，房产抵押最快 48 小时放款，车辆融资当日到账，个人信用贷 24 小时内获批。</p>
       </div>
       <div class="adv-card" data-page-node-id="rrUHckU4rUf480Iv9GguDL">
         <div class="adv-icon" data-page-node-id="3YgNGGr4K1FGBuCQC0p22s">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="iEMT45VaHYP1eUPRoEUOgV"><path d="M12 2L4 6v6c0 5 4 9 8 10 4-1 8-5 8-10V6l-8-4z" data-page-node-id="G1gnWsk6RpraPjKbNX7T5n"/><path d="M9 12l2 2 4-4" data-page-node-id="O9ZjYADQgHIWrBkHpTSgrN"/></svg>
         </div>
-        <h4 data-page-node-id="AkRGOpyc6qpiwVKR6NUZ1a">合规风控</h4>
-        <p data-page-node-id="SsOty8BCpCNFojpjqM4QA6">所有合作机构均为持牌金融机构，资金用途全流程合规管理，风控体系通过银行级标准认证，保障客户信息安全。</p>
       </div>
       <div class="adv-card" data-page-node-id="I4rkN3njoPs2bHu2XGhzrR">
         <div class="adv-icon" data-page-node-id="iMY8OXIFdjGJAczxYiyuWS">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="EHh20n6CyNJcnfIGS3HMnA"><circle cx="12" cy="12" r="10" data-page-node-id="BajNEfB8s7s22jqhO2Fsor"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20" data-page-node-id="ojEGQApLteOG7M0y4bUBaj"/></svg>
         </div>
-        <h4 data-page-node-id="dFi2xjld8pDAlwhIE2Funv">一站式比价</h4>
-        <p data-page-node-id="psBB8LuGQj8DhYzNC70IYk">对接 18 家银行 30+ 款产品，顾问一站式比对年化利率、额度、期限与还款方式，为客户匹配综合成本最低的融资方案。</p>
       </div>
       <div class="adv-card" data-page-node-id="AbmFyjFxL1hPShFnqEVRzs">
         <div class="adv-icon" data-page-node-id="zlr5bR3J4flbsp4qwHE2Dg">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="fqq1R0bJGAvMW0hnNxQgKE"><path d="M21 11.5a8.38 8.38 0 0 1-9 8.5 8.5 8.5 0 0 1-7.6-4.7L3 21l1.9-1.4A8.38 8.38 0 0 1 12 3a8.5 8.5 0 0 1 9 8.5z" data-page-node-id="3QYVX4a6nJwNFuiTU3T2rJ"/></svg>
         </div>
-        <h4 data-page-node-id="zLnFY0l5jZKlGRUznSV7sy">全程陪跑</h4>
-        <p data-page-node-id="ujhRUXqzeTOGwsemGzHZJ9">从咨询对接到结清解押，专属顾问全程跟进每个环节。贷前方案制定、贷中审批协调、贷后还款提醒，服务不因放款而终止。</p>
       </div>
     </div>
   </section>
@@ -857,85 +438,43 @@
       <div class="scene-card" data-page-node-id="ASNSUz8hLp8L1al1UT4Llb">
         <div class="scene-banner s1" data-page-node-id="Vj9oIzYaFGtB2FcIW2QNZ1">
           <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" data-page-node-id="KGyyXt5LGhMCfJBHm9GnoL"><path d="M3 21h18M5 21V8l7-5 7 5v13" data-page-node-id="YTpGlJNwAHPKG9zwvc8AZa"/><path d="M9 21v-6h6v6" data-page-node-id="2r4yru5fSeWZB0vcioFOAT"/></svg>
-          <div class="scene-label" data-page-node-id="bD9FnsjFswXC1clPEqnytB">SCENE 01 · 房产抵押融资</div>
         </div>
-        <div class="scene-body" data-page-node-id="zDM4tnrZ3IAQ46IihSeP5d">
-          <h4 data-page-node-id="8B30jhOVFNfRwp1KTAS30u">房产抵押融资</h4>
-          <p data-page-node-id="6QWpaW9eniHQX7mqaGDFCu">业主以自有房产作为抵押物获取大额融资。皓镧资产对接多家银行房产抵押产品，评估公允、利率最优、放款最快 48 小时。支持住宅、商铺、写字楼等多类型不动产。</p>
-          <div class="scene-tags" data-page-node-id="ZRuv5piHw928ue0KLwOvGO">
-            <span data-page-node-id="ZUn4pEYGYU3uzICKA8AUOp">额度高</span><span data-page-node-id="Y1xCQvwNgGhFhkDCsZhEdg">利率低</span><span data-page-node-id="G5afYOXxcXrIclnnspk53H">期限灵活</span><span data-page-node-id="DCOpyTqlVOWWn7bO0m6XQP">住宅/商铺</span>
-          </div>
-        </div>
+        
       </div>
 
       <div class="scene-card" data-page-node-id="rrpSysrzQmRSVBqvcMzQBJ">
         <div class="scene-banner s2" data-page-node-id="QUIOE1ZtXMDEL9Xy3Sp9KJ">
           <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" data-page-node-id="js5eUVjkfqA4bK2eoBxgP2"><rect x="3" y="7" width="18" height="13" rx="2" data-page-node-id="yXuIOEVXp3Rtc6H81PP07E"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" data-page-node-id="qoTFQpQVrj4z1wXOLTBHc8"/><path d="M3 12h18" data-page-node-id="63X8R0n0Ub08ddWgQIuNMT"/></svg>
-          <div class="scene-label" data-page-node-id="TF6k4XDOAisv7v8d27r9TZ">SCENE 02 · 企业经营融资</div>
         </div>
-        <div class="scene-body" data-page-node-id="XreqSbBtEc1szvqMw54ILt">
-          <h4 data-page-node-id="L7wbREGLBdwCVAqEdKlOFF">企业经营融资</h4>
-          <p data-page-node-id="fhdHBV8fteZ4Gd8nXeE4uR">中小企业主以公司经营资质申请经营贷，用于采购、扩张、周转等经营用途。皓镧协助匹配纯信用经营贷、抵押经营贷、贴息经营贷等多种产品方案。</p>
-          <div class="scene-tags" data-page-node-id="DgQeyYZXemayps9LsysFb5">
-            <span data-page-node-id="4ZZaoaA5zQH8Az3KwfpBqz">免抵押</span><span data-page-node-id="tcfHnvhRlyiwDiTm2xQFOW">贴息政策</span><span data-page-node-id="W0j8NqkVF7zLAn1RM2A4SZ">额度高</span><span data-page-node-id="oDDpRH4nLFerfsZKdF3ymT">3-5 年期</span>
-          </div>
-        </div>
+        
       </div>
 
       <div class="scene-card" data-page-node-id="fLBKrv1PekItDsAowAc6he">
         <div class="scene-banner s3" data-page-node-id="CGABjWYdoDGXZmiatjGA4G">
           <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" data-page-node-id="AYYsWzxtJCic1aNZ3K8WWb"><circle cx="12" cy="8" r="4" data-page-node-id="lrN3HXpKxLjdjbqQ2Op9Tb"/><path d="M4 21v-1a8 8 0 0 1 16 0v1" data-page-node-id="pYVGr5GcMW3aXD1XPiIzS3"/></svg>
-          <div class="scene-label" data-page-node-id="bPpNqEdgh6XHENRrKjdEgJ">SCENE 03 · 个人信用融资</div>
         </div>
-        <div class="scene-body" data-page-node-id="RVP2d118DUQkD6IZhMa78V">
-          <h4 data-page-node-id="zw6eQ2w8xgXSVB5Qpg7jft">个人信用融资</h4>
-          <p data-page-node-id="WA1ChO6YZIOpZBClk22CUD">凭借个人征信与收入记录，无需抵押担保即可获取信用贷款。适合紧急资金需求、消费支出、家庭周转等场景。皓镧根据客户征信画像精准匹配最优银行产品。</p>
-          <div class="scene-tags" data-page-node-id="kYsK7GbPra72zpKH4JUqKG">
-            <span data-page-node-id="DLPVNKX7VFyJSmYTzygGlQ">免担保</span><span data-page-node-id="0fm3dRA8ReSOkxrI1Nzt0Y">审批快</span><span data-page-node-id="FslFnDYTQ84sd7s15sGhUH">先息后本</span><span data-page-node-id="ekpUI5TYgRT2HtbHejFZVe">灵活还款</span>
-          </div>
-        </div>
+        
       </div>
 
       <div class="scene-card" data-page-node-id="JUEBmvOwulaLsFupB7Z66f">
         <div class="scene-banner s4" data-page-node-id="5TG6C8Vvcp5P5aTzao1NhE">
           <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" data-page-node-id="l9vW6geOa6DIoRtYdnL4Ct"><path d="M3 13l2-5a3 3 0 0 1 3-2h8a3 3 0 0 1 3 2l2 5" data-page-node-id="BSEuCA2Cni2mRAoxGFLBby"/><path d="M3 13v5h2v-2h14v2h2v-5" data-page-node-id="3Te30M0sgXqadMI6OColm6"/><circle cx="7" cy="16" r="1.5" data-page-node-id="AGSPurgh9mrYvzPUlRg9nB"/><circle cx="17" cy="16" r="1.5" data-page-node-id="ubbYSNV55gD9kPF4qIs4xp"/></svg>
-          <div class="scene-label" data-page-node-id="StvFpnLinyyY233CDulGPX">SCENE 04 · 车辆抵押融资</div>
         </div>
-        <div class="scene-body" data-page-node-id="sOxeuZMKf3O7ZfKEQ2dVDc">
-          <h4 data-page-node-id="aRiZZ6DHW7VCZs6D9gKFtB">车辆抵押融资</h4>
-          <p data-page-node-id="2zgF9MXzrS8HFQrDqPbz6Q">车主以自有车辆作为抵押物获取短期周转资金，押证不押车，车辆可正常使用。皓镧对接汽车金融公司与银行车贷产品，当日评估、当日放款，灵活便捷。</p>
-          <div class="scene-tags" data-page-node-id="ihk17QBdnkiEMybSEJU9oo">
-            <span data-page-node-id="aWHrLv3g2IpG76NDZ1mRpd">押证不押车</span><span data-page-node-id="FlndODniWYwfXPRueMTlHn">当日放款</span><span data-page-node-id="TA7dSej8pGl5eXMPdHmzDF">额度评估快</span>
-          </div>
-        </div>
+        
       </div>
 
       <div class="scene-card" data-page-node-id="zeb6RFDABqQOeTloiz0Vu5">
         <div class="scene-banner s5" data-page-node-id="HZGxI6ENhcFNxU6YBFYvlF">
           <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" data-page-node-id="J4LM7FQDOotmDpCgm8e14e"><path d="M3 12l3-3 3 3-3 3zM12 7l3-3 3 3-3 3zM12 17l3-3 3 3-3 3zM18 12l3-3 3 3-3 3z" data-page-node-id="MsaWvbdFElHDph6WRAfUMs"/></svg>
-          <div class="scene-label" data-page-node-id="MAgsdNGVdJH7GKi406AlvF">SCENE 05 · 组合融资方案</div>
         </div>
-        <div class="scene-body" data-page-node-id="GO1iIlYJor5uf54K3oyngC">
-          <h4 data-page-node-id="Yg1JBcfwwhO7uqdTjZqpVF">组合融资方案</h4>
-          <p data-page-node-id="r9SnVpxDuDhOWaz4yVixfA">当单一融资方式无法满足额度需求或成本最优时，皓镧设计"抵押+信用""经营贷+消费贷"等组合方案，在满足额度要求的同时优化综合融资成本。</p>
-          <div class="scene-tags" data-page-node-id="ECT6KDixPY0P26374All14">
-            <span data-page-node-id="nHHtUtfFvApu0GxbZHg2Jq">成本优化</span><span data-page-node-id="oP0JNK60aKvfjqTwCY8O5A">额度叠加</span><span data-page-node-id="SJHbPotZXV20EVZUr3ByEG">多元组合</span>
-          </div>
-        </div>
+        
       </div>
 
       <div class="scene-card" data-page-node-id="VV1CgrUW7w6iy74KvmEGFe">
         <div class="scene-banner s6" data-page-node-id="UMZDNgMTzqokp51ckCmksA">
           <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" data-page-node-id="aUZfrfAfqenFYYAYvtGlfn"><path d="M3 21h18M5 21V11l7-7 7 7v10" data-page-node-id="6y2EEG5yr3DCy4Jz0MRVGr"/><path d="M9 21v-6h6v6" data-page-node-id="g8AS8xHJ1x613RGUYIma2X"/></svg>
-          <div class="scene-label" data-page-node-id="lC0crr4E9892JJtwdqkx4x">SCENE 06 · 续贷与过桥服务</div>
         </div>
-        <div class="scene-body" data-page-node-id="BQTtrxVKEv0ZXEyFQGIXrF">
-          <h4 data-page-node-id="3YHAaOinXMac3px6bJDuDI">续贷与过桥服务</h4>
-          <p data-page-node-id="c6up9C5vAjEi7kYpnRfCZY">贷款到期需续贷或过桥周转时，皓镧提前规划续贷方案，优先匹配"无还本续贷"产品消除过桥成本；确需过桥时精确计算周转天数，将过桥成本压至最低。</p>
-          <div class="scene-tags" data-page-node-id="kEfk2kunhrfG3GtghzTmYx">
-            <span data-page-node-id="ZUqjGNTBk8c785Nitg9y1o">无还本续贷</span><span data-page-node-id="xqMjSP2MA3Us1aNO59dcQ2">过桥优化</span><span data-page-node-id="ow0rsK2nhg383OqnrTXFEH">提前规划</span>
-          </div>
-        </div>
+        
       </div>
     </div>
   </section>
@@ -953,22 +492,13 @@
       <span class="lt" data-page-node-id="4QB2HzMk5jOpm5dhtiDIWt">皓镧资产</span>
     </div>
     <div class="footer-info" data-page-node-id="v4h8ScMAkyCbY1asfcXgKg">
-      <div data-page-node-id="GDusuzRIrkdxMe78TACX6y"><b data-page-node-id="SOK4lgSZcMeRHsGa1Dq0uG">联系电话：</b>010-8888 8888</div>
-      <div data-page-node-id="ma0XLArwb6F7aastspIxwJ"><b data-page-node-id="LAyKE8d0uIRJFCbT7SqtJv">邮箱：</b>hr@haolanzichan.cn</div>
-      <div data-page-node-id="jhKnABmCs9QuSOCMRJFMBa"><b data-page-node-id="PAWDsHKcXAMTJ1EIi9XVKQ">地址：</b>北京市朝阳区金融街 · 财富中心</div>
+      <div data-page-node-id="GDusuzRIrkdxMe78TACX6y"><b data-page-node-id="SOK4lgSZcMeRHsGa1Dq0uG">联系电话：</b>0762-3103909</div>
+      <div data-page-node-id="ma0XLArwb6F7aastspIxwJ"><b data-page-node-id="LAyKE8d0uIRJFCbT7SqtJv">邮箱：</b>865573331@qq.com</div>
+      <div data-page-node-id="jhKnABmCs9QuSOCMRJFMBa"><b data-page-node-id="PAWDsHKcXAMTJ1EIi9XVKQ">地址：</b>河源市源城区永康大道与红星东路交汇处时代国际中心17楼</div>
     </div>
   </div>
 </footer>
 
-<script>
-  // 日历日期点击高亮
-  document.querySelectorAll('.cal-d').forEach(function(d) {
-    if (d.classList.contains('empty')) return;
-    d.addEventListener('click', function() {
-      document.querySelectorAll('.cal-d').forEach(function(x) { x.style.outline = ''; });
-      this.style.outline = '2px solid var(--gold)';
-    });
-  });
-</script>
+
 </body>
 </html>

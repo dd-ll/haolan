@@ -89,27 +89,18 @@
   }
 
   /* ========== 1. 成长分享 ========== */
-  /* 学院数据条 */
-  .acad-stats {
     display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 48px;
   }
-  .acad-stat {
     border: 1.5px solid var(--gold-soft); border-radius: 10px;
     background: linear-gradient(135deg, var(--bg-soft) 0%, #fff 100%);
     padding: 24px 16px; text-align: center; transition: all .25s;
   }
-  .acad-stat:hover { border-color: var(--gold); box-shadow: 0 8px 24px rgba(184,148,31,0.1); }
-  .acad-stat .icon {
     width: 44px; height: 44px; margin: 0 auto 10px; color: var(--gold-deep);
     display: flex; align-items: center; justify-content: center;
   }
-  .acad-stat .icon svg { width: 40px; height: 40px; }
-  .acad-stat .num {
     font-family: "STSong",serif; font-size: 30px; font-weight: 700;
     color: var(--red); line-height: 1.1;
   }
-  .acad-stat .num small { font-size: 14px; color: var(--red); margin-left: 2px; }
-  .acad-stat .label { font-size: 12px; color: var(--muted); letter-spacing: 2px; margin-top: 4px; }
 
   /* 成长故事卡 */
   .growth-featured {
@@ -124,29 +115,14 @@
     background: linear-gradient(135deg, #2C2C2C 0%, #1A1A1A 100%);
     padding: 26px 30px; display: flex; align-items: center; gap: 20px;
   }
-  .gf-card .gf-banner .avatar {
-    width: 64px; height: 64px; border-radius: 50%; flex-shrink: 0;
-    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-deep) 100%);
-    color: #fff; font-size: 26px; font-weight: 600; font-family: "STSong",serif;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 0 0 3px rgba(201,169,97,0.35);
-  }
-  .gf-card .gf-banner .who h4 { color: #fff; font-size: 18px; letter-spacing: 2px; margin-bottom: 4px; font-family: "STSong","SimSun",serif; }
-  .gf-card .gf-banner .who p { color: rgba(201,169,97,0.9); font-size: 12px; letter-spacing: 1px; }
-  .gf-card .gf-body { padding: 24px 30px; }
-  .gf-card .gf-body .path {
     display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 14px;
   }
-  .gf-card .gf-body .path .node {
     font-size: 12px; color: #2C2C2C; background: var(--bg-soft);
     border: 1px solid var(--gold-soft); border-radius: 4px; padding: 3px 10px;
   }
-  .gf-card .gf-body .path .arrow { color: var(--gold); font-size: 12px; }
-  .gf-card .gf-body blockquote {
     border-left: 3px solid var(--gold); background: var(--bg-soft);
     padding: 14px 18px; font-size: 13px; color: var(--muted); line-height: 1.9; border-radius: 0 6px 6px 0;
   }
-  .gf-card .gf-body blockquote b { color: var(--ink); }
 
   /* 精选成长卡列表 */
   .growth-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -159,21 +135,10 @@
     background: linear-gradient(90deg, var(--gold), var(--gold-soft));
   }
   .growth-card:hover { border-color: var(--gold); box-shadow: 0 10px 28px rgba(184,148,31,0.1); transform: translateY(-4px); }
-  .growth-card .gc-head { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
-  .growth-card .gc-head .avatar {
-    width: 52px; height: 52px; border-radius: 50%; flex-shrink: 0;
-    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-deep) 100%);
-    color: #fff; font-size: 20px; font-weight: 600; font-family: "STSong",serif;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .growth-card .gc-head .info h4 { font-size: 16px; font-weight: 600; color: var(--ink); font-family: "STSong","SimSun",serif; }
-  .growth-card .gc-head .info p { font-size: 12px; color: var(--gold-deep); letter-spacing: 1px; margin-top: 2px; }
-  .growth-card .gc-path {
     font-size: 12px; color: #2C2C2C; background: var(--bg-soft);
     border-radius: 4px; padding: 6px 12px; margin-bottom: 14px; text-align: center;
     border: 1px dashed var(--gold-soft);
   }
-  .growth-card p { font-size: 13px; color: var(--muted); line-height: 1.9; }
 
   /* ========== 2. 内部培训文化 ========== */
   /* 培训体系 三阶梯 */
@@ -183,24 +148,10 @@
     padding: 30px 28px; position: relative; transition: all .25s; overflow: hidden;
   }
   .train-step:hover { border-color: var(--gold); box-shadow: 0 12px 32px rgba(184,148,31,0.1); }
-  .train-step .step-no {
-    position: absolute; right: 16px; top: 8px;
-    font-family: "STSong",serif; font-size: 56px; font-weight: 700;
-    color: rgba(201,169,97,0.14); line-height: 1;
-  }
   .train-step .icon {
     width: 48px; height: 48px; margin-bottom: 16px; color: var(--gold-deep);
   }
   .train-step .icon svg { width: 48px; height: 48px; }
-  .train-step h4 {
-    font-size: 19px; font-weight: 700; color: var(--ink); letter-spacing: 2px;
-    margin-bottom: 4px; font-family: "STSong","SimSun",serif;
-  }
-  .train-step .en { font-size: 11px; color: var(--gold); letter-spacing: 2px; margin-bottom: 14px; }
-  .train-step .for { font-size: 12px; color: var(--red); font-weight: 600; margin-bottom: 10px; }
-  .train-step p { font-size: 13px; color: var(--muted); line-height: 1.9; margin-bottom: 14px; }
-  .train-step .mods { display: flex; flex-wrap: wrap; gap: 8px; }
-  .train-step .mods span {
     font-size: 11px; padding: 3px 10px; border-radius: 3px; letter-spacing: 1px;
     background: var(--bg-soft); color: #2C2C2C; border: 1px solid var(--gold-soft);
   }
@@ -218,19 +169,13 @@
   .culture-box .cb-head .icon { width: 30px; height: 30px; color: var(--gold-deep); }
   .culture-box .cb-head .icon svg { width: 30px; height: 30px; }
   .culture-box .cb-head h4 { font-size: 17px; font-weight: 700; letter-spacing: 2px; color: var(--ink); font-family: "STSong","SimSun",serif; }
-  .culture-box .cb-body { padding: 24px 28px; }
-  .cb-list { list-style: none; }
-  .cb-list li {
     display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px dashed var(--line);
     font-size: 13px; color: var(--muted); line-height: 1.8;
   }
-  .cb-list li:last-child { border-bottom: none; padding-bottom: 0; }
-  .cb-list li .dot {
     flex-shrink: 0; width: 22px; height: 22px; margin-top: 3px; border-radius: 50%;
     background: var(--bg-soft); border: 1px solid var(--gold);
     color: var(--gold-deep); font-size: 12px; display: flex; align-items: center; justify-content: center;
   }
-  .cb-list li b { color: var(--ink); }
 
   /* 文化理念条 */
   .culture-band {
@@ -245,56 +190,35 @@
   .culture-pill .icon { width: 36px; height: 36px; margin: 0 auto 10px; color: var(--gold); }
   .culture-pill .icon svg { width: 36px; height: 36px; }
   .culture-pill h5 { color: var(--gold); font-size: 16px; letter-spacing: 3px; margin-bottom: 6px; font-family: "STSong","SimSun",serif; }
-  .culture-pill p { color: rgba(255,255,255,0.72); font-size: 12px; line-height: 1.8; }
 
-  /* ========== 3. 常见问题 ========== */
-  .faq-wrap { max-width: 920px; margin: 0 auto; }
-  .faq-tabs { display: flex; justify-content: center; gap: 14px; margin-bottom: 36px; flex-wrap: wrap; }
-  .faq-tab {
     font-size: 13px; letter-spacing: 2px; padding: 8px 22px; border-radius: 20px;
     border: 1.5px solid var(--gold-soft); color: var(--muted); cursor: pointer;
     background: #fff; transition: all .2s;
   }
-  .faq-tab:hover { border-color: var(--gold); color: var(--gold-deep); }
-  .faq-tab.active {
     background: linear-gradient(135deg, var(--gold) 0%, var(--gold-deep) 100%);
     border-color: transparent; color: #fff; font-weight: 600;
   }
-  .faq-group { display: none; }
-  .faq-group.show { display: block; }
 
-  details.faq-item {
     border: 1.5px solid var(--gold-soft); border-radius: 10px;
     background: #fff; margin-bottom: 16px; overflow: hidden; transition: all .25s;
   }
-  details.faq-item[open] { border-color: var(--gold); box-shadow: 0 8px 24px rgba(184,148,31,0.1); }
-  details.faq-item summary {
     list-style: none; cursor: pointer; display: flex; align-items: center; gap: 14px;
     padding: 18px 24px; font-size: 15px; font-weight: 600; color: var(--ink);
     transition: color .2s;
   }
-  details.faq-item summary::-webkit-details-marker { display: none; }
-  details.faq-item summary:hover { color: var(--red); }
-  details.faq-item summary .q-mark {
     flex-shrink: 0; width: 26px; height: 26px; border-radius: 6px;
     background: var(--bg-soft); border: 1px solid var(--gold-soft);
     color: var(--gold-deep); font-size: 14px; font-weight: 700;
     display: flex; align-items: center; justify-content: center;
   }
-  details.faq-item summary .fold {
     margin-left: auto; flex-shrink: 0; color: var(--gold); font-size: 18px;
     transition: transform .25s; line-height: 1;
   }
-  details.faq-item[open] summary .fold { transform: rotate(45deg); }
-  details.faq-item .faq-ans {
     padding: 0 24px 20px 64px; font-size: 13px; color: var(--muted); line-height: 2;
   }
-  details.faq-item .faq-ans b { color: #2C2C2C; }
 
-  .faq-more {
     text-align: center; margin-top: 36px; font-size: 13px; color: var(--muted);
   }
-  .faq-more a { color: var(--gold-deep); font-weight: 600; border-bottom: 1px solid var(--gold); }
 
   /* ========== 页脚 ========== */
   .footer {
@@ -313,7 +237,6 @@
 
   /* ========== 响应式 ========== */
   @media (max-width: 1080px) {
-    .acad-stats { grid-template-columns: repeat(2, 1fr); }
     .growth-featured { grid-template-columns: 1fr; }
     .growth-grid { grid-template-columns: repeat(2, 1fr); }
     .train-steps { grid-template-columns: 1fr; }
@@ -321,7 +244,6 @@
     .culture-band { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 760px) {
-    .acad-stats { grid-template-columns: 1fr; }
     .growth-grid { grid-template-columns: 1fr; }
     .culture-band { grid-template-columns: 1fr; }
     .topbar-inner { flex-wrap: wrap; padding: 0 20px; gap: 16px; }
@@ -332,7 +254,6 @@
     main { padding: 40px 20px; }
     .page-banner { padding: 40px 20px 36px; }
     .page-banner h1 { font-size: 28px; letter-spacing: 5px; }
-    details.faq-item .faq-ans { padding-left: 24px; }
   }
 
   /* ========== 手机端通用优化（追加） ========== */
@@ -343,6 +264,21 @@
     .nav { padding: 10px 0; }
     .topbar-inner { padding: 0 16px; gap: 12px; }
   }
+
+  /* ========== 内容清空后布局补丁 ========== */
+  /* 成长故事大卡（深色头部条撑满卡片） */
+  .gf-card { display: flex; }
+  .gf-card .gf-banner { flex: 1; min-height: 140px; }
+  /* 成长故事小卡（头像+姓名居中） */
+  .growth-card { display: flex; align-items: center; justify-content: center; min-height: 170px; }
+  /* 培训阶梯（序号+图标+计划名垂直居中） */
+  .train-step { display: flex; flex-direction: column; justify-content: center; min-height: 230px; }
+  /* 培训文化双栏（仅剩标题条） */
+  .culture-box { display: flex; min-height: 150px; }
+  .culture-box .cb-head { flex: 1; border-bottom: none; }
+  /* 文化理念条（图标+理念名居中） */
+  .culture-pill { min-height: 150px; display: flex; flex-direction: column; justify-content: center; }
+
 </style>
 </head>
 <body data-page-node-id="qsrAxqsAL2anao2qV1Z51s">
@@ -389,141 +325,57 @@
     <p class="sec-subtitle" data-page-node-id="WCUOBXlweOK5xOuT3bnu1C">GROWTH STORIES</p>
     <p class="sec-desc" data-page-node-id="AKhgh6abfaSTYxCauX0UVa">在这里，每一位普通员工都拥有不普通的成长故事。从入职第一天到独当一面，皓镧见证着他们的每一步蜕变。</p>
 
-    <!-- 学院数据 -->
-    <div class="acad-stats" data-page-node-id="sz2gFZBF5kKKVMHZ89OmCH">
-      <div class="acad-stat" data-page-node-id="kb5mTb4bl4RyHZ2Nlyq6r0">
-        <div class="icon" data-page-node-id="IigORmn04jyn23IaRLrE6L"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="PNJ9GEdQisKThwd0GT9ZAe"><path d="M12 3 L2 8 L12 13 L22 8 Z" data-page-node-id="CGofOdIeKHFUPlTQatTr7T"/><path d="M5 10.5 L5 16 C5 18 8 20 12 20 C16 20 19 18 19 16 L19 10.5" data-page-node-id="B3C1sEFPECMwjKzpwBm3xT"/><path d="M22 8 L22 13" data-page-node-id="2rp0xwXlNoZ8VVqQBdUlFX"/></svg></div>
-        <div class="num" data-page-node-id="OHArjw0hcAFWvtMX5c24RV">320<small data-page-node-id="XyJ9cZpqnHxn7WdFDptrjm">+</small></div>
-        <div class="label" data-page-node-id="qpGYKPpIgRFOrE5JxpnmqB">累计培训学员</div>
-      </div>
-      <div class="acad-stat" data-page-node-id="rdDEYwExg6HQgeoav7cHEB">
-        <div class="icon" data-page-node-id="UxGJUzvzNvoqB5mEHZ9PAA"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="E3NWmqxRFULwlcvJgLRuUY"><rect x="3" y="4" width="18" height="14" rx="2" data-page-node-id="xDni6hGLjQDQMOlX77PAtZ"/><path d="M8 21 L16 21 M12 18 L12 21" data-page-node-id="QFCCGxgSpOHk6NnSDfiNEy"/><path d="M7 9 L11 9 M7 12 L14 12" data-page-node-id="OV5BKXuTafMnAH7hgbKseZ"/></svg></div>
-        <div class="num" data-page-node-id="FPhcHqkFAOzZkVDLQAKMIQ">56<small data-page-node-id="uYNlLXWXMliZwifj4W1Esz">场</small></div>
-        <div class="label" data-page-node-id="Cqehrwuz7OpEmYu5Ynfa4f">年度内训课程</div>
-      </div>
-      <div class="acad-stat" data-page-node-id="Kbn7Kzv3wVpaGwhlaBu3Px">
-        <div class="icon" data-page-node-id="Vsc2LjzB61v7OHXhao48P0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="rdIuP3Bem7Sthet4ZrvWa5"><circle cx="12" cy="8" r="4" data-page-node-id="akRzleYBFnt4bEp10XbuAC"/><path d="M4 21 C4 16.5 7.5 14 12 14 C16.5 14 20 16.5 20 21" data-page-node-id="zBGVk4zWpv40Xr79tSqWip"/><path d="M10 3.5 L11 2.5 M14 3.5 L13 2.5" data-page-node-id="J1NJ5ljzBAiukgvhpROnMk"/></svg></div>
-        <div class="num" data-page-node-id="QTygBBQIgTl8AlWoxD0Q4f">28<small data-page-node-id="2iXutSMCp1gKjlhLAYas6x">位</small></div>
-        <div class="label" data-page-node-id="DtGEIeeixlOMM8DdZpAQuv">内部认证讲师</div>
-      </div>
-      <div class="acad-stat" data-page-node-id="N9Pxk2Gjn8rGyNtysiU8oU">
-        <div class="icon" data-page-node-id="2oJ2sgHgiCXW0kcCdkt9Qh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="NUXii55ebQGHWAulZIYOXy"><path d="M12 2 L15 8.5 L22 9.5 L17 14.5 L18 21.5 L12 18 L6 21.5 L7 14.5 L2 9.5 L9 8.5 Z" data-page-node-id="e4gYv5hI3Dnvtj1xMIJmZL"/></svg></div>
-        <div class="num" data-page-node-id="UgU3Dukhzv2Ie0OFZgjDM9">93<small data-page-node-id="77X0HDtB0SC3e1zo4LLVNX">%</small></div>
-        <div class="label" data-page-node-id="4KDFuvEDycHL6rHnVThfFM">学员晋升转化率</div>
-      </div>
-    </div>
+    
 
     <!-- 精选成长故事（大卡） -->
     <div class="growth-featured" data-page-node-id="IDMdG4VNkJuRrVdt9DUPXN">
       <div class="gf-card" data-page-node-id="VYoZ3iZwneI7vGXxwSDrvW">
         <div class="gf-banner" data-page-node-id="HAClhVogUoFmlXvONFGU5F">
-          <div class="avatar" data-page-node-id="faGEN8dgPFR8G6U5L0PzGb">李</div>
-          <div class="who" data-page-node-id="p3nEC0dH484BI8yuyvZNql">
-            <h4 data-page-node-id="B77phmJ2heFDE7jT8m5sgg">李朗 · 商务谈判部经理</h4>
-            <p data-page-node-id="xMymABEcerCbCFKefukZaa">2021 年入职 · 从客户经理到部门负责人</p>
-          </div>
+          
+          
         </div>
-        <div class="gf-body" data-page-node-id="j727DRKwrnJaNZ83wiic0Z">
-          <div class="path" data-page-node-id="4ExzA9N8GUWmiFI6nGonGQ">
-            <span class="node" data-page-node-id="su6ThCsBHGlPoMLYkmXjNP">客户经理</span><span class="arrow" data-page-node-id="ed7fPqVeSDc3hdsLwT66Fk">→</span>
-            <span class="node" data-page-node-id="4M50FHQ5WHlXQxJoimJ7kc">高级客户经理</span><span class="arrow" data-page-node-id="EWho6hcXxecFK4alCszIPg">→</span>
-            <span class="node" data-page-node-id="FCVifsaXYfvQzGNapi17Yt">团队主管</span><span class="arrow" data-page-node-id="0JtCC0wQDzi8vDPtnC3E4u">→</span>
-            <span class="node" data-page-node-id="oD3GAIxUEEzAY8Nv7DBMQq">部门经理</span>
-          </div>
-          <blockquote data-page-node-id="UHwPO2SzMFeSHMtFD4hVET">
-            刚入职时我对融资产品一窍不通，是商学院的"新鹰计划"帮我打下了专业底子，师傅一对一带着我跑客户、磨话术。<b data-page-node-id="g3sA6cy5jfGZcEKypai9bA">四年里每一次晋升，背后都有商学院系统化培训的支撑。</b>现在我也会把经验反哺给团队的新人——这就是皓镧的传帮带。
-          </blockquote>
-        </div>
+        
       </div>
       <div class="gf-card" data-page-node-id="OXLv2crIjza9n34nnd4D1e">
         <div class="gf-banner" data-page-node-id="Ij4WSg4FapAoy94HwKGvyw">
-          <div class="avatar" data-page-node-id="Pvz7WSco6h8w9OZgoe3jZq">诸</div>
-          <div class="who" data-page-node-id="lAf03KTLgBCOsGJa220JmE">
-            <h4 data-page-node-id="KbQuUvVVtlVKpzR9qw0RDR">诸晓奇 · 互联网部经理</h4>
-            <p data-page-node-id="ARRyEQfZhRKb1x7lA6kyY0">2023 年转岗 · 从传统业务到自媒体操盘手</p>
-          </div>
+          
+          
         </div>
-        <div class="gf-body" data-page-node-id="BDXpGZ8OL8ysv0mFlVU3vF">
-          <div class="path" data-page-node-id="T6mzkR1cqdes7y3M6EIF8x">
-            <span class="node" data-page-node-id="IyqRLFeD5guWX4zJ4V7cZo">渠道专员</span><span class="arrow" data-page-node-id="Q2RfduOco34h7LfvJDaMoF">→</span>
-            <span class="node" data-page-node-id="Isresw9QVihklEjM4cySol">自媒体运营</span><span class="arrow" data-page-node-id="EOVLXDNQrW2LHw0WRssCXc">→</span>
-            <span class="node" data-page-node-id="JozGf5hmhTxFsAKZRLhCrl">内容主管</span><span class="arrow" data-page-node-id="BL4lFqskXISL3TnkWhI32v">→</span>
-            <span class="node" data-page-node-id="oN9bWqLMUNrNIbdJbSC8TT">部门经理</span>
-          </div>
-          <blockquote data-page-node-id="SjOPQGiUmX2CjFVuo8tgg9">
-            公司增设自媒体业务时我主动转岗，从零开始学短视频策划、直播运营。商学院为我定制了为期三个月的数字营销特训，<b data-page-node-id="PS4Z1Qh3doN0O8ch995GtP">如今互联网部已成长为公司的获客新引擎</b>，团队从 2 人扩展到 6 人。
-          </blockquote>
-        </div>
+        
       </div>
     </div>
 
     <!-- 更多成长故事 -->
     <div class="growth-grid" data-page-node-id="6gEwce0OEaO54gMQGAOpe9">
       <div class="growth-card" data-page-node-id="kTTvQLPrRK8zyM2WKCBiUM">
-        <div class="gc-head" data-page-node-id="CFBCHYYRufmFHlFwRBIXfa">
-          <div class="avatar" data-page-node-id="lXhTUNvBX7H8ligDnSd1tw">曾</div>
-          <div class="info" data-page-node-id="ziqaT33L3Dpr6LmfrlJKmj">
-            <h4 data-page-node-id="QJOVWqfEVhFBLslEfWEBb5">曾淑媚</h4>
-            <p data-page-node-id="I71AHKloP5gz3tqzMNqnEW">商务谈判部 · 高级客户经理</p>
-          </div>
-        </div>
-        <div class="gc-path" data-page-node-id="MQb6674rotFte3CIzV0yiz">试用期新人 → 6 个月转正 → 1 年破百万业绩</div>
-        <p data-page-node-id="aY8pypzkj2zmhmIj2Y8Uha">入职第一年就拿下部门季度销冠。她说："商学院的每日晨会演练和每周案例复盘，让我在面对客户时永远有备而来。"</p>
+        
+        
+        
       </div>
       <div class="growth-card" data-page-node-id="Z1G3LmLV9zVbXG4f9fP8jM">
-        <div class="gc-head" data-page-node-id="v2y5rZIYRJXVaYWmffIok0">
-          <div class="avatar" data-page-node-id="C8uTMxmdHoh5SkkKIJADDs">刘</div>
-          <div class="info" data-page-node-id="wGKPvMKBRREn2AdtcPgBZA">
-            <h4 data-page-node-id="fUF6ZVOuQU5CkvS9hyqc6I">刘法胜</h4>
-            <p data-page-node-id="qh8U42mD3ir7C39bdIFHYB">渠道分销部经理 · 内训金牌讲师</p>
-          </div>
-        </div>
-        <div class="gc-path" data-page-node-id="HHHycipogzqF83ufD7X9rD">渠道专员 → 渠道主管 → 部门经理 → 认证讲师</div>
-        <p data-page-node-id="kHHlF4wJDBW06QQPA39qsj">从被培训者成长为培训者，他主导开发的《渠道谈判十二讲》已成为商学院必修课，累计授课 40 余场。</p>
+        
+        
+        
       </div>
       <div class="growth-card" data-page-node-id="bGWfhXSfCVerJe4HNEeJJF">
-        <div class="gc-head" data-page-node-id="4F9sWJ9hIH56sbK2c1Skz8">
-          <div class="avatar" data-page-node-id="GiUk4TfuGNnATgD3QvRbpy">廖</div>
-          <div class="info" data-page-node-id="kAvOkSqjaU9RrrIomhyOgr">
-            <h4 data-page-node-id="MycQe1LeKThVa18Exdst9A">廖经勋</h4>
-            <p data-page-node-id="tpNz1oQ3kbLu3Kdt2vWjCC">风控/售后部经理 · 风控体系搭建者</p>
-          </div>
-        </div>
-        <div class="gc-path" data-page-node-id="CXdIpQsd2ZOHfTRAllBX4a">风控专员 → 高级风控 → 风控/售后部经理</div>
-        <p data-page-node-id="Zpre1MjCjPeNp6PjbDwG9Z">主导搭建公司全流程风控手册，并以此为蓝本在商学院开设《融资风控实务》课程，让合规意识深入每个业务条线。</p>
+        
+        
+        
       </div>
       <div class="growth-card" data-page-node-id="KLSA9bgYWluB0L8FSbCNm1">
-        <div class="gc-head" data-page-node-id="Jxy2rtlZHk4vuH2d98tEH7">
-          <div class="avatar" data-page-node-id="CVJNzthcq9IGat4Zfgb4ON">郑</div>
-          <div class="info" data-page-node-id="evCkDHHSfvcizWzOiv9CXu">
-            <h4 data-page-node-id="sfaaIYlCy61pO1Rw4UeS2w">郑逸芬</h4>
-            <p data-page-node-id="7KkrO3POMorHHeoBSazykP">渠道分销部 · 渠道主管</p>
-          </div>
-        </div>
-        <div class="gc-path" data-page-node-id="GxdQwiWk5YsnJ2w776A8AV">应届管培生 → 渠道专员 → 渠道主管</div>
-        <p data-page-node-id="o7kPsX0lwdou0Ev8kSbFdo">作为首届管培生加入，两年完成三级跳。"轮岗机制让我把公司每个部门都走了一遍，现在协调任何业务都不怵。"</p>
+        
+        
+        
       </div>
       <div class="growth-card" data-page-node-id="HBKvrJninRKjisUSmvOUWe">
-        <div class="gc-head" data-page-node-id="QeAb9CRwVpG2YF34IIhXWd">
-          <div class="avatar" data-page-node-id="JOgEPCYDJImtiUIQM3tKtN">龚</div>
-          <div class="info" data-page-node-id="L9DhIxAdPILRhQDHvxstjU">
-            <h4 data-page-node-id="ERARnEXPL9LwVsyDgkFlhq">龚韬凡</h4>
-            <p data-page-node-id="3kMZ1MFMU8oIhYUZM29OyQ">营销部经理 · 34 人团队领军人</p>
-          </div>
-        </div>
-        <div class="gc-path" data-page-node-id="RWYI0GAzMKXhUTIlyWDClW">电话销售 → 销售主管 → 营销部经理</div>
-        <p data-page-node-id="RMtpMDADIKwf0PXPS7eFg9">带领公司最大业务团队，坚持每周亲自带训。"我把商学院教我的方法论，原原本本地传给我的每一个兄弟。"</p>
+        
+        
+        
       </div>
       <div class="growth-card" data-page-node-id="CIlDiGGIEhqFf4B8iuB2yS">
-        <div class="gc-head" data-page-node-id="IjKTQq6KEwxg2SxDKSorvw">
-          <div class="avatar" data-page-node-id="PTxN7rHRFCJc07C7kUCDeG">李</div>
-          <div class="info" data-page-node-id="KXDUi2mxxygiTGXUMVnvHu">
-            <h4 data-page-node-id="7EJ4kXtDoamYPav9rLgCLt">李安</h4>
-            <p data-page-node-id="H7dRAG12TkHoH1DIk7r6fh">行政人事部经理 · 人才体系操盘手</p>
-          </div>
-        </div>
-        <div class="gc-path" data-page-node-id="n7y3z3zw4uYf8kaXJ40e40">人事专员 → 招聘主管 → 行政人事部经理</div>
-        <p data-page-node-id="mHDzYV8AyskgjFBzHB8i1Q">一手搭建公司招聘与培养体系，推动管培生计划落地。"商学院不是课堂，是皓镧人才的造血工厂。"</p>
+        
+        
+        
       </div>
     </div>
   </section>
@@ -539,37 +391,31 @@
     <!-- 三级培训体系 -->
     <div class="train-steps" data-page-node-id="7R00V0C1tycU7J6XrUzy8U">
       <div class="train-step" data-page-node-id="C78NvJN49Pe6eA0QFgvN0D">
-        <div class="step-no" data-page-node-id="bBJhSH4IPsQaXKYuQrNmBw">01</div>
+        
         <div class="icon" data-page-node-id="zqBhbJnLuxLJiSLFUxrsjR"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="aWVMHTb67upZtUkNLwEUth"><path d="M12 3 L2 8 L12 13 L22 8 Z" data-page-node-id="x7SFqLNAO00RopnuIAXUgk"/><path d="M5 10.5 L5 16 C5 18 8 20 12 20 C16 20 19 18 19 16 L19 10.5" data-page-node-id="TW9zbBQaVoLiXgu2c69DZi"/><path d="M22 8 L22 13" data-page-node-id="jkDp1zqzeG9j1REdqnF30O"/></svg></div>
-        <h4 data-page-node-id="vE1IwGnttPdC2AGVI7fAXf">新鹰计划</h4>
-        <p class="en" data-page-node-id="d1TrBZD11VFR2iWX3uWviv">ROOKIE PROGRAM</p>
-        <p class="for" data-page-node-id="88AgQaT7fgIiGga5JG05Bo">面向：入职 0-6 个月新人</p>
-        <p data-page-node-id="MiCAtmQLw7otykTd7nfFnX">为期 30 天的封闭式入职培训，涵盖金融基础知识、公司产品体系、商务礼仪与合规红线，通过考核后方可上岗。</p>
-        <div class="mods" data-page-node-id="wmV9lOl7I3q7MfNdijiWIp">
-          <span data-page-node-id="slC6vsKu6hbrQHWGDdW8ZY">金融基础</span><span data-page-node-id="nMy9eEccGYA2kXRc1O759d">产品知识</span><span data-page-node-id="xLRpmxNqA0qUpCJdIv6xPA">商务礼仪</span><span data-page-node-id="VNnKnFPQDO95CvvcfgzzCI">合规底线</span>
-        </div>
+        
+        
+        
+        
+        
       </div>
       <div class="train-step" data-page-node-id="TXZrwDY58mBFOedFu5cRg2">
-        <div class="step-no" data-page-node-id="F4Gj0FJnFdxLjTcxrQQh2F">02</div>
+        
         <div class="icon" data-page-node-id="VfYpcI7w4YTh8WeGW1bPAa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="xEJHDQsdbm1mFlEbW8Kshf"><path d="M13 2 L4 14 L11 14 L10 22 L20 9 L13 9 Z" data-page-node-id="OUpkHIkW66a4WXdnvEfLkB"/></svg></div>
-        <h4 data-page-node-id="DoBdZifxXc2cgJWgpLwfFP">菁英计划</h4>
-        <p class="en" data-page-node-id="uJBuajYGOTYllT7PTam51S">ELITE PROGRAM</p>
-        <p class="for" data-page-node-id="bke04mdngJD58fG8uSi02v">面向：6 个月以上骨干员工</p>
-        <p data-page-node-id="jonzLpXGAeGjiEMy7D55f3">围绕业务实战能力进阶，聚焦高阶谈判技巧、大客户经营、方案设计与 cross-sell 能力，匹配轮岗与项目实战。</p>
-        <div class="mods" data-page-node-id="9nEeL9JH5Kfx0DbaPV43oS">
-          <span data-page-node-id="iAgo9YHLWYvVnPBlptEhZe">谈判进阶</span><span data-page-node-id="asFwYdaxebryPqF3kBSJJE">大客户经营</span><span data-page-node-id="FDG9zZE5E8f59ej9vCl71t">方案设计</span><span data-page-node-id="PVcF0wMRg0G0YalCuiSZVZ">轮岗实战</span>
-        </div>
+        
+        
+        
+        
+        
       </div>
       <div class="train-step" data-page-node-id="LxPJhFzDNTH5JasvJ7NBjl">
-        <div class="step-no" data-page-node-id="iD41FudVfJiMedrqAug2qt">03</div>
+        
         <div class="icon" data-page-node-id="qgQEY9A06EaP0ACejOvPFH"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="3gmgeTLO3segW5RCYyo0SP"><path d="M12 2 L15 8.5 L22 9.5 L17 14.5 L18 21.5 L12 18 L6 21.5 L7 14.5 L2 9.5 L9 8.5 Z" data-page-node-id="JEZmSxo4xDaYAmeGo1nhml"/></svg></div>
-        <h4 data-page-node-id="6YWM8DgPndd9nuadShwjwB">领航计划</h4>
-        <p class="en" data-page-node-id="ZTyW7iOwMgDhTl2bUgdDIS">LEADER PROGRAM</p>
-        <p class="for" data-page-node-id="K1aB6o6Io7ZXUhHja7bT41">面向：主管及以上管理者</p>
-        <p data-page-node-id="aE5ZW44y6J7UbGbujRfilo">聚焦团队管理、目标拆解、人才培养与经营思维，通过行动学习工作坊与高管面对面，储备公司下一代管理者。</p>
-        <div class="mods" data-page-node-id="sGAw68DQz68swnwNDrbjOG">
-          <span data-page-node-id="19rFcH98uTcbrK36SCNPWo">团队管理</span><span data-page-node-id="ZO5JgizuDwt1lwFfFa3Skp">经营思维</span><span data-page-node-id="FEm4GPYS01wGLBbm2JfLx5">人才培养</span><span data-page-node-id="xEf0fD0dNPJg2uH4RNEWJM">行动学习</span>
-        </div>
+        
+        
+        
+        
+        
       </div>
     </div>
 
@@ -580,28 +426,14 @@
           <div class="icon" data-page-node-id="PApZqecEDcSlmBZP12TW0G"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="vFXmJ024Ds5Gg8tw0bGacp"><circle cx="12" cy="12" r="9" data-page-node-id="KuPA1BwklMkBiM9q5vLtxr"/><path d="M12 7 L12 12 L15.5 14" data-page-node-id="iLduzDfBDB9cbXTfPRPQX6"/></svg></div>
           <h4 data-page-node-id="DY1JgHdaAHOaKUIpnOyAMU">培训日常 · 每一天都在成长</h4>
         </div>
-        <div class="cb-body" data-page-node-id="NfEUIe8zp00l7jJmzUhvPg">
-          <ul class="cb-list" data-page-node-id="L6HFs4SCCrD2HNNG4MMlo8">
-            <li data-page-node-id="gxBdaHO2irE9jnygzCcKHo"><span class="dot" data-page-node-id="4W9vV2jX9qnnl0NXAtgXkE">晨</span><span data-page-node-id="d5p65lrHCNDWpHE4EJz1Hq"><b data-page-node-id="PjtEX4tdps3A93rymCZEIy">每日晨会演练（9:00-9:30）</b> — 各部门进行话术演练、案例分享与当日目标对齐，风雨无阻。</span></li>
-            <li data-page-node-id="pSDFwPNdsLAtS9J1TyeyfA"><span class="dot" data-page-node-id="Q4hM7vSepzjR9MioW5UAGD">周</span><span data-page-node-id="ClnikC4dOXeqRAmBMcCaH5"><b data-page-node-id="3aeISwRIJdVZZWGUPSPVor">每周案例复盘（周五）</b> — 复盘本周真实客户案例，成交与失败案例并重，沉淀方法论。</span></li>
-            <li data-page-node-id="FUoEc5MdGnJ3xTrnEm0eXH"><span class="dot" data-page-node-id="obUHWsFsVDPqJJlsi2fAdP">月</span><span data-page-node-id="9iNkkZqj6vMeZZmuVtNEAO"><b data-page-node-id="rMgj1b7AqgmS0t5Zs4FZH4">月度集中大课</b> — 商学院邀请银行客户经理、行业专家授课，解读最新政策与产品动态。</span></li>
-            <li data-page-node-id="K8BYV23egyZZblpccm03Pz"><span class="dot" data-page-node-id="7smpgbJ9iIHpTnZWei7Ji5">季</span><span data-page-node-id="KZ4MHPGtF0MGtyZxKoMvdm"><b data-page-node-id="AngpE379EVfj7K59e5SNpV">季度技能大比武</b> — 话术 PK、方案设计大赛、风控知识竞答，以赛代练激发学习热情。</span></li>
-          </ul>
-        </div>
+        
       </div>
       <div class="culture-box" data-page-node-id="0it34kbIsAARoOXEWwKEzj">
         <div class="cb-head" data-page-node-id="Z2ZOICPsLuxOUBrfFh4Ig5">
           <div class="icon" data-page-node-id="RburiC3RfvPT5PTS8tTY3r"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="Ku0xKSK0I5C1xnGXFdjBmZ"><circle cx="8.5" cy="7" r="3.5" data-page-node-id="RdsmLu85y9QenXXsMrSh6P"/><circle cx="16.5" cy="9" r="2.5" data-page-node-id="XmIRzv1SEcGPxQIkePfzT6"/><path d="M2.5 20 C2.5 16 5 14 8.5 14 C12 14 14.5 16 14.5 20" data-page-node-id="KWleyHiJlgALYxlI1ySA1S"/><path d="M14.5 15.5 C15 14.5 16 14 17.5 14 C20 14 21.5 15.5 21.5 18" data-page-node-id="bkF0AObnh04kU2Q5pjPzE4"/></svg></div>
           <h4 data-page-node-id="yO2HKIAY2OsmOKVvF2PpCh">传帮带 · 一对一师徒制</h4>
         </div>
-        <div class="cb-body" data-page-node-id="M4j5OYaoPkFr8iUVB0dU4C">
-          <ul class="cb-list" data-page-node-id="OqBWD854m3VADcFv5Ef450">
-            <li data-page-node-id="1opFbGEdREC0bNCGghJx4J"><span class="dot" data-page-node-id="QRGRxrQGASvTLKvENVOsKN">1</span><span data-page-node-id="kVyGptLHrbifjodysy0oUK"><b data-page-node-id="xAE9GVIv1ILIAGJreNyp0v">入职即配师傅</b> — 每位新人入职当天分配资深导师，签订师徒协议，成长责任到人。</span></li>
-            <li data-page-node-id="0RG03eBENDCoYGegRbU3qB"><span class="dot" data-page-node-id="o5U1ZSqJdCynh6yarkGfe6">2</span><span data-page-node-id="S6RJ7q8fqacYbMuqnbfAqH"><b data-page-node-id="JasMNxARZLUw6ITbSoy4Bg">陪访陪练</b> — 师傅带徒弟实地拜访客户、旁听谈判，现场示范、事后复盘。</span></li>
-            <li data-page-node-id="zKJAlfMoc1KDDTDoeygKBB"><span class="dot" data-page-node-id="VbMdBBen3RGX5GT21ZsWvZ">3</span><span data-page-node-id="K4zePXgWxSU5B684TZEYMf"><b data-page-node-id="T56q2JTwqrHNvXPd3xrQrf">双向考核</b> — 徒弟的成长速度计入师傅的带教积分，晋升答辩必含带教成果。</span></li>
-            <li data-page-node-id="y3QGmlFFx1bvwfrkpaGuhp"><span class="dot" data-page-node-id="B7o087T7IcDAOqclyFLlaX">4</span><span data-page-node-id="egvsOFEVa2EXIoqiLXxxG2"><b data-page-node-id="OzpdWLzX4JXylMF7PqwxFh">经验反哺</b> — 骨干晋升后须开发一门内训课程，让个人经验沉淀为组织能力。</span></li>
-          </ul>
-        </div>
+        
       </div>
     </div>
 
@@ -610,100 +442,26 @@
       <div class="culture-pill" data-page-node-id="7GmR0EdwhJQJMxdaG2TyGR">
         <div class="icon" data-page-node-id="C2p2UHSgkbG2JOpnGjfOb7"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="pjFPeHpSkXdfyXkvDUrNTO"><path d="M4 19 L4 10 M10 19 L10 5 M16 19 L16 13 M22 19 L22 8" stroke-linecap="round" data-page-node-id="5WOW8i7J5JbLQZM2DBKHfk"/></svg></div>
         <h5 data-page-node-id="3ILFpFPdjPJF4JTjGNASqL">以战代练</h5>
-        <p data-page-node-id="FWqftCpMvEk71RJCSIQwFN">课堂在一线，战场即课堂，所有能力靠实战喂出来</p>
+        
       </div>
       <div class="culture-pill" data-page-node-id="iGC3ZmkGH7lPIq5rVK7nFS">
         <div class="icon" data-page-node-id="rGRy88L0dxfZFzVHorJg6i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="QpnI47rlFO6UYDuh5mg7RA"><path d="M12 21 C7 17 3 13.5 3 9.5 C3 6.5 5.5 4 8.5 4 C10 4 11.3 4.7 12 5.8 C12.7 4.7 14 4 15.5 4 C18.5 4 21 6.5 21 9.5 C21 13.5 17 17 12 21 Z" data-page-node-id="M5PwL8ypwlCaZd2MT6XdrY"/></svg></div>
         <h5 data-page-node-id="FqnHEHWrwlp20D5EuvaM7L">薪火相传</h5>
-        <p data-page-node-id="tCK7puVg8FZQthOqdRPr17">每一代皓镧人都是徒弟，也终将成为别人的师傅</p>
+        
       </div>
       <div class="culture-pill" data-page-node-id="Z728impWjIswAHCmcpv1MN">
         <div class="icon" data-page-node-id="KnVxUoXEFgX6SLDB7mfMOP"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="hXd6bkV8Ln0qUrvg2aimLR"><path d="M12 3 L2 8 L12 13 L22 8 Z" data-page-node-id="rNftAyJCAHlSNNm1yG7gTq"/><path d="M5 10.5 L5 16 C5 18 8 20 12 20 C16 20 19 18 19 16 L19 10.5" data-page-node-id="iU1nPGHI2N5DMo8BJADvHN"/></svg></div>
         <h5 data-page-node-id="dGJS5xNVMtsFDHTUfxomkH">终身学习</h5>
-        <p data-page-node-id="89WYrU0pJ8r4sXOqfe0syl">从新人到管理层，培训贯穿职业全周期，永不下课</p>
+        
       </div>
       <div class="culture-pill" data-page-node-id="NMFTvVj0SlOq2eeWxwtSTA">
         <div class="icon" data-page-node-id="6NMAaZkbdzAc7RPHvIQypR"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="FfRI6b6Z91goFMmT8gteGD"><rect x="3" y="3" width="8" height="8" rx="1.5" data-page-node-id="GoNA2tq8Sxkf32Phd2TLco"/><rect x="13" y="3" width="8" height="8" rx="1.5" data-page-node-id="p46qm5X8Hnqcl6vAnqfvlj"/><rect x="3" y="13" width="8" height="8" rx="1.5" data-page-node-id="4lLVoo8ugJr6PeBt4EoZzU"/><rect x="13" y="13" width="8" height="8" rx="1.5" data-page-node-id="WVpEEQWYkB1w3LzsFdRH6v"/></svg></div>
         <h5 data-page-node-id="vS0zJgAy7EBCuyUtl2Swyt">成果导向</h5>
-        <p data-page-node-id="dIHgIe77DtZlVnt6H7vtYp">学习不谈虚的，业绩转化与晋升是唯一的成绩单</p>
+        
       </div>
     </div>
   </section>
 
-  <!-- ========================================== -->
-  <!-- 3. 常见问题 -->
-  <!-- ========================================== -->
-  <section id="faq" data-page-node-id="85XRIWsY5AB7QFTj2WTwAC">
-    <h2 class="sec-title" data-page-node-id="YukAmXzeJbMOfXzPMsSCzw">常见问题</h2>
-    <p class="sec-subtitle" data-page-node-id="iscEDVOaeECzjAeHVsxCGx">FAQ</p>
-    <p class="sec-desc" data-page-node-id="FJxbqH3bB322e8iRelBma0">关于皓镧商学院的课程安排、学习方式与成长路径，这里为您答疑解惑。</p>
-
-    <div class="faq-wrap" data-page-node-id="jyQri2l3ANnP8woDTnYwds">
-      <div class="faq-tabs" data-page-node-id="gRFApWXLFtGpv50YK7OuUU">
-        <div class="faq-tab active" data-group="g1" data-page-node-id="qSx0ioHyWmPAkGjf1U5GMn">课程学习</div>
-        <div class="faq-tab" data-group="g2" data-page-node-id="AqxQDtHSykhiLGsNVUXZEG">成长晋升</div>
-        <div class="faq-tab" data-group="g3" data-page-node-id="WCEfBDgtcXJIpCDxs4GRHp">讲师与讲师团</div>
-      </div>
-
-      <!-- 课程学习 -->
-      <div class="faq-group show" id="g1" data-page-node-id="WZ15jWwjlMI44b6zmgRqLA">
-        <details class="faq-item" open data-page-node-id="7YFlHGTJxGEjWMcmUVbvpf">
-          <summary data-page-node-id="Rg2BPytAsnjg4k5wUI3ZTO"><span class="q-mark" data-page-node-id="y4TLJXlSvUGP66E1B6P08V">Q</span>皓镧商学院的课程是否对全员开放？<span class="fold" data-page-node-id="xKdrZ16YFBdCNKNiWxNo1f">＋</span></summary>
-          <div class="faq-ans" data-page-node-id="MaRX1jfEem3YSZFUcvWoXI">是的。商学院课程面向全体员工开放，其中<b data-page-node-id="UHZNyhEflf722tA6A46UMN">「新鹰计划」为入职必修</b>，「菁英计划」「领航计划」按岗位层级选修。此外每月的公开大课（政策解读、行业趋势等）全员均可报名参加。</div>
-        </details>
-        <details class="faq-item" data-page-node-id="uSMY516UUXeiQuIxv94OCf">
-          <summary data-page-node-id="by3vRwQ1m0nNZcmrpp60Pf"><span class="q-mark" data-page-node-id="cUm981kMQgkeXAiBqPUeKR">Q</span>课程安排在什么时间？会影响正常工作吗？<span class="fold" data-page-node-id="w28iyCtQGyehjtKvPW7oBB">＋</span></summary>
-          <div class="faq-ans" data-page-node-id="gKYfBpPSR4BRHYe5CMPJqL">培训时间采用<b data-page-node-id="f1H004v5kQvdK5zt2BxvBu">"碎片 + 集中"结合</b>：晨会演练每天 30 分钟，案例复盘每周五 1 小时，均在部门内部完成；集中大课安排在每月末的半天，提前一周公布课表。整体设计以不影响业务为前提。</div>
-        </details>
-        <details class="faq-item" data-page-node-id="ZJfplqn9wPRo4MWfQ1E2Vr">
-          <summary data-page-node-id="n0V6ACMzFqhdaYDmuA9loQ"><span class="q-mark" data-page-node-id="Fgaua6uUNH1zWfz2Czfzmx">Q</span>入职培训需要考试吗？通不过怎么办？<span class="fold" data-page-node-id="yHRhokemmwd2rYYfIaiV3d">＋</span></summary>
-          <div class="faq-ans" data-page-node-id="2mzGwQYYO7tN6aXUZIPEra">「新鹰计划」结业需通过<b data-page-node-id="5d83I4mHWz4yeqILM13P1G">笔试（产品与合规知识）+ 实战演练（模拟接待）</b>双重考核。首次未通过可参加补考与复训，师傅会针对性辅导；连续两次未通过将延长试用期并制定专项提升计划。</div>
-        </details>
-        <details class="faq-item" data-page-node-id="0UjRR34kcp1GxOUHTVANXE">
-          <summary data-page-node-id="3qF99lxTwX1Xsc1093l3YH"><span class="q-mark" data-page-node-id="TLz8QBcI01ra9G1RaSX3Gw">Q</span>线上能学习吗？有回放吗？<span class="fold" data-page-node-id="qiubtTn1N3TgiETbHEgS6f">＋</span></summary>
-          <div class="faq-ans" data-page-node-id="bDM8G4E3zTMsxE87GiS0E8">可以。所有大课与部分内训课程均录制视频，上传至公司<b data-page-node-id="zENWfnkxrHkaznkt2QYZ2W">内网学习平台</b>，支持随时回看。外出展业或请假的同事可通过线上补课，学习记录纳入个人成长档案。</div>
-        </details>
-      </div>
-
-      <!-- 成长晋升 -->
-      <div class="faq-group" id="g2" data-page-node-id="VeDKhcR5Pkw3IxhnDGNLuf">
-        <details class="faq-item" data-page-node-id="yzk5G0LcbOys341scHPEEL">
-          <summary data-page-node-id="5NsHUHpVDjew0yrIRhTjSP"><span class="q-mark" data-page-node-id="vfD1uHBUrWdRrScVlaAfbA">Q</span>商学院的学习成果与晋升挂钩吗？<span class="fold" data-page-node-id="P6fFtxJQHFEYDrYDgCM839">＋</span></summary>
-          <div class="faq-ans" data-page-node-id="688YaqrTs0jPN2MZSTWgCf">挂钩。晋升答辩需提交<b data-page-node-id="dkXUkzhSOL8wK0mtgri5fB">商学院学时记录与考核成绩</b>，竞聘主管及以上岗位须完成对应层级的「领航计划」课程。目前管理层中 93% 均通过商学院体系完成能力储备。</div>
-        </details>
-        <details class="faq-item" data-page-node-id="LCBAFloH1DHc5CThMvhgCL">
-          <summary data-page-node-id="eidniOnuHl5gq3GO9BVKm6"><span class="q-mark" data-page-node-id="WQB67CNoPwkESuU0PR7oOp">Q</span>从新人到管理层，一般需要多长时间？<span class="fold" data-page-node-id="WMA5I3lI1VxqXJG4DjEvqH">＋</span></summary>
-          <div class="faq-ans" data-page-node-id="B2X6Ed2tta1BmhrGbBSA5F">因人而异，公司提供清晰的双通道路径：<b data-page-node-id="13BWDZJYrqYCf1XqZGBVAb">业务通道</b>（客户经理→高级→资深→专家）与<b data-page-node-id="ZEowN4Y5t4nlhvmoSVIbv0">管理通道</b>（主管→经理→总监）。表现优异者约 2 年可晋升主管，公司管理层中最快 4 年完成从新人到部门经理的跨越。</div>
-        </details>
-        <details class="faq-item" data-page-node-id="VOpVWgoW1OIXrL6G3tLCgK">
-          <summary data-page-node-id="arHCKnDEHZIaJqU17IBdKH"><span class="q-mark" data-page-node-id="GJuViq7LCBMR7sWeuGrU32">Q</span>跨部门转岗有培训支持吗？<span class="fold" data-page-node-id="v6AGVnVkqFJTdcGndF1dtR">＋</span></summary>
-          <div class="faq-ans" data-page-node-id="tzs6aVrHFNk71u7vZADRa0">有。员工申请转岗获批后，商学院将联合用人部门定制<b data-page-node-id="4M2CckpdhwzAIpWBEpXFOp">90 天转岗特训</b>（如互联网部诸晓奇经理的数字营销特训），包括目标岗位知识补齐、新师傅配对与阶段性考核，帮助平稳过渡。</div>
-        </details>
-        <details class="faq-item" data-page-node-id="lKCs468i75Z6EKQk3jQy61">
-          <summary data-page-node-id="hCA3KQ4QxyLxbjSn6bOEfu"><span class="q-mark" data-page-node-id="eBEFzjZ3Fy7I2v7sUhtxD9">Q</span>管培生项目是怎样的？<span class="fold" data-page-node-id="9TWWQ1lJOO8yj31cWoumir">＋</span></summary>
-          <div class="faq-ans" data-page-node-id="Hr4k7BDG8iWJReMF9P2uar">管培生面向应届毕业生，为期 12 个月：<b data-page-node-id="092PlvAJQAeGUhnBrzuu7k">前 3 个月轮岗</b>（业务、风控、行政各条线）→ <b data-page-node-id="zZLoIPpHguQ7N9mo9pVU8e">定岗培养</b>（双向选择）→ <b data-page-node-id="nEesItbsGWg1XMPeepau3T">1 对 1 高管导师</b>全程带教。首届管培生中已有 2 人在两年内晋升主管。</div>
-        </details>
-      </div>
-
-      <!-- 讲师与讲师团 -->
-      <div class="faq-group" id="g3" data-page-node-id="l7il3x7samKY5FMHq1DuVS">
-        <details class="faq-item" data-page-node-id="XpZg5VmO7zx79NZ0wtL3Fp">
-          <summary data-page-node-id="riQ2UGNkNvztfU3UKxl9CK"><span class="q-mark" data-page-node-id="ApQg5dD4gXwtoGlrtFU5ij">Q</span>商学院的讲师都是谁？<span class="fold" data-page-node-id="zCIlJRt3apVe7E7S5MCyxF">＋</span></summary>
-          <div class="faq-ans" data-page-node-id="AVGNP7W6PpBRQIPwTuAbNz">讲师由三部分构成：<b data-page-node-id="ERvIw3yv6ycHcAWnJyRHAl">内部认证讲师</b>（28 位，均为业绩突出的骨干与管理层，如刘法胜经理的《渠道谈判十二讲》）、<b data-page-node-id="OnCT9lFgdJOk3eA5SCcNQZ">外聘行业专家</b>（银行客户经理、律所合伙人、财税顾问）以及<b data-page-node-id="an9Lc8m3SckGd0ML7qx6w9">合作机构讲师</b>（合作银行的 产品经理定期来讲新产品）。</div>
-        </details>
-        <details class="faq-item" data-page-node-id="XROIxJbRJ4nuOBBMiRcgkS">
-          <summary data-page-node-id="ppidIsdRGWv4Hh8y8WozeB"><span class="q-mark" data-page-node-id="t90NIq0EUSudixLRzmtAlG">Q</span>如何成为内部讲师？有什么激励？<span class="fold" data-page-node-id="GcFpqDo8Y0fBlf9GvGvpAv">＋</span></summary>
-          <div class="faq-ans" data-page-node-id="X0YhCnh9n2FWigSHk1qLB2">晋升主管及以上、或业绩连续 3 个季度达标者可申请讲师认证，通过<b data-page-node-id="uEKSSaaECmkVqBvZE0GQLQ">试讲评审</b>后颁发聘书。激励包括：课酬津贴、讲师积分（可兑换福利与晋升加分）、年度金牌讲师评选，授课成果亦是晋升答辩的重要加分项。</div>
-        </details>
-        <details class="faq-item" data-page-node-id="39xIZvX0JbqdRoTgKMTvCj">
-          <summary data-page-node-id="6QxjqlM7uHwRGkctMQeWbE"><span class="q-mark" data-page-node-id="86ku8LDKB9jkxKLdHZ2kPj">Q</span>外部人员可以参加商学院课程吗？<span class="fold" data-page-node-id="NCxOVXduQAAm5UWFcpC260">＋</span></summary>
-          <div class="faq-ans" data-page-node-id="gogS8MR8QySE0TwzHupabb">目前商学院以<b data-page-node-id="MTxjkZTyoGtQdzmdpA3WmZ">内部人才培养为主</b>。部分面向渠道合作伙伴的公开课（如产品政策宣讲会）可通过渠道分销部预约参加；面向公众的金融知识科普内容，欢迎关注官网「政策解读」栏目与短视频专区。</div>
-        </details>
-      </div>
-
-      <p class="faq-more" data-page-node-id="dnycr44hUBHT3KH53CzC9B">还有其他疑问？欢迎通过「<a href="./contact.html" data-page-node-id="O9nLsAmi1HAfvYbrfAzUqC">联系我们</a>」留言，我们将尽快为您解答。</p>
-    </div>
-  </section>
 
 </main>
 
@@ -718,25 +476,13 @@
       <span class="lt" data-page-node-id="eBqWG1MFWS16rBlQVRZBOK">皓镧资产</span>
     </div>
     <div class="footer-info" data-page-node-id="V8jvnNKGwf9O8P5yz3E3vP">
-      <div data-page-node-id="MuKNpVBSyCpyaJx30oSaFS"><b data-page-node-id="lsGN97Pqg5om9faiVU74pO">联系电话：</b>010-8888 8888</div>
-      <div data-page-node-id="OJTUFWQd5CMhZ2uHoe1GIt"><b data-page-node-id="w9zK3M4h0h60a9Y2nIxyzL">邮箱：</b>hr@haolanzichan.cn</div>
-      <div data-page-node-id="493p1m2thTfZyHB8Z4uiwB"><b data-page-node-id="dfAVoemFG3EK4vuFxf1876">地址：</b>北京市朝阳区金融街 · 财富中心</div>
+      <div data-page-node-id="MuKNpVBSyCpyaJx30oSaFS"><b data-page-node-id="lsGN97Pqg5om9faiVU74pO">联系电话：</b>0762-3103909</div>
+      <div data-page-node-id="OJTUFWQd5CMhZ2uHoe1GIt"><b data-page-node-id="w9zK3M4h0h60a9Y2nIxyzL">邮箱：</b>865573331@qq.com</div>
+      <div data-page-node-id="493p1m2thTfZyHB8Z4uiwB"><b data-page-node-id="dfAVoemFG3EK4vuFxf1876">地址：</b>河源市源城区永康大道与红星东路交汇处时代国际中心17楼</div>
     </div>
   </div>
 </footer>
 
-<script>
-  // FAQ 分类切换
-  document.querySelectorAll('.faq-tab').forEach(function(tab) {
-    tab.addEventListener('click', function() {
-      document.querySelectorAll('.faq-tab').forEach(function(t) { t.classList.remove('active'); });
-      this.classList.add('active');
-      var g = this.getAttribute('data-group');
-      document.querySelectorAll('.faq-group').forEach(function(gr) {
-        gr.classList.toggle('show', gr.id === g);
-      });
-    });
-  });
-</script>
+
 </body>
 </html>

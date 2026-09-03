@@ -97,27 +97,8 @@
     padding: 24px 16px; text-align: center; transition: all .25s;
   }
   .job-stat:hover { border-color: var(--gold); box-shadow: 0 10px 24px rgba(184,148,31,0.12); transform: translateY(-4px); }
-  .job-stat .num {
-    font-family: "STSong",serif; font-size: 30px; font-weight: 700; color: var(--red); line-height: 1.2;
-  }
-  .job-stat .num em { font-style: normal; font-size: 14px; color: var(--muted); margin-left: 4px; }
-  .job-stat .label { font-size: 12px; color: var(--muted); letter-spacing: 3px; margin-top: 6px; }
-  .job-stat .sub { font-size: 11px; color: var(--gold-deep); margin-top: 2px; }
 
   /* ========== 1. 在招岗位 ========== */
-  .job-filter {
-    display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 36px;
-  }
-  .job-filter .fbtn {
-    font-size: 13px; letter-spacing: 2px; padding: 8px 20px; border-radius: 20px;
-    border: 1.5px solid var(--gold-soft); color: var(--muted); cursor: pointer;
-    background: #fff; transition: all .2s;
-  }
-  .job-filter .fbtn:hover { border-color: var(--gold); color: var(--gold-deep); }
-  .job-filter .fbtn.active {
-    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-deep) 100%);
-    border-color: transparent; color: #fff; font-weight: 600;
-  }
 
   .job-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
   .job-card {
@@ -130,56 +111,9 @@
   }
   .job-card:hover { border-color: var(--gold); box-shadow: 0 12px 30px rgba(184,148,31,0.13); transform: translateY(-4px); }
   .job-card:hover::before { opacity: 1; }
-  .job-card.hide { display: none; }
 
-  .job-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
-  .job-head h4 { font-size: 19px; font-weight: 700; color: var(--ink); font-family: "STSong","SimSun",serif; }
-  .job-head .tag {
-    flex-shrink: 0; font-size: 11px; letter-spacing: 1px; padding: 3px 12px; border-radius: 3px;
-    background: linear-gradient(135deg, var(--red), var(--red-deep)); color: #fff;
-  }
-  .job-head .tag.gold {
-    background: linear-gradient(135deg, var(--gold), var(--gold-deep));
-  }
-  .job-meta { display: flex; gap: 16px; font-size: 12px; color: var(--muted); margin-bottom: 14px; flex-wrap: wrap; }
-  .job-meta span { display: inline-flex; align-items: center; gap: 5px; }
-  .job-meta svg { width: 14px; height: 14px; color: var(--gold-deep); }
-  .job-salary {
-    display: flex; align-items: baseline; gap: 6px; margin-bottom: 14px;
-    padding-bottom: 14px; border-bottom: 1px dashed var(--line);
-  }
-  .job-salary .mon { font-family: "STSong",serif; font-size: 26px; font-weight: 700; color: var(--red); line-height: 1; }
-  .job-salary .tip { font-size: 11px; color: var(--muted); }
-  .job-duty { font-size: 13px; color: var(--muted); line-height: 1.9; margin-bottom: 16px; }
-  .job-duty b { color: var(--ink); font-weight: 600; }
-  .job-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
-  .job-tags .jt {
-    font-size: 11px; color: var(--gold-deep); background: var(--bg-soft);
-    border: 1px solid var(--gold-soft); border-radius: 14px; padding: 3px 12px;
-  }
-  .job-apply {
-    display: flex; align-items: center; justify-content: space-between; gap: 12px;
-  }
-  .job-apply .dept { font-size: 11.5px; color: var(--muted); }
-  .job-apply .dept b { color: var(--gold-deep); font-weight: 600; }
-  .job-apply .go {
-    display: inline-block; font-size: 13px; letter-spacing: 2px; color: #fff;
-    background: linear-gradient(135deg, var(--gold), var(--gold-deep));
-    border-radius: 20px; padding: 7px 22px; transition: all .2s;
-  }
-  .job-apply .go:hover { box-shadow: 0 6px 18px rgba(184,148,31,0.4); transform: translateY(-1px); }
 
   /* 投递提示条 */
-  .apply-bar {
-    margin-top: 36px; display: flex; align-items: center; gap: 18px;
-    border: 1.5px dashed var(--gold); border-radius: 10px;
-    background: linear-gradient(135deg, var(--bg-soft) 0%, #fff 100%);
-    padding: 20px 28px;
-  }
-  .apply-bar .icon { flex-shrink: 0; width: 44px; height: 44px; color: var(--gold-deep); }
-  .apply-bar .icon svg { width: 44px; height: 44px; }
-  .apply-bar .txt { flex: 1; font-size: 13px; color: var(--muted); line-height: 1.8; }
-  .apply-bar .txt b { color: var(--ink); }
 
   /* ========== 2. 晋升体系 ========== */
   .dual-track {
@@ -205,37 +139,8 @@
     display: flex; align-items: center; justify-content: center; flex-shrink: 0;
   }
   .track-head .ticon svg { width: 26px; height: 26px; color: #fff; }
-  .track-head h4 { font-size: 18px; font-weight: 700; letter-spacing: 3px; font-family: "STSong","SimSun",serif; }
-  .track-head p { font-size: 11.5px; opacity: 0.85; letter-spacing: 1px; }
-  .track-body { padding: 24px 26px 28px; }
 
   /* 晋升阶梯 */
-  .ladder { position: relative; padding-left: 34px; }
-  .ladder::before {
-    content: ""; position: absolute; left: 10px; top: 8px; bottom: 8px; width: 2px;
-    background: repeating-linear-gradient(180deg, var(--gold-soft) 0 6px, transparent 6px 12px);
-  }
-  .ladder-step { position: relative; padding: 10px 0 18px; }
-  .ladder-step:last-child { padding-bottom: 0; }
-  .ladder-step::before {
-    content: ""; position: absolute; left: -26px; top: 18px;
-    width: 12px; height: 12px; border-radius: 50%;
-    background: #fff; border: 3px solid var(--gold);
-  }
-  .ladder-step.hot::before { background: var(--gold); box-shadow: 0 0 0 5px rgba(201,169,97,0.18); }
-  .ladder-step .lv {
-    font-size: 15px; font-weight: 700; color: var(--ink); letter-spacing: 1px;
-    display: flex; align-items: center; gap: 8px;
-  }
-  .ladder-step .lv .badge {
-    font-size: 10px; font-weight: 400; letter-spacing: 1px; padding: 2px 10px; border-radius: 10px;
-    background: linear-gradient(135deg, var(--red), var(--red-deep)); color: #fff;
-  }
-  .ladder-step .lv .badge.gold {
-    background: linear-gradient(135deg, var(--gold), var(--gold-deep));
-  }
-  .ladder-step .duty { font-size: 12.5px; color: var(--muted); line-height: 1.8; margin-top: 4px; }
-  .ladder-step .duty b { color: var(--gold-deep); font-weight: 600; }
 
   /* 晋升机制三卡 */
   .promo-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 40px; }
@@ -250,9 +155,6 @@
     background: var(--bg-soft); border: 1.5px solid var(--gold-soft); color: var(--gold-deep);
   }
   .promo-card .p-icon svg { width: 26px; height: 26px; }
-  .promo-card h4 { font-size: 16px; font-weight: 700; color: var(--ink); letter-spacing: 2px; margin-bottom: 8px; }
-  .promo-card p { font-size: 12.5px; color: var(--muted); line-height: 1.9; }
-  .promo-card p b { color: var(--red); font-weight: 600; }
 
   /* 晋升数据条 */
   .promo-strip {
@@ -262,9 +164,6 @@
     border: 1px solid var(--gold-soft); border-radius: 10px; background: var(--bg-soft);
     padding: 20px 16px; text-align: center;
   }
-  .p-strip .num { font-family: "STSong",serif; font-size: 26px; font-weight: 700; color: var(--gold-deep); line-height: 1.2; }
-  .p-strip .num em { font-style: normal; font-size: 13px; color: var(--muted); }
-  .p-strip .label { font-size: 11.5px; color: var(--muted); letter-spacing: 2px; margin-top: 4px; }
 
   /* ========== 3. 薪资福利 ========== */
   /* 薪酬构成 */
@@ -287,8 +186,6 @@
     background: var(--bg-soft); border: 1.5px solid var(--gold-soft); color: var(--gold-deep);
   }
   .comp-item .c-icon svg { width: 22px; height: 22px; }
-  .comp-item h4 { font-size: 14px; font-weight: 700; color: var(--ink); letter-spacing: 1px; margin-bottom: 4px; }
-  .comp-item p { font-size: 11.5px; color: var(--muted); }
 
   /* 福利网格 */
   .benefit-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 40px; }
@@ -304,40 +201,8 @@
     border: 1px solid var(--gold-soft); color: var(--gold-deep);
   }
   .benefit-card .b-icon svg { width: 24px; height: 24px; }
-  .benefit-card h4 { font-size: 14.5px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
-  .benefit-card p { font-size: 12px; color: var(--muted); line-height: 1.8; }
 
   /* 投递 CTA */
-  .join-cta {
-    display: grid; grid-template-columns: 1.3fr 1fr; gap: 28px;
-  }
-  .cta-box {
-    border: 1.5px solid var(--gold-soft); border-radius: 12px; padding: 32px 34px;
-    transition: all .25s;
-  }
-  .cta-box:hover { border-color: var(--gold); box-shadow: 0 12px 30px rgba(184,148,31,0.12); }
-  .cta-box.mail { background: linear-gradient(135deg, #2C2C2C 0%, #1A1A1A 100%); color: #fff; }
-  .cta-box h4 { font-size: 18px; font-weight: 700; letter-spacing: 3px; margin-bottom: 10px; font-family: "STSong","SimSun",serif; }
-  .cta-box p { font-size: 13px; line-height: 1.9; }
-  .cta-box.mail p { color: rgba(255,255,255,0.75); }
-  .cta-box p b { color: var(--gold); font-weight: 600; }
-  .cta-box .mail-line {
-    display: flex; align-items: center; gap: 10px; margin-top: 16px;
-    background: rgba(255,255,255,0.08); border: 1px solid rgba(201,169,97,0.4);
-    border-radius: 8px; padding: 12px 18px; font-size: 15px; letter-spacing: 1px;
-  }
-  .cta-box .mail-line svg { width: 18px; height: 18px; color: var(--gold); flex-shrink: 0; }
-  .cta-box .mail-line span { color: var(--gold); font-weight: 600; }
-  .cta-box .steps { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
-  .cta-box .step { display: flex; gap: 12px; align-items: flex-start; }
-  .cta-box .step .no {
-    flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%;
-    background: linear-gradient(135deg, var(--gold), var(--gold-deep)); color: #fff;
-    font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center;
-    font-family: "STSong",serif;
-  }
-  .cta-box .step .t { font-size: 13px; color: var(--muted); line-height: 1.7; }
-  .cta-box .step .t b { color: var(--ink); }
 
   /* ========== 页脚 ========== */
   .footer {
@@ -361,7 +226,6 @@
     .promo-cards { grid-template-columns: repeat(2, 1fr); }
     .comp-strip { grid-template-columns: repeat(3, 1fr); }
     .benefit-grid { grid-template-columns: repeat(2, 1fr); }
-    .join-cta { grid-template-columns: 1fr; }
   }
   @media (max-width: 760px) {
     .job-grid { grid-template-columns: 1fr; }
@@ -377,8 +241,6 @@
     main { padding: 40px 20px; }
     .page-banner { padding: 40px 20px 36px; }
     .page-banner h1 { font-size: 28px; letter-spacing: 5px; }
-    .apply-bar { flex-direction: column; text-align: center; }
-    .cta-box { padding: 24px 20px; }
   }
 
   /* ========== 手机端通用优化（追加） ========== */
@@ -389,6 +251,19 @@
     .nav { padding: 10px 0; }
     .topbar-inner { padding: 0 16px; gap: 12px; }
   }
+
+  /* ========== 卡片清空后布局补丁（2026-09-03） ========== */
+  .job-stat { display: flex; align-items: center; justify-content: center; min-height: 110px; }
+  .job-card { min-height: 200px; }
+  .p-strip { display: flex; align-items: center; justify-content: center; min-height: 90px; }
+  .track-card { min-height: 190px; }
+  .track-head { justify-content: center; gap: 0; }
+  .promo-card { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 150px; }
+  .promo-card .p-icon { margin: 0; }
+  .comp-item { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 150px; }
+  .comp-item .c-icon { margin: 0; }
+  .benefit-card { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 150px; }
+  .benefit-card .b-icon { margin: 0; }
 </style>
 </head>
 <body data-page-node-id="6S83d9W3cR9GBsT3P0QNwc">
@@ -436,388 +311,61 @@
 
     <div class="job-stats" data-page-node-id="thT1XFqahrINTNTWMo6seB">
       <div class="job-stat" data-page-node-id="XDFCkCEQCrXFQ9I6hcCbf9">
-        <div class="num" data-page-node-id="HIURHWutsYO6ZFlQX7r8YG">22<em data-page-node-id="JoSOsgkswNVOTQN6WlQXbm">名</em></div>
-        <div class="label" data-page-node-id="A9EmlVIt8XQA4tgbwyoKAG">当前招聘名额</div>
-        <div class="sub" data-page-node-id="QnAg55G7SdJowUNutGpaJx">覆盖 6 大序列</div>
+        
+        
+        
       </div>
       <div class="job-stat" data-page-node-id="Q5pBHq4mOR8yxxx7rQpknx">
-        <div class="num" data-page-node-id="v3XD8NXEj39XBkHGKW3IJy">8<em data-page-node-id="B7v4NYjjL4hdMDDTZV8hAa">个</em></div>
-        <div class="label" data-page-node-id="i3Tull3QAD4FRdHC2UtXEY">在招岗位</div>
-        <div class="sub" data-page-node-id="0sciS4PrktZfmATFCBXu8t">营销 · 商务 · 渠道</div>
+        
+        
+        
       </div>
       <div class="job-stat" data-page-node-id="0TT9cKzyucPOXYQcVizaEG">
-        <div class="num" data-page-node-id="NwffvUNBjv3mDzECuSsGTm">180<em data-page-node-id="7QJv9leACNFIFN7T46fLcD">人</em></div>
-        <div class="label" data-page-node-id="rDPCLDzI6EDYE8CtOWAGd4">团队规模</div>
-        <div class="sub" data-page-node-id="XQQK3wMlSECvcr9EM4KyxZ">全司在职员工</div>
+        
+        
+        
       </div>
       <div class="job-stat" data-page-node-id="LjT8BRwQMlZzyri1cJ2SGn">
-        <div class="num" data-page-node-id="0l59f5Uv56FpPjU6qzjg8f">93<em data-page-node-id="JuIbFi3BtfsNiKRC6MQfRW">%</em></div>
-        <div class="label" data-page-node-id="OolpDOG0epkMOZuHq2w8bs">晋升转化率</div>
-        <div class="sub" data-page-node-id="FZ4JadBLsUIyISBc7IdBKp">内部晋升优先</div>
+        
+        
+        
       </div>
     </div>
 
-    <div class="job-filter" id="jobFilter" data-page-node-id="i3T8XrNPPo8VhxJYOlozx0">
-      <button class="fbtn active" data-cat="all" data-page-node-id="9oRHa9KB3hqqWcuWVagpCA">全部岗位</button>
-      <button class="fbtn" data-cat="sales" data-page-node-id="Unls676D4JFydTC974yBYA">营销序列</button>
-      <button class="fbtn" data-cat="nego" data-page-node-id="w3GVMQHhIGYAjHvXpyVL6G">商务谈判</button>
-      <button class="fbtn" data-cat="channel" data-page-node-id="LY1tqnp2sISDO4VUQvJYQS">渠道分销</button>
-      <button class="fbtn" data-cat="risk" data-page-node-id="3lZlK5jLrzRMBpjGqYqBAq">风控售后</button>
-      <button class="fbtn" data-cat="internet" data-page-node-id="zKrveX9kymvNZqLCZJwn8S">互联网</button>
-      <button class="fbtn" data-cat="office" data-page-node-id="o9njsoOXKq9sYuE3VX58SG">职能支持</button>
-    </div>
+    
 
     <div class="job-grid" id="jobGrid" data-page-node-id="hxoO9nBdbwBsa55ZFg3yvJ">
 
-      <!-- 营销序列 -->
-      <div class="job-card" data-cat="sales" data-page-node-id="P9S45NhAXZmoaO8R74kaYS">
-        <div class="job-head" data-page-node-id="auTCfukgCnKwpbBduMeVtw">
-          <h4 data-page-node-id="ihDZSFuVJP9ZN72w7VJBkS">融资顾问</h4>
-          <span class="tag" data-page-node-id="FZPQsxeoMPsEp2JUmRxeEp">热招</span>
-        </div>
-        <div class="job-meta" data-page-node-id="gHqSQ5ghHUT9I0CCma0Hln">
-          <span data-page-node-id="WFrgAxfbH33YwVSK99gKGf">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="CikWzXjYCbWqmBmRPjesme"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z" data-page-node-id="plecpf0cX0LGhYrFk1Tq2X"/><circle cx="12" cy="10" r="2.5" data-page-node-id="txqHOYPsYyxqi3xJ2xUvvl"/></svg>
-            北京市朝阳区
-          </span>
-          <span data-page-node-id="MXeRg0GRMDsLkYnZrmhPyZ">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="omxth1Vv00gTwVemF9eZq6"><rect x="3" y="5" width="18" height="14" rx="2" data-page-node-id="pWC3AyDrsMMVPmDg7SkTRw"/><path d="M3 9h18M8 5v14" data-page-node-id="CSPYOkFSrW9wyVuB566HVH"/></svg>
-            营销部
-          </span>
-          <span data-page-node-id="9SbziYfmUGRZeYaXJlNDNB">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="ABw8MGf3yKxJq17AmjxKNP"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" data-page-node-id="T6I402U3PYLDGT7O9CKj6b"/><circle cx="9" cy="7" r="4" data-page-node-id="XZBcifl3Khg30niCYaHe2F"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" data-page-node-id="rYVvRmzgaVzpji4hZnYva7"/></svg>
-            招聘 8 名
-          </span>
-        </div>
-        <div class="job-salary" data-page-node-id="vBydU7oFAJBXzftHnGtS7S">
-          <span class="mon" data-page-node-id="ju6Cc46Wdm64xYAXpCxS6N">8K–20K</span>
-          <span class="tip" data-page-node-id="HVvPZmx6Ku9ZUdGlPuw0GT">底薪 + 提成，上不封顶</span>
-        </div>
-        <div class="job-duty" data-page-node-id="I7PnmYlQly1l3h0nHArYnx">
-          <b data-page-node-id="NauyXXohbBLLfGQYIQMR6v">岗位职责：</b>为客户提供融资方案咨询，匹配银行及机构产品，跟进贷款全流程，维护客户关系。
-        </div>
-        <div class="job-tags" data-page-node-id="BwBEZi1TgpMDvDkJogt6XZ">
-          <span class="jt" data-page-node-id="qsHBCDJMUtd1mDGrKBGIIm">经验不限</span>
-          <span class="jt" data-page-node-id="otaiQjGWwWYKPsmKmn8nZQ">大专及以上</span>
-          <span class="jt" data-page-node-id="uGTVQEqxH9HcwQzXrSRPGr">带薪培训</span>
-        </div>
-        <div class="job-apply" data-page-node-id="YxEEFkCKJ4014bNifNEDWv">
-          <span class="dept" data-page-node-id="3DmCipoQ1Ml5XJRw7isUmI">直管：<b data-page-node-id="gzGpXGqvZjIOZy3la8S7fk">营销部 · 龚韬凡</b></span>
-          <a class="go" href="mailto:hr@haolanzichan.cn" data-page-node-id="BWp4D3Ggz0wgQTrDkC3rzN">投递简历</a>
-        </div>
+            <div class="job-card" data-cat="sales" data-page-node-id="P9S45NhAXZmoaO8R74kaYS">
       </div>
 
       <div class="job-card" data-cat="sales" data-page-node-id="MlQ5EZfpxVQtqpRfaLF5oI">
-        <div class="job-head" data-page-node-id="wgsaugAAfhw0UsmlDRxznS">
-          <h4 data-page-node-id="us5ZofHNXXwhCGsUE8pa3d">大客户经理</h4>
-          <span class="tag gold" data-page-node-id="qfOzxOr2mUrmqdrusDERHR">急聘</span>
-        </div>
-        <div class="job-meta" data-page-node-id="a5imJ1eyGHTFZMV02aq2ad">
-          <span data-page-node-id="NKFWryNJgTv04D6Y1R1DYu">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="hSxz8SvsV7Mrhe09yc28Fy"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z" data-page-node-id="qWTfGw17Bgpcl6nJ8Nrbdz"/><circle cx="12" cy="10" r="2.5" data-page-node-id="aAxbqpF8awzNwTp6eLaRxX"/></svg>
-            北京市朝阳区
-          </span>
-          <span data-page-node-id="X1LNnW0CFI7TndvSKUolp4">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="AxFjCR6qxzsWAlQElwdqvn"><rect x="3" y="5" width="18" height="14" rx="2" data-page-node-id="34Q5btieEEykXnJ52iqZ1L"/><path d="M3 9h18M8 5v14" data-page-node-id="zJmFKYGl8pHzgXTnvNaQbf"/></svg>
-            营销部
-          </span>
-          <span data-page-node-id="s52Z6IRcGVzu4OjjJ2bN1h">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="fyB0RawhBSL2fACc0QuAPg"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" data-page-node-id="Iiy980vjoKK3eVtJNv1LQs"/><circle cx="9" cy="7" r="4" data-page-node-id="gSwuiGNwb0AZlmHpDlN2qv"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" data-page-node-id="e2c4jVe92BwTkDIPRzxlYK"/></svg>
-            招聘 3 名
-          </span>
-        </div>
-        <div class="job-salary" data-page-node-id="Cd4SqFKxl4ddSGVJ7hQtWJ">
-          <span class="mon" data-page-node-id="G2E2myDZClUKLR0JRfj3L4">15K–35K</span>
-          <span class="tip" data-page-node-id="WQfqFrDCaR9NfOz7nqiyPe">含项目提成与年终奖金</span>
-        </div>
-        <div class="job-duty" data-page-node-id="oUsWqXYU81GVFO464p7C89">
-          <b data-page-node-id="OXxTumACpHQQYkTLAJ02CA">岗位职责：</b>负责千万级大额融资项目全案跟进，统筹尽调材料与机构对接，带领小组完成业绩目标。
-        </div>
-        <div class="job-tags" data-page-node-id="3tsFj5qW6K4X3B3NF0ctSv">
-          <span class="jt" data-page-node-id="V3TtEQHbfi0noOZocnsGoR">3 年以上经验</span>
-          <span class="jt" data-page-node-id="qRLuPgYwCV8s7nyDuAFkQA">本科及以上</span>
-          <span class="jt" data-page-node-id="ZjIHMEJWrQz19DFNl4zNOy">团队带队</span>
-        </div>
-        <div class="job-apply" data-page-node-id="uZXx8OtMtHDBHAxGxD1P6K">
-          <span class="dept" data-page-node-id="Qrr1iHs07aWcGoxMWYDfDq">直管：<b data-page-node-id="Pzjcbu32OL3ONrp7OcxFHO">营销部 · 龚韬凡</b></span>
-          <a class="go" href="mailto:hr@haolanzichan.cn" data-page-node-id="Nlt4kU3R8VDt7rCTkQO1Yr">投递简历</a>
-        </div>
       </div>
 
-      <!-- 商务谈判 -->
-      <div class="job-card" data-cat="nego" data-page-node-id="5ZmoFv7aq2RVq3gHpc1I4x">
-        <div class="job-head" data-page-node-id="RKbYzd7oHOkBGmvqZYP41j">
-          <h4 data-page-node-id="4R0Fqmo6LDBgf81DKFlMAc">商务谈判专员</h4>
-          <span class="tag" data-page-node-id="zAeyZTC0IY17ZjSf6JioC7">热招</span>
-        </div>
-        <div class="job-meta" data-page-node-id="dOvEinVnc9MwPUwojGdxcN">
-          <span data-page-node-id="TFM22Ku5USxSoaLpiXdqoB">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="24JnxvnaVdAsGdWgRGQlrE"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z" data-page-node-id="VdmEfoNsc5htyYhavH1s9o"/><circle cx="12" cy="10" r="2.5" data-page-node-id="rTJFS1dEP6dWyRAsEEeKZZ"/></svg>
-            北京市朝阳区
-          </span>
-          <span data-page-node-id="MjMpz2yKr09vrQUsUBDdOk">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="r6rwxCX7qcrt3OmeNscJry"><rect x="3" y="5" width="18" height="14" rx="2" data-page-node-id="eULGhK77p2rgmywEBCxHcK"/><path d="M3 9h18M8 5v14" data-page-node-id="BrMpfmh0TlESDRVsbDNOE3"/></svg>
-            商务谈判部
-          </span>
-          <span data-page-node-id="Ha2BsCBHifANXx8BtZc17D">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="wcNRWrbJLSGke7rkZNJUpP"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" data-page-node-id="GJRLmayQyznvXJtnlbOUKX"/><circle cx="9" cy="7" r="4" data-page-node-id="mMt3cC8g9BICw8OmhHCYDV"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" data-page-node-id="p63MFVqmh11x77lLSYejbh"/></svg>
-            招聘 2 名
-          </span>
-        </div>
-        <div class="job-salary" data-page-node-id="C0DCD9yDuU7R9VF5XpHa6v">
-          <span class="mon" data-page-node-id="daSyBkxi5PDbOf3A7eZcdA">8K–18K</span>
-          <span class="tip" data-page-node-id="jGEi69PstDnwAzhaANUu6F">底薪 + 谈判奖金</span>
-        </div>
-        <div class="job-duty" data-page-node-id="DHzfjXwHfbwnZIQMOVVO3S">
-          <b data-page-node-id="YkC2nRfYOnTbULR7MwKC9F">岗位职责：</b>负责与合作渠道及资方的商务洽谈，起草与复核协议条款，把控合作节奏与合规要点。
-        </div>
-        <div class="job-tags" data-page-node-id="wzIYFnbB3G7lGhyNI6tBzH">
-          <span class="jt" data-page-node-id="AGQ3zUwVBd4DXwYPjRhNew">经验不限</span>
-          <span class="jt" data-page-node-id="4pUYtaLAhyAqQXbmyvtlmR">大专及以上</span>
-          <span class="jt" data-page-node-id="4lo5nqY0jnlqTeGiKewCAX">沟通力强</span>
-        </div>
-        <div class="job-apply" data-page-node-id="6AkaaB54aD8iTviprUJJcM">
-          <span class="dept" data-page-node-id="T7g0Ecsu23Bal7uNVMSGWw">直管：<b data-page-node-id="5DMQ9y2tBSsNJRtDboLi0c">商务谈判部 · 李朗</b></span>
-          <a class="go" href="mailto:hr@haolanzichan.cn" data-page-node-id="0rVcEcgzCt2ij1I9IHcUP5">投递简历</a>
-        </div>
+            <div class="job-card" data-cat="nego" data-page-node-id="5ZmoFv7aq2RVq3gHpc1I4x">
       </div>
 
-      <!-- 渠道分销 -->
-      <div class="job-card" data-cat="channel" data-page-node-id="oyNqVF7pSROYXIH2HeDbcc">
-        <div class="job-head" data-page-node-id="zRghECtMfF1wukOEbhBRWu">
-          <h4 data-page-node-id="CNz753cT3Wen5APTK8Zeph">渠道分销经理</h4>
-          <span class="tag" data-page-node-id="Jh0C6BKl9N5E1EfHYbRfC4">热招</span>
-        </div>
-        <div class="job-meta" data-page-node-id="90IImgseKrpxMHr93AXRCI">
-          <span data-page-node-id="innAruvoxY8WzXRnZWQjfO">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="dHcPwKh1Cq3cuA68r4zV5Z"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z" data-page-node-id="NIK9voUiRMC9165Ro8fQas"/><circle cx="12" cy="10" r="2.5" data-page-node-id="mB6wm9VpXrOy1M4kkBYxaq"/></svg>
-            北京市朝阳区
-          </span>
-          <span data-page-node-id="yXn5lM4oa3NqJygeDsVzGK">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="sZEZ8PwU2IBcfnBk26sgpY"><rect x="3" y="5" width="18" height="14" rx="2" data-page-node-id="ZUpqxdXAUdIxDJBtMGdVew"/><path d="M3 9h18M8 5v14" data-page-node-id="d9HGXcWdE1xeGQN7GGdaHp"/></svg>
-            渠道分销部
-          </span>
-          <span data-page-node-id="wnpv7cndL9MFAj8W3CGJ6p">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="VfsmE0v2W2WvVWDIGODtme"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" data-page-node-id="WqGzpeWbc8kv9HQXgOrST0"/><circle cx="9" cy="7" r="4" data-page-node-id="ALkOiG5HvfNFWJCXa4zsn0"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" data-page-node-id="LABhU98WOu3GcnAUpwUXXL"/></svg>
-            招聘 2 名
-          </span>
-        </div>
-        <div class="job-salary" data-page-node-id="cmwSoJ6nFfVeFq1iyUlBtj">
-          <span class="mon" data-page-node-id="9kP5QbnJoDS7sopFWBsGMY">10K–25K</span>
-          <span class="tip" data-page-node-id="3INCqa3iAD9QhTYq3D2Scc">底薪 + 渠道分成</span>
-        </div>
-        <div class="job-duty" data-page-node-id="MnsmaHBkcgjIkptzKjldg6">
-          <b data-page-node-id="pBptuIHAWzlC2OKFt6n6Pf">岗位职责：</b>拓展银行与中介分销渠道，制定渠道激励政策，维护渠道关系并推动成单转化。
-        </div>
-        <div class="job-tags" data-page-node-id="ttm8YsStP9pi9hnzhRSpD0">
-          <span class="jt" data-page-node-id="XEQjtzmSz3hB85SPGJBGyH">2 年以上经验</span>
-          <span class="jt" data-page-node-id="e7aU3wuMvDnLqxNjSeAnJE">大专及以上</span>
-          <span class="jt" data-page-node-id="M56Hm7JQPlsTAOLdyWNOFF">渠道资源优先</span>
-        </div>
-        <div class="job-apply" data-page-node-id="bbJ7mjJMQP2XPRBHdPYn9Q">
-          <span class="dept" data-page-node-id="RibrcCto6lzXuzAulIktAj">直管：<b data-page-node-id="o3Tj2YDODHjyWdROO0N4RX">渠道分销部 · 刘法胜</b></span>
-          <a class="go" href="mailto:hr@haolanzichan.cn" data-page-node-id="HgTuwELIdrc3Iq3DcOI8hP">投递简历</a>
-        </div>
+            <div class="job-card" data-cat="channel" data-page-node-id="oyNqVF7pSROYXIH2HeDbcc">
       </div>
 
-      <!-- 风控售后 -->
-      <div class="job-card" data-cat="risk" data-page-node-id="mBuYhQfQ19yn1i0boxgzDf">
-        <div class="job-head" data-page-node-id="lIsd0apQ6grmi4TSJvbBKO">
-          <h4 data-page-node-id="Ld1X2XMeM4zZkc714pqa4x">风控审核专员</h4>
-          <span class="tag gold" data-page-node-id="HChoYs72Xw4Sjw1nuAnrw9">急聘</span>
-        </div>
-        <div class="job-meta" data-page-node-id="IEOZuKyNbdClH04bLg43fD">
-          <span data-page-node-id="tHJ6dHzG6MjNbRChvGtkrI">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="XTjsWwkqrgboxSc0Gbtoso"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z" data-page-node-id="UEDHDtCRmElD1IVZM7ZZhZ"/><circle cx="12" cy="10" r="2.5" data-page-node-id="K0RdvIRgcTlyPNWQFzn0BO"/></svg>
-            北京市朝阳区
-          </span>
-          <span data-page-node-id="ZPjKEXummTR0EvvAQeIUTt">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="7dlYyPilF5zFYfGyYObX13"><rect x="3" y="5" width="18" height="14" rx="2" data-page-node-id="bpFM8PVUCGRJqzQ8cOr6YO"/><path d="M3 9h18M8 5v14" data-page-node-id="CUSYdiHTuVVk7l2mLd3dyK"/></svg>
-            风控/售后部
-          </span>
-          <span data-page-node-id="HrlxJvL0S7ZCOzcQCrmaoQ">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="3nOYgF2IiMOavXAUtbBB14"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" data-page-node-id="IDr5a1fv1zcqZRqLvuHa37"/><circle cx="9" cy="7" r="4" data-page-node-id="NDBMV1Oy5UcVrbsCg4tWuy"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" data-page-node-id="Zzp5O0PXenHyJYhfnUj5jg"/></svg>
-            招聘 2 名
-          </span>
-        </div>
-        <div class="job-salary" data-page-node-id="Jfa4CP0GsEhDT3uPtHOGCJ">
-          <span class="mon" data-page-node-id="qotaF8o69b0KBuFwG0KN6C">9K–16K</span>
-          <span class="tip" data-page-node-id="0EEmWMHOP3y2Dbdy4fwESr">含风险控制专项奖金</span>
-        </div>
-        <div class="job-duty" data-page-node-id="EDIIG4cAUfxEGo4Hl3ZK9R">
-          <b data-page-node-id="AmgSAsI4UN0ND2OzHIC0Bw">岗位职责：</b>审核贷款申请材料与抵押物资质，评估客户信用风险，出具合规审查意见并跟进贷后管理。
-        </div>
-        <div class="job-tags" data-page-node-id="CBnGwR63fCZaRpy3uoQoYT">
-          <span class="jt" data-page-node-id="1vj7ZlvTGxDJf1wzxVZQro">经验不限</span>
-          <span class="jt" data-page-node-id="lFtF7S1pIvFGxJ4GvaVSPG">本科及以上</span>
-          <span class="jt" data-page-node-id="gR2V98wYYXRVbfG12zk2SN">金融/法学优先</span>
-        </div>
-        <div class="job-apply" data-page-node-id="Qp43bGimS5B7N9HmTT1FED">
-          <span class="dept" data-page-node-id="BxBE8FcZAQYY2Nwl9mtv36">直管：<b data-page-node-id="h5Ypm8Fs0kEtOEeRPwKjwU">风控/售后部 · 廖经勋</b></span>
-          <a class="go" href="mailto:hr@haolanzichan.cn" data-page-node-id="d1lBGnMRAP1RbY7TQtPf6J">投递简历</a>
-        </div>
+            <div class="job-card" data-cat="risk" data-page-node-id="mBuYhQfQ19yn1i0boxgzDf">
       </div>
 
-      <!-- 互联网 -->
-      <div class="job-card" data-cat="internet" data-page-node-id="e1hgpCwUawZazqocqV4SMN">
-        <div class="job-head" data-page-node-id="nTiC9UilKBDSPZffcvjyOM">
-          <h4 data-page-node-id="3gsx0pWOxHhtnE8lZ1kKSg">短视频运营</h4>
-          <span class="tag" data-page-node-id="b8KUeBDCmmCUG5XuaiktSm">热招</span>
-        </div>
-        <div class="job-meta" data-page-node-id="OEGljF5wPOousnkUuepiDy">
-          <span data-page-node-id="Mr5SAsV8YJGmuAqZYiMpFn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="f1RwO9p7kububG0VU0P9Gh"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z" data-page-node-id="J1fUkZ3hGGx95DtmRN0Emb"/><circle cx="12" cy="10" r="2.5" data-page-node-id="EyaA7e20NGI3YqK05zNKiI"/></svg>
-            北京市朝阳区
-          </span>
-          <span data-page-node-id="L9VKMvcE5SxKX0Vg0gdxGP">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="gnV26A3xGDDPTitTzgl33o"><rect x="3" y="5" width="18" height="14" rx="2" data-page-node-id="WJWwtUvBcXObXO91U2QAYE"/><path d="M3 9h18M8 5v14" data-page-node-id="YymVyn0VgKavkR6esNWloy"/></svg>
-            互联网部
-          </span>
-          <span data-page-node-id="P2Dn6toD77cZR9l2UCcJ5F">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="jSZFwuAi204DgNifFJojVY"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" data-page-node-id="7x4GDdAUkpVoxJrpgJVFLQ"/><circle cx="9" cy="7" r="4" data-page-node-id="vNUhxEEz1OEFtOx5y2ULUU"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" data-page-node-id="gOHjgR6LHqz4pXeallRXi1"/></svg>
-            招聘 3 名
-          </span>
-        </div>
-        <div class="job-salary" data-page-node-id="CgZKn7RE9M0TXy8PyMpkMG">
-          <span class="mon" data-page-node-id="0TQ5PvtSfNrZXTevRBkDFb">8K–16K</span>
-          <span class="tip" data-page-node-id="tc6iwSuZ2G3rrK2Lm9d6TI">含内容创作激励</span>
-        </div>
-        <div class="job-duty" data-page-node-id="JDxMNFdhiQI1V9G7GM5VVB">
-          <b data-page-node-id="Ndo53AafBhq49LpFQTSNPV">岗位职责：</b>负责公司口播视频、活动宣传片的内容策划与拍摄剪辑，运营抖音、视频号等平台账号矩阵。
-        </div>
-        <div class="job-tags" data-page-node-id="qWsVxK0ZvQvcA2bL00biTz">
-          <span class="jt" data-page-node-id="66qs4d8WP9g01o2pf5AHWM">经验不限</span>
-          <span class="jt" data-page-node-id="wtneJ4dta4zVq2ePkCPcLf">大专及以上</span>
-          <span class="jt" data-page-node-id="aTRfPsMvPYY2tKgCA42REM">会剪辑优先</span>
-        </div>
-        <div class="job-apply" data-page-node-id="rdan9zSZZkdub271MJ0Xxr">
-          <span class="dept" data-page-node-id="eZz9jyYqKH5tP6BTNlFfQG">直管：<b data-page-node-id="NHXwxwWHmsgQ8Q8TM1MrV4">互联网部 · 诸晓奇</b></span>
-          <a class="go" href="mailto:hr@haolanzichan.cn" data-page-node-id="65IDC32TbE0QJBQdVPrzUW">投递简历</a>
-        </div>
+            <div class="job-card" data-cat="internet" data-page-node-id="e1hgpCwUawZazqocqV4SMN">
       </div>
 
       <div class="job-card" data-cat="internet" data-page-node-id="CTWLFXPLdorF2wETerqX9X">
-        <div class="job-head" data-page-node-id="UQOsDOjXL7e8J23pjCY4Fo">
-          <h4 data-page-node-id="jN1KMQ0XE1Xt4tj3qifgfg">内容策划</h4>
-          <span class="tag gold" data-page-node-id="oBgxgDgkOQWpBlxh3L79Dn">急聘</span>
-        </div>
-        <div class="job-meta" data-page-node-id="MNGdXkvWgrnJ9BC4Hn92HG">
-          <span data-page-node-id="Pnv7KeXacifwoVhsodsF9U">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="N5JMo9A6qE4DP2jVTthXC2"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z" data-page-node-id="f69ebelXKy9DKcCULOR0Wr"/><circle cx="12" cy="10" r="2.5" data-page-node-id="dtaOhrthyIHCEnJBNTN9ij"/></svg>
-            北京市朝阳区
-          </span>
-          <span data-page-node-id="WM8BBT7VkJD6WVH04aQvfu">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="ynMWUWHhtncfTVrYQTaiYl"><rect x="3" y="5" width="18" height="14" rx="2" data-page-node-id="f4wuK8NcZtW7zxyI5FyZeF"/><path d="M3 9h18M8 5v14" data-page-node-id="EIs873496XvU3LCsLgpHWj"/></svg>
-            互联网部
-          </span>
-          <span data-page-node-id="tXEVyn6NGJZWUDC0gexR0z">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="bEpDFtKqTnUCLuwZnA6cXL"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" data-page-node-id="mVfQz2hFPsqZRvHtElaGeY"/><circle cx="9" cy="7" r="4" data-page-node-id="F7MKXZg7W3AjazTUCwIuFC"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" data-page-node-id="LeX9f5HticlXomMWLRv5p5"/></svg>
-            招聘 1 名
-          </span>
-        </div>
-        <div class="job-salary" data-page-node-id="qJxSFJCKv09rf0eq6z9eVB">
-          <span class="mon" data-page-node-id="K3keakvfAftZkzVVj49dsv">10K–18K</span>
-          <span class="tip" data-page-node-id="akvkMCBbW7grqC9rb9rULC">含选题爆款奖励</span>
-        </div>
-        <div class="job-duty" data-page-node-id="ifj6wNnAfxMtzGkF7v59YE">
-          <b data-page-node-id="mJP5nyKYNbVeOsFePLG4Gv">岗位职责：</b>策划金融知识科普与品牌宣传内容选题，撰写口播脚本，跟踪热点并提升账号互动与涨粉。
-        </div>
-        <div class="job-tags" data-page-node-id="VBjcAdI6DIBQP6FhKdHwhy">
-          <span class="jt" data-page-node-id="FKOXVSGlZCfo5zxdKZAMF4">1 年以上经验</span>
-          <span class="jt" data-page-node-id="haMZ7nHFmw9J8hhitoSODq">本科及以上</span>
-          <span class="jt" data-page-node-id="dHZA79iNDFHcALDATccmcm">文案能力强</span>
-        </div>
-        <div class="job-apply" data-page-node-id="CuaEsd4eeDcCUPe3RPrHfX">
-          <span class="dept" data-page-node-id="8nKwZpen0wDwSycckIkaIe">直管：<b data-page-node-id="GycEa19ZNBbuHl86Dh7f9g">互联网部 · 诸晓奇</b></span>
-          <a class="go" href="mailto:hr@haolanzichan.cn" data-page-node-id="QpAJjZ9cN0hxXLgYfWheIW">投递简历</a>
-        </div>
       </div>
 
-      <!-- 职能支持 -->
-      <div class="job-card" data-cat="office" data-page-node-id="ZUGwBFa2Sm4ojqdVivCFXM">
-        <div class="job-head" data-page-node-id="1cWiMLyT9O8u8SsJpX1Rmw">
-          <h4 data-page-node-id="iQzWdhFhMrnKGtn2CKHS4k">人事行政专员</h4>
-          <span class="tag" data-page-node-id="0ZjNtv0yDUgA5bswOlp0MV">热招</span>
-        </div>
-        <div class="job-meta" data-page-node-id="1tFpERbnYCFBmUM0jEnit7">
-          <span data-page-node-id="Sv5Ms9NH2VGWGvJtCAG33P">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="0rR4Mk6kBtcv4oZpWVCGGe"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z" data-page-node-id="JH7BNAH8IyHwXy9j5rsawh"/><circle cx="12" cy="10" r="2.5" data-page-node-id="kzXRychaBzBTL01GYnP2sJ"/></svg>
-            北京市朝阳区
-          </span>
-          <span data-page-node-id="e1e5jNfuKj8GPIEw6kqyLu">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="0ukjU24FA905jBi4ZOFSaz"><rect x="3" y="5" width="18" height="14" rx="2" data-page-node-id="vUDYU7lM3iH9UK4XmYHlS7"/><path d="M3 9h18M8 5v14" data-page-node-id="k4tKdFhE3b4OxkgAH69T8a"/></svg>
-            行政人事部
-          </span>
-          <span data-page-node-id="5Gxdbo5uaLpdgR6DwJ5rHH">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="j4XBBl6PKbEjaVO5ktnajo"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" data-page-node-id="fmuIOxnnh1FsIxvAMCwtcx"/><circle cx="9" cy="7" r="4" data-page-node-id="XOvHxJDjWEn17dRlbrcPbS"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" data-page-node-id="bAzcac6l5SUD3r8nwVdcA5"/></svg>
-            招聘 1 名
-          </span>
-        </div>
-        <div class="job-salary" data-page-node-id="AAaYtdVkS7kGjtdayqw1aq">
-          <span class="mon" data-page-node-id="Uc2eg6R34zKxJcR6NtcOhL">6K–10K</span>
-          <span class="tip" data-page-node-id="ENC0SAnIgtzqJyNasKoO8U">含季度绩效奖金</span>
-        </div>
-        <div class="job-duty" data-page-node-id="CHeQg9aMU56YTVcBOe6PRz">
-          <b data-page-node-id="umhIM2GRCKXP649LDkY0dm">岗位职责：</b>负责招聘面试组织、员工入离职办理、考勤薪酬核算及日常行政事务与活动统筹。
-        </div>
-        <div class="job-tags" data-page-node-id="xIVNzFB3rJJvNLoPIGFWMl">
-          <span class="jt" data-page-node-id="hUa1EJM3KfoL4HVsK44pzB">经验不限</span>
-          <span class="jt" data-page-node-id="wcFbm5q5dyGD46FnLS2DBI">大专及以上</span>
-          <span class="jt" data-page-node-id="CToSTp7RADIHzLlFxq5eWb">细心有耐心</span>
-        </div>
-        <div class="job-apply" data-page-node-id="twq9hEkjC5ie0ztGrk298G">
-          <span class="dept" data-page-node-id="aoCYNGXRlPJXGsoo0QrdfX">直管：<b data-page-node-id="KId7cfMY5cqu9gvpTFpTEY">行政人事部 · 李安</b></span>
-          <a class="go" href="mailto:hr@haolanzichan.cn" data-page-node-id="7setYGmCY2ViVHWBvzuLYk">投递简历</a>
-        </div>
+            <div class="job-card" data-cat="office" data-page-node-id="ZUGwBFa2Sm4ojqdVivCFXM">
       </div>
 
       <div class="job-card" data-cat="office" data-page-node-id="OWj2FW8yZLQS2ft19Biw5l">
-        <div class="job-head" data-page-node-id="mlrxc74NoJkUH9DsBKVFHd">
-          <h4 data-page-node-id="OrVzzFtGnjHtewHHRNc3Y4">客服专员</h4>
-          <span class="tag" data-page-node-id="kllFZxZfkcYofPC1V9iSdg">热招</span>
-        </div>
-        <div class="job-meta" data-page-node-id="cjfVCDpo9N50SJMvIzQdKn">
-          <span data-page-node-id="njHc61mIfTsngXQ5o0yhCT">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="OugHk0SLwdG2CabQgh6BT6"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z" data-page-node-id="fm973oIryGx1BUq9PfBGES"/><circle cx="12" cy="10" r="2.5" data-page-node-id="FuYaqSmwPOCvacLWysAN1I"/></svg>
-            北京市朝阳区
-          </span>
-          <span data-page-node-id="BNlAzgbnlCyY2yr0fjwcc7">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="CHOtJEotflFczsUk8eWVae"><rect x="3" y="5" width="18" height="14" rx="2" data-page-node-id="7GopwSX6bBJikPCDrIZtCR"/><path d="M3 9h18M8 5v14" data-page-node-id="KiKcyeSMAStToeogjINunH"/></svg>
-            风控/售后部
-          </span>
-          <span data-page-node-id="V5t3t6LulZAS2fgz718vpM">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="eZxqEcoBp2DgoHFT0JKvtU"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" data-page-node-id="g2YmG5vguQGt8QNPkv2pBR"/><circle cx="9" cy="7" r="4" data-page-node-id="50SVnEmaQiwAlYS9jCY8Fh"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" data-page-node-id="kVWlPJwDNfmhrzrQZVmzaL"/></svg>
-            招聘 2 名
-          </span>
-        </div>
-        <div class="job-salary" data-page-node-id="gDlgsTSejvR4EeuwRq2Zyw">
-          <span class="mon" data-page-node-id="ww4HGXdXkjtFT4ktxQ0Eod">6K–9K</span>
-          <span class="tip" data-page-node-id="q0eKNLdCHjl8PbwQDs9ojt">含服务满意度奖金</span>
-        </div>
-        <div class="job-duty" data-page-node-id="dD8N7TokgFgyvg9YBtpbaK">
-          <b data-page-node-id="1Ht1VPzbAN4gsZzPBANcyO">岗位职责：</b>通过电话与在线渠道解答客户融资咨询，跟进贷后服务，整理客户反馈并优化服务流程。
-        </div>
-        <div class="job-tags" data-page-node-id="wzCwoBYVq7WUd7rVdraiRH">
-          <span class="jt" data-page-node-id="S6Eh3IW3YkDvivovV1VEGW">经验不限</span>
-          <span class="jt" data-page-node-id="B1nDwn3UQhXfMMjuG4oJHt">中专及以上</span>
-          <span class="jt" data-page-node-id="r1YhbNJMi5nHIu9V4uemAQ">普通话标准</span>
-        </div>
-        <div class="job-apply" data-page-node-id="1f6Bk4jw9nVBOii1aMH48o">
-          <span class="dept" data-page-node-id="iJMgZzcThqFKMLDkKo1Fu8">直管：<b data-page-node-id="jKZWGgLr2c71SRWIiZeXiz">风控/售后部 · 廖经勋</b></span>
-          <a class="go" href="mailto:hr@haolanzichan.cn" data-page-node-id="MzLzjjYnnREWQbvGAPKfWk">投递简历</a>
-        </div>
       </div>
 
     </div>
 
-    <div class="apply-bar" data-page-node-id="uTveyL088Q9YOqLXUWKoUP">
-      <div class="icon" data-page-node-id="xtinLBSaIbqb2vF8JJudAw">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" data-page-node-id="uFFs4qf0c3VfFY3iOQrzJZ"><rect x="3" y="5" width="18" height="14" rx="2" data-page-node-id="itmulA9JKskkHGlJ9I3D6q"/><path d="M3 7l9 6 9-6" data-page-node-id="rOhJdJ8CChaC82cSH7Vhua"/></svg>
-      </div>
-      <div class="txt" data-page-node-id="ibDabTrzvrvmEkGYQbGXrd">
-        <b data-page-node-id="DO0mPXm5n0Vpk1UXL9G8eJ">投递说明：</b>将简历发送至 <b data-page-node-id="kFlZ19BKkYCczgpIWKvSXI">hr@haolanzichan.cn</b>，邮件标题请注明「应聘岗位 + 姓名」。简历将在 3 个工作日内完成筛选，通过者安排现场或视频面试。
-      </div>
-    </div>
+    
   </section>
 
   <!-- ========================================== -->
@@ -830,105 +378,63 @@
 
     <div class="dual-track" data-page-node-id="p41EPlXJReYvXWvH2H72rh">
 
-      <!-- 管理序列 -->
-      <div class="track-card" data-page-node-id="bfSuOXgGbLsYqYEgfIrEXO">
+            <div class="track-card" data-page-node-id="bfSuOXgGbLsYqYEgfIrEXO">
         <div class="track-head man" data-page-node-id="ShN3IUk7BvbQSiqsQN3CEa">
           <span class="ticon" data-page-node-id="QUzIr7Y6PitiHvEwBP2AEN">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="q3FDpa44POWFl0sCTQOg3l"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-4h6v4M9 10h.01M15 10h.01M9 14h.01M15 14h.01" data-page-node-id="Ji6sK3fk0zrSJSdd8wzuDd"/></svg>
           </span>
           <div data-page-node-id="QCsXzSE3FTfVuBnJCm3FX8">
-            <h4 data-page-node-id="hgV7A7GC2diK9EreKfbI0s">管理序列</h4>
-            <p data-page-node-id="cW4qrJuM3u64cLfYaCUrP1">MANAGEMENT TRACK · 带团队 · 扛指标</p>
+            
+            
           </div>
         </div>
-        <div class="track-body" data-page-node-id="fKMjHV6Iv0l7yY0x4GIQkJ">
-          <div class="ladder" data-page-node-id="xsIrQBuIEmFs3BJU7wzKS9">
-            <div class="ladder-step" data-page-node-id="IygtseQkpkvm6s0tu1DxNG">
-              <div class="lv" data-page-node-id="ayFqs6uRTPJwERHGarDACY">基层专员</div>
-              <div class="duty" data-page-node-id="KbjjvBsSKgIuUgSNQBkSQ5">入职基础岗位，接受「新鹰计划」系统培训，<b data-page-node-id="xanl8L0XXhad3Hlgz5BzZu">0–6 个月</b>熟悉业务全流程。</div>
-            </div>
-            <div class="ladder-step" data-page-node-id="YyS1pU4lcvhzRwZB3NGaeJ">
-              <div class="lv" data-page-node-id="PDriYLrG7GQTQbVWLNVpeI">业务主管</div>
-              <div class="duty" data-page-node-id="EArPTBM6mASs1XcUHdvH9s">独立负责小组业绩，<b data-page-node-id="ejcCOLbgqFvAQMwRhtyZva">带 3–5 人小团队</b>，培养带队与过程管理能力。</div>
-            </div>
-            <div class="ladder-step hot" data-page-node-id="cXEuXIixGsj291WJNfp6qc">
-              <div class="lv" data-page-node-id="pTTqjBfc8kTLUH6QceBeI7">部门经理<span class="badge gold" data-page-node-id="DOorlWDyENDHsZFqWVok6a">当前主力梯队</span></div>
-              <div class="duty" data-page-node-id="DEwCYEXT32xlNTTZdrwSAY">统筹部门经营目标与人员培养，公司现有 <b data-page-node-id="kkb6fw1oJkYqT5GFToj992">6 大部门经理</b> 均由内部晋升产生。</div>
-            </div>
-            <div class="ladder-step" data-page-node-id="3ymFAbFdC0TeVvybjIDc5P">
-              <div class="lv" data-page-node-id="h32KIQGLiexm60WRkIwTHV">总监</div>
-              <div class="duty" data-page-node-id="DSleryKAiC4vt0vePVcpsL">分管多条线业务，参与公司战略决策，公司管理层 <b data-page-node-id="RwogMx0DMNbyOMSC1zmC2j">100% 内部晋升</b>。</div>
-            </div>
-          </div>
-        </div>
+        
       </div>
 
-      <!-- 专业序列 -->
-      <div class="track-card" data-page-node-id="U9uARPcbLIKcolc0lML2Xc">
+            <div class="track-card" data-page-node-id="U9uARPcbLIKcolc0lML2Xc">
         <div class="track-head pro" data-page-node-id="cKgRj0edg6m3o5PvKOy5us">
           <span class="ticon" data-page-node-id="eGT7nC4z3t5Jt17d2RfX3C">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="hbKGGZyngDNVHM8b7I4oF1"><circle cx="12" cy="8" r="4" data-page-node-id="PKVHpiQO0a458k2i1SI2vi"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6M15 8l3-2M12 12v3M9 15l-3 2" data-page-node-id="UMx2MGeV4uFuCSFBmaIVKh"/></svg>
           </span>
           <div data-page-node-id="EclmiPkXZOMoGBJQGCyHvr">
-            <h4 data-page-node-id="EhhEDAqgbyREWxl1WGLJRe">专业序列</h4>
-            <p data-page-node-id="q1xiNz4A6FIsWUdz4ClvO4">PROFESSIONAL TRACK · 精业务 · 成专家</p>
+            
+            
           </div>
         </div>
-        <div class="track-body" data-page-node-id="5RmT9Dk1SYX03l40NBv4Ic">
-          <div class="ladder" data-page-node-id="srHqquGlsaiEa2OYKYuY0s">
-            <div class="ladder-step" data-page-node-id="wOczCwZoampvnLFdplKHCl">
-              <div class="lv" data-page-node-id="H6b8p6dPIlKElccQxPeELK">初级专员</div>
-              <div class="duty" data-page-node-id="OGTRIKdXtXa9D6jbesC2BS">掌握岗位基础技能，通过「菁英计划」业务考核，<b data-page-node-id="sVcqXxTcxbh48psAoFDY2Z">独立完成常规业务</b>。</div>
-            </div>
-            <div class="ladder-step" data-page-node-id="4IVTo0jN0Sda4IvfGrMY9z">
-              <div class="lv" data-page-node-id="Sx8NpSugrhgNL83drunEZ3">中级专员</div>
-              <div class="duty" data-page-node-id="aLKFDljoxo0GKtIqt0azPl">深耕单一领域（风控/谈判/渠道/内容），<b data-page-node-id="x21BdOS5aydiLz6BMnoSGt">输出方法论</b>，承担导师带教职责。</div>
-            </div>
-            <div class="ladder-step hot" data-page-node-id="ujBWAk8F6Q1OfvqqqJJPSv">
-              <div class="lv" data-page-node-id="3HtYbpTGOvwVRFK1Pdo3F1">高级专家<span class="badge" data-page-node-id="myMF4YwnmCBpMaH7NEHwH2">认证评审</span></div>
-              <div class="duty" data-page-node-id="2BDVEAzBbQ62w0SIC0QMGB">经公司专家委员会 <b data-page-node-id="GeQWdhcUwesJWgDELt6EsG">年度评审认证</b>，享受专家津贴与独立项目立项权。</div>
-            </div>
-            <div class="ladder-step" data-page-node-id="JVk5mxBMInQnpCgwUMwnhK">
-              <div class="lv" data-page-node-id="C8o8t4BmxRtfiZJLjFJgqb">首席顾问</div>
-              <div class="duty" data-page-node-id="sqfs0WHHzMpHe8tkQAi5bs">公司级业务权威，参与产品与政策制定，<b data-page-node-id="dsYDPdLZD91gRufDgNepyu">与总监同职级待遇</b>。</div>
-            </div>
-          </div>
-        </div>
+        
       </div>
 
     </div>
 
-    <!-- 晋升机制三卡 -->
-    <div class="promo-cards" data-page-node-id="ybd2maNAEBL4IDIX6vutYN">
+        <div class="promo-cards" data-page-node-id="ybd2maNAEBL4IDIX6vutYN">
       <div class="promo-card" data-page-node-id="OFZftbNhERoPWAF1Uyn7A3">
         <div class="p-icon" data-page-node-id="3IYAuHbMI3l75cGSzCjTzT">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="957kxfCR1ImvV6EQzqXZH9"><path d="M20 6L9 17l-5-5" data-page-node-id="ONJ7FBnW1LeRTvz4RjhjBR"/></svg>
         </div>
-        <h4 data-page-node-id="itt0u1wIIU22dPV7KcAvx5">公开竞聘</h4>
-        <p data-page-node-id="3yXhQs8xCc864t1HDBFQOV">晋升岗位<b data-page-node-id="DotELSuoJKuDlCfDhRh8gL">全员公开竞聘</b>，业绩数据与述职答辩双维评分，过程公开透明，杜绝论资排辈。</p>
+        
+        
       </div>
       <div class="promo-card" data-page-node-id="AhWIGD8dQBEYoJO0bblvpd">
         <div class="p-icon" data-page-node-id="O99nADEgLBd1Ropuf479SE">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="prVl2GyCyY1sTyJg6Yiqz1"><circle cx="12" cy="12" r="9" data-page-node-id="HMKhUi7YLijhuo8Xqf13b9"/><path d="M12 7v5l3.5 2" data-page-node-id="31oD8DPAbl2t0m9ZX5cBj0"/></svg>
         </div>
-        <h4 data-page-node-id="HOHMHKrqQu6PuStx87JxVK">一年两次窗口</h4>
-        <p data-page-node-id="cOU5q3ZY2DWtWIlPWMhpBN">每年 <b data-page-node-id="efuhUK2PemqfGtkMie0pBn">1 月 / 7 月</b> 两次晋升窗口，满足任职年限与业绩门槛即可报名，最快 <b data-page-node-id="1oSBJBa509tI03DhJIBpq8">6 个月</b> 获得晋升机会。</p>
+        
+        
       </div>
       <div class="promo-card" data-page-node-id="HUxOcEBTKViloqswjDwYVP">
         <div class="p-icon" data-page-node-id="qZiAwRgrrmfuZSD4JFXtIO">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="EulZFgO5Inu9giiBV7YWgD"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4L4.2 7.7l5.4-.8z" data-page-node-id="kaNLUlHRr4SLcF2K2NhLgq"/></svg>
         </div>
-        <h4 data-page-node-id="juVZ9IBhSU0GEhg0jiO2GK">以战代练</h4>
-        <p data-page-node-id="YahB7vYASuATP8iisBgkUj">「皓镧商学院」全年 <b data-page-node-id="oulGVx4u8IlqrNqkwER8OM">56 场内训</b> 全程护航，季度业务比武优秀者<b data-page-node-id="RkKkUG1IGxt5zQkYH3OzIr">优先纳入晋升培养池</b>。</p>
+        
+        
       </div>
     </div>
 
-    <!-- 晋升数据 -->
-    <div class="promo-strip" data-page-node-id="yLMqv6aCK5zkUfzDqyRCCN">
-      <div class="p-strip" data-page-node-id="kprDDTEMXwTUP3OUSUvNFe"><div class="num" data-page-node-id="KNWxd7Q0xgXNoOQKZTx40N">68<em data-page-node-id="fAHriTP4h2dlknLSTPoEBN">%</em></div><div class="label" data-page-node-id="O6w5CVCGyqMeM1dz0eRJxV">管理岗内部晋升率</div></div>
-      <div class="p-strip" data-page-node-id="eIeFuQ3UjpBBuYsphcyhMA"><div class="num" data-page-node-id="Qp83XDq0MUnqamqV5Oy6mE">2<em data-page-node-id="fgQLq0NWoxo2vOilLNaCz1">次/年</em></div><div class="label" data-page-node-id="Gk7qBgYpHNGea21BiukJQY">晋升窗口频次</div></div>
-      <div class="p-strip" data-page-node-id="e6oFqTZ46fMvLMFlOhXOAR"><div class="num" data-page-node-id="29LGpRsj1Wd41I6MQhTq1k">6<em data-page-node-id="tEKCWyxuGIbUay7yAfcwXT">个月</em></div><div class="label" data-page-node-id="ATr8hpKPC39MuTUkMWCVAb">最快晋升周期</div></div>
-      <div class="p-strip" data-page-node-id="XPwaXeAEKIDneUFN3JbTAR"><div class="num" data-page-node-id="Yxn5whACu29BW7HXBrB4k3">6<em data-page-node-id="qgldbBx0gJBVMukfDlu6Oq">位</em></div><div class="label" data-page-node-id="rZ8J3VcyWOjdMDTQhTFDGv">部门经理全部内部提拔</div></div>
+        <div class="promo-strip" data-page-node-id="yLMqv6aCK5zkUfzDqyRCCN">
+      <div class="p-strip" data-page-node-id="kprDDTEMXwTUP3OUSUvNFe"></div>
+      <div class="p-strip" data-page-node-id="eIeFuQ3UjpBBuYsphcyhMA"></div>
+      <div class="p-strip" data-page-node-id="e6oFqTZ46fMvLMFlOhXOAR"></div>
+      <div class="p-strip" data-page-node-id="XPwaXeAEKIDneUFN3JbTAR"></div>
     </div>
   </section>
 
@@ -940,138 +446,104 @@
     <p class="sec-subtitle" data-page-node-id="GdZWNBXTGtYMxtxCSu3Mzq">COMPENSATION & BENEFITS</p>
     <p class="sec-desc" data-page-node-id="OoejowIGt9fSvOErjVKz3u">我们坚持以奋斗者为本，提供有竞争力的薪酬回报与全方位的福利保障，让每一位皓镧人都能安心工作、持续成长。</p>
 
-    <!-- 薪酬构成 -->
-    <div class="comp-strip" data-page-node-id="kwynPHE8jPpkbkPRdYHauR">
+        <div class="comp-strip" data-page-node-id="kwynPHE8jPpkbkPRdYHauR">
       <div class="comp-item" data-page-node-id="6KCLGl7WBpju0oCoOeOQkz">
         <div class="c-icon" data-page-node-id="mPVi9c7Dh8MAe9j3Kl95Ri">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="PeRlf9Yif4dJ7j52IUUE7n"><rect x="3" y="7" width="18" height="12" rx="2" data-page-node-id="jmq6RC6PVH4E0LcbjDuGgA"/><path d="M12 3v4M12 13v3M16 10.5c-.6-1.3-2-2-4-2s-3.4.7-4 2c0 2.5 8 1.5 8 4 0 1.3-1.8 2-4 2s-3.4-.7-4-2" data-page-node-id="n8MgF8PwuhX9o22yQgsc8g"/></svg>
         </div>
-        <h4 data-page-node-id="1fpDFpAZIMnEVGLNpT21gw">底薪</h4>
-        <p data-page-node-id="NAgB6mXR2sMYBnIHB1FAYu">按岗位职级定薪，按月准时发放</p>
+        
+        
       </div>
       <div class="comp-item" data-page-node-id="FvhCrGAHlxQmEkJ5ekfp36">
         <div class="c-icon" data-page-node-id="dgaprRSf9oDiuUuF20p51s">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="F8PtpEnSEaeFmkOqOJP6QW"><path d="M13 2L4.5 13.5H11L10 22l8.5-11.5H12z" data-page-node-id="EJkvHsGaolGHDp02B9c5LW"/></svg>
         </div>
-        <h4 data-page-node-id="kXsbfoCZgh94WleKLIQCNA">业务提成</h4>
-        <p data-page-node-id="FODZxWcBcg96t3wDHcWyng">阶梯式提成比例，上不封顶</p>
+        
+        
       </div>
       <div class="comp-item" data-page-node-id="upJy5f4ZL2ErBwmFSK1rWK">
         <div class="c-icon" data-page-node-id="B1sPOJ1HSWmVknDP3OYxSO">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="X4SlO9n5BjE3WWlAyDkeZw"><path d="M12 3l7 4v5c0 4.4-3 8.4-7 9-4-.6-7-4.6-7-9V7z" data-page-node-id="w4cTQEBzvpKZHIGRmilgUl"/></svg>
         </div>
-        <h4 data-page-node-id="wtqAHph8erD6aUu0UETfCp">五险一金</h4>
-        <p data-page-node-id="Tq8Y05yzrdG9DcL2nxcs5d">入职即缴，全额基数</p>
+        
+        
       </div>
       <div class="comp-item" data-page-node-id="rlaHoZCZcVttGC1ecxLL6c">
         <div class="c-icon" data-page-node-id="tFW1amiS8AwCDQVlZOKuM2">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="NJ8gZsQiEkDxOqq2e49Stx"><path d="M12 3l1.8 4.2L18 9l-4.2 1.8L12 15l-1.8-4.2L6 9l4.2-1.8zM19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z" data-page-node-id="D1tHxPQS9JHrm1NBRRO0Yq"/></svg>
         </div>
-        <h4 data-page-node-id="RJg4p5pGmyIi4Xlzx1yKZo">绩效奖金</h4>
-        <p data-page-node-id="AzYeuAdO8Sx1mRUMLKytc7">月度/季度/年度三重激励</p>
+        
+        
       </div>
       <div class="comp-item" data-page-node-id="x8HXsL6LHzK4E8BhG93DjB">
         <div class="c-icon" data-page-node-id="OHw1lTtQ30yP2zEKOEKRNN">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="5OExBnH4S0JeMOqal7jyyt"><circle cx="12" cy="12" r="9" data-page-node-id="0hIPSq5uGW9U6MpdKfZDKa"/><path d="M12 7v5l3.5 2" data-page-node-id="UfvwdPvbFXfzB3tswz4WUl"/></svg>
         </div>
-        <h4 data-page-node-id="Oi1T8FqFmQcp8UVhiOkU9A">年终奖</h4>
-        <p data-page-node-id="lU2szVPEGG15e9oX2k6lsE">按年度贡献发放 1–4 薪</p>
+        
+        
       </div>
     </div>
 
-    <!-- 福利网格 -->
-    <div class="benefit-grid" data-page-node-id="tmdW17GedDvYyDo31Cw2ab">
+        <div class="benefit-grid" data-page-node-id="tmdW17GedDvYyDo31Cw2ab">
       <div class="benefit-card" data-page-node-id="md9dfiX9EAAPGPar9JwHVh">
         <div class="b-icon" data-page-node-id="d6sCSzwBc4zGo3ozxroeUU">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="szj0Plpfg9xip6dFoZht0d"><path d="M12 2l7 4v5c0 4.4-3 8.4-7 9-4-.6-7-4.6-7-9V6z" data-page-node-id="ak7oxK2UrUFywbALOouvo5"/><path d="M9 12l2 2 4-4" data-page-node-id="kSqQZfqcd2BpfnCCpjjvVX"/></svg>
         </div>
-        <h4 data-page-node-id="ZdTD0OA2983uz4jLftpcaG">带薪年假</h4>
-        <p data-page-node-id="LxlQjhWiWlIQyISxTju8Ff">入职即享 5 天年假，每满一年增加 1 天，上限 15 天</p>
+        
+        
       </div>
       <div class="benefit-card" data-page-node-id="Z4sbds0H27yuhs9k8LGEFq">
         <div class="b-icon" data-page-node-id="Cn7L8D5QVlVHNSfGtIt1iu">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="6E41AlNJFHXcCg2jPzlr75"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z" data-page-node-id="m6zCGOhnhstF5lay658l7n"/></svg>
         </div>
-        <h4 data-page-node-id="bWKFdWcgs3VfXcXBMsNai1">定期团建</h4>
-        <p data-page-node-id="EeiGLAExtofdT1D1I3D8sb">月度部门团建 + 季度全司出游 + 年度大型年会</p>
+        
+        
       </div>
       <div class="benefit-card" data-page-node-id="eGDfKn04Tn4JaDmjePuDFn">
         <div class="b-icon" data-page-node-id="lpXvlZxKs73xGHRXgrZxH8">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="UNRklb8r5S3wbcVQFCLJI0"><path d="M20 12a8 8 0 1 1-4-6.9M20 12V5l-4 4M20 12h-7" data-page-node-id="4Ab0r53Lq8EZJjpYAzeXKr"/></svg>
         </div>
-        <h4 data-page-node-id="4JccTr986jEzBDh7aIDawk">节日福利</h4>
-        <p data-page-node-id="7zc1r0IdnDESs9cYqQifrB">春节、端午、中秋等传统节日礼金礼盒，生日专属惊喜</p>
+        
+        
       </div>
       <div class="benefit-card" data-page-node-id="ZutOGh8ZxIjrTtTTL5De7S">
         <div class="b-icon" data-page-node-id="dqBJWxq60wyQMiRsA4dmLX">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="JNg0UKSax1AqkON8dG4Uo3"><path d="M12 3l8 4v6c0 4-3.5 7-8 8-4.5-1-8-4-8-8V7z" data-page-node-id="5U9GvxirFGR4NFNHhvQmdu"/><path d="M9 12l2 2 4-4" data-page-node-id="GpweMpbpz1vUzWdDhBgst6"/></svg>
         </div>
-        <h4 data-page-node-id="E5g0iShMUknACgLj58Bqde">健康体检</h4>
-        <p data-page-node-id="ytpuLIS3G7I1O4rGAAoCn6">每年 1 次员工免费体检，家属可享团购优惠价</p>
+        
+        
       </div>
       <div class="benefit-card" data-page-node-id="GaqRuZBoNGBCu7zTCHKRFC">
         <div class="b-icon" data-page-node-id="vbXm8rlO81E3ZS7Ga9fXBc">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="xz6FrfEdeJLnJcopu4vHwA"><path d="M22 12h-4l-3 9L9 3l-3 9H2" data-page-node-id="DEIf4xTTSjkjJnugngj5DW"/></svg>
         </div>
-        <h4 data-page-node-id="GQ8LrriMgbVXH8XYHh73kk">培训进修</h4>
-        <p data-page-node-id="CcC75xUFDpzxwqZDZp7u4r">皓镧商学院全年内训 + 外部考证费用报销支持</p>
+        
+        
       </div>
       <div class="benefit-card" data-page-node-id="MbSinOOBbt11X2pN9dqI8D">
         <div class="b-icon" data-page-node-id="u6SHzHKuUffEUnBsVGZPJb">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="2o7aSO2h7TtVqUnYSfJXSB"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" data-page-node-id="O98JwsY72bpAmxnpLOe1JA"/><circle cx="9" cy="7" r="4" data-page-node-id="68AwUoe85lAKVDwzI1L2gI"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" data-page-node-id="E7Bf6Dl7DvyzrCMojU2Dln"/></svg>
         </div>
-        <h4 data-page-node-id="tj5rw68ZR8EASNjDWCDGLU">师徒带教</h4>
-        <p data-page-node-id="VieQUoNCLRRrRGcAlL4uam">一对一导师制，前 6 个月陪访陪练，快速上手不掉队</p>
+        
+        
       </div>
       <div class="benefit-card" data-page-node-id="SogqLtWc1GHzYm29OFP12c">
         <div class="b-icon" data-page-node-id="ZOmMKR8M8bAnn1zqG1nEZG">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="Jly4vtUDrGZ3uVPh7x7lVl"><path d="M3 12c2.5-4 6-6 9-6s6.5 2 9 6c-2.5 4-6 6-9 6s-6.5-2-9-6z" data-page-node-id="QL52qtfGZPCwRqws8drocy"/><circle cx="12" cy="12" r="2.5" data-page-node-id="X2XPFanCjIOUznEKx8KTtT"/></svg>
         </div>
-        <h4 data-page-node-id="2dgIDdnTWkUWHku9q1py2D">交通餐补</h4>
-        <p data-page-node-id="gUNqJwe3XcEwB53NKmA1kj">每月交通补贴 + 工作日餐补，外勤出差异地实报实销</p>
+        
+        
       </div>
       <div class="benefit-card" data-page-node-id="YcwgBK2UEbrJdIGINqwU4n">
         <div class="b-icon" data-page-node-id="WhDpw9I61DrBoDsgY4vHQY">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="DhanCzt9HX3bMVvuoGStuJ"><path d="M3 5h18v12H3zM3 19h18" data-page-node-id="SUuVsUXvAmDDUvPAr0LLEy"/><path d="M7 9h4M7 12h8" data-page-node-id="Ex8uJu6vqIObCOjWEysu8g"/></svg>
         </div>
-        <h4 data-page-node-id="Q55p42YF0kmkHPnMBf8Ajh">晋升加薪</h4>
-        <p data-page-node-id="rUoXlTKAtpTx8SdyPB4PTy">晋升当月即调薪调级，年度普调随公司业绩同步增长</p>
+        
+        
       </div>
     </div>
 
-    <!-- 投递 CTA -->
-    <div class="join-cta" data-page-node-id="9U1NdHXqCY9HybGxgySFrE">
-      <div class="cta-box mail" data-page-node-id="v5lbCOCB2LrA3R3olKbfe6">
-        <h4 data-page-node-id="5LOhSJfyO0VwMrV9YSpmTi">投递简历</h4>
-        <p data-page-node-id="GI3ks3EOlc7SoBgPW7Drp6">请将个人简历发送至官方招聘邮箱，邮件标题注明<b data-page-node-id="bm3w8pIlqF7HRBJFKTUqTH">「应聘岗位 + 姓名」</b>。人力资源团队将在 3 个工作日内完成简历筛选，并主动与您联系。</p>
-        <div class="mail-line" data-page-node-id="n265i0lvLNH5o7VfifG4Ps">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="Go5FNKdjW5Ts6vJuihTDuu"><rect x="3" y="5" width="18" height="14" rx="2" data-page-node-id="Mt4dfRS2tmVUg6WoXeM6dl"/><path d="M3 7l9 6 9-6" data-page-node-id="pcTU3X4GFYYNtxXfs4E56B"/></svg>
-          <span data-page-node-id="8SEaftFDlLPzoLoH7WffK5">hr@haolanzichan.cn</span>
-        </div>
-        <p style="margin-top:14px;" data-page-node-id="s4EfR2EhUWbB3Y2XlJkT9x">招聘咨询：<b data-page-node-id="HIhMD06BkTPed8NH8HB1ky">010-8888 8888</b>（工作日 9:00–18:00）</p>
-      </div>
-      <div class="cta-box" data-page-node-id="Gp3RyFboVd7hUFCC7mNHA5">
-        <h4 data-page-node-id="JKpbLfgte8yQQNJLnZz2U8">面试流程</h4>
-        <div class="steps" data-page-node-id="ten19j4e3HsIHhobay8dCK">
-          <div class="step" data-page-node-id="Aylk5ggOUgEeySCBlVkDaT">
-            <span class="no" data-page-node-id="efTCSBiykmHuIu9jI0pgPT">1</span>
-            <div class="t" data-page-node-id="9XplZzF4utPpWgFx1zQVNV"><b data-page-node-id="FDMxvLC29HHpWyr6sNMifW">简历投递</b> — 邮件或内部推荐通道提交简历</div>
-          </div>
-          <div class="step" data-page-node-id="jmFKmCNkzWi1JmwLFoqzl8">
-            <span class="no" data-page-node-id="Yr3d2rpU2oRP1S8tOgqp6Q">2</span>
-            <div class="t" data-page-node-id="6wY63AkYFijPeilCDlDQSx"><b data-page-node-id="It8tQXWWnp1eEwdJCKzan7">初筛面谈</b> — 人力资源 + 用人部门两轮沟通</div>
-          </div>
-          <div class="step" data-page-node-id="y0hnwqYm7DH7CWWOlRzrS4">
-            <span class="no" data-page-node-id="bbKcbTzZM4Sd56Ar7s1swA">3</span>
-            <div class="t" data-page-node-id="FRUBq6WAQ0HqRMKytTIDrp"><b data-page-node-id="xZF0jvzYaaKjxkj6wMimIe">复试终审</b> — 部门经理终面，评估综合匹配度</div>
-          </div>
-          <div class="step" data-page-node-id="LTXD3WvuY6tC5AIzVPLHLC">
-            <span class="no" data-page-node-id="8IRFfSNk42diRqFtqvoVx1">4</span>
-            <div class="t" data-page-node-id="N0y0wwHZ1JJQnbvEyDaOXb"><b data-page-node-id="fBjywANrnK7GqxjUu65M0G">录用入职</b> — 1 周内发放 offer，办理入职培训</div>
-          </div>
-        </div>
-      </div>
-    </div>
+        
   </section>
 
 </main>
@@ -1086,25 +558,13 @@
       <span class="lt" data-page-node-id="r5DqDmA2ZenFzZnDYW2a7f">皓镧资产</span>
     </div>
     <div class="footer-info" data-page-node-id="27DHk3ETYVURwYiZM9UH3u">
-      <div data-page-node-id="JurjLcRxXRrSmXFeSNxDph"><b data-page-node-id="KkJgiFeikTCvq22bCWAfHt">联系电话：</b>010-8888 8888</div>
-      <div data-page-node-id="3E47DeSC9mOe1fA2dBqnMl"><b data-page-node-id="VsZTyrsYNODn0SHMiJo0fl">邮箱：</b>hr@haolanzichan.cn</div>
-      <div data-page-node-id="xHnMDBQNNgCwBTNtOypG23"><b data-page-node-id="knNke77pZX63FlBvMtGyYA">地址：</b>北京市朝阳区金融街 · 财富中心</div>
+      <div data-page-node-id="JurjLcRxXRrSmXFeSNxDph"><b data-page-node-id="KkJgiFeikTCvq22bCWAfHt">联系电话：</b>0762-3103909</div>
+      <div data-page-node-id="3E47DeSC9mOe1fA2dBqnMl"><b data-page-node-id="VsZTyrsYNODn0SHMiJo0fl">邮箱：</b>865573331@qq.com</div>
+      <div data-page-node-id="xHnMDBQNNgCwBTNtOypG23"><b data-page-node-id="knNke77pZX63FlBvMtGyYA">地址：</b>河源市源城区永康大道与红星东路交汇处时代国际中心17楼</div>
     </div>
   </div>
 </footer>
 
-<script>
-  // 岗位分类筛选
-  document.querySelectorAll('#jobFilter .fbtn').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      document.querySelectorAll('#jobFilter .fbtn').forEach(function(b) { b.classList.remove('active'); });
-      this.classList.add('active');
-      var cat = this.getAttribute('data-cat');
-      document.querySelectorAll('#jobGrid .job-card').forEach(function(card) {
-        card.classList.toggle('hide', cat !== 'all' && card.getAttribute('data-cat') !== cat);
-      });
-    });
-  });
-</script>
+
 </body>
 </html>
