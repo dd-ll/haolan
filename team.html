@@ -3,7 +3,7 @@
 <head data-page-node-id="BzmuoGtERQH7L1me8s8kjN">
 <meta charset="UTF-8" data-page-node-id="ClcmWf0lsDZIdNb9G0AUn4" />
 <meta name="viewport" content="width=device-width, initial-scale=1" data-page-node-id="t5ZlpHE0AxXCCGqsVFF1WV" />
-<title>精英团队 - 皓镧资产</title>
+<title>我们团队 - 皓镧资产</title>
 <style>
   /* ========== 品牌变量 ========== */
   :root {
@@ -246,6 +246,19 @@
     border-radius: 20px; padding: 5px 14px; background: var(--bg-soft); letter-spacing: 1px;
   }
 
+  /* ========== 优势卡 ========== */
+  .adv-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .adv-card {
+    border: 1.5px solid var(--gold); border-radius: 10px;
+    padding: 34px 24px; background: #fff; text-align: center;
+    display: flex; flex-direction: column; align-items: center; gap: 14px;
+    transition: transform .25s, box-shadow .25s;
+  }
+  .adv-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(184,148,31,0.18); }
+  .adv-card .icon { width: 44px; height: 44px; color: var(--gold); }
+  .adv-card h4 { font-size: 16px; font-weight: 600; color: var(--ink); letter-spacing: 2px; }
+  .adv-card p { font-size: 12px; color: var(--muted); line-height: 1.9; }
+
   /* ========== 页脚 ========== */
   .footer {
     background: #22334F;
@@ -263,7 +276,7 @@
 
   /* ========== 响应式 ========== */
   @media (max-width: 1080px) {
-    .team-grid, .advice-grid { grid-template-columns: repeat(2, 1fr); }
+    .team-grid, .advice-grid, .adv-grid { grid-template-columns: repeat(2, 1fr); }
     .dept-grid { grid-template-columns: repeat(2, 1fr); }
     .media-wrap { grid-template-columns: 1fr; }
     .org-depts { grid-template-columns: repeat(3, 1fr); }
@@ -271,7 +284,7 @@
   }
   @media (max-width: 760px) {
     .stats-bar { grid-template-columns: repeat(2, 1fr); }
-    .team-grid, .advice-grid, .dept-grid,
+    .team-grid, .advice-grid, .dept-grid, .adv-grid,
     .media-card .m-body .list { grid-template-columns: repeat(2, 1fr); }
     .leader-card { flex-direction: column; text-align: center; padding: 28px 20px; }
     .topbar-inner { flex-wrap: wrap; padding: 0 20px; gap: 16px; }
@@ -310,9 +323,9 @@
         <a href="./about.html" data-page-node-id="ndbIobVqCv8PWfMHTmarLI">关于我们</a>
         <a href="./business.html" data-page-node-id="VLzpkpl1tFPmMMPJAGEmgE">主营业务</a>
         <a href="./service.html" data-page-node-id="vdV1L3dafAdF2GpPgkCOlR">服务流程</a>
-        <a href="./team.html" class="active" data-page-node-id="3uQCaiOHuHRwbcZA57ldQ1">精英团队</a>
+        <a href="./team.html" class="active" data-page-node-id="3uQCaiOHuHRwbcZA57ldQ1">我们团队</a>
         <a href="./policy.html" data-page-node-id="EAi1SJfB3Tn4tUJTrYAaeF">政策解读</a>
-        <a href="./notice.html" data-page-node-id="eXgW8Cj47BPyFy3HTP3w9o">企业公告</a>
+        <a href="./notice.html" data-page-node-id="eXgW8Cj47BPyFy3HTP3w9o">企业风采</a>
         <a href="./academy.html" data-page-node-id="Ii1aaWi8yEE6SnsSYytTtp">皓镧商学院</a>
         <a href="./video.html" data-page-node-id="Ht4ZsRdaC7DcQuj49X2a6c">短视频专区</a>
         <a href="./join.html" data-page-node-id="Ep9M2Kj7htWxU8679n2nig">加入我们</a>
@@ -517,6 +530,37 @@
             <div class="advice-person" data-page-node-id="uEkJPuXNqHM0v7qyK7DH2i"><span class="avatar xs" data-page-node-id="GIC1eNtVHU1B1sXvIOosDM">朱</span><div data-page-node-id="GIagP1rvx2WCjHyzltkqVu"><div class="name" data-page-node-id="IJc0W8l4nhUP4epzbinRPC">朱志维</div><div class="post" data-page-node-id="BW8qOIvEWZTzBGXurJnUi5">拍摄剪辑</div></div></div>
           </div>
         </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 4. 我们的优势 -->
+  <!-- ========================================== -->
+  <section id="advantage" data-page-node-id="SPgPmlI35AH1vvLbYDAafU">
+    <h2 class="sec-title" data-page-node-id="3JFRJZqrh4NvugFCwTz5K8">我们的优势</h2>
+    <p class="sec-subtitle" data-page-node-id="8ra7tR5c7TfYSZFdNr2LLC">OUR ADVANTAGES</p>
+
+    <div class="adv-grid" data-page-node-id="pZ2vhMtUYFHQJvEwsV6GIu">
+      <article class="adv-card" data-page-node-id="tegxBgNStmGaelLpL8fA8z">
+        <svg class="icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="WMfYsi9q6mJduE4HKoiMuk"><path d="M22 6 L34 12 V24 C34 31 28 36 22 38 C16 36 10 31 10 24 V12 Z" data-page-node-id="9hfowDoHpfZpUeFeYdXaaW"/><path d="M16 22 L20 26 L29 17" data-page-node-id="rQtFxIybLvu75jjqNva5lL"/></svg>
+        <h4 data-page-node-id="mmP6VwJBjCTdV2C7raArNs">专业团队</h4>
+        <p data-page-node-id="5btNEs1T31NNfgedCnhUHf">资深风控与资产管理团队，行业经验丰富，为客户提供专业可信赖的融资方案。</p>
+      </article>
+      <article class="adv-card" data-page-node-id="EPGkpfzOJu67Se3QKcygrA">
+        <svg class="icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="YaGDqn83iSZJZ00kGSSr7X"><circle cx="22" cy="22" r="14" data-page-node-id="D1LvHCCHUhxKk0eAyAQh5Q"/><path d="M22 14 V22 L28 26" data-page-node-id="K15xGj3Kj43KukGMaXZtu7"/></svg>
+        <h4 data-page-node-id="R0OXMMBMKW3L89xgb2zBiA">严控风险</h4>
+        <p data-page-node-id="DjRcBJjfoNpayvtPgYrEGZ">覆盖立项、尽调、审核、贷后的全流程风控体系，层层把关、稳健运行。</p>
+      </article>
+      <article class="adv-card" data-page-node-id="ioFQFv139gAtc4alX9k59p">
+        <svg class="icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="b8CoopE2hP9mZtfVYbsYES"><path d="M8 22 L18 32 L36 12" data-page-node-id="Cp4uvTCNBfBqaqbkjGy0A1"/></svg>
+        <h4 data-page-node-id="sLMDZ1vYGuBhxUNCEex8eW">高效服务</h4>
+        <p data-page-node-id="uHv0aBtAXXAhmHhuhGEaJN">流程透明、响应迅速，专人全程跟进，让融资办理省时、省心、省力。</p>
+      </article>
+      <article class="adv-card" data-page-node-id="4naAYaiGaCOYcNSZOhqmQr">
+        <svg class="icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="kVIMLdn2NyZahjGl1pEDCi"><rect x="10" y="14" width="24" height="20" rx="2" data-page-node-id="X0unGIDo4CDsiZmAt6Zh5O"/><path d="M10 20 H34 M16 28 H20 M26 28 H30" data-page-node-id="ntcdB8IGqbOx10UwdTJBFm"/></svg>
+        <h4 data-page-node-id="DHL89e4k3Xy2b4k5tfgxcE">合规经营</h4>
+        <p data-page-node-id="4zYlZnEwGJqDKEt7lqhalF">持牌规范、信息透明，严格遵守金融监管要求，保障客户合法权益。</p>
       </article>
     </div>
   </section>

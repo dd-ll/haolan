@@ -3,7 +3,7 @@
 <head data-page-node-id="o60mrxJQAqyL6HT7wiPPsz">
 <meta charset="UTF-8" data-page-node-id="XWKTP6SDdVKCWbTj6WQzX8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" data-page-node-id="wJalpO4BlzrRIzqSAYxajH" />
-<title>企业公告 - 皓镧资产</title>
+<title>企业风采 - 皓镧资产</title>
 <style>
   /* ========== 品牌变量 ========== */
   :root {
@@ -206,6 +206,56 @@
   .scene-banner.s6 { background: linear-gradient(135deg, #B4941F 0%, #B8941F 100%); }
   .scene-card { min-height: 100%; }
 
+  /* ========== 企业荣誉 / 企业文化（自关于我们页迁入） ========== */
+  .sub-grid { display: grid; gap: 20px; }
+  .sub-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .sub-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+  /* 荣誉卡片 */
+  .honor-card {
+    border: 1.5px solid var(--gold); border-radius: 10px; overflow: hidden;
+    background: #fff; transition: all .25s;
+    display: flex; flex-direction: column;
+  }
+  .honor-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(184,148,31,0.18); }
+  .honor-visual {
+    aspect-ratio: 16/9; position: relative; overflow: hidden;
+    background: linear-gradient(135deg, #2C2C2C, var(--ink));
+  }
+  .honor-visual::before {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(circle at 70% 30%, rgba(201,169,97,0.3), transparent 55%);
+  }
+  .honor-visual .ph {
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    color: rgba(201,169,97,0.7); font-size: 13px; letter-spacing: 4px;
+  }
+  .honor-visual .badge {
+    position: absolute; left: 20px; top: 20px;
+    background: rgba(200,16,46,0.9); color: #fff;
+    font-size: 12px; padding: 4px 12px; border-radius: 3px; letter-spacing: 2px;
+  }
+  .honor-body { padding: 28px 28px 32px; }
+  .honor-body .num { font-family: "STSong",serif; font-size: 20px; color: var(--gold); font-weight: 700; margin-bottom: 6px; }
+  .honor-body h4 {
+    font-size: 18px; font-weight: 600; color: var(--ink); letter-spacing: 2px;
+    margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--line);
+  }
+  .honor-body p { color: var(--muted); font-size: 13px; line-height: 1.9; }
+
+  /* 文化卡片 */
+  .info-card {
+    border: 1.5px solid var(--gold); border-radius: 10px;
+    padding: 36px 22px 30px; background: #fff;
+    display: flex; flex-direction: column; align-items: center; gap: 14px;
+    transition: transform .25s, box-shadow .25s; text-align: center;
+  }
+  .info-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(184,148,31,0.18); }
+  .info-card .icon { width: 42px; height: 42px; color: var(--gold); }
+  .info-card .num-tag { font-family: "STSong",serif; font-size: 14px; color: var(--gold); letter-spacing: 2px; }
+  .info-card h3 { font-size: 17px; font-weight: 600; color: var(--ink); letter-spacing: 2px; }
+  .info-card .desc { font-size: 12px; color: var(--muted); line-height: 1.9; }
+
   /* ========== 页脚 ========== */
   .footer {
     background: #22334F;
@@ -226,11 +276,16 @@
     .case-grid { grid-template-columns: repeat(2, 1fr); }
     .adv-grid { grid-template-columns: repeat(2, 1fr); }
     .scene-grid { grid-template-columns: repeat(2, 1fr); }
+    .sub-grid.cols-4 { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 760px) {
     .case-grid { grid-template-columns: 1fr; }
     .adv-grid { grid-template-columns: 1fr; }
     .scene-grid { grid-template-columns: 1fr; }
+    .sub-grid.cols-2, .sub-grid.cols-4 { grid-template-columns: 1fr; }
+    .info-card { padding: 28px 16px 24px; }
+    .honor-body { padding: 22px 20px 26px; }
+    .honor-visual .badge { left: 14px; top: 14px; }
     .topbar-inner { flex-wrap: wrap; padding: 0 20px; gap: 16px; }
     .nav { margin-left: 0; }
     .nav-row { gap: 16px; flex-wrap: wrap; }
@@ -270,9 +325,9 @@
         <a href="./about.html" data-page-node-id="ZS1ffJhkIiVXxpABATMhHC">关于我们</a>
         <a href="./business.html" data-page-node-id="mRLmGRr1YRaV3GqKSefGYa">主营业务</a>
         <a href="./service.html" data-page-node-id="j2ryBIBAEGaFKwGwb4PRT9">服务流程</a>
-        <a href="./team.html" data-page-node-id="pFOlAXEGYVfizDoq9w9tWb">精英团队</a>
+        <a href="./team.html" data-page-node-id="pFOlAXEGYVfizDoq9w9tWb">我们团队</a>
         <a href="./policy.html" data-page-node-id="uSltOimgm1Fe18uflhU9bW">政策解读</a>
-        <a href="./notice.html" class="active" data-page-node-id="r1nh8qNAVqFxwZdZYerHBk">企业公告</a>
+        <a href="./notice.html" class="active" data-page-node-id="r1nh8qNAVqFxwZdZYerHBk">企业风采</a>
         <a href="./academy.html" data-page-node-id="ov6Kv6cGcwXShDrNTYSha3">皓镧商学院</a>
         <a href="./video.html" data-page-node-id="bAMy7F5krsxqrCRxArvRcY">短视频专区</a>
         <a href="./join.html" data-page-node-id="dngyzHea0OlxQprTzT7NGT">加入我们</a>
@@ -284,15 +339,83 @@
 
 <!-- ========== 页面横幅 ========== -->
 <div class="page-banner" data-page-node-id="3uCOOsJq5v97iabOeDYyQC">
-  <h1 data-page-node-id="ry3uFUC9VDBmw0HbDEKskm">企业公告</h1>
-  <p class="en" data-page-node-id="Rlf1k6y7fB8pY2MTo0XXP8">COMPANY ANNOUNCEMENTS</p>
-  <p class="desc" data-page-node-id="tOv2VVvQ7c9KxwT9EnyeHN">发布皓镧资产最新公司动态、客户服务案例与核心优势、服务场景展示，让您第一时间了解皓镧的成长足迹与服务实力。</p>
+  <h1 data-page-node-id="ry3uFUC9VDBmw0HbDEKskm">企业风采</h1>
+  <p class="en" data-page-node-id="Rlf1k6y7fB8pY2MTo0XXP8">CORPORATE SHOWCASE</p>
+  <p class="desc" data-page-node-id="tOv2VVvQ7c9KxwT9EnyeHN">展示皓镧资产的企业荣誉、企业文化、公司动态、客户服务案例与服务场景，让您全面了解皓镧的成长足迹、精神风貌与服务实力。</p>
 </div>
 
 <main data-page-node-id="3vFXKk6OuHRqwbpwMlpe6l">
 
   <!-- ========================================== -->
-  <!-- 1. 公司动态 -->
+  <!-- 1. 企业荣誉 -->
+  <!-- ========================================== -->
+  <section id="honor" data-page-node-id="dGaayEMQSRkjldiiFCwcgL">
+    <h2 class="sec-title" data-page-node-id="oTMq6hv4KArp0geo9srG9x">企业荣誉</h2>
+    <p class="sec-subtitle" data-page-node-id="UzVB8U2vnTgMyShcE9txeY">CORPORATE HONORS</p>
+
+    <div class="sub-grid cols-2" data-page-node-id="mkMHFCkJWG3sPaZtz7YcfR">
+      <article class="honor-card" data-page-node-id="4kt693BhNrDaz9VEif8AC4">
+        <div class="honor-visual" data-page-node-id="4fdgeWyKC5C9bMhcFTPf75">
+          <span class="badge" data-page-node-id="82HVRvAzszZEsjQvx9zkq4">公益</span>
+          <span class="ph" data-page-node-id="yHIpWiCYTQyFH76xGY2q3l">公益活动展示</span>
+        </div>
+        <div class="honor-body" data-page-node-id="yw3haiEZnd2XcJQbfQIW4g">
+          <div class="num" data-page-node-id="463clEeHqLIvdooHmMYOG8">①</div>
+          <h4 data-page-node-id="5isL6CPSHRmvk3fTGcTJEd">公益活动展示</h4>
+          <p data-page-node-id="uG3VpSgZvIM2dfRclTrPPG">积极践行企业社会责任，持续投入扶贫济困、教育支援、社区服务等公益领域。从物资捐赠到志愿服务，皓镧资产以实际行动回馈社会，传递企业温度，践行"稳健经营、回馈社会"的责任承诺。</p>
+        </div>
+      </article>
+      <article class="honor-card" data-page-node-id="M5wKPirYepoi91JGNTjI1m">
+        <div class="honor-visual" data-page-node-id="ZhFZfHdy8nrJefXxaJnxop">
+          <span class="badge" data-page-node-id="JGyRNVl7lQ9rg7Stwn1pYM">6·26</span>
+          <span class="ph" data-page-node-id="c9kVevxLf13pdlG1gr6d0i">禁毒日主题宣传</span>
+        </div>
+        <div class="honor-body" data-page-node-id="6d8hLGvvDchqK7y3vZh94a">
+          <div class="num" data-page-node-id="VevOO5OFm5FBnKzEXXgoC1">②</div>
+          <h4 data-page-node-id="qCNcIhuJTQXShvZSCB9tDm">禁毒日主题宣传</h4>
+          <p data-page-node-id="h72Mxq9jEdYsn7dqotAdTv">每年 6·26 国际禁毒日期间开展主题宣传活动，通过知识科普、社区宣讲、横幅签名等形式，提升公众识毒、防毒、拒毒意识，传递"健康人生、绿色无毒"理念，为共建无毒社会贡献力量。</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 2. 企业文化 -->
+  <!-- ========================================== -->
+  <section id="culture" data-page-node-id="W4V5swa6Rlhy8PjEJfB1qR">
+    <h2 class="sec-title" data-page-node-id="pLH0Hxc1ApzDS5uupZGKK9">企业文化</h2>
+    <p class="sec-subtitle" data-page-node-id="MYTpmgo0ysF0X1bcS3DCeI">CORPORATE CULTURE</p>
+
+    <div class="sub-grid cols-4" data-page-node-id="i3QACDqSlfc6XF8fvBINPc">
+      <article class="info-card" data-page-node-id="jjH3RsFFhUOFyx53VBdcpZ">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="e9jNR6X6IYZkxTyZ6N5D1S"><path d="M20 6 L32 12 V22 C32 28 26 33 20 35 C14 33 8 28 8 22 V12 Z" data-page-node-id="dOGFXzMPQLxvAYyZnjlNHL"/><path d="M15 20 L19 24 L26 17" data-page-node-id="6V76asQzdCeAdK3pkHxEGY"/></svg>
+        <span class="num-tag" data-page-node-id="Jyhfb5sIT0sTquLoNIegxq">① 价值观</span>
+        <h3 data-page-node-id="XaEk2AzqwYrHDB1unoG2H9">价值观</h3>
+        <p class="desc" data-page-node-id="MIgPo7TMP5NhKzH2wQ0DtG">稳健、诚信<br data-page-node-id="u2jOfBFg8YWqwyUHBWdVo7"/>专业、共赢<br data-page-node-id="sPTDUd8AT2IBOD3Hp9EQNd"/>坚持长期主义<br data-page-node-id="2AsUtnlITJ21QsPwnwzILI"/>合规风控为生命线</p>
+      </article>
+      <article class="info-card" data-page-node-id="ldtVjAKNb7ZjG6pVecymwg">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="B4JEDcliZjtWWtanhxEVuM"><circle cx="13" cy="16" r="4" data-page-node-id="HaDHLiDoJsLrBwSmZlshqq"/><circle cx="27" cy="16" r="4" data-page-node-id="SlCp11gFjnD4j3CildCNKj"/><path d="M6 32 C6 27 9 24 13 24 M34 32 C34 27 31 24 27 24 M14 24 C17 24 23 24 26 24" data-page-node-id="wtRFpwoc2atiW6GTOKQwOH"/></svg>
+        <span class="num-tag" data-page-node-id="ZwRmXKtpMTBYMfvweRp2Xs">② 团队氛围</span>
+        <h3 data-page-node-id="HdAWChnJWDNvXK8EaLARV0">团队氛围</h3>
+        <p class="desc" data-page-node-id="F4gsS0zp14kk2XgmrIpqze">专业、和谐、向上<br data-page-node-id="PaE0v7cHBvI5KuR1EQvRQ9"/>开放协作<br data-page-node-id="GUlaJRbfZAZiPgrhNvpcCE"/>鼓励持续学习<br data-page-node-id="VGyYE64aOgl9depMlUvgEM"/>人人有归属与舞台</p>
+      </article>
+      <article class="info-card" data-page-node-id="kVEcZJbRRwAIjSBQwNXrl1">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="BYoHtB0WZz3ipQo9mfj1UE"><path d="M8 32 V20 L20 12 L32 20 V32 Z" data-page-node-id="dVihZd3v0qIO46hO5YirL4"/><path d="M16 32 V24 H24 V32" data-page-node-id="RPma9oka9uIUMpGVEbMMPn"/></svg>
+        <span class="num-tag" data-page-node-id="wd6eiJwPaF5PaMJAbd51hU">③ 皓镧商学院</span>
+        <h3 data-page-node-id="3wlemeYcoLW5wKL4bGXaLy">皓镧商学院</h3>
+        <p class="desc" data-page-node-id="BtK65pJbVZsTO1BNCjO6xe">公司人才孵化平台<br data-page-node-id="VyUGHGA5X6vBLxP3UK5yFF"/>系统化专业培训<br data-page-node-id="nDrOQHeQQUYw0FUUpPEUQP"/>行业前沿分享<br data-page-node-id="yWA1R4gQ2JDHEzAu2tE0zh"/>培养资管行业精英</p>
+      </article>
+      <article class="info-card" data-page-node-id="0vP2Wn8jsQHvUHA7HHS8Vt">
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="YbNvMrPz0Tm0loEx3AMInh"><circle cx="20" cy="14" r="6" data-page-node-id="7yR00yDGnH9LFQGFJjUMwm"/><path d="M8 34 C8 27 14 24 20 24 C26 24 32 27 32 34" data-page-node-id="vR8xnQwEy4sZ70uCK9pEaj"/></svg>
+        <span class="num-tag" data-page-node-id="EcGp1Vf3o65CLKK50Mj4wf">④ 员工团建</span>
+        <h3 data-page-node-id="FK8c0eS3tH0Lk5QPhAY6CX">员工团建活动</h3>
+        <p class="desc" data-page-node-id="TEjBOdawNBV9fecWuB3v1U">定期团建旅行<br data-page-node-id="hbjASTX9Mx0Ji0rc4p45V9"/>主题沙龙<br data-page-node-id="M3zDfXFGSUBClpajnBP4F5"/>文体活动<br data-page-node-id="WSQPlac4izCfDk6rp5JxDl"/>共筑有温度的文化</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 3. 公司动态 -->
   <!-- ========================================== -->
   <section id="dynamics" data-page-node-id="T0YWZQrAFI7HXA4JtD8bDV">
     <h2 class="sec-title" data-page-node-id="EMM2lHEJRK7C3e1sfbhFum">公司动态</h2>
@@ -339,7 +462,7 @@
   </section>
 
   <!-- ========================================== -->
-  <!-- 2. 客户案例 + 服务优势 -->
+  <!-- 4. 客户案例 + 服务优势 -->
   <!-- ========================================== -->
   <section id="cases" data-page-node-id="1NXIbN2B2Ifdcvny42dif2">
     <h2 class="sec-title" data-page-node-id="eQWCFu1XYFQlK41uRBooQf">客户案例与服务优势</h2>
@@ -427,7 +550,7 @@
   </section>
 
   <!-- ========================================== -->
-  <!-- 3. 服务场景展示 -->
+  <!-- 5. 服务场景展示 -->
   <!-- ========================================== -->
   <section id="scenes" data-page-node-id="itG5wGaTJ45BTyElg6Rc4D">
     <h2 class="sec-title" data-page-node-id="bGtFGxPpEqOPqK8Bl0EnWo">服务场景展示</h2>

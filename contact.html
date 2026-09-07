@@ -148,6 +148,40 @@
   .contact-box .head h4 { font-size: 18px; font-weight: 700; letter-spacing: 2px; font-family: "STSong","SimSun",serif; }
   .contact-box .head .en { font-size: 11px; color: var(--muted); letter-spacing: 2px; }
   .phone-list { display: flex; flex-direction: column; gap: 16px; }
+  /* 客服微信 - 企业微信名片 */
+  .wechat-card-body {
+    display: flex; flex-direction: column; align-items: center;
+    gap: 14px; padding-top: 2px;
+  }
+  .wechat-card-body .img-frame {
+    position: relative; width: 100%; max-width: 300px;
+    border-radius: 14px; overflow: hidden;
+    background: linear-gradient(135deg, #f7f7f7, #ffffff);
+    border: 1px solid var(--gold-soft);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.06);
+    transition: transform .3s ease, box-shadow .3s ease;
+  }
+  .wechat-card-body .img-frame::after {
+    content: ""; position: absolute; inset: 0;
+    border-radius: inherit; pointer-events: none;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.6);
+  }
+  .wechat-card-body .img-frame:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 36px rgba(184,148,31,0.18);
+  }
+  .wechat-card-body .img-frame img {
+    display: block; width: 100%; height: auto;
+    user-select: none; -webkit-user-drag: none;
+  }
+  .wechat-card-body .wechat-hint {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12px; color: var(--muted); letter-spacing: 1px;
+    padding: 0 6px; text-align: center;
+  }
+  .wechat-card-body .wechat-hint svg {
+    width: 14px; height: 14px; color: var(--gold-deep); flex-shrink: 0;
+  }
   .phone-item { display: flex; gap: 14px; align-items: flex-start; }
   .phone-item .pico {
     width: 38px; height: 38px; border-radius: 10px; flex-shrink: 0;
@@ -305,9 +339,9 @@
         <a href="./about.html" data-page-node-id="AjVr8GS3aKWOh2b0TPAfWL">关于我们</a>
         <a href="./business.html" data-page-node-id="AAmgnJ2ki0bUKV94BAM8Rh">主营业务</a>
         <a href="./service.html" data-page-node-id="bH4M9VEIm8GnnD9oNZL1F0">服务流程</a>
-        <a href="./team.html" data-page-node-id="AaS77DSPT2bwu1BPpElCEq">精英团队</a>
+        <a href="./team.html" data-page-node-id="AaS77DSPT2bwu1BPpElCEq">我们团队</a>
         <a href="./policy.html" data-page-node-id="KLjyCuSr4T4uL2vKA7DEWY">政策解读</a>
-        <a href="./notice.html" data-page-node-id="VGfovTqldktkpFrsRB09qt">企业公告</a>
+        <a href="./notice.html" data-page-node-id="VGfovTqldktkpFrsRB09qt">企业风采</a>
         <a href="./academy.html" data-page-node-id="BtF5GU6xz5CbD6K6UCdX8f">皓镧商学院</a>
         <a href="./video.html" data-page-node-id="lhvCQz5Sj7PXhix0Koa35H">短视频专区</a>
         <a href="./join.html" data-page-node-id="HWmd9wQyDnSqHBOyCvZ2O6">加入我们</a>
@@ -441,7 +475,16 @@
             <span class="en" data-page-node-id="nYajrPVkf3LYGhIpWrx72o">CUSTOMER SERVICE</span>
           </div>
         </div>
-        
+
+        <div class="wechat-card-body" data-page-node-id="wxa91BdwfwC8M3nXuqhL7M">
+          <div class="img-frame">
+            <img src="./assets/wechat-qr.jpg" alt="皓镧资产企业微信二维码 - 微信号 13172796462" loading="lazy" decoding="async" />
+          </div>
+          <p class="wechat-hint" data-page-node-id="wxa92CdwgwD9N4oYvriM8N">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+            截屏或长按图片保存，打开微信扫一扫选择图片添加客服
+          </p>
+        </div>
       </div>
     </div>
   </section>
