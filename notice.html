@@ -33,12 +33,12 @@
   .topbar { background: linear-gradient(135deg, #E6C094 0%, #D4A574 100%); color: #22334F; border-bottom: 2px solid rgba(34,51,79,0.2); box-shadow: 0 2px 10px rgba(34,51,79,0.15); }
   .topbar-inner { max-width: 1280px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; gap: 36px; }
   .logo { display: flex; align-items: center; padding: 14px 0; flex-shrink: 0; }
-  .logo-card {
-    display: inline-flex; align-items: center; background: #fff;
-    padding: 8px 16px; border-radius: 4px; height: 56px;
-    box-shadow: 0 0 0 1px rgba(34,51,79,0.25);
+.logo-card {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: #fff; padding: 0 8px; height: 58px;
+    border: 1px solid rgba(34,51,79,0.25); border-radius: 6px;
   }
-  .logo-card img { height: 58px; width: auto; display: block; }
+  .logo-card img { height: 46px; width: auto; display: block; }
   .nav { display: flex; flex-direction: column; gap: 6px; margin-left: auto; padding: 14px 0; }
   .nav-row { display: flex; gap: 30px; font-size: 14px; }
   .nav-row.top a { color: rgba(34,51,79,0.88); transition: color .2s; padding: 4px 0; white-space: nowrap; }
@@ -426,7 +426,7 @@
     .footer-logo .footer-logo-img { height: 62px; width: auto; display: block; }
     @media (max-width: 760px) {
       .logo-card { padding: 4px 7px; }
-      .logo-card img { height: 48px; }
+      .logo-card img { height: 40px; }
       .footer-logo .footer-logo-img { height: 52px; }
     }
   </style>
@@ -438,7 +438,7 @@
   <div class="topbar-inner" data-page-node-id="Nl7FjTwzJzHkhfOz1QauZz">
     <a href="./index.html" class="logo" aria-label="皓镧资产" data-page-node-id="TTm2H8M4rdRSxevfQIVbDt">
       <span class="logo-card" data-page-node-id="eEhB5ulcCUUpJ3TY1C8r3H">
-        <img src="./assets/haolan-logo.svg" alt="皓镧资产" data-page-node-id="5HhDESAheN1N7N1FGpbXLa" />
+        <img src="./assets/haolan-logo-mark.svg" alt="皓镧资产" data-page-node-id="5HhDESAheN1N7N1FGpbXLa" />
       </span>
     </a>
     <nav class="nav" aria-label="主导航" data-page-node-id="MszHBSlTt6fjQFCGw0FDpe">
@@ -481,7 +481,7 @@
       <a href="./contact.html">联系我们</a>
     </div>
     <div class="drawer-foot">
-      服务热线 <b>0762-3103909</b><br />
+      服务热线 <b><a href="tel:0762-3103909" class="js-call" data-tel="0762-3103909">0762-3103909</a></b><br />
       河源市源城区永康大道与红星东路交汇处时代国际中心17楼
     </div>
   </nav>
@@ -786,7 +786,7 @@
       <img class="footer-logo-img" src="./assets/haolan-logo-light.svg" alt="皓镧资产" />
     </div>
     <div class="footer-info" data-page-node-id="v4h8ScMAkyCbY1asfcXgKg">
-      <div data-page-node-id="GDusuzRIrkdxMe78TACX6y"><b data-page-node-id="SOK4lgSZcMeRHsGa1Dq0uG">联系电话：</b>0762-3103909</div>
+      <div data-page-node-id="GDusuzRIrkdxMe78TACX6y"><b data-page-node-id="SOK4lgSZcMeRHsGa1Dq0uG">联系电话：</b><a href="tel:0762-3103909" class="js-call" data-tel="0762-3103909">0762-3103909</a></div>
       <div data-page-node-id="ma0XLArwb6F7aastspIxwJ"><b data-page-node-id="LAyKE8d0uIRJFCbT7SqtJv">邮箱：</b>865573331@qq.com</div>
       <div data-page-node-id="jhKnABmCs9QuSOCMRJFMBa"><b data-page-node-id="PAWDsHKcXAMTJ1EIi9XVKQ">地址：</b>河源市源城区永康大道与红星东路交汇处时代国际中心17楼</div>
     </div>
@@ -825,5 +825,6 @@
   })();
 </script>
 
+<script src="./assets/call.js"></script>
 </body>
 </html>

@@ -33,12 +33,12 @@
   .topbar { background: linear-gradient(135deg, #E6C094 0%, #D4A574 100%); color: #22334F; border-bottom: 2px solid rgba(34,51,79,0.2); box-shadow: 0 2px 10px rgba(34,51,79,0.15); }
   .topbar-inner { max-width: 1280px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; gap: 36px; }
   .logo { display: flex; align-items: center; padding: 14px 0; flex-shrink: 0; }
-  .logo-card {
-    display: inline-flex; align-items: center; background: #fff;
-    padding: 8px 16px; border-radius: 4px; height: 56px;
-    box-shadow: 0 0 0 1px rgba(34,51,79,0.25);
+.logo-card {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: #fff; padding: 0 8px; height: 58px;
+    border: 1px solid rgba(34,51,79,0.25); border-radius: 6px;
   }
-  .logo-card img { height: 58px; width: auto; display: block; }
+  .logo-card img { height: 46px; width: auto; display: block; }
   .nav { display: flex; flex-direction: column; gap: 6px; margin-left: auto; padding: 14px 0; }
   .nav-row { display: flex; gap: 30px; font-size: 14px; }
   .nav-row.top a { color: rgba(34,51,79,0.88); transition: color .2s; padding: 4px 0; white-space: nowrap; }
@@ -503,61 +503,18 @@
       display: inline-block; margin-top: 6px;
       font-size: 11.5px; color: #C8102E; letter-spacing: .5px;
     }
-    .footer-info .js-call { color: #C8102E; text-decoration: underline; text-underline-offset: 3px; }
-    .call-mask {
-      position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 1300;
-      background: rgba(20,28,40,.5);
-      display: flex; align-items: center; justify-content: center; padding: 20px;
-      opacity: 0; visibility: hidden; transition: opacity .22s ease, visibility .22s ease;
-    }
-    .call-mask.open { opacity: 1; visibility: visible; }
-    .call-dialog {
-      width: 100%; max-width: 340px; background: #fff; border-radius: 14px;
-      border: 1.5px solid rgba(201,169,97,.6);
-      box-shadow: 0 18px 40px rgba(34,51,79,.22);
-      padding: 26px 22px 18px; text-align: center;
-      transform: translateY(14px) scale(.97); transition: transform .22s ease;
-    }
-    .call-mask.open .call-dialog { transform: translateY(0) scale(1); }
-    .call-icon {
-      width: 52px; height: 52px; margin: 0 auto 14px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      background: linear-gradient(135deg, #C8102E 0%, #E23A52 100%);
-      color: #fff;
-    }
-    .call-icon svg { width: 24px; height: 24px; }
-    .call-title {
-      font-family: "STSong","SimSun",serif; font-size: 18px; color: #1F3A2E; letter-spacing: 1px;
-    }
-    .call-num {
-      margin: 10px 0 4px; font-family: "STSong",serif;
-      font-size: 26px; font-weight: 700; color: #C8102E; letter-spacing: 1px;
-    }
-    .call-desc { font-size: 12px; color: #6B7280; line-height: 1.8; }
-    .call-actions { display: flex; gap: 10px; margin-top: 18px; }
-    .call-actions > * {
-      flex: 1; height: 44px; border-radius: 8px; font-size: 15px;
-      display: inline-flex; align-items: center; justify-content: center;
-      cursor: pointer; text-decoration: none; border: 0;
-    }
     .btn-cancel { background: #fff; border: 1.5px solid rgba(201,169,97,.8) !important; color: #1F3A2E; }
-    .btn-call {
-      background: linear-gradient(135deg, #D4AF37 0%, #C9A961 100%);
-      color: #fff; font-weight: 600;
-    }
     .btn-copy {
       margin-top: 12px; width: 100%; height: 38px; background: none; border: 0;
       font-size: 13px; color: #C9A961; cursor: pointer;
     }
     @media (max-width: 760px) {
-      .call-dialog { padding: 22px 18px 16px; }
-      .call-num { font-size: 23px; }
     }
       /* ========== 品牌新 Logo（透明底 PNG） ========== */
     .footer-logo .footer-logo-img { height: 62px; width: auto; display: block; }
     @media (max-width: 760px) {
       .logo-card { padding: 4px 7px; }
-      .logo-card img { height: 48px; }
+      .logo-card img { height: 40px; }
       .footer-logo .footer-logo-img { height: 52px; }
     }
   </style>
@@ -569,7 +526,7 @@
   <div class="topbar-inner" data-page-node-id="Q8er8F9e3cWyMtfMg5yRQL">
     <a href="./index.html" class="logo" aria-label="皓镧资产" data-page-node-id="DMeHXnXEk3qI8N9JycQZdQ">
       <span class="logo-card" data-page-node-id="N5rhn4mVXrslit5Gt0uyOS">
-        <img src="./assets/haolan-logo.svg" alt="皓镧资产" data-page-node-id="Y1FBMfCyKZpN4sJXi4fCx5" />
+        <img src="./assets/haolan-logo-mark.svg" alt="皓镧资产" data-page-node-id="Y1FBMfCyKZpN4sJXi4fCx5" />
       </span>
     </a>
     <nav class="nav" aria-label="主导航" data-page-node-id="YYxy7z33geV7yDJdsJaM2F">
@@ -612,7 +569,7 @@
       <a href="./contact.html">联系我们</a>
     </div>
     <div class="drawer-foot">
-      服务热线 <b>0762-3103909</b><br />
+      服务热线 <b><a href="tel:0762-3103909" class="js-call" data-tel="0762-3103909">0762-3103909</a></b><br />
       河源市源城区永康大道与红星东路交汇处时代国际中心17楼
     </div>
   </nav>
@@ -724,7 +681,7 @@
           </div>
           <p class="wechat-hint" data-page-node-id="wxa92CdwgwD9N4oYvriM8N">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
-            截屏或长按图片保存，打开微信扫一扫选择图片添加客服
+            长按识别二维码，添加客服微信
           </p>
         </div>
       </div>
@@ -884,70 +841,9 @@
   })();
 </script>
 
-<div class="call-mask" id="callMask">
-  <div class="call-dialog" role="dialog" aria-modal="true" aria-labelledby="callTitle">
-    <div class="call-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 4h4l2 5-3 2a12 12 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
-    </div>
-    <div class="call-title" id="callTitle">呼叫确认</div>
-    <div class="call-num" id="callNum">0762-3103909</div>
-    <div class="call-desc">工作时间：周一至周五 8:30–12:00、14:00–18:30<br />其他时段可添加客服微信留言</div>
-    <div class="call-actions">
-      <button class="btn-cancel" id="callCancel" type="button">取消</button>
-      <a class="btn-call" id="callGo" href="tel:0762-3103909">立即呼叫</a>
-    </div>
-    <button class="btn-copy" id="callCopy" type="button">复制号码</button>
-  </div>
-</div>
-<script>
-  (function () {
-    var mask = document.getElementById('callMask');
-    var numEl = document.getElementById('callNum');
-    var go = document.getElementById('callGo');
-    if (!mask || !numEl || !go) return;
-    var cur = '';
-    function openCall(tel) {
-      cur = tel;
-      numEl.textContent = tel;
-      go.setAttribute('href', 'tel:' + tel);
-      mask.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeCall() {
-      mask.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-    document.addEventListener('click', function (e) {
-      var t = e.target.closest ? e.target.closest('[data-tel]') : null;
-      if (!t) return;
-      e.preventDefault();
-      openCall(t.getAttribute('data-tel'));
-    });
-    document.addEventListener('keydown', function (e) {
-      if (e.key !== 'Enter' && e.key !== ' ') return;
-      var el = document.activeElement;
-      var t = el && el.closest ? el.closest('[data-tel]') : null;
-      if (!t) return;
-      e.preventDefault();
-      openCall(t.getAttribute('data-tel'));
-    });
-    document.getElementById('callCancel').addEventListener('click', closeCall);
-    mask.addEventListener('click', function (e) { if (e.target === mask) closeCall(); });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeCall(); });
-    document.getElementById('callCopy').addEventListener('click', function () {
-      var done = function () { this.textContent = '已复制'; var b = this; setTimeout(function () { b.textContent = '复制号码'; }, 1600); };
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(cur).then(done.bind(this), function () {});
-      } else {
-        var ta = document.createElement('textarea');
-        ta.value = cur; document.body.appendChild(ta); ta.select();
-        try { document.execCommand('copy'); } catch (err) {}
-        document.body.removeChild(ta);
-        done.call(this);
-      }
-    });
-  })();
-</script>
 
+
+
+<script src="./assets/call.js"></script>
 </body>
 </html>
