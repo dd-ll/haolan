@@ -89,14 +89,37 @@
   }
 
   /* ========== 招聘数据条 ========== */
-  .job-stats {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 40px;
+  .job-head {
+    display: flex; align-items: center; gap: 12px;
+    padding-bottom: 16px; margin-bottom: 18px;
+    border-bottom: 1px solid var(--line);
   }
-  .job-stat {
-    border: 1.5px solid var(--gold-soft); border-radius: 10px; background: #fff;
-    padding: 24px 16px; text-align: center; transition: all .25s;
+  .job-num {
+    font-family: "STSong","SimSun",serif; font-size: 22px; font-weight: 700;
+    color: var(--gold); line-height: 1;
   }
-  .job-stat:hover { border-color: var(--gold); box-shadow: 0 10px 24px rgba(184,148,31,0.12); transform: translateY(-4px); }
+  .job-title { font-size: 19px; font-weight: 700; color: var(--ink); letter-spacing: 2px; }
+  .job-sec { margin-bottom: 18px; }
+  .job-sec:last-child { margin-bottom: 0; }
+  .job-sec-title {
+    font-size: 14px; font-weight: 700; color: var(--ink); letter-spacing: 1px;
+    margin-bottom: 10px; padding-left: 12px; position: relative;
+  }
+  .job-sec-title::before {
+    content: ""; position: absolute; left: 0; top: 3px; bottom: 3px;
+    width: 3px; border-radius: 2px;
+    background: linear-gradient(180deg, var(--red), var(--gold));
+  }
+  .job-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .job-list li {
+    position: relative; padding-left: 16px;
+    font-size: 13.5px; color: var(--muted); line-height: 1.95; text-align: justify;
+  }
+  .job-list li::before {
+    content: ""; position: absolute; left: 2px; top: 10px;
+    width: 5px; height: 5px; border-radius: 50%;
+    background: var(--gold); opacity: .7;
+  }
 
   /* ========== 1. 在招岗位 ========== */
 
@@ -116,9 +139,63 @@
   /* 投递提示条 */
 
   /* ========== 2. 晋升体系 ========== */
-  .dual-track {
-    display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; margin-bottom: 40px;
+  /* 小节标题 */
+  .part-title {
+    display: flex; align-items: center;
+    font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: 1px;
+    margin: 0 0 22px; padding-left: 14px; position: relative;
   }
+  .part-title::before {
+    content: ""; position: absolute; left: 0; top: 2px; bottom: 2px;
+    width: 4px; border-radius: 2px;
+    background: linear-gradient(180deg, var(--red), var(--gold));
+  }
+  .part-title:not(:first-of-type) { margin-top: 46px; }
+
+  /* 一、职级阶梯五卡 */
+  .lvl-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  .lvl-card {
+    border: 1.5px solid var(--gold-soft); border-radius: 10px; background: #fff;
+    padding: 20px 18px; position: relative; overflow: hidden; transition: all .25s;
+  }
+  .lvl-card::before {
+    content: ""; position: absolute; left: 0; top: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--red), var(--gold));
+    opacity: 0; transition: opacity .25s;
+  }
+  .lvl-card:hover { border-color: var(--gold); box-shadow: 0 10px 26px rgba(184,148,31,0.12); transform: translateY(-4px); }
+  .lvl-card:hover::before { opacity: 1; }
+  .lvl-idx {
+    display: block; font-family: "STSong","SimSun",serif; font-size: 20px;
+    font-weight: 700; color: var(--gold); line-height: 1; letter-spacing: 1px;
+  }
+  .lvl-name { font-size: 15px; font-weight: 700; color: var(--ink); letter-spacing: 1px; margin: 9px 0 7px; }
+  .lvl-name em { font-style: normal; font-size: 11px; font-weight: 400; color: var(--muted); letter-spacing: 0; margin-left: 4px; }
+  .lvl-tag {
+    display: inline-block; font-size: 11px; color: var(--gold-deep); letter-spacing: .5px;
+    background: var(--bg-soft); border: 1px solid var(--gold-soft); border-radius: 20px;
+    padding: 2px 10px; margin-bottom: 10px;
+  }
+  .lvl-desc { font-size: 12.5px; color: var(--muted); line-height: 1.9; text-align: justify; }
+
+  /* 二、晋升核心机制四卡 */
+  .mech-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .mech-card {
+    border: 1.5px solid var(--gold-soft); border-radius: 10px; background: #fff;
+    padding: 22px 20px; transition: all .25s;
+  }
+  .mech-card:hover { border-color: var(--gold); box-shadow: 0 10px 26px rgba(184,148,31,0.12); transform: translateY(-4px); }
+  .mech-card .m-icon {
+    width: 46px; height: 46px; margin-bottom: 14px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--bg-soft); border: 1.5px solid var(--gold-soft); color: var(--gold-deep);
+  }
+  .mech-card .m-icon svg { width: 24px; height: 24px; }
+  .mech-card h4 { font-size: 15px; font-weight: 700; color: var(--ink); letter-spacing: 1px; margin-bottom: 8px; }
+  .mech-card p { font-size: 12.5px; color: var(--muted); line-height: 1.9; text-align: justify; }
+
+  /* 三、双晋升通道 */
+  .dual-track { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
   .track-card {
     border: 1.5px solid var(--gold-soft); border-radius: 12px; background: #fff;
     overflow: hidden; transition: all .25s;
@@ -139,40 +216,25 @@
     display: flex; align-items: center; justify-content: center; flex-shrink: 0;
   }
   .track-head .ticon svg { width: 26px; height: 26px; color: #fff; }
-
-  /* 晋升阶梯 */
-
-  /* 晋升机制三卡 */
-  .promo-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 40px; }
-  .promo-card {
-    border: 1.5px solid var(--gold-soft); border-radius: 10px; background: #fff;
-    padding: 24px 22px; text-align: center; transition: all .25s;
+  .track-head .th-text { position: relative; z-index: 1; }
+  .track-head .th-text h3 { font-size: 18px; font-weight: 700; letter-spacing: 2px; }
+  .track-head .th-text span { display: block; font-size: 11.5px; letter-spacing: 1px; opacity: .82; margin-top: 3px; }
+  .track-body { padding: 24px 26px 26px; }
+  .track-path { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+  .track-path .tp-step {
+    font-size: 12.5px; font-weight: 700; color: var(--gold-deep);
+    background: var(--bg-soft); border: 1px solid var(--gold-soft); border-radius: 6px;
+    padding: 4px 12px; letter-spacing: .5px;
   }
-  .promo-card:hover { border-color: var(--gold); box-shadow: 0 10px 26px rgba(184,148,31,0.12); transform: translateY(-4px); }
-  .promo-card .p-icon {
-    width: 50px; height: 50px; margin: 0 auto 12px; border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    background: var(--bg-soft); border: 1.5px solid var(--gold-soft); color: var(--gold-deep);
-  }
-  .promo-card .p-icon svg { width: 26px; height: 26px; }
-
-  /* 晋升数据条 */
-  .promo-strip {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
-  }
-  .p-strip {
-    border: 1px solid var(--gold-soft); border-radius: 10px; background: var(--bg-soft);
-    padding: 20px 16px; text-align: center;
-  }
+  .track-path .tp-arrow { color: var(--gold); font-size: 13px; line-height: 1; }
+  .track-body p { font-size: 13px; color: var(--muted); line-height: 2; text-align: justify; }
 
   /* ========== 3. 薪资福利 ========== */
-  /* 薪酬构成 */
-  .comp-strip {
-    display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 40px;
-  }
+  /* 薪资构成 */
+  .comp-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
   .comp-item {
     border: 1.5px solid var(--gold-soft); border-radius: 12px; background: #fff;
-    padding: 22px 14px; text-align: center; transition: all .25s; position: relative; overflow: hidden;
+    padding: 24px 14px; text-align: center; transition: all .25s; position: relative; overflow: hidden;
   }
   .comp-item::after {
     content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px;
@@ -181,28 +243,89 @@
   .comp-item:hover { border-color: var(--gold); box-shadow: 0 10px 26px rgba(184,148,31,0.12); transform: translateY(-4px); }
   .comp-item:hover::after { opacity: 1; }
   .comp-item .c-icon {
-    width: 44px; height: 44px; margin: 0 auto 10px; border-radius: 12px;
+    width: 44px; height: 44px; margin: 0 auto 12px; border-radius: 12px;
     display: flex; align-items: center; justify-content: center;
     background: var(--bg-soft); border: 1.5px solid var(--gold-soft); color: var(--gold-deep);
   }
   .comp-item .c-icon svg { width: 22px; height: 22px; }
+  .comp-item h4 { font-size: 14px; font-weight: 700; color: var(--ink); letter-spacing: 1px; }
+  .comp-note {
+    margin-top: 20px; padding: 16px 24px; text-align: center;
+    background: var(--bg-soft); border: 1px solid var(--gold-soft); border-radius: 10px;
+    font-size: 13.5px; color: var(--ink); line-height: 1.9;
+  }
 
-  /* 福利网格 */
-  .benefit-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 40px; }
-  .benefit-card {
+  /* 福利卡 */
+  .welfare-grid { display: grid; gap: 18px; }
+  .welfare-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .welfare-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+  .welfare-card {
     border: 1.5px solid var(--gold-soft); border-radius: 10px; background: #fff;
-    padding: 24px 22px; text-align: center; transition: all .25s;
+    padding: 22px 20px; transition: all .25s;
   }
-  .benefit-card:hover { border-color: var(--gold); box-shadow: 0 10px 26px rgba(184,148,31,0.12); transform: translateY(-4px); }
-  .benefit-card .b-icon {
-    width: 48px; height: 48px; margin: 0 auto 12px; border-radius: 50%;
+  .welfare-card:hover { border-color: var(--gold); box-shadow: 0 10px 26px rgba(184,148,31,0.12); transform: translateY(-4px); }
+  .welfare-card .w-icon {
+    width: 46px; height: 46px; margin-bottom: 14px; border-radius: 12px;
     display: flex; align-items: center; justify-content: center;
-    background: linear-gradient(135deg, var(--gold-soft), var(--bg-soft));
-    border: 1px solid var(--gold-soft); color: var(--gold-deep);
+    background: var(--bg-soft); border: 1.5px solid var(--gold-soft); color: var(--gold-deep);
   }
-  .benefit-card .b-icon svg { width: 24px; height: 24px; }
+  .welfare-card .w-icon svg { width: 24px; height: 24px; }
+  .welfare-card h4 { font-size: 15px; font-weight: 700; color: var(--ink); letter-spacing: 1px; margin-bottom: 8px; }
+  .welfare-card p { font-size: 12.5px; color: var(--muted); line-height: 1.9; text-align: justify; }
 
-  /* 投递 CTA */
+  /* ========== 4. 简历投递入口 ========== */
+  .recruit-card {
+    border: 1.5px solid var(--gold-soft); border-radius: 16px; background: #fff;
+    overflow: hidden; display: grid; grid-template-columns: 1.25fr 1fr;
+  }
+  .recruit-left {
+    background: linear-gradient(135deg, var(--red) 0%, var(--red-deep) 100%);
+    color: #fff; padding: 44px; position: relative; overflow: hidden;
+  }
+  .recruit-left::after {
+    content: ""; position: absolute; right: -70px; bottom: -70px; width: 220px; height: 220px;
+    border: 2px solid rgba(255,255,255,0.16); border-radius: 50%;
+  }
+  .recruit-left .r-tag {
+    display: inline-block; font-size: 11.5px; letter-spacing: 2px; color: #FFE1A8;
+    border: 1px dashed rgba(255,225,168,0.7); border-radius: 20px;
+    padding: 4px 14px; margin-bottom: 18px; position: relative; z-index: 1;
+  }
+  .recruit-left h3 {
+    font-family: "STSong","SimSun",serif; font-size: 24px; font-weight: 700;
+    letter-spacing: 3px; line-height: 1.6; margin-bottom: 12px; position: relative; z-index: 1;
+  }
+  .recruit-left > p {
+    font-size: 13px; color: rgba(255,255,255,0.8); line-height: 2; margin-bottom: 24px;
+    position: relative; z-index: 1;
+  }
+  .recruit-contact { display: flex; flex-direction: column; gap: 12px; position: relative; z-index: 1; }
+  .recruit-row {
+    display: flex; align-items: center; gap: 14px;
+    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 10px; padding: 14px 18px; transition: all .25s;
+  }
+  a.recruit-row:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,225,168,0.65); }
+  .recruit-row .ri {
+    width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(255,255,255,0.16); color: #FFE1A8;
+  }
+  .recruit-row .ri svg { width: 21px; height: 21px; }
+  .recruit-row .rt { display: flex; flex-direction: column; gap: 3px; }
+  .recruit-row .rl { font-size: 11.5px; letter-spacing: 1px; color: rgba(255,255,255,0.72); }
+  .recruit-row .rv { font-size: 17px; font-weight: 700; letter-spacing: 1px; color: #FFE1A8; }
+  .recruit-right {
+    padding: 40px; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center;
+  }
+  .recruit-right .recruit-qr {
+    width: 100%; max-width: 236px; aspect-ratio: 1/1; object-fit: contain;
+    border-radius: 12px; border: 1px solid var(--gold-soft); background: #fff; padding: 10px;
+    -webkit-touch-callout: default; -webkit-user-select: auto; user-select: auto;
+  }
+  .recruit-right h5 { font-size: 14px; font-weight: 700; letter-spacing: 2px; margin-top: 14px; }
+  .recruit-right p { font-size: 11.5px; color: var(--muted); margin-top: 6px; line-height: 1.8; }
 
   /* ========== 页脚 ========== */
   .footer {
@@ -221,18 +344,41 @@
 
   /* ========== 响应式 ========== */
   @media (max-width: 1080px) {
-    .job-stats, .promo-strip { grid-template-columns: repeat(2, 1fr); }
+    .lvl-grid { grid-template-columns: repeat(3, 1fr); }
     .dual-track { grid-template-columns: 1fr; }
-    .promo-cards { grid-template-columns: repeat(2, 1fr); }
-    .comp-strip { grid-template-columns: repeat(3, 1fr); }
-    .benefit-grid { grid-template-columns: repeat(2, 1fr); }
+    .mech-grid { grid-template-columns: repeat(2, 1fr); }
+    .comp-strip { grid-template-columns: repeat(2, 1fr); }
+    .welfare-grid.cols-4 { grid-template-columns: repeat(2, 1fr); }
+    .recruit-card { grid-template-columns: 1fr; }
   }
   @media (max-width: 760px) {
     .job-grid { grid-template-columns: 1fr; }
-    .job-stats { grid-template-columns: repeat(2, 1fr); }
-    .promo-cards { grid-template-columns: 1fr; }
+    .job-card { padding: 22px 18px; }
+    .job-title { font-size: 17px; letter-spacing: 1px; }
+    .job-head { padding-bottom: 12px; margin-bottom: 14px; }
+    .job-list li { font-size: 13px; line-height: 1.9; }
+    .lvl-grid { grid-template-columns: 1fr; }
+    .mech-grid { grid-template-columns: 1fr; }
+    .part-title { font-size: 15.5px; }
+    .part-title:not(:first-of-type) { margin-top: 34px; }
+    .lvl-card { padding: 18px 16px; }
+    .mech-card { padding: 20px 18px; }
+    .track-head { padding: 16px 18px; gap: 12px; }
+    .track-head .th-text h3 { font-size: 16px; letter-spacing: 1px; }
+    .track-body { padding: 18px; }
     .comp-strip { grid-template-columns: repeat(2, 1fr); }
-    .benefit-grid { grid-template-columns: 1fr; }
+    .comp-item { padding: 20px 12px; }
+    .comp-note { padding: 14px 18px; font-size: 13px; text-align: justify; }
+    .welfare-grid.cols-2 { grid-template-columns: 1fr; }
+    .welfare-grid.cols-4 { grid-template-columns: 1fr; }
+    .welfare-card { padding: 20px 18px; }
+    .recruit-left { padding: 28px 22px; }
+    .recruit-left h3 { font-size: 19px; letter-spacing: 2px; }
+    .recruit-left > p { margin-bottom: 18px; }
+    .recruit-row { padding: 12px 14px; gap: 12px; }
+    .recruit-row .rv { font-size: 15.5px; letter-spacing: .5px; }
+    .recruit-right { padding: 30px 22px; }
+    .recruit-right .recruit-qr { max-width: 190px; }
     .topbar-inner { flex-wrap: wrap; padding: 0 20px; gap: 16px; }
     .nav { margin-left: 0; }
     .nav-row { gap: 16px; flex-wrap: wrap; }
@@ -252,18 +398,6 @@
     .topbar-inner { padding: 0 16px; gap: 12px; }
   }
 
-  /* ========== 卡片清空后布局补丁（2026-09-03） ========== */
-  .job-stat { display: flex; align-items: center; justify-content: center; min-height: 110px; }
-  .job-card { min-height: 200px; }
-  .p-strip { display: flex; align-items: center; justify-content: center; min-height: 90px; }
-  .track-card { min-height: 190px; }
-  .track-head { justify-content: center; gap: 0; }
-  .promo-card { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 150px; }
-  .promo-card .p-icon { margin: 0; }
-  .comp-item { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 150px; }
-  .comp-item .c-icon { margin: 0; }
-  .benefit-card { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 150px; }
-  .benefit-card .b-icon { margin: 0; }
 </style>
 </head>
 <body data-page-node-id="6S83d9W3cR9GBsT3P0QNwc">
@@ -309,63 +443,85 @@
     <h2 class="sec-title" data-page-node-id="ibknEuXdReBCjvoCzrLxDO">在招岗位</h2>
     <p class="sec-subtitle" data-page-node-id="Q8TDJ6W3K2gI16CgsXC31C">OPEN POSITIONS</p>
 
-    <div class="job-stats" data-page-node-id="thT1XFqahrINTNTWMo6seB">
-      <div class="job-stat" data-page-node-id="XDFCkCEQCrXFQ9I6hcCbf9">
-        
-        
-        
-      </div>
-      <div class="job-stat" data-page-node-id="Q5pBHq4mOR8yxxx7rQpknx">
-        
-        
-        
-      </div>
-      <div class="job-stat" data-page-node-id="0TT9cKzyucPOXYQcVizaEG">
-        
-        
-        
-      </div>
-      <div class="job-stat" data-page-node-id="LjT8BRwQMlZzyri1cJ2SGn">
-        
-        
-        
-      </div>
-    </div>
-
-    
-
     <div class="job-grid" id="jobGrid" data-page-node-id="hxoO9nBdbwBsa55ZFg3yvJ">
 
-            <div class="job-card" data-cat="sales" data-page-node-id="P9S45NhAXZmoaO8R74kaYS">
-      </div>
+      <article class="job-card" data-cat="internet" data-page-node-id="JOB01">
+        <div class="job-head" data-page-node-id="JOB01H">
+          <span class="job-num" aria-hidden="true">01</span>
+          <h3 class="job-title" data-page-node-id="JOB01T">新媒体客服</h3>
+        </div>
+        <div class="job-sec" data-page-node-id="JOB01A">
+          <h4 class="job-sec-title">岗位职责</h4>
+          <ul class="job-list">
+            <li>负责抖音、快手、小红书、视频号等主流新媒体平台账号的日常运营维护工作，保障账号正常更新、稳定输出。</li>
+            <li>负责粉丝精细化运营，及时响应粉丝评论、私信，耐心解答疑问，维护良好的粉丝关系，提升粉丝粘性，搭建并运营优质粉丝社群。</li>
+            <li>依托账号运营开展精准引流工作，引导私域转化，高效完成既定引流指标。</li>
+            <li>跟进对接引流客户，主动沟通需求、维护客情，邀约客户到店/到访公司，配合团队落地整体转化目标。</li>
+          </ul>
+        </div>
+        <div class="job-sec" data-page-node-id="JOB01B">
+          <h4 class="job-sec-title">岗位要求</h4>
+          <ul class="job-list">
+            <li>形象气质良好，性格开朗外向，沟通表达能力佳，亲和力强。</li>
+            <li>有无相关经验均可，有新媒体账号运营经验者优先，公司提供系统化岗前培训。</li>
+            <li>具备良好的服务意识、执行力和目标感，积极主动完成引流、客户邀约、转化配合等各项工作任务。</li>
+            <li>学习能力强，乐于接受新鲜事物，积极参与公司技能培训，快速掌握新媒体运营技巧与工作方法。</li>
+          </ul>
+        </div>
+      </article>
 
-      <div class="job-card" data-cat="sales" data-page-node-id="MlQ5EZfpxVQtqpRfaLF5oI">
-      </div>
+      <article class="job-card" data-cat="internet" data-page-node-id="JOB02">
+        <div class="job-head" data-page-node-id="JOB02H">
+          <span class="job-num" aria-hidden="true">02</span>
+          <h3 class="job-title" data-page-node-id="JOB02T">短视频拍摄剪辑</h3>
+        </div>
+        <div class="job-sec" data-page-node-id="JOB02A">
+          <h4 class="job-sec-title">岗位职责</h4>
+          <ul class="job-list">
+            <li>独立负责短视频的前期拍摄、后期全流程剪辑工作，保障视频产出质量与效率。</li>
+            <li>根据内容策划需求完成场景拍摄、素材采集，把控画面构图、清晰度与整体质感，贴合账号内容调性。</li>
+            <li>负责视频后期制作，包含剪辑拼接、调色降噪、字幕添加、特效包装、配乐适配等工作。</li>
+            <li>主动对接策划、运营团队，同步创意需求，高效配合完成内容落地，保障拍摄剪辑工作顺利推进。</li>
+          </ul>
+        </div>
+        <div class="job-sec" data-page-node-id="JOB02B">
+          <h4 class="job-sec-title">岗位要求</h4>
+          <ul class="job-list">
+            <li>具备良好的网感，熟悉短视频内容风格，有短视频拍摄、后期剪辑相关实操经验。</li>
+            <li>熟练使用各类拍摄设备及剪辑工具，能独立完成短视频从拍摄到成片的全流程制作。</li>
+            <li>审美在线，执行力强，配合度高，能高效落地团队创意需求。</li>
+          </ul>
+        </div>
+      </article>
 
-            <div class="job-card" data-cat="nego" data-page-node-id="5ZmoFv7aq2RVq3gHpc1I4x">
-      </div>
-
-            <div class="job-card" data-cat="channel" data-page-node-id="oyNqVF7pSROYXIH2HeDbcc">
-      </div>
-
-            <div class="job-card" data-cat="risk" data-page-node-id="mBuYhQfQ19yn1i0boxgzDf">
-      </div>
-
-            <div class="job-card" data-cat="internet" data-page-node-id="e1hgpCwUawZazqocqV4SMN">
-      </div>
-
-      <div class="job-card" data-cat="internet" data-page-node-id="CTWLFXPLdorF2wETerqX9X">
-      </div>
-
-            <div class="job-card" data-cat="office" data-page-node-id="ZUGwBFa2Sm4ojqdVivCFXM">
-      </div>
-
-      <div class="job-card" data-cat="office" data-page-node-id="OWj2FW8yZLQS2ft19Biw5l">
-      </div>
+      <article class="job-card" data-cat="internet" data-page-node-id="JOB03">
+        <div class="job-head" data-page-node-id="JOB03H">
+          <span class="job-num" aria-hidden="true">03</span>
+          <h3 class="job-title" data-page-node-id="JOB03T">内容策划</h3>
+        </div>
+        <div class="job-sec" data-page-node-id="JOB03A">
+          <h4 class="job-sec-title">岗位职责</h4>
+          <ul class="job-list">
+            <li>负责账号的整体内容策划，结合项目定位、行业特性及目标用户偏好，制定差异化选题方案与内容更新规划。</li>
+            <li>独立完成创意选题、文案撰写、内容排版、内容输出等全流程工作，保障内容贴合品牌调性，具备较强传播力、吸引力和转化属性。</li>
+            <li>实时跟踪账号运营数据，分析用户反馈、内容播放及互动效果，针对性优化策划方案，持续提升账号活跃度、粉丝量与转化潜力。</li>
+            <li>持续关注行业动态、平台热点及竞品运营策略，结合热点趋势创新内容形式，灵活适配市场变化，打造优质内容。</li>
+            <li>定期复盘内容运营成果，整理核心数据，输出标准化数据分析复盘报告，为后续内容策划、账号优化提供数据支撑。</li>
+          </ul>
+        </div>
+        <div class="job-sec" data-page-node-id="JOB03B">
+          <h4 class="job-sec-title">岗位要求</h4>
+          <ul class="job-list">
+            <li>大专及以上学历，市场营销、广告学、新媒体、汉语言等相关专业优先，有贷款、奢侈品行业内容策划经验者优先录取。</li>
+            <li>具备敏锐的行业洞察力和用户思维，可精准捕捉贷款用户理财需求、奢侈品受众消费偏好，打造差异化原创内容。</li>
+            <li>思维活跃、创意丰富，擅长结合平台热点打造爆款选题，方案兼具创新性与落地性，可快速响应市场变化。</li>
+            <li>熟练掌握文案撰写、内容排版、选题策划技能，可独立完成账号内容全流程运营，有成熟账号起号、爆款内容案例者优先。</li>
+          </ul>
+        </div>
+      </article>
 
     </div>
 
-    
   </section>
 
   <!-- ========================================== -->
@@ -376,65 +532,116 @@
     <p class="sec-subtitle" data-page-node-id="MBEpED8cMWMX8eSouMvlQD">PROMOTION SYSTEM</p>
     <p class="sec-desc" data-page-node-id="HIGwhD5cB6F41l7bpJHtTa">皓镧资产实行「管理 + 专业」双通道晋升机制，每位员工可根据自身优势选择发展路径，公开竞聘、择优晋升，最快 6 个月即可获得晋升机会。</p>
 
-    <div class="dual-track" data-page-node-id="p41EPlXJReYvXWvH2H72rh">
-
-            <div class="track-card" data-page-node-id="bfSuOXgGbLsYqYEgfIrEXO">
-        <div class="track-head man" data-page-node-id="ShN3IUk7BvbQSiqsQN3CEa">
-          <span class="ticon" data-page-node-id="QUzIr7Y6PitiHvEwBP2AEN">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="q3FDpa44POWFl0sCTQOg3l"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-4h6v4M9 10h.01M15 10h.01M9 14h.01M15 14h.01" data-page-node-id="Ji6sK3fk0zrSJSdd8wzuDd"/></svg>
-          </span>
-          <div data-page-node-id="QCsXzSE3FTfVuBnJCm3FX8">
-            
-            
-          </div>
-        </div>
-        
+    <h3 class="part-title">一、各职级岗位职责 &amp; 晋升标准</h3>
+    <div class="lvl-grid">
+      <div class="lvl-card">
+        <span class="lvl-idx">01</span>
+        <h4 class="lvl-name">初级岗位</h4>
+        <span class="lvl-tag">执行层</span>
+        <p class="lvl-desc">熟练掌握基础工作流程，完成基础工作指标，适配岗位基础工作内容。</p>
       </div>
-
-            <div class="track-card" data-page-node-id="U9uARPcbLIKcolc0lML2Xc">
-        <div class="track-head pro" data-page-node-id="cKgRj0edg6m3o5PvKOy5us">
-          <span class="ticon" data-page-node-id="eGT7nC4z3t5Jt17d2RfX3C">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="hbKGGZyngDNVHM8b7I4oF1"><circle cx="12" cy="8" r="4" data-page-node-id="PKVHpiQO0a458k2i1SI2vi"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6M15 8l3-2M12 12v3M9 15l-3 2" data-page-node-id="UMx2MGeV4uFuCSFBmaIVKh"/></svg>
-          </span>
-          <div data-page-node-id="EclmiPkXZOMoGBJQGCyHvr">
-            
-            
-          </div>
-        </div>
-        
+      <div class="lvl-card">
+        <span class="lvl-idx">02</span>
+        <h4 class="lvl-name">中级岗位<em>成熟在岗员工</em></h4>
+        <span class="lvl-tag">独立执行层</span>
+        <p class="lvl-desc">可独立承接全流程工作，稳定完成岗位核心指标，为团队核心执行力量。</p>
       </div>
-
-    </div>
-
-        <div class="promo-cards" data-page-node-id="ybd2maNAEBL4IDIX6vutYN">
-      <div class="promo-card" data-page-node-id="OFZftbNhERoPWAF1Uyn7A3">
-        <div class="p-icon" data-page-node-id="3IYAuHbMI3l75cGSzCjTzT">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="957kxfCR1ImvV6EQzqXZH9"><path d="M20 6L9 17l-5-5" data-page-node-id="ONJ7FBnW1LeRTvz4RjhjBR"/></svg>
-        </div>
-        
-        
+      <div class="lvl-card">
+        <span class="lvl-idx">03</span>
+        <h4 class="lvl-name">高级岗位<em>核心骨干</em></h4>
+        <span class="lvl-tag">标杆骨干</span>
+        <p class="lvl-desc">具备优秀的独立产出能力，可打造优质成果，辅助团队优化工作体系。</p>
       </div>
-      <div class="promo-card" data-page-node-id="AhWIGD8dQBEYoJO0bblvpd">
-        <div class="p-icon" data-page-node-id="O99nADEgLBd1Ropuf479SE">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="prVl2GyCyY1sTyJg6Yiqz1"><circle cx="12" cy="12" r="9" data-page-node-id="HMKhUi7YLijhuo8Xqf13b9"/><path d="M12 7v5l3.5 2" data-page-node-id="31oD8DPAbl2t0m9ZX5cBj0"/></svg>
-        </div>
-        
-        
+      <div class="lvl-card">
+        <span class="lvl-idx">04</span>
+        <h4 class="lvl-name">组长岗位<em>基层管理</em></h4>
+        <span class="lvl-tag">基层管理者</span>
+        <p class="lvl-desc">负责小组人员管理、工作统筹、指标落地，衔接员工与管理层。</p>
       </div>
-      <div class="promo-card" data-page-node-id="HUxOcEBTKViloqswjDwYVP">
-        <div class="p-icon" data-page-node-id="qZiAwRgrrmfuZSD4JFXtIO">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="EulZFgO5Inu9giiBV7YWgD"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4L4.2 7.7l5.4-.8z" data-page-node-id="kaNLUlHRr4SLcF2K2NhLgq"/></svg>
-        </div>
-        
-        
+      <div class="lvl-card">
+        <span class="lvl-idx">05</span>
+        <h4 class="lvl-name">主管岗位<em>部门统筹</em></h4>
+        <span class="lvl-tag">部门核心管理者</span>
+        <p class="lvl-desc">负责部门整体运营、战略落地、团队搭建与业绩把控。</p>
       </div>
     </div>
 
-        <div class="promo-strip" data-page-node-id="yLMqv6aCK5zkUfzDqyRCCN">
-      <div class="p-strip" data-page-node-id="kprDDTEMXwTUP3OUSUvNFe"></div>
-      <div class="p-strip" data-page-node-id="eIeFuQ3UjpBBuYsphcyhMA"></div>
-      <div class="p-strip" data-page-node-id="e6oFqTZ46fMvLMFlOhXOAR"></div>
-      <div class="p-strip" data-page-node-id="XPwaXeAEKIDneUFN3JbTAR"></div>
+    <h3 class="part-title">二、晋升核心机制（公平透明）</h3>
+    <div class="mech-grid">
+      <div class="mech-card">
+        <div class="m-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <h4>无资历限制</h4>
+        <p>不看入职时长、不唯工龄，完全以能力、业绩、成果为核心晋升依据，新人可快速破格晋升。</p>
+      </div>
+      <div class="mech-card">
+        <div class="m-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+        </div>
+        <h4>定期考核复盘</h4>
+        <p>每月月度复盘、每季度晋升考核，达标者即可申请晋升，考核通过即时定级、调薪。</p>
+      </div>
+      <div class="mech-card">
+        <div class="m-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 7-7"/><path d="M14 8h6v6"/></svg>
+        </div>
+        <h4>双向成长通道</h4>
+        <p>支持「专业技术线」和「管理线」双晋升通道，技术型员工可深耕高级专员路线，擅长统筹管理可走组长、主管管理路线。</p>
+      </div>
+      <div class="mech-card">
+        <div class="m-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v9H4v-9M2 7h20v5H2zM12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 1 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 1 0 0-5C13 2 12 7 12 7z"/></svg>
+        </div>
+        <h4>晋升配套福利</h4>
+        <p>职级晋升同步对应薪资上调、绩效奖金、岗位津贴、优先评优、资源倾斜等福利，职级越高，权益与发展空间越大。</p>
+      </div>
+    </div>
+
+    <h3 class="part-title">三、双晋升通道说明</h3>
+    <div class="dual-track">
+      <div class="track-card">
+        <div class="track-head pro">
+          <span class="ticon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6M15 8l3-2M12 12v3M9 15l-3 2"/></svg>
+          </span>
+          <div class="th-text">
+            <h3>技术专精通道</h3>
+            <span>适合深耕专业</span>
+          </div>
+        </div>
+        <div class="track-body">
+          <div class="track-path">
+            <span class="tp-step">初级</span>
+            <span class="tp-arrow">→</span>
+            <span class="tp-step">中级</span>
+            <span class="tp-arrow">→</span>
+            <span class="tp-step">高级（资深专员）</span>
+          </div>
+          <p>专注内容、剪辑、运营、客服专业能力提升，成为岗位技术标杆，享受资深岗位高薪待遇。</p>
+        </div>
+      </div>
+      <div class="track-card">
+        <div class="track-head man">
+          <span class="ticon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-4h6v4M9 10h.01M15 10h.01M9 14h.01M15 14h.01"/></svg>
+          </span>
+          <div class="th-text">
+            <h3>管理发展通道</h3>
+            <span>适合统筹管理</span>
+          </div>
+        </div>
+        <div class="track-body">
+          <div class="track-path">
+            <span class="tp-step">高级</span>
+            <span class="tp-arrow">→</span>
+            <span class="tp-step">组长</span>
+            <span class="tp-arrow">→</span>
+            <span class="tp-step">主管</span>
+          </div>
+          <p>从技术骨干转型管理，负责团队统筹、人员培养、业绩落地，参与公司运营决策。</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -443,109 +650,149 @@
   <!-- ========================================== -->
   <section id="benefits" data-page-node-id="S6h4KsXvkKNtDGJjtbQ3Rs">
     <h2 class="sec-title" data-page-node-id="LkRgsN6CQAVHtZZszFG90b">薪资福利</h2>
-    <p class="sec-subtitle" data-page-node-id="GdZWNBXTGtYMxtxCSu3Mzq">COMPENSATION & BENEFITS</p>
+    <p class="sec-subtitle" data-page-node-id="GdZWNBXTGtYMxtxCSu3Mzq">COMPENSATION &amp; BENEFITS</p>
     <p class="sec-desc" data-page-node-id="OoejowIGt9fSvOErjVKz3u">我们坚持以奋斗者为本，提供有竞争力的薪酬回报与全方位的福利保障，让每一位皓镧人都能安心工作、持续成长。</p>
 
-        <div class="comp-strip" data-page-node-id="kwynPHE8jPpkbkPRdYHauR">
-      <div class="comp-item" data-page-node-id="6KCLGl7WBpju0oCoOeOQkz">
-        <div class="c-icon" data-page-node-id="mPVi9c7Dh8MAe9j3Kl95Ri">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="PeRlf9Yif4dJ7j52IUUE7n"><rect x="3" y="7" width="18" height="12" rx="2" data-page-node-id="jmq6RC6PVH4E0LcbjDuGgA"/><path d="M12 3v4M12 13v3M16 10.5c-.6-1.3-2-2-4-2s-3.4.7-4 2c0 2.5 8 1.5 8 4 0 1.3-1.8 2-4 2s-3.4-.7-4-2" data-page-node-id="n8MgF8PwuhX9o22yQgsc8g"/></svg>
+    <h3 class="part-title">一、薪资结构</h3>
+    <div class="comp-strip">
+      <div class="comp-item">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M12 3v4M12 13v3M16 10.5c-.6-1.3-2-2-4-2s-3.4.7-4 2c0 2.5 8 1.5 8 4 0 1.3-1.8 2-4 2s-3.4-.7-4-2"/></svg>
         </div>
-        
-        
+        <h4>基础底薪</h4>
       </div>
-      <div class="comp-item" data-page-node-id="FvhCrGAHlxQmEkJ5ekfp36">
-        <div class="c-icon" data-page-node-id="dgaprRSf9oDiuUuF20p51s">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="F8PtpEnSEaeFmkOqOJP6QW"><path d="M13 2L4.5 13.5H11L10 22l8.5-11.5H12z" data-page-node-id="EJkvHsGaolGHDp02B9c5LW"/></svg>
+      <div class="comp-item">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/></svg>
         </div>
-        
-        
+        <h4>绩效</h4>
       </div>
-      <div class="comp-item" data-page-node-id="upJy5f4ZL2ErBwmFSK1rWK">
-        <div class="c-icon" data-page-node-id="B1sPOJ1HSWmVknDP3OYxSO">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="X4SlO9n5BjE3WWlAyDkeZw"><path d="M12 3l7 4v5c0 4.4-3 8.4-7 9-4-.6-7-4.6-7-9V7z" data-page-node-id="w4cTQEBzvpKZHIGRmilgUl"/></svg>
+      <div class="comp-item">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4.5 13.5H11L10 22l8.5-11.5H12z"/></svg>
         </div>
-        
-        
+        <h4>高额提成</h4>
       </div>
-      <div class="comp-item" data-page-node-id="rlaHoZCZcVttGC1ecxLL6c">
-        <div class="c-icon" data-page-node-id="tFW1amiS8AwCDQVlZOKuM2">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="NJ8gZsQiEkDxOqq2e49Stx"><path d="M12 3l1.8 4.2L18 9l-4.2 1.8L12 15l-1.8-4.2L6 9l4.2-1.8zM19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z" data-page-node-id="D1tHxPQS9JHrm1NBRRO0Yq"/></svg>
+      <div class="comp-item">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.2L18 9l-4.2 1.8L12 15l-1.8-4.2L6 9l4.2-1.8zM19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/></svg>
         </div>
-        
-        
+        <h4>月度/季度奖金</h4>
       </div>
-      <div class="comp-item" data-page-node-id="x8HXsL6LHzK4E8BhG93DjB">
-        <div class="c-icon" data-page-node-id="OHw1lTtQ30yP2zEKOEKRNN">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="5OExBnH4S0JeMOqal7jyyt"><circle cx="12" cy="12" r="9" data-page-node-id="0hIPSq5uGW9U6MpdKfZDKa"/><path d="M12 7v5l3.5 2" data-page-node-id="UfvwdPvbFXfzB3tswz4WUl"/></svg>
+    </div>
+    <p class="comp-note">「基础底薪 + 绩效 + 高额提成 + 月度/季度奖金」多维薪资体系，薪资定级与个人职级、能力、业绩直接挂钩，规则公开透明。</p>
+
+    <h3 class="part-title">二、新人保障福利</h3>
+    <div class="welfare-grid cols-2">
+      <div class="welfare-card">
+        <div class="w-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h18v11H3z"/><path d="M12 15v5M8 20h8"/><path d="M7 11l2.5-3L12 10l2.5-3L17 11"/></svg>
         </div>
-        
-        
+        <h4>带薪系统化培训</h4>
+        <p>零基础新人带薪系统化培训，快速上手岗位技能。</p>
+      </div>
+      <div class="welfare-card">
+        <div class="w-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 4v5c0 4.4-3 8.4-7 9-4-.6-7-4.6-7-9V7z"/><path d="M12 15.5s-2.8-1.9-2.8-3.7A1.65 1.65 0 0 1 12 10.4a1.65 1.65 0 0 1 2.8 1.4c0 1.8-2.8 3.7-2.8 3.7z"/></svg>
+        </div>
+        <h4>新人保护期政策</h4>
+        <p>不唯业绩，侧重能力培养，降低新人入职压力。</p>
       </div>
     </div>
 
-        <div class="benefit-grid" data-page-node-id="tmdW17GedDvYyDo31Cw2ab">
-      <div class="benefit-card" data-page-node-id="md9dfiX9EAAPGPar9JwHVh">
-        <div class="b-icon" data-page-node-id="d6sCSzwBc4zGo3ozxroeUU">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="szj0Plpfg9xip6dFoZht0d"><path d="M12 2l7 4v5c0 4.4-3 8.4-7 9-4-.6-7-4.6-7-9V6z" data-page-node-id="ak7oxK2UrUFywbALOouvo5"/><path d="M9 12l2 2 4-4" data-page-node-id="kSqQZfqcd2BpfnCCpjjvVX"/></svg>
+    <h3 class="part-title">三、常态化员工福利</h3>
+    <div class="welfare-grid cols-2">
+      <div class="welfare-card">
+        <div class="w-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 4v5c0 4.4-3 8.4-7 9-4-.6-7-4.6-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
         </div>
-        
-        
+        <h4>基础保障</h4>
+        <p>社保福利，入职体检、法定节假期。</p>
       </div>
-      <div class="benefit-card" data-page-node-id="Z4sbds0H27yuhs9k8LGEFq">
-        <div class="b-icon" data-page-node-id="Cn7L8D5QVlVHNSfGtIt1iu">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="6E41AlNJFHXcCg2jPzlr75"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z" data-page-node-id="m6zCGOhnhstF5lay658l7n"/></svg>
+      <div class="welfare-card">
+        <div class="w-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4z"/><path d="M6 1v3M10 1v3M14 1v3"/></svg>
         </div>
-        
-        
-      </div>
-      <div class="benefit-card" data-page-node-id="eGDfKn04Tn4JaDmjePuDFn">
-        <div class="b-icon" data-page-node-id="lpXvlZxKs73xGHRXgrZxH8">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="UNRklb8r5S3wbcVQFCLJI0"><path d="M20 12a8 8 0 1 1-4-6.9M20 12V5l-4 4M20 12h-7" data-page-node-id="4Ab0r53Lq8EZJjpYAzeXKr"/></svg>
-        </div>
-        
-        
-      </div>
-      <div class="benefit-card" data-page-node-id="ZutOGh8ZxIjrTtTTL5De7S">
-        <div class="b-icon" data-page-node-id="dqBJWxq60wyQMiRsA4dmLX">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="JNg0UKSax1AqkON8dG4Uo3"><path d="M12 3l8 4v6c0 4-3.5 7-8 8-4.5-1-8-4-8-8V7z" data-page-node-id="5U9GvxirFGR4NFNHhvQmdu"/><path d="M9 12l2 2 4-4" data-page-node-id="GpweMpbpz1vUzWdDhBgst6"/></svg>
-        </div>
-        
-        
-      </div>
-      <div class="benefit-card" data-page-node-id="GaqRuZBoNGBCu7zTCHKRFC">
-        <div class="b-icon" data-page-node-id="vbXm8rlO81E3ZS7Ga9fXBc">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="xz6FrfEdeJLnJcopu4vHwA"><path d="M22 12h-4l-3 9L9 3l-3 9H2" data-page-node-id="DEIf4xTTSjkjJnugngj5DW"/></svg>
-        </div>
-        
-        
-      </div>
-      <div class="benefit-card" data-page-node-id="MbSinOOBbt11X2pN9dqI8D">
-        <div class="b-icon" data-page-node-id="u6SHzHKuUffEUnBsVGZPJb">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="2o7aSO2h7TtVqUnYSfJXSB"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" data-page-node-id="O98JwsY72bpAmxnpLOe1JA"/><circle cx="9" cy="7" r="4" data-page-node-id="68AwUoe85lAKVDwzI1L2gI"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" data-page-node-id="E7Bf6Dl7DvyzrCMojU2Dln"/></svg>
-        </div>
-        
-        
-      </div>
-      <div class="benefit-card" data-page-node-id="SogqLtWc1GHzYm29OFP12c">
-        <div class="b-icon" data-page-node-id="ZOmMKR8M8bAnn1zqG1nEZG">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="Jly4vtUDrGZ3uVPh7x7lVl"><path d="M3 12c2.5-4 6-6 9-6s6.5 2 9 6c-2.5 4-6 6-9 6s-6.5-2-9-6z" data-page-node-id="QL52qtfGZPCwRqws8drocy"/><circle cx="12" cy="12" r="2.5" data-page-node-id="X2XPFanCjIOUznEKx8KTtT"/></svg>
-        </div>
-        
-        
-      </div>
-      <div class="benefit-card" data-page-node-id="YcwgBK2UEbrJdIGINqwU4n">
-        <div class="b-icon" data-page-node-id="WhDpw9I61DrBoDsgY4vHQY">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="DhanCzt9HX3bMVvuoGStuJ"><path d="M3 5h18v12H3zM3 19h18" data-page-node-id="SUuVsUXvAmDDUvPAr0LLEy"/><path d="M7 9h4M7 12h8" data-page-node-id="Ex8uJu6vqIObCOjWEysu8g"/></svg>
-        </div>
-        
-        
+        <h4>日常福利</h4>
+        <p>零食茶水供应、节日礼品、生日福利、定期团建、户外拓展、聚餐娱乐。</p>
       </div>
     </div>
 
-        
+    <h3 class="part-title">四、成长 &amp; 激励福利</h3>
+    <div class="welfare-grid cols-4">
+      <div class="welfare-card">
+        <div class="w-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg>
+        </div>
+        <h4>免费进阶培训</h4>
+        <p>公司定期组织新媒体运营、爆款内容、拍摄剪辑、私域转化、沟通话术等技能提升培训，持续赋能员工成长。</p>
+      </div>
+      <div class="welfare-card">
+        <div class="w-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 7-7"/><path d="M14 8h6v6"/></svg>
+        </div>
+        <h4>快速晋升通道</h4>
+        <p>拒绝论资排辈，全部凭能力晋升，能力优秀者可破格提拔。</p>
+      </div>
+      <div class="welfare-card">
+        <div class="w-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M9 14l-2 8 5-3 5 3-2-8"/></svg>
+        </div>
+        <h4>资源倾斜扶持</h4>
+        <p>优秀员工、骨干员工优先享受账号资源、外出培训、项目机会，优先参与重点项目，快速积累个人案例与履历。</p>
+      </div>
+      <div class="welfare-card">
+        <div class="w-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M7 21V11M12 21V5M17 21V14"/></svg>
+        </div>
+        <h4>长期发展激励</h4>
+        <p>核心员工可享受股权激励、项目分红、长期工龄奖励，实现个人与公司共同成长。</p>
+      </div>
+    </div>
   </section>
 
+
+  <!-- ========================================== -->
+  <!-- 4. 简历投递入口 -->
+  <!-- ========================================== -->
+  <section id="apply">
+    <h2 class="sec-title">简历投递入口</h2>
+    <p class="sec-subtitle">RESUME SUBMISSION</p>
+    <p class="sec-desc">有意向者可直接联系 HR 投递简历，我们将尽快与你取得联系。</p>
+
+    <div class="recruit-card">
+      <div class="recruit-left">
+        <span class="r-tag">HR 直招 · 简历投递</span>
+        <h3>有意向者可直接联系 HR 投递简历</h3>
+        <p>咨询岗位详情，欢迎来电或添加微信，HR 会第一时间为你解答岗位疑问、安排面试。</p>
+        <div class="recruit-contact">
+          <a href="tel:13377614167" class="recruit-row">
+            <span class="ri">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.5 2.1L8.1 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.6 2.6.7a2 2 0 0 1 1.7 2z"/></svg>
+            </span>
+            <span class="rt">
+              <span class="rl">咨询岗位详情</span>
+              <span class="rv">13377614167</span>
+            </span>
+          </a>
+          <div class="recruit-row">
+            <span class="ri">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 4C5.4 4 2 6.8 2 10.2c0 1.9 1 3.6 2.7 4.7L4 18l3.2-1.7c.7.2 1.5.3 2.3.3h.6"/><path d="M15 9c3.9 0 7 2.5 7 5.5 0 1.7-.9 3.2-2.4 4.2l.6 2.9-2.9-1.5c-.7.2-1.5.3-2.3.3-3.9 0-7-2.5-7-5.5S11.1 9 15 9z"/></svg>
+            </span>
+            <span class="rt">
+              <span class="rl">联系人</span>
+              <span class="rv">林小姐（微信同号）</span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="recruit-right">
+        <img src="./assets/hr-qr.png" alt="皓镧资产招聘微信二维码 - 添加林小姐投递简历" class="recruit-qr" loading="lazy" decoding="async" />
+        <h5>扫码添加 HR 微信</h5>
+        <p>长按识别二维码，添加林小姐微信投递简历</p>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer class="footer" data-page-node-id="KhjDx8RNX5cZrTle0b9AL4">

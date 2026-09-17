@@ -133,10 +133,6 @@
     margin-bottom: 8px; transition: color .2s;
   }
   .news-card:hover .content h3 { color: var(--red); }
-  .news-card .content .summary {
-    font-size: 13px; color: var(--muted); line-height: 1.8;
-    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
-  }
   .news-card .content .meta {
     display: flex; gap: 16px; margin-top: 12px;
     font-size: 12px; color: var(--muted);
@@ -148,7 +144,7 @@
   /* ========== 知识科普区 ========== */
   /* 子分类导航 */
   .kw-nav {
-    display: flex; justify-content: center; gap: 0; margin-bottom: 48px;
+    display: flex; justify-content: center; flex-wrap: wrap; gap: 0; margin-bottom: 48px;
     border-bottom: 2px solid var(--line);
   }
   .kw-tab {
@@ -248,6 +244,52 @@
   .credit-icon.c2 svg { color: #2C2C2C; }
   .credit-icon.c3 { background: rgba(184,148,31,0.12); }
   .credit-icon.c3 svg { color: var(--gold-deep); }
+  .credit-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+
+  /* 资讯要点 */
+  .news-card .date-block .day.yr { font-size: 22px; }
+  .news-points { display: flex; flex-direction: column; gap: 9px; margin-top: 12px; }
+  .news-points li {
+    font-size: 13px; color: var(--muted); line-height: 1.95;
+    list-style: none; padding-left: 16px; position: relative; text-align: justify;
+  }
+  .news-points li::before {
+    content: ""; position: absolute; left: 0; top: 9px;
+    width: 6px; height: 6px; border-radius: 50%; background: var(--gold);
+  }
+  .news-points li b { color: var(--ink); font-weight: 600; }
+
+  /* 重点提示条 */
+  .pf-note {
+    display: flex; align-items: flex-start; gap: 10px; margin-bottom: 24px;
+    padding: 14px 20px; border-left: 4px solid var(--red); border-radius: 6px;
+    background: linear-gradient(90deg, rgba(200,16,46,0.07), rgba(200,16,46,0));
+    font-size: 13.5px; color: var(--muted); line-height: 1.9;
+  }
+  .pf-note svg { width: 20px; height: 20px; color: var(--red); flex: none; margin-top: 3px; }
+  .pf-note b { color: var(--ink); font-weight: 600; }
+  .pitfall-text p + p { margin-top: 8px; }
+  .pitfall-text b { color: var(--ink); font-weight: 600; }
+
+  /* 知识科普总结 */
+  .kw-summary {
+    position: relative; overflow: hidden; margin-top: 44px;
+    border: 1.5px solid var(--gold); border-radius: 10px;
+    background: #fff; padding: 26px 30px 28px 34px;
+  }
+  .kw-summary::before {
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+    background: linear-gradient(180deg, var(--red), var(--gold));
+  }
+  .kw-summary h4 {
+    display: flex; align-items: center; gap: 10px;
+    font-family: "STSong","SimSun",serif; font-size: 17px; font-weight: 700;
+    color: var(--ink); letter-spacing: 2px; margin-bottom: 12px;
+  }
+  .kw-summary h4 .snum { color: var(--gold); font-size: 20px; }
+  .kw-summary p {
+    color: var(--muted); font-size: 14.5px; line-height: 2.05; text-align: justify;
+  }
   .credit-card h4 {
     font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: 1px;
     margin-bottom: 10px; font-family: "STSong","SimSun",serif;
@@ -263,40 +305,223 @@
     width: 6px; height: 6px; border-radius: 50%; background: var(--gold);
   }
 
-  /* ========== 办理小贴士时间线 ========== */
-  .tips-timeline { position: relative; padding-left: 36px; }
-  .tips-timeline::before {
-    content: ""; position: absolute; left: 15px; top: 8px; bottom: 8px;
-    width: 2px; background: linear-gradient(180deg, var(--gold), var(--gold-soft));
+  /* ========== 贷款基础科普 ========== */
+  .loan-lead {
+    border: 1.5px solid var(--gold-soft); border-radius: 10px;
+    background: var(--bg-soft); padding: 22px 28px; margin-bottom: 26px;
   }
-  .tip-step { position: relative; margin-bottom: 32px; min-height: 48px; }
-  .tip-step:last-child { margin-bottom: 0; }
-  .tip-step::before {
-    content: ""; position: absolute; left: -29px; top: 4px;
-    width: 14px; height: 14px; border-radius: 50%;
-    background: #fff; border: 3px solid var(--red);
+  .loan-lead p { font-size: 14.5px; color: var(--muted); line-height: 2.05; text-align: justify; }
+  .loan-lead p + p { margin-top: 10px; }
+
+  .loan-block {
+    position: relative; overflow: hidden; margin-bottom: 26px;
+    border: 1.5px solid var(--gold-soft); border-radius: 10px;
+    background: #fff; padding: 28px 32px; transition: all .25s;
   }
-  .tip-step .step-head {
-    display: flex; align-items: center; gap: 10px; margin-bottom: 8px;
+  .loan-block::before {
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+    background: linear-gradient(180deg, var(--red), var(--gold));
   }
-  .tip-step .step-head .step-num {
-    font-family: "STSong",serif; font-size: 14px; font-weight: 700;
-    color: var(--red); letter-spacing: 2px;
+  .loan-block:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(184,148,31,0.13); }
+  .loan-h3 {
+    display: flex; align-items: center; gap: 12px;
+    font-family: "STSong","SimSun",serif; font-size: 19px; font-weight: 700;
+    color: var(--ink); letter-spacing: 1px; line-height: 1.5;
+    padding-bottom: 12px; margin-bottom: 16px; border-bottom: 1px solid var(--line);
   }
-  .tip-step .step-head .step-title {
-    font-size: 16px; font-weight: 600; color: var(--ink); letter-spacing: 1px;
+  .loan-h3 .lnum {
+    flex: none; width: 34px; height: 34px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--red), var(--gold));
+    color: #fff; font-size: 15px; font-weight: 600;
+    display: flex; align-items: center; justify-content: center;
   }
-  .tip-step .step-body {
-    font-size: 13px; color: var(--muted); line-height: 2;
-    padding-left: 2px;
+  .loan-block > p { font-size: 14.5px; color: var(--muted); line-height: 2.05; text-align: justify; }
+  .loan-tip { margin-top: 12px; color: var(--ink); font-weight: 600; }
+  .loan-points { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
+  .loan-points li {
+    list-style: none; padding-left: 16px; position: relative;
+    font-size: 14px; color: var(--muted); line-height: 2; text-align: justify;
   }
-  .tip-step .step-tags {
-    display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap;
+  .loan-points li::before {
+    content: ""; position: absolute; left: 0; top: 12px;
+    width: 6px; height: 6px; border-radius: 50%; background: var(--gold);
   }
-  .tip-step .step-tags span {
-    font-size: 11px; padding: 3px 12px; border-radius: 20px;
-    border: 1px solid var(--gold); color: var(--gold-deep);
-    background: var(--bg-soft); letter-spacing: 1px;
+  .loan-points li b { color: var(--ink); font-weight: 600; }
+  .loan-points.sm li { font-size: 13.2px; line-height: 1.95; }
+
+  /* 贷款类型卡 */
+  .loan-type-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 18px; }
+  .loan-type {
+    border: 1.5px solid var(--gold-soft); border-radius: 10px;
+    background: var(--bg-soft); padding: 22px 24px; transition: all .25s;
+  }
+  .loan-type:hover { border-color: var(--gold); background: #fff; box-shadow: 0 12px 26px rgba(184,148,31,0.12); }
+  .lt-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .lt-no {
+    flex: none; width: 26px; height: 26px; border-radius: 6px; background: var(--red);
+    color: #fff; font-size: 13px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .lt-head h4 {
+    font-family: "STSong","SimSun",serif; font-size: 16px; font-weight: 700;
+    color: var(--ink); letter-spacing: .5px;
+  }
+  .lt-desc { font-size: 13.5px; color: var(--muted); line-height: 1.9; }
+  .loan-type .loan-points { margin-top: 8px; }
+  .lt-warn {
+    margin-top: 12px; padding-top: 10px; border-top: 1px dashed var(--gold-soft);
+    font-size: 13px; color: var(--muted); line-height: 1.9; text-align: justify;
+  }
+  .lt-warn b { color: var(--red); font-weight: 600; }
+
+  /* 核心术语卡 */
+  .loan-term-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 18px; }
+  .loan-term {
+    border: 1.5px solid var(--gold-soft); border-radius: 10px;
+    background: #fff; padding: 22px 24px; transition: all .25s;
+  }
+  .loan-term:hover { border-color: var(--gold); box-shadow: 0 12px 26px rgba(184,148,31,0.12); }
+  .loan-term h4 {
+    font-family: "STSong","SimSun",serif; font-size: 16px; font-weight: 700;
+    color: var(--ink); letter-spacing: .5px; margin-bottom: 12px;
+  }
+  .loan-term h4 + p { font-size: 13.5px; color: var(--muted); line-height: 1.95; text-align: justify; }
+  .term-key {
+    margin-top: 10px; padding: 10px 14px; border-left: 3px solid var(--red);
+    background: linear-gradient(90deg, rgba(200,16,46,0.07), rgba(200,16,46,0));
+    font-size: 13.5px; color: var(--muted); line-height: 1.9; text-align: justify;
+  }
+  .term-key b { color: var(--red); font-weight: 600; }
+  .term-eg {
+    margin-top: 10px; font-size: 13.2px; color: var(--muted);
+    line-height: 1.95; text-align: justify;
+  }
+
+  /* 六大避坑卡 */
+  .loan-pit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 18px; }
+  .loan-pit {
+    position: relative; overflow: hidden; border: 1.5px solid var(--gold-soft);
+    border-radius: 10px; background: #fff; padding: 20px 22px; transition: all .25s;
+  }
+  .loan-pit::before {
+    content: ""; position: absolute; left: 0; top: 0; width: 100%; height: 3px;
+    background: linear-gradient(90deg, var(--red), var(--gold)); opacity: .8;
+  }
+  .loan-pit:hover { border-color: var(--gold); box-shadow: 0 12px 26px rgba(184,148,31,0.12); }
+  .pit-tag {
+    display: inline-block; font-size: 12px; font-weight: 700; color: #fff;
+    background: var(--red); border-radius: 4px; padding: 2px 9px; margin-bottom: 10px;
+    letter-spacing: 1px;
+  }
+  .loan-pit h4 {
+    font-size: 15px; font-weight: 700; color: var(--ink);
+    line-height: 1.6; margin-bottom: 8px;
+  }
+  .loan-pit p { font-size: 13px; color: var(--muted); line-height: 1.95; text-align: justify; }
+
+  /* 实用建议 */
+  .loan-advice { display: flex; flex-direction: column; gap: 12px; margin-top: 18px; counter-reset: adv; }
+  .loan-advice li {
+    list-style: none; display: flex; gap: 12px; align-items: flex-start;
+    padding: 14px 18px; border: 1.5px solid var(--gold-soft); border-radius: 8px;
+    background: var(--bg-soft); font-size: 14px; color: var(--muted);
+    line-height: 1.95; text-align: justify; transition: all .25s;
+  }
+  .loan-advice li:hover { border-color: var(--gold); background: #fff; }
+  .loan-advice li::before {
+    counter-increment: adv; content: counter(adv);
+    flex: none; width: 24px; height: 24px; border-radius: 50%; background: #fff;
+    border: 1.5px solid var(--gold); color: var(--gold-deep);
+    font-size: 12.5px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 2px;
+  }
+  .loan-advice li b { color: var(--ink); font-weight: 600; }
+
+  /* ========== 资讯分组 ========== */
+  .news-group { margin-bottom: 42px; }
+  .news-group:last-child { margin-bottom: 0; }
+  .group-head {
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    padding-bottom: 12px; margin-bottom: 20px; border-bottom: 2px solid var(--line);
+  }
+  .group-head .gnum {
+    flex: none; font-family: "STSong","SimSun",serif; font-size: 14px; font-weight: 700;
+    color: #fff; background: linear-gradient(135deg, var(--red), var(--gold));
+    border-radius: 4px; padding: 4px 10px; letter-spacing: 1px;
+  }
+  .group-head h3 {
+    font-family: "STSong","SimSun",serif; font-size: 20px; font-weight: 700;
+    color: var(--ink); letter-spacing: 1px;
+  }
+  .group-head .gsub { font-size: 13px; font-weight: 400; color: var(--gold-deep); letter-spacing: 0; }
+  .news-group .news-card { margin-bottom: 18px; }
+  .news-group .news-card:last-child { margin-bottom: 0; }
+  .news-group .news-card .date-block { width: 112px; }
+  .news-group .news-card .date-block .month { white-space: nowrap; }
+  .news-group .news-card .date-block .day.yr { font-size: 22px; }
+
+  /* 避坑子项 */
+  .pf-sub { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .pf-sub li {
+    list-style: none; font-size: 12px; color: var(--ink);
+    background: var(--bg-soft); border: 1px solid var(--gold-soft);
+    border-radius: 4px; padding: 3px 10px;
+  }
+  .credit-card.span-2 { grid-column: 1 / -1; }
+
+  /* 追加版块：说明条与分隔 */
+  .news-note {
+    display: flex; align-items: flex-start; gap: 10px; margin: 8px 0 30px;
+    padding: 16px 22px; border-left: 4px solid var(--gold);
+    border-radius: 6px; background: var(--bg-soft);
+    font-size: 13.5px; color: var(--muted); line-height: 2; text-align: justify;
+  }
+  .news-note svg { width: 20px; height: 20px; color: var(--gold-deep); flex: none; margin-top: 4px; }
+  .news-note b { color: var(--ink); font-weight: 600; }
+  .news-card .content .news-text {
+    font-size: 13px; color: var(--muted); line-height: 1.95; text-align: justify; margin-top: 6px;
+  }
+  .grid-sep {
+    grid-column: 1 / -1; display: flex; align-items: center; gap: 8px;
+    margin: 10px 0 2px; padding-bottom: 10px; border-bottom: 1px dashed var(--gold-soft);
+    font-family: "STSong","SimSun",serif; font-size: 15px; font-weight: 700;
+    color: var(--gold-deep); letter-spacing: 1px;
+  }
+  .grid-sep span { color: var(--gold); font-size: 16px; }
+
+  /* ========== 阅读全文 / 目录 ========== */
+  .read-more {
+    display: inline-flex; align-items: center; gap: 6px; margin-top: 12px;
+    font-size: 13px; font-weight: 600; color: var(--gold-deep);
+    border-bottom: 1px solid var(--gold-soft); padding-bottom: 2px;
+    transition: all .2s; letter-spacing: .5px;
+  }
+  .read-more svg { width: 14px; height: 14px; }
+  .read-more:hover { color: var(--red); border-bottom-color: var(--red); gap: 10px; }
+  .read-more.big {
+    margin-top: 20px; padding: 12px 28px; border: 1.5px solid var(--gold);
+    border-radius: 999px; font-size: 14px; display: inline-flex;
+  }
+  .read-more.big:hover {
+    background: linear-gradient(135deg, var(--red), var(--gold));
+    color: #fff; border-color: transparent;
+    box-shadow: 0 10px 24px rgba(200,16,46,0.18);
+  }
+  .loan-toc { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+  .loan-toc a {
+    display: flex; align-items: center; gap: 8px; padding: 10px 16px;
+    border: 1.5px solid var(--gold-soft); border-radius: 8px; background: var(--bg-soft);
+    font-size: 13.5px; color: var(--ink); transition: all .25s;
+  }
+  .loan-toc a:hover {
+    border-color: var(--gold); background: #fff; color: var(--red);
+    box-shadow: 0 8px 20px rgba(184,148,31,0.12);
+  }
+  .loan-toc a span {
+    flex: none; width: 22px; height: 22px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--red), var(--gold));
+    color: #fff; font-size: 12px;
+    display: flex; align-items: center; justify-content: center;
   }
 
   /* ========== 页脚 ========== */
@@ -319,6 +544,11 @@
     .kw-grid { grid-template-columns: repeat(2, 1fr); }
     .pitfall-list { grid-template-columns: 1fr; }
     .credit-grid { grid-template-columns: repeat(2, 1fr); }
+    .loan-type-grid { grid-template-columns: 1fr; }
+    .loan-term-grid { grid-template-columns: 1fr; }
+    .loan-pit-grid { grid-template-columns: repeat(2, 1fr); }
+    .kw-tab { padding: 12px 26px; font-size: 15px; }
+    .group-head h3 { font-size: 18px; }
   }
   @media (max-width: 760px) {
     .kw-grid { grid-template-columns: 1fr; }
@@ -338,7 +568,36 @@
     .page-banner { padding: 40px 20px 36px; }
     .page-banner h1 { font-size: 28px; letter-spacing: 5px; }
     .kw-tab { padding: 10px 20px; font-size: 14px; }
-  }
+  
+    .news-card { padding: 22px 20px; }
+    .news-card .date-block .day.yr { font-size: 19px; }
+    .news-points li { font-size: 12.5px; line-height: 1.85; }
+    .pf-note { padding: 12px 16px; font-size: 12.5px; }
+    .credit-grid.cols-2 { grid-template-columns: 1fr; }
+    .kw-summary { padding: 22px 20px 22px 24px; margin-top: 32px; }
+    .kw-summary p { font-size: 14px; line-height: 2; }
+    .loan-lead { padding: 18px 20px; }
+    .loan-lead p { font-size: 13.5px; line-height: 1.95; }
+    .loan-block { padding: 22px 20px; margin-bottom: 20px; }
+    .loan-h3 { font-size: 17px; gap: 10px; }
+    .loan-h3 .lnum { width: 30px; height: 30px; font-size: 14px; }
+    .loan-block > p { font-size: 13.5px; line-height: 1.95; }
+    .loan-points li { font-size: 13.5px; line-height: 1.9; }
+    .loan-points.sm li { font-size: 13px; }
+    .loan-pit-grid { grid-template-columns: 1fr; }
+    .loan-advice li { font-size: 13.5px; padding: 12px 14px; }
+    .news-group { margin-bottom: 30px; }
+    .group-head h3 { font-size: 17px; }
+    .group-head { gap: 8px; }
+    .news-group .news-card .date-block { width: auto; white-space: normal; }
+    .news-group .news-card .date-block .month { white-space: normal; }
+    .credit-card.span-2 { grid-column: auto; }
+    .pf-sub li { font-size: 11.5px; }
+    .news-note { padding: 14px 16px; font-size: 12.5px; line-height: 1.9; margin-bottom: 22px; }
+    .grid-sep { font-size: 14px; }
+    .loan-toc a { font-size: 13px; padding: 9px 14px; }
+    .read-more.big { padding: 11px 22px; font-size: 13.5px; }
+}
 
   /* ========== 手机端通用优化（追加） ========== */
   @media (max-width: 760px) {
@@ -381,7 +640,7 @@
 <div class="page-banner" data-page-node-id="H6yK2CnZEOuGoapGTQB8s4">
   <h1 data-page-node-id="5av0mXxFoR4hKOnzDobGAO">政策解读</h1>
   <p class="en" data-page-node-id="HoiVwEaLfEIDB1zUilg01Y">POLICY &amp; KNOWLEDGE</p>
-  <p class="desc" data-page-node-id="HD3Qoz4YT1oYMzCm9loIaG">紧跟行业资讯与金融政策导向，深度解读最新法规动态；以专业知识科普为辅，提供融资避坑指南、征信知识普及与办理小贴士，助您融资决策更从容。</p>
+  <p class="desc" data-page-node-id="HD3Qoz4YT1oYMzCm9loIaG">紧跟行业资讯与金融政策导向，深度解读最新法规动态；以专业知识科普为辅，提供融资避坑指南与征信知识普及，助您融资决策更从容。</p>
 </div>
 
 <main data-page-node-id="gfC7569vJBzhQ7bnLEvJO5">
@@ -395,39 +654,334 @@
 
     <div class="news-layout" data-page-node-id="HIA1gz4icPAULlVCV9RgC3">
       <!-- 文章列表 -->
-      <div class="news-list" data-page-node-id="sCvug4KdqW8i5iotpGk6K1">
-
-        <article class="news-card" data-page-node-id="DtnkArZZ5HGbHv2sTlfC7q">
-          <div class="date-block"></div>
-          <div class="content"></div>
+            <div class="news-list">
+      <div class="news-group">
+        <div class="group-head">
+          <span class="gnum">（一）</span>
+          <h3>国家级金融监管核心政策<span class="gsub"> 2026 最新</span></h3>
+        </div>
+        <article class="news-card">
+          <div class="date-block">
+            <div class="day yr">2026</div>
+            <div class="month">08-01 施行</div>
+          </div>
+          <div class="content">
+            <div class="tag-row">
+              <span class="cat-tag hot">核心变化</span><span class="cat-tag">个人贷款</span>
+            </div>
+            <h3>个人贷款息费“一表清”（最核心变化）</h3>
+            <ul class="news-points"><li><b>文件：</b>《个人贷款业务明示综合融资成本规定》（金融监管总局+央行，2026-03 发布，2026-08-01 起施行）。</li></ul>
+            <a class="read-more" href="./article.html?id=n1">阅读全文<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12 H19"/><path d="M13 6 L19 12 L13 18"/></svg></a>
+          </div>
         </article>
 
-        <article class="news-card" data-page-node-id="FjpmQSDFQLI4bcp5dVvawk">
-          <div class="date-block"></div>
-          <div class="content"></div>
+        <article class="news-card">
+          <div class="date-block">
+            <div class="day yr">2026</div>
+            <div class="month">四部门发文</div>
+          </div>
+          <div class="content">
+            <div class="tag-row">
+              <span class="cat-tag">机构治理</span><span class="cat-tag new">政策解读</span>
+            </div>
+            <h3>金融机构治理收紧</h3>
+            <ul class="news-points"><li>《关于健全金融机构治理的实施意见》（四部门，金发〔2026〕4号）：盯紧大股东违规干预、内部人控制、关联交易穿透、内控合规，2029 年前建成规范治理机制。</li></ul>
+            <a class="read-more" href="./article.html?id=n2">阅读全文<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12 H19"/><path d="M13 6 L19 12 L13 18"/></svg></a>
+          </div>
         </article>
 
-        <article class="news-card" data-page-node-id="NREduyt7ZRUhZKV4XWbKDc">
-          <div class="date-block"></div>
-          <div class="content"></div>
+        <article class="news-card">
+          <div class="date-block">
+            <div class="day yr">2026</div>
+            <div class="month">09-04 征求意见</div>
+          </div>
+          <div class="content">
+            <div class="tag-row">
+              <span class="cat-tag">信息披露</span><span class="cat-tag new">政策解读</span>
+            </div>
+            <h3>信息披露+保险修法征求意见</h3>
+            <ul class="news-points"><li>2026-09-04 金融监管总局就《银行保险机构信息披露管理办法（征求意见稿）》《保险法（修订草案征求意见稿）》公开征求意见，强化消费者知情权、公平交易权。</li></ul>
+            <a class="read-more" href="./article.html?id=n3">阅读全文<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12 H19"/><path d="M13 6 L19 12 L13 18"/></svg></a>
+          </div>
         </article>
 
-        <article class="news-card" data-page-node-id="XeYV00NqOlOSnBQtm2I94n">
-          <div class="date-block"></div>
-          <div class="content"></div>
+        <article class="news-card">
+          <div class="date-block">
+            <div class="day yr">2026</div>
+            <div class="month">质量优先</div>
+          </div>
+          <div class="content">
+            <div class="tag-row">
+              <span class="cat-tag">数字金融</span><span class="cat-tag">普惠金融</span>
+            </div>
+            <h3>数字金融与普惠金融转向“质量优先”</h3>
+            <ul class="news-points"><li><b>数字金融：</b>数字金融高质量发展方案：鼓励大数据/AI 优化中小微、个人信贷，同时整治线上乱象。</li></ul>
+            <a class="read-more" href="./article.html?id=n4">阅读全文<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12 H19"/><path d="M13 6 L19 12 L13 18"/></svg></a>
+          </div>
         </article>
 
-        <article class="news-card" data-page-node-id="LlqO7cS04o5XTsBI0WBY3M">
-          <div class="date-block"></div>
-          <div class="content"></div>
+        <article class="news-card">
+          <div class="date-block">
+            <div class="day yr">2026</div>
+            <div class="month">09-30 施行</div>
+          </div>
+          <div class="content">
+            <div class="tag-row">
+              <span class="cat-tag">网络营销</span><span class="cat-tag hot">强监管</span>
+            </div>
+            <h3>网络营销监管（2026-09-30 起施行）</h3>
+            <ul class="news-points"><li>《金融产品网络营销管理办法》（八部门）：无牌禁发贷款广告；禁用“低息秒批、零门槛、免息”等诱导话术；直播/短视频卖贷款必须持牌。</li></ul>
+            <a class="read-more" href="./article.html?id=n5">阅读全文<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12 H19"/><path d="M13 6 L19 12 L13 18"/></svg></a>
+          </div>
         </article>
 
-        <article class="news-card" data-page-node-id="HDQo3DfY7MAe8bS4YDo97u">
-          <div class="date-block"></div>
-          <div class="content"></div>
+        <article class="news-card">
+          <div class="date-block">
+            <div class="day yr">2026</div>
+            <div class="month">3600 亿注资</div>
+          </div>
+          <div class="content">
+            <div class="tag-row">
+              <span class="cat-tag">流动性</span><span class="cat-tag new">政策解读</span>
+            </div>
+            <h3>流动性与资本金补充</h3>
+            <ul class="news-points"><li>财政部 3600 亿注资工行/农行/人保/国寿等 8 家中央金融企业；央行 2026-09-07 投放 5000 亿 89 天买断式逆回购；新型政策性金融工具扩容至 8000 ……</li></ul>
+            <a class="read-more" href="./article.html?id=n6">阅读全文<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12 H19"/><path d="M13 6 L19 12 L13 18"/></svg></a>
+          </div>
         </article>
-
       </div>
+
+      <div class="news-group">
+        <div class="group-head">
+          <span class="gnum">（二）</span>
+          <h3>广东省／河源市本地政策<span class="gsub"></span></h3>
+        </div>
+        <article class="news-card">
+          <div class="date-block">
+            <div class="day yr">2026</div>
+            <div class="month">35% 贴息</div>
+          </div>
+          <div class="content">
+            <div class="tag-row">
+              <span class="cat-tag hot">最强利好</span><span class="cat-tag">贴息政策</span>
+            </div>
+            <h3>广东制造业&amp;高新企业贷款贴息（最强利好）</h3>
+            <ul class="news-points"><li><b>省级贴息：</b>粤金管〔2026〕12号等：2025-05-01～2027-12-31 新发贷款，省财政按利率 35% 贴息，单企业年贴息上限 2000 万，年贴息贷款池 2000 ……</li></ul>
+            <a class="read-more" href="./article.html?id=n7">阅读全文<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12 H19"/><path d="M13 6 L19 12 L13 18"/></svg></a>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <div class="date-block">
+            <div class="day yr">2025</div>
+            <div class="month">9.45 亿元</div>
+          </div>
+          <div class="content">
+            <div class="tag-row">
+              <span class="cat-tag">银税互动</span><span class="cat-tag">信用贷</span>
+            </div>
+            <h3>河源“银税互动”实打实放量</h3>
+            <ul class="news-points"><li>2025 全年河源 A 级纳税人同比 +177.57%，“银税互动”放信用贷 1225 笔、9.45 亿元；2026 继续推“信易贷+园区贷+科创贷”。</li></ul>
+            <a class="read-more" href="./article.html?id=n8">阅读全文<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12 H19"/><path d="M13 6 L19 12 L13 18"/></svg></a>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <div class="date-block">
+            <div class="day yr">2026</div>
+            <div class="month">07 月起</div>
+          </div>
+          <div class="content">
+            <div class="tag-row">
+              <span class="cat-tag">利率自律</span><span class="cat-tag">县域金融</span>
+            </div>
+            <h3>河源利率自律+金融顾问下沉</h3>
+            <ul class="news-points"><li><b>利率自律：</b>2026-07 起县级市场利率定价自律机制全覆盖，遏制存款贷款“内卷式”竞价；</li></ul>
+            <a class="read-more" href="./article.html?id=n9">阅读全文<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12 H19"/><path d="M13 6 L19 12 L13 18"/></svg></a>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <div class="date-block">
+            <div class="day yr">2026</div>
+            <div class="month">08-01 新办法</div>
+          </div>
+          <div class="content">
+            <div class="tag-row">
+              <span class="cat-tag">民生配套</span><span class="cat-tag new">政策解读</span>
+            </div>
+            <h3>河源民生配套</h3>
+            <ul class="news-points"><li><b>城乡居民养老：</b>城乡居民养老新办法（2026-08-01，9 档缴费 180–4800 元/年，超 15 年每多 1 年+3 元/月，新增丧葬补助）；</li></ul>
+            <a class="read-more" href="./article.html?id=n10">阅读全文<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12 H19"/><path d="M13 6 L19 12 L13 18"/></svg></a>
+          </div>
+        </article>
+      </div>
+
+      <div class="news-group">
+        <div class="group-head">
+          <span class="gnum">（三）</span>
+          <h3>银行机构动态<span class="gsub"> 2026 下半年</span></h3>
+        </div>
+        <article class="news-card">
+          <div class="date-block">
+            <div class="day yr">2026</div>
+            <div class="month">下半年</div>
+          </div>
+          <div class="content">
+            <div class="tag-row">
+              <span class="cat-tag">机构动态</span><span class="cat-tag">利率走势</span>
+            </div>
+            <h3>银行机构动态（2026 下半年）</h3>
+            <ul class="news-points"><li><b>普惠小微：</b>普惠小微新发放利率约 3.57%（6 月末，同比降 16BP）；</li></ul>
+            <a class="read-more" href="./article.html?id=n11">阅读全文<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12 H19"/><path d="M13 6 L19 12 L13 18"/></svg></a>
+          </div>
+        </article>
+      </div>
+      </div>
+      <div class="news-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 L4 6 L4 12 C4 17 8 21 12 22 C16 21 20 17 20 12 L20 6 Z"/><path d="M9 12 L11 14 L15 10"/></svg>
+        <span><b>权威官方渠道说明：</b>本板块内容聚焦本地金融监管政策、行业新规、信贷金融动态，所有资讯、政策均来源于国家金融监督管理总局、地方金融监管局、各大商业银行官方公告、权威财经行业报告，保证内容真实、合规、时效性强，适配企业及个人金融服务参考使用。</span>
+      </div>
+      <div class="news-group">
+        <div class="group-head">
+          <span class="gnum">（四）</span>
+          <h3>国家级金融监管核心政策<span class="gsub"> 最新权威解读</span></h3>
+        </div>
+        <article class="news-card">
+          <div class="date-block">
+            <div class="day yr">2026</div>
+            <div class="month">数字金融</div>
+          </div>
+          <div class="content">
+            <div class="tag-row">
+              <span class="cat-tag hot">国家级</span><span class="cat-tag new">政策解读</span>
+            </div>
+            <h3>数字金融高质量发展政策</h3>
+            <p class="news-text">金融监管总局发布《银行业保险业数字金融高质量发展实施方案》，明确推动银行业、保险业数字化转型，规范数字信贷、线上金融服务流程，鼓励金融机……</p>
+            <a class="read-more" href="./article.html?id=n12">阅读全文<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12 H19"/><path d="M13 6 L19 12 L13 18"/></svg></a>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <div class="date-block">
+            <div class="day yr">2026</div>
+            <div class="month">机构治理</div>
+          </div>
+          <div class="content">
+            <div class="tag-row">
+              <span class="cat-tag hot">国家级</span><span class="cat-tag new">政策解读</span>
+            </div>
+            <h3>金融机构治理优化政策</h3>
+            <p class="news-text">多部门联合印发《关于健全金融机构治理的实施意见》，聚焦金融机构内控管理、风险防控、合规经营三大核心，重点规范银行、保险机构信贷审批、资金……</p>
+            <a class="read-more" href="./article.html?id=n13">阅读全文<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12 H19"/><path d="M13 6 L19 12 L13 18"/></svg></a>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <div class="date-block">
+            <div class="day yr">2026</div>
+            <div class="month">09 月征求意见</div>
+          </div>
+          <div class="content">
+            <div class="tag-row">
+              <span class="cat-tag hot">国家级</span><span class="cat-tag">监管新规</span>
+            </div>
+            <h3>行业监管新规更新</h3>
+            <p class="news-text">2026年9月金融监管总局公开征求《银行保险机构信息披露管理办法（征求意见稿）》《保险法（修订草案征求意见稿）》意见，旨在强化金融机构信……</p>
+            <a class="read-more" href="./article.html?id=n14">阅读全文<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12 H19"/><path d="M13 6 L19 12 L13 18"/></svg></a>
+          </div>
+        </article>
+      </div>
+
+      <div class="news-group">
+        <div class="group-head">
+          <span class="gnum">（五）</span>
+          <h3>地方金融专项政策<span class="gsub"> 通用适配版，可替换属地政策</span></h3>
+        </div>
+        <article class="news-card">
+          <div class="date-block">
+            <div class="day yr">2026</div>
+            <div class="month">银税互动</div>
+          </div>
+          <div class="content">
+            <div class="tag-row">
+              <span class="cat-tag">地方政策</span><span class="cat-tag">普惠金融</span>
+            </div>
+            <h3>普惠金融扶持政策</h3>
+            <p class="news-text">各地金融局联合属地银行机构持续升级“银税互动”“信易贷”政策，依托企业纳税信用、征信记录、经营数据，为中小微企业、个体工商户提供纯信用、……</p>
+            <a class="read-more" href="./article.html?id=n15">阅读全文<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12 H19"/><path d="M13 6 L19 12 L13 18"/></svg></a>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <div class="date-block">
+            <div class="day yr">2026</div>
+            <div class="month">风险防控</div>
+          </div>
+          <div class="content">
+            <div class="tag-row">
+              <span class="cat-tag">地方政策</span><span class="cat-tag hot">强监管</span>
+            </div>
+            <h3>地方金融风险防控政策</h3>
+            <p class="news-text">属地金融监管部门持续深化金融领域“黑灰产业”整治工作，重点打击虚假融资、套路贷、非法金融中介、征信造假等违规行为，规范民间融资、企业融资……</p>
+            <a class="read-more" href="./article.html?id=n16">阅读全文<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12 H19"/><path d="M13 6 L19 12 L13 18"/></svg></a>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <div class="date-block">
+            <div class="day yr">2026</div>
+            <div class="month">便民服务</div>
+          </div>
+          <div class="content">
+            <div class="tag-row">
+              <span class="cat-tag">地方政策</span><span class="cat-tag">政务服务</span>
+            </div>
+            <h3>便民金融服务政策</h3>
+            <p class="news-text">推广金融便民服务改革，优化企业开户、信贷办理、征信查询、金融业务变更等政务服务流程，推行线上一站式办理、预约办理服务，精简申报材料，大幅……</p>
+            <a class="read-more" href="./article.html?id=n17">阅读全文<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12 H19"/><path d="M13 6 L19 12 L13 18"/></svg></a>
+          </div>
+        </article>
+      </div>
+
+      <div class="news-group">
+        <div class="group-head">
+          <span class="gnum">（六）</span>
+          <h3>银行机构动态与财经行业资讯<span class="gsub"></span></h3>
+        </div>
+        <article class="news-card">
+          <div class="date-block">
+            <div class="day yr">2026</div>
+            <div class="month">利率下调</div>
+          </div>
+          <div class="content">
+            <div class="tag-row">
+              <span class="cat-tag">机构动态</span><span class="cat-tag">信贷产品</span>
+            </div>
+            <h3>信贷产品优化</h3>
+            <p class="news-text">各大国有银行、商业银行持续下调普惠金融贷款利率，优化小微企业、个体工商户、个人经营贷、消费贷产品体系，放宽优质信用客户授信额度，针对诚信……</p>
+            <a class="read-more" href="./article.html?id=n18">阅读全文<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12 H19"/><path d="M13 6 L19 12 L13 18"/></svg></a>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <div class="date-block">
+            <div class="day yr">2026</div>
+            <div class="month">三大方向</div>
+          </div>
+          <div class="content">
+            <div class="tag-row">
+              <span class="cat-tag">行业趋势</span><span class="cat-tag new">财经资讯</span>
+            </div>
+            <h3>行业发展趋势</h3>
+            <p class="news-text">当前金融行业聚焦“合规化、数字化、普惠化”三大方向，监管力度持续收紧，金融服务更加侧重实体经济，对融资资质、资金用途、征信合规性的审核更……</p>
+            <a class="read-more" href="./article.html?id=n19">阅读全文<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12 H19"/><path d="M13 6 L19 12 L13 18"/></svg></a>
+          </div>
+        </article>
+      </div>
+
+
+
 
 
     </div>
@@ -440,7 +994,7 @@
     <h2 class="sec-title" data-page-node-id="1iWOhGVpHZvif7HdX2YgjI">知识科普</h2>
     <p class="sec-subtitle" data-page-node-id="dILwVoKrgLJvO3CDIV9zTF">FINANCIAL KNOWLEDGE</p>
     <p class="sec-desc" data-page-node-id="bzG0CIhhZq3H5FXQVsyCHh">
-      融资路上的每一步都需要专业知识护航。皓镧资产以多年实操经验，为您整理融资避坑指南、征信知识科普与办理小贴士，让专业门槛不再成为融资障碍。
+      融资路上的每一步都需要专业知识护航。皓镧资产以多年实操经验，为您整理融资避坑指南与征信知识科普，让专业门槛不再成为融资障碍。
     </p>
 
     <!-- 子分类导航 -->
@@ -453,131 +1007,226 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="OWmlcDp2pnHlDINNjr3oI2"><rect x="3" y="5" width="18" height="14" rx="2" data-page-node-id="mOrDV3GNxkVS4Kk3i0zcei"/><path d="M3 10 L21 10" data-page-node-id="rSXV8g949hWzJ9DywHCDPJ"/><path d="M7 15 L11 15" data-page-node-id="31dMkH5FPjjBFRzIYSeTyO"/></svg>
         征信知识
       </span>
-      <span class="kw-tab" data-target="tips" data-page-node-id="OtwabTbcNeRF2JZ7nAFNWI">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="EW0rbv3ZfHKqT5HB1EPNMo"><circle cx="12" cy="12" r="10" data-page-node-id="PECjFqvR8Pdc0tlu257Cej"/><path d="M12 7 L12 13" data-page-node-id="HUzOCsEgvOZGOA2ADmD2Xn"/><circle cx="12" cy="16" r="0.5" fill="currentColor" data-page-node-id="LKbFnWSR0BnKzFtTVh5xYs"/></svg>
+      <span class="kw-tab" data-target="loan">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8 L12 3 L21 8 L21 16 L12 21 L3 16 Z"/><path d="M3 8 L12 13 L21 8"/><path d="M12 13 L12 21"/></svg>
+        贷款基础科普
+      </span>
+      <span class="kw-tab" data-target="tips">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18 H15"/><path d="M10 21 H14"/><path d="M12 3 A6 6 0 0 0 9 14.5 V18 H15 V14.5 A6 6 0 0 0 12 3 Z"/></svg>
         办理小贴士
       </span>
     </div>
 
     <!-- ===== 2-A. 融资避坑指南 ===== -->
     <div class="kw-panel" id="pitfall" data-page-node-id="O6Sx2tCMdTfgMOPblN22Du">
-      <div class="pitfall-list" data-page-node-id="wMm4ds3QyM7LwdLQ11JfUo">
-        <div class="pitfall-item" data-page-node-id="CMuCSBaQCfve1nw8GgjY82">
-          <div class="pitfall-num" data-page-node-id="F3klIRHJQhZgTWCwtFE7aq">1</div>
-          <div class="pitfall-text" data-page-node-id="HzZ9tIwXXg5W1m8wF6ytQ7">
-          </div>
-        </div>
-        <div class="pitfall-item" data-page-node-id="Qq741OGvr8UiyY2ugAB0CP">
-          <div class="pitfall-num" data-page-node-id="OCwI6y2ToJq1uQUWYDDADY">2</div>
-          <div class="pitfall-text" data-page-node-id="363J3gH9w5lxD7tYW3HV0I">
-          </div>
-        </div>
-        <div class="pitfall-item" data-page-node-id="fnalJIr1aBTZsA59Cqrj4r">
-          <div class="pitfall-num" data-page-node-id="7PGnxoNh0LCuXtVgQn777q">3</div>
-          <div class="pitfall-text" data-page-node-id="FKJdwRANilVdZRM5BU3bTU">
-          </div>
-        </div>
-        <div class="pitfall-item" data-page-node-id="CanGxCC0eeiYMqqkygwp6X">
-          <div class="pitfall-num" data-page-node-id="Qjs3EP9b4DQMw4JsuEJCFw">4</div>
-          <div class="pitfall-text" data-page-node-id="yODDdCQD5tKpfOVasqIvV7">
-          </div>
-        </div>
-        <div class="pitfall-item" data-page-node-id="p7dsUgLdyz0UmUbclJh1yi">
-          <div class="pitfall-num" data-page-node-id="m1GD2RNPJkJ4Z7l6aWspXx">5</div>
-          <div class="pitfall-text" data-page-node-id="bUJyyK9DDoc5DDduOQHCOY">
-          </div>
-        </div>
-        <div class="pitfall-item" data-page-node-id="1B2ksmuhSYmLOVfgjJGmWH">
-          <div class="pitfall-num" data-page-node-id="CEwEoEKD6jUS6wHJqeP9W7">6</div>
-          <div class="pitfall-text" data-page-node-id="2VzMjbwqjs1tbdYJtP37qG">
-          </div>
-        </div>
-        <div class="pitfall-item" data-page-node-id="oMu8IcYa8CFas7yCIKX6bN">
-          <div class="pitfall-num" data-page-node-id="0eLIYJZeBNPEiH2JopQqBs">7</div>
-          <div class="pitfall-text" data-page-node-id="hcavJo3t6qhgEtgEbE8cvC">
-          </div>
-        </div>
-        <div class="pitfall-item" data-page-node-id="e12vqBqmKEW7X9uuQ0TBeF">
-          <div class="pitfall-num" data-page-node-id="XB3by36zvRHERbFR4F09PT">8</div>
-          <div class="pitfall-text" data-page-node-id="WqLYPlQp2q33c7uFMFe0rl">
-          </div>
-        </div>
+      <div class="pf-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 L2 22 L22 22 Z"/><path d="M12 9 L12 15"/><circle cx="12" cy="18" r="0.5" fill="currentColor"/></svg>
+        <span><b>重点提示：</b>以下红线清单依据 2026 年个人贷款新规与金融监管总局风险提示整理。凡放款前收费、承诺“百分百批”、宣称“征信洗白”的，一律按违规处理，切勿轻信。</span>
       </div>
+      <div class="pitfall-list">
+        <div class="pitfall-item">
+          <div class="pitfall-num">1</div>
+          <div class="pitfall-text">
+            <h4>拒信四类话术</h4>
+            <p>“不看征信/百分百批/内部渠道/征信洗白”——正规持牌机构必查征信，第三方“修复”均属骗局。</p>
+          </div>
+        </div>
+        <div class="pitfall-item">
+          <div class="pitfall-num">2</div>
+          <div class="pitfall-text">
+            <h4>放款前收费＝骗子</h4>
+            <p>保证金、包装费、通道费、解冻费，任何“先交钱再放款”都违规划红线。</p>
+          </div>
+        </div>
+        <div class="pitfall-item">
+          <div class="pitfall-num">3</div>
+          <div class="pitfall-text">
+            <h4>砍头息违法</h4>
+            <p>借 10 万到手 9 万按 10 万计息，直接拒签并投诉。</p>
+          </div>
+        </div>
+        <div class="pitfall-item">
+          <div class="pitfall-num">4</div>
+          <div class="pitfall-text">
+            <h4>综合年化＞24% 慎碰</h4>
+            <p>个贷新规后银行/持牌上限清晰，超 24% 多为助贷壳公司或非法网贷。</p>
+          </div>
+        </div>
+        <div class="pitfall-item">
+          <div class="pitfall-num">5</div>
+          <div class="pitfall-text">
+            <h4>资金用途禁区</h4>
+            <p>经营贷/消费贷严禁进楼市、股市、币圈，挪用会被抽贷+上征信。</p>
+          </div>
+        </div>
+        <div class="pitfall-item">
+          <div class="pitfall-num">6</div>
+          <div class="pitfall-text">
+            <h4>拒绝造假</h4>
+            <p>流水包装、虚构交易背景涉嫌骗取贷款罪；征信由人行统管，无人能改。</p>
+          </div>
+        </div>
+        <div class="pitfall-item">
+          <div class="pitfall-num">7</div>
+          <div class="pitfall-text">
+            <h4>助贷四大坑（监管总局提示）</h4>
+            <p></p>
+            <ul class="pf-sub"><li>利率欺诈（低表面利率+会员费）</li><li>虚假宣传（混同平台与银行）</li><li>信息泄露</li><li>壳公司冒充持牌</li></ul>
+          </div>
+        </div>
+      </div>        <div class="grid-sep"><span>◇</span>补充解读 · 权威官方渠道版</div>
+        <div class="pitfall-item">
+          <div class="pitfall-num">8</div>
+          <div class="pitfall-text">
+            <h4>规避非法中介陷阱</h4>
+            <p>市场上部分非法金融中介以“无条件放款、征信洗白、低息秒批”为噱头招揽客户，实则收取高额服务费、手续费，甚至诱导客户违规操作、伪造资料，最终导致贷款失败、资金损失，还会留下违规征信记录。正规融资渠道无前置收费，所有费用、利率、还款方式均有书面公示。</p>
+          </div>
+        </div>
+        <div class="pitfall-item">
+          <div class="pitfall-num">9</div>
+          <div class="pitfall-text">
+            <h4>拒绝套路贷与虚假融资</h4>
+            <p>警惕“砍头息、捆绑收费、隐性利息、逾期高额违约金”等套路贷模式，部分非正规平台放款时直接扣除部分本金，还款总额远高于约定利率，属于违规金融行为。办理融资务必选择银行、持牌金融机构，拒绝陌生私人放款、小众无资质网贷。</p>
+          </div>
+        </div>
+        <div class="pitfall-item">
+          <div class="pitfall-num">10</div>
+          <div class="pitfall-text">
+            <h4>严防融资资料造假</h4>
+            <p>切勿轻信“征信修复、流水造假、包装资质”等服务，个人及企业征信由官方系统统一记录，无法人为修改，造假资料申请贷款属于违规行为，会直接导致贷款拒批，情节严重者将被列入金融失信名单，影响后续所有金融业务办理。</p>
+          </div>
+        </div>
+        <div class="pitfall-item">
+          <div class="pitfall-num">11</div>
+          <div class="pitfall-text">
+            <h4>规范资金用途避风险</h4>
+            <p>银行贷款均有明确资金用途限制，严禁信贷资金违规流入楼市、股市、虚拟货币交易等领域，违规挪用资金会被银行要求提前一次性结清贷款、冻结授信额度，同时上报征信系统，留下不良记录。</p>
+          </div>
+        </div>
+
+
+
     </div>
 
     <!-- ===== 2-B. 征信知识 ===== -->
     <div class="kw-panel" id="credit" style="display:none;" data-page-node-id="MnxbPOyQy935ctOsoASQ5f">
-      <div class="credit-grid" data-page-node-id="t2YJsv6VlZVS13BuqHmsC9">
-        <div class="credit-card" data-page-node-id="kIZjmsVqCQC1jLkdVjrJhN">
-          <div class="credit-icon c1" data-page-node-id="UDH4Qg2YmIw8Ol2w2F3tMm">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="Smt7gD94lVxL7dgyuAuFYv"><path d="M12 2 L4 6 L4 12 C4 17 8 21 12 22 C16 21 20 17 20 12 L20 6 Z" data-page-node-id="fvpPpRvhtG8P4fe5ySi6UB"/><path d="M9 12 L11 14 L15 10" data-page-node-id="XoDJpo5BjQGLDHv9MYaRsu"/></svg>
+      <div class="credit-grid cols-2">
+        <div class="credit-card">
+          <div class="credit-icon c1">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4 H20 V20 H4 Z M4 9 H20 M9 14 H15"/></svg>
           </div>
+          <h4>查什么</h4>
+          <p>基本信息、信贷记录（权重最高）、查询记录、公共记录（欠税/被执行）。</p>
         </div>
-        <div class="credit-card" data-page-node-id="KE0vwHBy7MoiAECXRMlS25">
-          <div class="credit-icon c2" data-page-node-id="6g3vZ4xXBKMiz7GuHiBjPI">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="nhKPdxgPDLD4ON3dRC6aq0"><circle cx="12" cy="12" r="10" data-page-node-id="ASuEporWLGdBJ9kMa65Piw"/><path d="M12 6 L12 12 L16 14" data-page-node-id="6nf9L7ifgjWlrOrH2XPUGq"/></svg>
+        <div class="credit-card">
+          <div class="credit-icon c3">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 A9 9 0 1 0 12 21 A9 9 0 1 0 12 3 M12 7 L12 12 L16 14"/></svg>
           </div>
+          <h4>不良保留</h4>
+          <p>逾期从结清当日起留 5 年，未结清永久留；连三累六、当前逾期、未结被执行＝硬拒。</p>
         </div>
-        <div class="credit-card" data-page-node-id="G299BfRmJfQTSWuDbWpJgM">
-          <div class="credit-icon c3" data-page-node-id="nligUFgMqo48Hy1gSRHqEF">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="9BsKy6BjAqDJlAYO1LXkE7"><path d="M3 12 L7 12 M17 12 L21 12" data-page-node-id="G16QSuORcnUVaPGiwflxPp"/><circle cx="12" cy="12" r="3" data-page-node-id="tRC03sSVkH8DRIYOl9FUSU"/><path d="M9 12 L15 12" data-page-node-id="BkxDpHUEVLKCESK1FHtzAt"/></svg>
+        <div class="credit-card">
+          <div class="credit-icon c2">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6 H20 M4 12 H20 M4 18 H13"/></svg>
           </div>
+          <h4>查询频次</h4>
+          <p>3 个月内机构查询 ＞6 次 被判“极度缺钱”；每年个人免费查 2 次人行报告。</p>
         </div>
-        <div class="credit-card" data-page-node-id="G9EsK8QjzxJOGHb908Lq5A">
-          <div class="credit-icon c1" data-page-node-id="S6V77eK3dzcyz5luvHbeOg">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="N7BspVWHehYJgaNBBfGVkA"><rect x="3" y="5" width="18" height="14" rx="2" data-page-node-id="SuDYF55J6eZ1KGvAP2iJCK"/><path d="M3 10 L21 10" data-page-node-id="ta4ZJcFjHfqLPjscGRWbKL"/><path d="M7 15 L13 15" data-page-node-id="LFVHD77IPVywsxfQdQ6RfB"/></svg>
+        <div class="credit-card">
+          <div class="credit-icon c1">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6 H21 V18 H3 Z M3 10 H21 M7 14 H11"/></svg>
           </div>
+          <h4>信用卡用法</h4>
+          <p>单卡使用率＜60%，绑自动还款+双重提醒，提前 1–2 天还防延迟。</p>
         </div>
-        <div class="credit-card" data-page-node-id="CneJ4R4aBQ0EOBf6NMeEgb">
-          <div class="credit-icon c2" data-page-node-id="m89M2uSasnKTE25qHIk1pu">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="vBvPXyQq8DpSFDD9GXJsmr"><path d="M12 3 L12 21" data-page-node-id="MsxjoWFrjpKsb7motvp7RI"/><path d="M8 7 L12 3 L16 7" data-page-node-id="ej4fWH7eGDeazESW1c74Om"/><path d="M8 17 L12 21 L16 17" data-page-node-id="5OVW3SD391piwai8kjaOBH"/></svg>
+        <div class="credit-card span-2">
+          <div class="credit-icon c3">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 L4 6 L4 12 C4 17 8 21 12 22 C16 21 20 17 20 12 L20 6 Z M9 12 L11 14 L15 10"/></svg>
           </div>
+          <h4>异议处理</h4>
+          <p>错误/盗用记录→带身份证去人行河源市分行征信窗口或业务发生行提交异议，不走第三方。</p>
         </div>
-        <div class="credit-card" data-page-node-id="ENPZZJFKAnfHRFAvVbOfRJ">
-          <div class="credit-icon c3" data-page-node-id="pQ8qQAeOTbdXhtatEgsdoi">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="Y1DfF3XeuS4PxSI7B92xD7"><path d="M5 12 L9 16 L19 6" data-page-node-id="hNJ0Ggw546llQ0UbQEYFIn"/></svg>
+      </div>        <div class="grid-sep"><span>◇</span>补充解读 · 权威官方渠道版</div>
+        <div class="credit-card">
+          <div class="credit-icon c1">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4 H20 V20 H4 Z M4 9 H20 M9 14 H15"/></svg>
           </div>
+          <h4>征信的核心作用</h4>
+          <p>个人、企业征信是金融信用的“经济身份证”，银行授信、贷款审批、利率定价、信用卡办理等所有金融业务，均以征信记录为核心依据，良好征信可享受低利率、高额度、快审批服务，不良征信将直接导致融资失败。</p>
         </div>
-      </div>
+        <div class="credit-card">
+          <div class="credit-icon c2">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 A9 9 0 1 0 12 21 A9 9 0 1 0 12 3 M12 8 L12 13 M12 16 L12 17"/></svg>
+          </div>
+          <h4>征信不良记录类型</h4>
+          <p>逾期还款（信用卡、房贷、经营贷、网贷等）、频繁查询征信、多头借贷、呆账、代偿、失信被执行人记录等，均属于不良征信信息，会持续影响5年（自结清欠款当日起计算）。</p>
+        </div>
+        <div class="credit-card">
+          <div class="credit-icon c3">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6 H20 M4 12 H20 M4 18 H13"/></svg>
+          </div>
+          <h4>征信查询规范</h4>
+          <p>个人每年可免费查询2次官方征信报告，企业可通过人民银行征信中心查询企业征信。短期内（3个月内）征信查询次数过多，会被金融机构判定为资金紧张、融资风险高，间接降低贷款审批通过率。</p>
+        </div>
+        <div class="credit-card">
+          <div class="credit-icon c1">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 L4 6 L4 12 C4 17 8 21 12 22 C16 21 20 17 20 12 L20 6 Z M9 12 L11 14 L15 10"/></svg>
+          </div>
+          <h4>征信异议处理方式</h4>
+          <p>若发现征信记录存在错误、遗漏、非本人操作记录，可携带身份证、相关证明材料，前往当地人民银行征信窗口提交异议申请，官方核实无误后将予以更正，切勿相信第三方征信修复机构。</p>
+        </div>
+
+
+
     </div>
 
-    <!-- ===== 2-C. 办理小贴士 ===== -->
-    <div class="kw-panel" id="tips" style="display:none;" data-page-node-id="vBjY8fQ1B0Z5hxjNTrfJ4r">
-      <div class="tips-timeline" data-page-node-id="EQay5icB6lepkdrWSxDTFZ">
-        <div class="tip-step" data-page-node-id="eHn9aPXaVGvG7aFV8mBCLl">
-          <div class="step-head" data-page-node-id="CAc5KE0ClYLKLebc0G4y6W">
-            <span class="step-num" data-page-node-id="3AbaLrdiaU5D27tZ4JcWeN">STEP 01</span>
-          </div>
-        </div>
-        <div class="tip-step" data-page-node-id="bHwGjVPR7jV7l8Fm9q1yhY">
-          <div class="step-head" data-page-node-id="wMz0FtGVezue1EjB7AMdEz">
-            <span class="step-num" data-page-node-id="4W1geojIRTJBZQ4ZqCJUOY">STEP 02</span>
-          </div>
-        </div>
-        <div class="tip-step" data-page-node-id="GP6GtJxBMfsg4PouREmyrW">
-          <div class="step-head" data-page-node-id="5TUgDRhqcfYqB37WLxSDDB">
-            <span class="step-num" data-page-node-id="6I88cl7gXsbfIKzmOQV84D">STEP 03</span>
-          </div>
-        </div>
-        <div class="tip-step" data-page-node-id="emOgPcfDTGNVxlagCSIqLN">
-          <div class="step-head" data-page-node-id="QtNNfWZv07taitbLrLOrFX">
-            <span class="step-num" data-page-node-id="DTZ8TRK8B6A7o3yK8rxikf">STEP 04</span>
-          </div>
-        </div>
-        <div class="tip-step" data-page-node-id="VfGLxs1W5BOydr7YDCU2FP">
-          <div class="step-head" data-page-node-id="RekfNRgTxtjRUBVSWS4Hwh">
-            <span class="step-num" data-page-node-id="2mzRgE180ciJH0vOaGISNr">STEP 05</span>
-          </div>
-        </div>
-        <div class="tip-step" data-page-node-id="vZfDJBbReNZcYoGALqF3Bk">
-          <div class="step-head" data-page-node-id="NSyt69jZKBN7vHvAj6Yu5F">
-            <span class="step-num" data-page-node-id="1L3wmys0qHPRiNfakLkAhC">STEP 06</span>
-          </div>
-        </div>
+
+  
+    <!-- ===== 2-C. 贷款基础科普 ===== -->
+    <div class="kw-panel" id="loan" style="display:none;">
+      <div class="loan-lead">
+        <p>无论是买房买车、创业周转，还是应急救急，贷款都可能成为我们人生中不得不接触的金融工具。但很多人提起贷款就犯怵：利率怎么算？不同贷款有啥区别？哪些坑绝对不能踩？</p>
+        <p>今天这篇科普，不讲晦涩术语，不玩文字游戏，用普通人能听懂的话，把贷款的核心知识点讲透，不管你是准备贷款、正在贷款，还是单纯想了解，看完都能少走弯路、避开陷阱。</p>
       </div>
+      <div class="loan-toc">
+          <a class="toc-item" href="./article.html?id=loan"><span>一</span>先搞懂：贷款到底是什么？（入门必看）</a>
+          <a class="toc-item" href="./article.html?id=loan"><span>二</span>常见贷款类型大盘点，按需选择不踩错</a>
+          <a class="toc-item" href="./article.html?id=loan"><span>三</span>贷款核心术语拆解，再也不被“话术”忽悠</a>
+          <a class="toc-item" href="./article.html?id=loan"><span>四</span>普通人贷款避坑指南（重中之重，必看！）</a>
+          <a class="toc-item" href="./article.html?id=loan"><span>五</span>普通人贷款实用建议（收藏备用）</a>
+      </div>
+      <a class="read-more big" href="./article.html?id=loan">查看全文（贷款基础科普全文）<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12 H19"/><path d="M13 6 L19 12 L13 18"/></svg></a>
     </div>
 
-  </section>
+    <!-- ===== 2-D. 办理小贴士 ===== -->
+    <div class="kw-panel" id="tips" style="display:none;">
+      <div class="loan-block">
+        <h3 class="loan-h3"><span class="lnum">◎</span>正规办理小贴士</h3>
+        <p>融资优先走正规渠道，贷前做好自检、贷中看清合同、遇困主动沟通，是降低成本与风险的三步基本功。</p>
+        <ol class="loan-advice">
+          <li>渠道优先级：银行线下/官方 APP＞政府性融资担保（粤担保，费率＜1%）＞供应链金融＞持牌消金/小贷（备选）。</li>
+          <li>贷前自检：查征信→结清小额逾期→停申网贷 3 个月→备齐执照/流水/纳税/资产证明。</li>
+          <li>合同必看四项：年化综合利率（非日息月息）、提前还款违约金、逾期罚息、是否含强制搭售保险。</li>
+          <li>遇困别以贷养贷：主动找银行申请延期/分期/无还本续贷，河源部分农商行已落地该模式。</li>
+          <li>企业专属：河源企业优先查《河源市金融支持产业建设“大会战”产品手册》（112 种产品）、找金融顾问联县团队做融资画像。</li>
+        </ol>
+                <div class="grid-sep"><span>◇</span>补充解读 · 权威官方渠道版</div>
+        <ol class="loan-advice">
+          <li>贷款办理前期准备：办理信贷业务前，提前自查征信记录，结清小额逾期欠款，减少短期征信查询；整理营业执照、流水、纳税证明、资产证明等完整材料，保证资料真实有效，可大幅提升审批通过率与授信额度。</li>
+          <li>合理规划借贷行为：根据自身还款能力申请贷款，避免多头借贷、过度负债，不盲目申请各类网贷、小额贷款，保持征信查询频次稳定、负债比例合理，维护良好信用状态。</li>
+          <li>还款避坑小技巧：牢记各类贷款、信用卡还款日，建议提前1-2天还款，避免系统延迟导致逾期；开通还款提醒、自动扣款功能，杜绝无意识逾期；若遇资金周转困难，可提前联系银行申请延期还款、分期还款，切勿直接逾期。</li>
+          <li>正规业务办理渠道：所有金融业务优先选择银行线下网点、官方手机银行、官方小程序等正规渠道办理，不点击陌生金融链接、不下载非正规金融APP、不向私人账户转账缴纳贷款相关费用，保障资金与信息安全。</li>
+        </ol>
+      </div>
+
+    </div>
+
+    <!-- ===== 2-D. 总结 ===== -->
+    <div class="kw-summary" id="policySummary">
+      <h4><span class="snum">◎</span>总结</h4>
+      <p>近期河源金融政策聚焦“精准滴灌”（如金融顾问制度、融资产品手册）与“规范秩序”（利率自律机制、地方金融组织监管）。建议企业和个人密切关注官方发布的产品手册，通过正规金融机构办理业务，并持续关注自身的信用状况。</p>
+    </div>
+</section>
 
 </main>
 
@@ -610,6 +1259,8 @@
         if (p.id === target) { p.style.display = ''; }
         else { p.style.display = 'none'; }
       });
+      var sum = document.getElementById('policySummary');
+      if (sum) { sum.style.display = (target === 'loan') ? 'none' : ''; }
     });
   });
 </script>

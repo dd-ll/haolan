@@ -83,28 +83,39 @@
     background: var(--bg-soft); color: var(--ink); font-size: 13px; line-height: 1.9;
   }
 
-  /* ========== 子卡片网格 ========== */
-  .sub-grid { display: grid; gap: 20px; }
-  .sub-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
-  .sub-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
-
-  /* 文字型子卡片 */
-  .text-card {
+  /* ========== 公司简介 - 纵向内容块 ========== */
+  .intro-sections { display: flex; flex-direction: column; gap: 20px; }
+  .intro-section {
     border: 1.5px solid var(--gold); border-radius: 10px;
-    padding: 36px 28px; background: #fff; transition: all .25s;
-    display: flex; flex-direction: column; justify-content: center; gap: 12px;
-    min-height: 210px;
+    padding: 30px 34px; background: #fff; transition: all .25s;
   }
-  .text-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(184,148,31,0.16); }
-  .text-card .num {
-    font-family: "STSong",serif; font-size: 28px; font-weight: 700;
-    color: var(--gold); line-height: 1; margin-bottom: 4px;
+  .intro-section:hover { box-shadow: 0 12px 30px rgba(184,148,31,0.12); }
+  .intro-section .is-head {
+    display: flex; align-items: center; gap: 14px;
+    padding-bottom: 14px; margin-bottom: 18px;
+    border-bottom: 1px solid var(--line);
   }
-  .text-card h4 {
-    font-size: 18px; font-weight: 600; color: var(--ink); letter-spacing: 2px;
-    padding-bottom: 12px; border-bottom: 1px solid var(--line);
+  .intro-section .is-num {
+    font-family: "STSong","SimSun",serif; font-size: 26px; font-weight: 700;
+    color: var(--gold); line-height: 1; letter-spacing: 1px;
   }
-  .text-card p { color: var(--muted); font-size: 13px; line-height: 1.9; }
+  .intro-section .is-head h4 {
+    font-size: 19px; font-weight: 600; color: var(--ink); letter-spacing: 3px;
+  }
+  .intro-section .is-body p {
+    color: var(--muted); font-size: 14.5px; line-height: 2.1;
+    margin-bottom: 14px; text-align: justify;
+  }
+  .intro-section .is-body p:last-child { margin-bottom: 0; }
+  .intro-section .is-sub {
+    font-size: 15px; font-weight: 600; color: var(--ink); letter-spacing: 1px;
+    margin: 6px 0 10px; padding-left: 13px; position: relative;
+  }
+  .intro-section .is-sub::before {
+    content: ""; position: absolute; left: 0; top: 5px; bottom: 5px;
+    width: 3px; border-radius: 2px;
+    background: linear-gradient(180deg, var(--red), var(--gold));
+  }
 
   /* ========== 时间轴（居中 5 节点） ========== */
   .timeline-wrap {
@@ -179,10 +190,48 @@
   .footer-info { display: flex; flex-direction: column; gap: 6px; font-size: 13px; text-align: right; }
   .footer-info b { color: #D4A574; font-weight: 600; }
 
+  /* ========== 发展历程：开篇总述 + 四阶段 ========== */
+  .tl-lead {
+    max-width: 900px; margin: -18px auto 20px;
+    text-align: center; color: var(--muted);
+    font-size: 15px; line-height: 2.15; letter-spacing: .2px;
+  }
+
+  .stage-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 34px; }
+
+  .stage-card {
+    position: relative; overflow: hidden;
+    border: 1.5px solid var(--gold); border-radius: 10px;
+    background: #fff; padding: 30px 34px 30px 38px;
+    transition: all .25s;
+  }
+  .stage-card::before {
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+    background: linear-gradient(180deg, var(--red), var(--gold));
+  }
+  .stage-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(184,148,31,0.16); }
+
+  .stage-card .stage-head {
+    display: flex; align-items: center; gap: 12px;
+    padding-bottom: 12px; margin-bottom: 14px;
+    border-bottom: 1px solid var(--line);
+  }
+  .stage-card .stage-num {
+    font-family: "STSong","SimSun",serif; font-size: 22px; font-weight: 700;
+    color: var(--gold); line-height: 1; letter-spacing: 1px;
+  }
+  .stage-card .stage-head h4 {
+    font-size: 18px; font-weight: 600; color: var(--ink); letter-spacing: 2px;
+  }
+  .stage-card p {
+    color: var(--muted); font-size: 14.5px; line-height: 2.05;
+    text-align: justify;
+  }
+
   /* ========== 响应式 ========== */
   @media (max-width: 960px) {
-    .sub-grid.cols-3, .sub-grid.cols-4 { grid-template-columns: repeat(2, 1fr); }
     .timeline-track { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .stage-card { padding: 26px 24px 26px 28px; }
     .timeline::before { display: none; }
     .tl-item {
       min-height: auto; border: 1px solid var(--gold); border-radius: 10px;
@@ -208,8 +257,8 @@
 
   /* ========== 手机竖屏响应式 ========== */
   @media (max-width: 760px) {
-    .sub-grid.cols-3, .sub-grid.cols-4 { grid-template-columns: 1fr; }
     .timeline-track { grid-template-columns: 1fr; gap: 12px; }
+    .stage-grid { grid-template-columns: 1fr; gap: 16px; margin-top: 26px; }
     .timeline-wrap { padding: 44px 16px 52px; }
     .tl-item:last-child { grid-column: auto; }
     .tl-item { padding: 16px 14px; }
@@ -223,7 +272,15 @@
     .sec-subtitle { letter-spacing: 2px; margin-bottom: 36px; }
     .intro-text h3 { font-size: 20px; }
     .intro-text .lead { font-size: 14px; }
-    .text-card { padding: 28px 20px; }
+    .tl-lead { font-size: 14px; line-height: 2; text-align: left; margin: -10px 0 14px; }
+    .stage-card { padding: 22px 18px 22px 22px; }
+    .stage-card .stage-head h4 { font-size: 17px; letter-spacing: 1.5px; }
+    .stage-card p { font-size: 14px; line-height: 2; }
+    .intro-section { padding: 22px 18px; }
+    .intro-section .is-head { gap: 10px; padding-bottom: 12px; margin-bottom: 14px; }
+    .intro-section .is-num { font-size: 22px; }
+    .intro-section .is-head h4 { font-size: 17px; letter-spacing: 2px; }
+    .intro-section .is-body p { font-size: 14px; line-height: 2; }
     .footer { padding: 32px 20px; }
   }
 </style>
@@ -263,6 +320,8 @@
   <section id="milestones" data-page-node-id="57QwcWCV9urjJuD6L92T9O">
     <h2 class="sec-title" data-page-node-id="edrWFatk57OkacoCdklViq">发展历程大事记</h2>
     <p class="sec-subtitle" data-page-node-id="3kHrnCO62KIwIpzmGYhztH">DEVELOPMENT MILESTONES</p>
+
+    <p class="tl-lead">自成立以来，公司始终紧跟行业发展趋势，坚守合规发展初心，稳步深耕、迭代成长，一步步完成品牌沉淀、规模升级与实力突破，逐步成长为行业内规范化、专业化的优质企业。</p>
 
     <div class="timeline-wrap" data-page-node-id="A309PJHJtYTxPLmLaruiBG">
       <div class="timeline" data-page-node-id="R7LwrNUMY4u1H6oCvOl4pj">
@@ -310,6 +369,38 @@
         </div>
       </div>
     </div>
+
+    <div class="stage-grid">
+      <article class="stage-card">
+        <div class="stage-head">
+          <span class="stage-num">01</span>
+          <h4>初创奠基阶段</h4>
+        </div>
+        <p>公司正式成立，确立合规经营、诚信发展的核心理念，搭建基础组织架构与业务体系，完成初期团队组建与业务布局，立足市场夯实发展根基，实现从0到1的突破。</p>
+      </article>
+      <article class="stage-card">
+        <div class="stage-head">
+          <span class="stage-num">02</span>
+          <h4>稳步成长阶段</h4>
+        </div>
+        <p>持续优化业务模式与服务体系，完善内控合规管理制度，拓展市场业务版图，积累大量优质客户资源，品牌影响力初步显现，团队规模、业务体量实现稳步增长，企业步入规范化发展轨道。</p>
+      </article>
+      <article class="stage-card">
+        <div class="stage-head">
+          <span class="stage-num">03</span>
+          <h4>提质升级阶段</h4>
+        </div>
+        <p>聚焦专业化、精细化、品牌化发展，升级服务体系与风控体系，引入智能化管理模式，大幅提升运营效率与服务品质。同时积极践行社会责任，参与各类公益活动，实现业务发展与社会责任双向赋能，企业综合实力、行业口碑大幅提升。</p>
+      </article>
+      <article class="stage-card">
+        <div class="stage-head">
+          <span class="stage-num">04</span>
+          <h4>深耕致远阶段</h4>
+        </div>
+        <p>立足行业新格局，持续创新业务模式、优化产品服务，深化合规体系建设，打造差异化核心竞争力。依托成熟的运营体系、专业的团队实力与良好的市场口碑，稳步拓展行业影响力，朝着规模化、品牌化、高质量化方向持续迈进。</p>
+      </article>
+    </div>
+  
   </section>
 
   <!-- ========================================== -->
@@ -321,32 +412,49 @@
 
     <div class="intro-block" data-page-node-id="dE6NgiQBlUkNzSPUa5lHt2">
       <div class="intro-text" data-page-node-id="bMO5nWmQ19GOh65e7Til7I">
-        <h3 data-page-node-id="JCVUR61Z2W92mMpC2CjhNq">稳健资产管理 · 创造长期价值</h3>
+        <h3 data-page-node-id="JCVUR61Z2W92mMpC2CjhNq">河源市皓镧资产投资有限公司</h3>
         <p class="lead" data-page-node-id="VEQcn4EMhgyRARlcAnwAqL">
-          皓镧资产管理有限公司创立于 2021 年，是一家以稳健经营理念为核心，专业从事资产管理、财富管理、投资咨询及综合金融服务的综合性机构。
+          河源市皓镧资产投资有限公司（简称：皓镧资产），隶属于河源市皓镧企业管理有限公司，是一家深耕金融助贷领域的专业化服务机构。公司立足本地市场、深耕行业多年，依托集团完善的资源体系与运营积淀，打造了成熟、规范、高效的金融助贷服务模式，凭借专业的服务能力与良好的行业口碑，为个人及中小微企业提供多元化综合性金融服务。
         </p>
-        <p data-page-node-id="z1q7OgWGuxogvET9Z2dnng">
-          我们深知每一份托付都承载着客户的信任与期望，因此始终以"严格风控、合规先行"为经营底线。依托专业化的资产管理团队与多元化的业务布局，业务涵盖房产抵押融资、企业信贷、个人信用融资、车辆融资、企业服务等多个领域，形成了以资产端为核心、以服务为延伸的完整业务生态。
-        </p>
-        <div class="quote" data-page-node-id="xEc7jMA0OqbHg1AGmt5HIl">
-          历经多年稳健发展，皓镧资产已服务数千家客户。我们坚信，唯有<strong data-page-node-id="Q6YBZFNFo6xitDXbjRQLV3">稳健</strong>方能致远，唯有<strong data-page-node-id="RsNvgyGOqB0a8dIM0SAKww">专业</strong>方能托付。
-        </div>
       </div>
     </div>
 
-    <div class="sub-grid cols-3" data-page-node-id="6NWLB1BpmvSX4XdR26wjpB">
-      <article class="text-card" data-page-node-id="4tDCJ7uHGwg5xY3jZfqMpv">
-        <div class="num" data-page-node-id="WjYaoXdFmrIcFF7Uosr5bX">①</div>
-        <h4 data-page-node-id="SCm5LbGc4kvGrS360wtDOK">发展历程</h4>
+    <div class="intro-sections" data-page-node-id="INTSEC001">
+
+      <article class="intro-section" data-page-node-id="INTSEC002">
+        <div class="is-head" data-page-node-id="INTSEC002H">
+          <span class="is-num" aria-hidden="true">01</span>
+          <h4 data-page-node-id="INTSEC002T">发展历程</h4>
+        </div>
+        <div class="is-body" data-page-node-id="INTSEC002B">
+          <p>皓镧资产聚焦金融助贷核心赛道，稳步推进规模化、规范化发展。公司核心业务于2021年正式启动运营，提前布局本地金融助贷市场，持续打磨服务流程、积累行业经验、搭建服务体系，夯实业务发展基础。经过一年多的业务深耕与模式打磨，2022年10月公司正式完成工商注册落地，实现规范化、专业化合规运营。自业务启动以来，公司深耕河源本地金融服务市场，持续沉淀行业资源、优化服务模式，逐步建立起适配本地客户需求的成熟服务体系，具备丰富的本地金融服务实操经验与市场服务能力。</p>
+        </div>
       </article>
-      <article class="text-card" data-page-node-id="3uBSLpFXYJSmyXCsOKJhXA">
-        <div class="num" data-page-node-id="PxcjQWq5qBkMsD6FWYWgdR">②</div>
-        <h4 data-page-node-id="h30gQsady75eQkQb0uRvIG">企业定位</h4>
+
+      <article class="intro-section" data-page-node-id="INTSEC003">
+        <div class="is-head" data-page-node-id="INTSEC003H">
+          <span class="is-num" aria-hidden="true">02</span>
+          <h4 data-page-node-id="INTSEC003T">企业定位</h4>
+        </div>
+        <div class="is-body" data-page-node-id="INTSEC003B">
+          <p>皓镧资产是专注于金融助贷主赛道的专业化、综合性金融服务机构，依托集团平台资源优势，聚焦个人与中小微企业两大核心服务群体，构建精细化、全场景的金融服务体系。公司经营范围涵盖融资咨询、风险管控、贷后管理等全链条专业服务，主营信贷、抵押等多元化金融产品，精准对接各类市场主体的资金需求。</p>
+          <p>依托成熟的业务架构，公司搭建个人金融、企业金融两大核心服务矩阵，全面覆盖多元融资场景。个人端聚焦个性化资金需求，为客户提供专属融资规划、资质分析、个人消费贷、个体经营贷咨询等定制化服务；企业端精准直击中小微企业经营发展痛点，主打供应链金融、项目资金对接等核心服务，全方位解决企业经营周转、产能扩张、技术升级等全生命周期的资金难题，致力打破传统融资服务壁垒，打造一站式综合性金融服务平台。</p>
+        </div>
       </article>
-      <article class="text-card" data-page-node-id="pp6FEzCIAGd1uNWLZSucGl">
-        <div class="num" data-page-node-id="BhoBuE065YIUQzvcvOW6hZ">③</div>
-        <h4 data-page-node-id="QinfvDd3mCEyHNxwtgf1r9">经营理念与愿景</h4>
+
+      <article class="intro-section" data-page-node-id="INTSEC004">
+        <div class="is-head" data-page-node-id="INTSEC004H">
+          <span class="is-num" aria-hidden="true">03</span>
+          <h4 data-page-node-id="INTSEC004T">经营理念与愿景</h4>
+        </div>
+        <div class="is-body" data-page-node-id="INTSEC004B">
+          <h5 class="is-sub">1、核心经营理念</h5>
+          <p>公司始终坚守集团“诚信、创新、和谐、自律”的核心价值观，深度践行集团“做创业者背后的创业者”的企业使命，秉持高效、专业、合规的核心服务理念。以精细化服务为核心标准，严格把控全流程服务规范，持续优化金融服务方案，严守行业合规底线。同时依托集团多元化平台资源，持续创新金融服务模式，打破传统融资服务的局限与壁垒，以专业能力、合规运营、贴心服务赋能个人客户与中小微企业发展。</p>
+          <h5 class="is-sub">2、企业愿景</h5>
+          <p>皓镧资产始终以长远发展为导向，坚守初心、深耕主业，持续优化服务体系、提升服务品质、拓宽服务边界，全力打造值得信赖的金融服务品牌。致力于成为客户的信赖者，员工的创业家园，既要为广大客户提供靠谱、高效、全方位的综合性金融解决方案，助力客户实现资金价值与发展突破；也要搭建优质的创业发展平台，赋能员工成长，实现企业、员工、客户三方共赢，稳步推动企业高质量、可持续发展。</p>
+        </div>
       </article>
+
     </div>
   </section>
 
@@ -357,18 +465,36 @@
     <h2 class="sec-title" data-page-node-id="FuZKZXeV4esdrvMfNMxKkl">企业资质与合规说明</h2>
     <p class="sec-subtitle" data-page-node-id="1CerBuTq5xkInMSVS7xy16">QUALIFICATIONS &amp; COMPLIANCE</p>
 
-    <div class="sub-grid cols-3" data-page-node-id="6S6zvQ99hD0clEkzATOHr3">
-      <article class="text-card" data-page-node-id="wBpfii81qZ4nyj8QHoHcBe">
-        <div class="num" data-page-node-id="BnaE4KAnNGQngkv8pb5oxp">①</div>
-        <h4 data-page-node-id="KruDdAmpto4G6yBynbhDl7">经营规范</h4>
+    <div class="intro-sections" data-page-node-id="6S6zvQ99hD0clEkzATOHr3">
+      <article class="intro-section">
+        <div class="is-head">
+          <span class="is-num">①</span>
+          <h4>经营规范</h4>
+        </div>
+        <div class="is-body">
+          <p>公司始终坚守合规立企、诚信经营的核心原则，严格遵守国家法律法规、行业监管条例及市场经营准则，建立标准化、规范化、系统化的全流程经营管理体系。在组织架构上，搭建权责清晰的治理架构，明确各部门、各岗位岗位职责与风控权限，形成管理层、业务部门、合规风控部门三位一体的监督管理模式，实现业务开展全流程可追溯、可监管、可追责。</p>
+          <p>在业务运营中，公司严格落实行业监管要求，完善内控管理制度、业务操作规范、风险防控细则等全套制度体系，常态化开展合规自查、风险排查与整改优化工作，构建“检查-问题-整改-问责-预防”的闭环管理机制。同时将合规经营纳入企业战略发展核心，杜绝违规经营、无序扩张等行为，坚守经营底线，保障企业稳健、可持续发展，树立合规守信的企业市场形象。</p>
+        </div>
       </article>
-      <article class="text-card" data-page-node-id="060fPUzMe1z3v1tKfIdunR">
-        <div class="num" data-page-node-id="8Bx8H5ApSLOZv6TKwrOLJy">②</div>
-        <h4 data-page-node-id="WUvs71HYxQ2AMpAMgFHfHh">服务宗旨</h4>
+      <article class="intro-section">
+        <div class="is-head">
+          <span class="is-num">②</span>
+          <h4>服务宗旨</h4>
+        </div>
+        <div class="is-body">
+          <p>公司深耕行业发展多年，始终秉持诚信为本、专业赋能、客户至上、共赢致远的核心服务宗旨。立足客户真实需求，以专业化服务能力为核心，以合规诚信为基石，聚焦客户痛点与发展需求，持续优化服务流程、升级服务体系、提升服务品质。</p>
+          <p>我们坚持用心服务每一位客户，摒弃粗放式服务模式，打造精细化、个性化、高效化的一站式服务体系，全程为客户提供专业、靠谱、透明、安心的服务支持。同时坚守社会责任与行业初心，兼顾服务质量与合规底线，以优质服务创造客户价值，以诚信经营赢得市场认可，致力于实现企业、客户、行业的多方共赢。</p>
+        </div>
       </article>
-      <article class="text-card" data-page-node-id="5tM0kFYTAOuwlGDWtAFiCJ">
-        <div class="num" data-page-node-id="kU9U7b7o7tQDIUvchtoNdk">③</div>
-        <h4 data-page-node-id="6DNyhRpHEBHxI8ABvnA64Q">规避金融违规宣传</h4>
+      <article class="intro-section">
+        <div class="is-head">
+          <span class="is-num">③</span>
+          <h4>规避金融违规宣传</h4>
+        </div>
+        <div class="is-body">
+          <p>公司高度重视金融宣传合规管理，严格遵循国家金融监管相关法律法规及行业宣传准则，建立健全金融宣传内容审核、发布、监督全流程管控机制，坚决规避各类金融违规宣传行为，筑牢金融宣传合规防线。</p>
+          <p>在宣传工作中，公司严格规范所有品牌宣传、业务推广、内容输出内容，坚决杜绝虚假宣传、夸大收益、保本保息、兜底承诺、误导性诱导等违规表述，不发布未经核实的金融信息、不炒作金融热点、不进行违规营销引流。所有对外宣传内容均经过合规部门专项审核，确保内容真实、准确、合规、透明，如实披露业务信息与风险提示。同时常态化开展全员金融合规宣传培训，强化员工合规宣传意识，杜绝个人及业务端违规宣传行为，主动维护健康的行业舆论生态与市场秩序。</p>
+        </div>
       </article>
     </div>
   </section>

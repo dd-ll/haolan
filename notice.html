@@ -209,7 +209,6 @@
   /* ========== 企业荣誉 / 企业文化（自关于我们页迁入） ========== */
   .sub-grid { display: grid; gap: 20px; }
   .sub-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
-  .sub-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
 
   /* 荣誉卡片 */
   .honor-card {
@@ -235,26 +234,38 @@
     background: rgba(200,16,46,0.9); color: #fff;
     font-size: 12px; padding: 4px 12px; border-radius: 3px; letter-spacing: 2px;
   }
-  .honor-body { padding: 28px 28px 32px; }
-  .honor-body .num { font-family: "STSong",serif; font-size: 20px; color: var(--gold); font-weight: 700; margin-bottom: 6px; }
-  .honor-body h4 {
-    font-size: 18px; font-weight: 600; color: var(--ink); letter-spacing: 2px;
-    margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--line);
-  }
-  .honor-body p { color: var(--muted); font-size: 13px; line-height: 1.9; }
 
-  /* 文化卡片 */
-  .info-card {
+  /* 文化内容块 */
+  .culture-list { display: flex; flex-direction: column; gap: 20px; }
+  .culture-block {
+    position: relative; overflow: hidden;
     border: 1.5px solid var(--gold); border-radius: 10px;
-    padding: 36px 22px 30px; background: #fff;
-    display: flex; flex-direction: column; align-items: center; gap: 14px;
-    transition: transform .25s, box-shadow .25s; text-align: center;
+    background: #fff; padding: 30px 34px 32px 38px;
+    transition: all .25s;
   }
-  .info-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(184,148,31,0.18); }
-  .info-card .icon { width: 42px; height: 42px; color: var(--gold); }
-  .info-card .num-tag { font-family: "STSong",serif; font-size: 14px; color: var(--gold); letter-spacing: 2px; }
-  .info-card h3 { font-size: 17px; font-weight: 600; color: var(--ink); letter-spacing: 2px; }
-  .info-card .desc { font-size: 12px; color: var(--muted); line-height: 1.9; }
+  .culture-block::before {
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+    background: linear-gradient(180deg, var(--red), var(--gold));
+  }
+  .culture-block:hover { box-shadow: 0 14px 32px rgba(184,148,31,0.14); }
+  .culture-block .c-head {
+    display: flex; align-items: center; gap: 12px;
+    padding-bottom: 12px; margin-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  .culture-block .c-icon { width: 32px; height: 32px; color: var(--gold); flex: none; }
+  .culture-block .cnum {
+    font-family: "STSong","SimSun",serif; font-size: 22px; font-weight: 700;
+    color: var(--gold); line-height: 1; letter-spacing: 1px;
+  }
+  .culture-block .c-head h4 {
+    font-size: 18px; font-weight: 600; color: var(--ink); letter-spacing: 2px;
+  }
+  .culture-block .c-text p {
+    color: var(--muted); font-size: 14.5px; line-height: 2.05;
+    text-align: justify; margin-bottom: 14px;
+  }
+  .culture-block .c-text p:last-child { margin-bottom: 0; }
 
   /* ========== 页脚 ========== */
   .footer {
@@ -271,21 +282,67 @@
   .footer-info { display: flex; flex-direction: column; gap: 6px; font-size: 13px; text-align: right; }
   .footer-info b { color: #D4A574; font-weight: 600; }
 
+  /* ========== 企业荣誉：开篇总述 + 行动内容块 ========== */
+  .honor-lead {
+    max-width: 900px; margin: -18px auto 28px;
+    text-align: center; color: var(--muted);
+    font-size: 15px; line-height: 2.15; letter-spacing: .2px;
+  }
+
+  .honor-block {
+    position: relative; overflow: hidden; margin-top: 22px;
+    border: 1.5px solid var(--gold); border-radius: 10px;
+    background: #fff; padding: 30px 34px 32px 38px;
+    transition: all .25s;
+  }
+  .honor-block::before {
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+    background: linear-gradient(180deg, var(--red), var(--gold));
+  }
+  .honor-block:hover { box-shadow: 0 14px 32px rgba(184,148,31,0.14); }
+
+  .honor-block .honor-head {
+    display: flex; align-items: center; gap: 12px;
+    padding-bottom: 12px; margin-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  .honor-block .hnum {
+    font-family: "STSong","SimSun",serif; font-size: 22px; font-weight: 700;
+    color: var(--gold); line-height: 1; letter-spacing: 1px;
+  }
+  .honor-block .honor-head h4 {
+    font-size: 18px; font-weight: 600; color: var(--ink); letter-spacing: 2px;
+  }
+  .honor-block .honor-text p {
+    color: var(--muted); font-size: 14.5px; line-height: 2.05;
+    text-align: justify; margin-bottom: 14px;
+  }
+  .honor-block .honor-text p:last-child { margin-bottom: 0; }
+
   /* ========== 响应式 ========== */
   @media (max-width: 1080px) {
     .case-grid { grid-template-columns: repeat(2, 1fr); }
     .adv-grid { grid-template-columns: repeat(2, 1fr); }
     .scene-grid { grid-template-columns: repeat(2, 1fr); }
-    .sub-grid.cols-4 { grid-template-columns: repeat(2, 1fr); }
+    .culture-block { padding: 26px 24px 26px 28px; }
+    .honor-block { padding: 26px 24px 26px 28px; }
   }
   @media (max-width: 760px) {
     .case-grid { grid-template-columns: 1fr; }
     .adv-grid { grid-template-columns: 1fr; }
     .scene-grid { grid-template-columns: 1fr; }
-    .sub-grid.cols-2, .sub-grid.cols-4 { grid-template-columns: 1fr; }
-    .info-card { padding: 28px 16px 24px; }
-    .honor-body { padding: 22px 20px 26px; }
+    .sub-grid.cols-2 { grid-template-columns: 1fr; }
+    .culture-block { padding: 22px 18px 22px 22px; }
+    .culture-block .c-head { gap: 10px; padding-bottom: 10px; margin-bottom: 12px; }
+    .culture-block .c-icon { width: 28px; height: 28px; }
+    .culture-block .cnum { font-size: 19px; }
+    .culture-block .c-head h4 { font-size: 16.5px; letter-spacing: 1.5px; }
+    .culture-block .c-text p { font-size: 14px; line-height: 2; }
     .honor-visual .badge { left: 14px; top: 14px; }
+    .honor-lead { font-size: 14px; line-height: 2; text-align: left; margin: -10px 0 18px; }
+    .honor-block { padding: 22px 18px 22px 22px; margin-top: 18px; }
+    .honor-block .honor-head h4 { font-size: 17px; letter-spacing: 1.5px; }
+    .honor-block .honor-text p { font-size: 14px; line-height: 2; }
     .topbar-inner { flex-wrap: wrap; padding: 0 20px; gap: 16px; }
     .nav { margin-left: 0; }
     .nav-row { gap: 16px; flex-wrap: wrap; }
@@ -353,16 +410,13 @@
     <h2 class="sec-title" data-page-node-id="oTMq6hv4KArp0geo9srG9x">企业荣誉</h2>
     <p class="sec-subtitle" data-page-node-id="UzVB8U2vnTgMyShcE9txeY">CORPORATE HONORS</p>
 
+    <p class="honor-lead">多年来，公司凭借规范的经营体系、优质的服务品质、良好的市场信誉与积极的社会担当，斩获行业与社会各界的广泛认可，积累了多项企业荣誉，彰显企业综合实力与品牌价值。公司始终以荣誉为激励，坚守初心、精益求精，持续以高标准要求自身，赋能行业发展、回馈社会信任。</p>
+
     <div class="sub-grid cols-2" data-page-node-id="mkMHFCkJWG3sPaZtz7YcfR">
       <article class="honor-card" data-page-node-id="4kt693BhNrDaz9VEif8AC4">
         <div class="honor-visual" data-page-node-id="4fdgeWyKC5C9bMhcFTPf75">
           <span class="badge" data-page-node-id="82HVRvAzszZEsjQvx9zkq4">公益</span>
           <span class="ph" data-page-node-id="yHIpWiCYTQyFH76xGY2q3l">公益活动展示</span>
-        </div>
-        <div class="honor-body" data-page-node-id="yw3haiEZnd2XcJQbfQIW4g">
-          <div class="num" data-page-node-id="463clEeHqLIvdooHmMYOG8">①</div>
-          <h4 data-page-node-id="5isL6CPSHRmvk3fTGcTJEd">公益活动展示</h4>
-          <p data-page-node-id="uG3VpSgZvIM2dfRclTrPPG">积极践行企业社会责任，持续投入扶贫济困、教育支援、社区服务等公益领域。从物资捐赠到志愿服务，皓镧资产以实际行动回馈社会，传递企业温度，践行"稳健经营、回馈社会"的责任承诺。</p>
         </div>
       </article>
       <article class="honor-card" data-page-node-id="M5wKPirYepoi91JGNTjI1m">
@@ -370,46 +424,75 @@
           <span class="badge" data-page-node-id="JGyRNVl7lQ9rg7Stwn1pYM">6·26</span>
           <span class="ph" data-page-node-id="c9kVevxLf13pdlG1gr6d0i">禁毒日主题宣传</span>
         </div>
-        <div class="honor-body" data-page-node-id="6d8hLGvvDchqK7y3vZh94a">
-          <div class="num" data-page-node-id="VevOO5OFm5FBnKzEXXgoC1">②</div>
-          <h4 data-page-node-id="qCNcIhuJTQXShvZSCB9tDm">禁毒日主题宣传</h4>
-          <p data-page-node-id="h72Mxq9jEdYsn7dqotAdTv">每年 6·26 国际禁毒日期间开展主题宣传活动，通过知识科普、社区宣讲、横幅签名等形式，提升公众识毒、防毒、拒毒意识，传递"健康人生、绿色无毒"理念，为共建无毒社会贡献力量。</p>
-        </div>
       </article>
     </div>
+
+    <article class="honor-block">
+        <div class="honor-head">
+          <span class="hnum">①</span>
+          <h4>公益活动展示、禁毒日专项行动</h4>
+        </div>
+        <div class="honor-text">
+          <p>公司始终秉持“践行社会责任、传递正向价值”的发展理念，积极投身各类社会公益事业，主动履行企业社会责任，在公益帮扶、社会宣教、正能量传播等方面持续发力，用实际行动彰显企业担当。</p>
+          <p>在常态化公益行动中，公司积极参与爱心帮扶、公益助学、社区共建、公益科普等各类志愿服务活动，主动关注社会民生，传递企业温暖，助力社会公益事业发展。同时，高度重视全民普法与禁毒宣传工作，在国际禁毒日期间，常态化组织开展禁毒主题专项公益活动。</p>
+          <p>通过线下宣讲、科普展板、禁毒知识科普、互动答疑、主题培训等多种形式，面向员工、社区群众及社会大众普及禁毒知识、讲解毒品危害、宣传禁毒法律法规，引导大众树立“珍爱生命、远离毒品”的健康理念，强化全民禁毒防毒意识。同时组织全员参与禁毒主题学习，筑牢员工思想防线，打造无毒、健康、正能量的企业氛围，积极助力平安社会、法治社会建设。</p>
+        </div>
+    </article>
   </section>
 
   <!-- ========================================== -->
   <!-- 2. 企业文化 -->
   <!-- ========================================== -->
-  <section id="culture" data-page-node-id="W4V5swa6Rlhy8PjEJfB1qR">
-    <h2 class="sec-title" data-page-node-id="pLH0Hxc1ApzDS5uupZGKK9">企业文化</h2>
-    <p class="sec-subtitle" data-page-node-id="MYTpmgo0ysF0X1bcS3DCeI">CORPORATE CULTURE</p>
+  <section id="culture">
+    <h2 class="sec-title">企业文化</h2>
+    <p class="sec-subtitle">CORPORATE CULTURE</p>
 
-    <div class="sub-grid cols-4" data-page-node-id="i3QACDqSlfc6XF8fvBINPc">
-      <article class="info-card" data-page-node-id="jjH3RsFFhUOFyx53VBdcpZ">
-        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="e9jNR6X6IYZkxTyZ6N5D1S"><path d="M20 6 L32 12 V22 C32 28 26 33 20 35 C14 33 8 28 8 22 V12 Z" data-page-node-id="dOGFXzMPQLxvAYyZnjlNHL"/><path d="M15 20 L19 24 L26 17" data-page-node-id="6V76asQzdCeAdK3pkHxEGY"/></svg>
-        <span class="num-tag" data-page-node-id="Jyhfb5sIT0sTquLoNIegxq">① 价值观</span>
-        <h3 data-page-node-id="XaEk2AzqwYrHDB1unoG2H9">价值观</h3>
-        <p class="desc" data-page-node-id="MIgPo7TMP5NhKzH2wQ0DtG">稳健、诚信<br data-page-node-id="u2jOfBFg8YWqwyUHBWdVo7"/>专业、共赢<br data-page-node-id="sPTDUd8AT2IBOD3Hp9EQNd"/>坚持长期主义<br data-page-node-id="2AsUtnlITJ21QsPwnwzILI"/>合规风控为生命线</p>
+    <div class="culture-list">
+      <article class="culture-block">
+        <div class="c-head">
+          <svg class="c-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 L32 12 V22 C32 28 26 33 20 35 C14 33 8 28 8 22 V12 Z"/><path d="M15 20 L19 24 L26 17"/></svg>
+          <span class="cnum">①</span>
+          <h4>价值观</h4>
+        </div>
+        <div class="c-text">
+          <p>公司深耕行业发展，沉淀出成熟且贴合企业发展的核心价值观，成为企业发展的精神内核与行动指南。核心价值观围绕诚信、合规、专业、创新、担当、共赢六大维度展开，贯穿企业经营、服务、团队、发展的每一个环节。</p>
+          <p>诚信是立身之本，坚守真诚待人、守信经营，对客户、员工、社会坦诚尽责；合规是发展之基，敬畏规则、严守底线，实现合规经营、稳健发展；专业是服务核心，深耕行业、精益求精，以专业能力赋能客户、创造价值；创新是成长动力，与时俱进、突破迭代，持续优化服务与模式；担当是企业底色，主动履行社会责任，兼顾企业发展与社会价值；共赢是终极目标，携手客户、员工、行业共生共长、互利共赢。</p>
+        </div>
       </article>
-      <article class="info-card" data-page-node-id="ldtVjAKNb7ZjG6pVecymwg">
-        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="B4JEDcliZjtWWtanhxEVuM"><circle cx="13" cy="16" r="4" data-page-node-id="HaDHLiDoJsLrBwSmZlshqq"/><circle cx="27" cy="16" r="4" data-page-node-id="SlCp11gFjnD4j3CildCNKj"/><path d="M6 32 C6 27 9 24 13 24 M34 32 C34 27 31 24 27 24 M14 24 C17 24 23 24 26 24" data-page-node-id="wtRFpwoc2atiW6GTOKQwOH"/></svg>
-        <span class="num-tag" data-page-node-id="ZwRmXKtpMTBYMfvweRp2Xs">② 团队氛围</span>
-        <h3 data-page-node-id="HdAWChnJWDNvXK8EaLARV0">团队氛围</h3>
-        <p class="desc" data-page-node-id="F4gsS0zp14kk2XgmrIpqze">专业、和谐、向上<br data-page-node-id="PaE0v7cHBvI5KuR1EQvRQ9"/>开放协作<br data-page-node-id="GUlaJRbfZAZiPgrhNvpcCE"/>鼓励持续学习<br data-page-node-id="VGyYE64aOgl9depMlUvgEM"/>人人有归属与舞台</p>
+      <article class="culture-block">
+        <div class="c-head">
+          <svg class="c-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><circle cx="13" cy="16" r="4"/><circle cx="27" cy="16" r="4"/><path d="M6 32 C6 27 9 24 13 24 M34 32 C34 27 31 24 27 24 M14 24 C17 24 23 24 26 24"/></svg>
+          <span class="cnum">②</span>
+          <h4>团队氛围</h4>
+        </div>
+        <div class="c-text">
+          <p>公司始终坚持“以人为本”的管理理念，致力于打造团结协作、积极进取、求真务实、温暖包容的优质团队氛围。摒弃层级固化、僵化管理模式，搭建平等沟通、高效协作、互帮互助的工作平台，让每一位员工都能充分发挥个人价值、实现个人成长。</p>
+          <p>团队内部崇尚求真务实、踏实肯干的工作作风，鼓励高效沟通、协同配合，遇事共担当、难题共攻克，形成凝心聚力、携手共进的工作氛围。同时尊重每一位员工的想法与诉求，重视员工归属感与幸福感建设，杜绝内耗、内卷，打造积极向上、互帮互助、共同进步的团队生态，让企业成为员工成长、奋斗、成长的温暖平台。</p>
+        </div>
       </article>
-      <article class="info-card" data-page-node-id="kVEcZJbRRwAIjSBQwNXrl1">
-        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="BYoHtB0WZz3ipQo9mfj1UE"><path d="M8 32 V20 L20 12 L32 20 V32 Z" data-page-node-id="dVihZd3v0qIO46hO5YirL4"/><path d="M16 32 V24 H24 V32" data-page-node-id="RPma9oka9uIUMpGVEbMMPn"/></svg>
-        <span class="num-tag" data-page-node-id="wd6eiJwPaF5PaMJAbd51hU">③ 皓镧商学院</span>
-        <h3 data-page-node-id="3wlemeYcoLW5wKL4bGXaLy">皓镧商学院</h3>
-        <p class="desc" data-page-node-id="BtK65pJbVZsTO1BNCjO6xe">公司人才孵化平台<br data-page-node-id="VyUGHGA5X6vBLxP3UK5yFF"/>系统化专业培训<br data-page-node-id="nDrOQHeQQUYw0FUUpPEUQP"/>行业前沿分享<br data-page-node-id="yWA1R4gQ2JDHEzAu2tE0zh"/>培养资管行业精英</p>
+      <article class="culture-block">
+        <div class="c-head">
+          <svg class="c-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 32 V20 L20 12 L32 20 V32 Z"/><path d="M16 32 V24 H24 V32"/></svg>
+          <span class="cnum">③</span>
+          <h4>皓镧商学院</h4>
+        </div>
+        <div class="c-text">
+          <p>皓镧商学院是公司专属打造的人才培养、能力赋能、团队成长核心学习平台，也是企业人才梯队建设的核心载体，旨在以系统化培训、专业化赋能，打造高素质、高专业、高素养的精英团队，为企业高质量发展提供核心人才支撑。</p>
+          <p>商学院聚焦员工全周期成长，搭建岗前培训、在岗提升、进阶赋能、管理层特训的全维度培训体系，课程覆盖行业知识、业务技能、合规风控、服务礼仪、管理能力、职业素养、行业新规等多个核心板块。依托内部资深讲师+行业外部专家的双师模式，结合理论授课、案例拆解、实战演练、复盘总结等多元化教学形式，打破员工成长壁垒。</p>
+          <p>同时，皓镧商学院常态化开展专项特训、技能竞赛、知识分享、行业交流等活动，构建终身学习、持续精进的学习型企业氛围，助力每一位员工快速提升专业能力、突破职业瓶颈，实现个人与企业同频成长、双向赋能。</p>
+        </div>
       </article>
-      <article class="info-card" data-page-node-id="0vP2Wn8jsQHvUHA7HHS8Vt">
-        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="YbNvMrPz0Tm0loEx3AMInh"><circle cx="20" cy="14" r="6" data-page-node-id="7yR00yDGnH9LFQGFJjUMwm"/><path d="M8 34 C8 27 14 24 20 24 C26 24 32 27 32 34" data-page-node-id="vR8xnQwEy4sZ70uCK9pEaj"/></svg>
-        <span class="num-tag" data-page-node-id="EcGp1Vf3o65CLKK50Mj4wf">④ 员工团建</span>
-        <h3 data-page-node-id="FK8c0eS3tH0Lk5QPhAY6CX">员工团建活动</h3>
-        <p class="desc" data-page-node-id="TEjBOdawNBV9fecWuB3v1U">定期团建旅行<br data-page-node-id="hbjASTX9Mx0Ji0rc4p45V9"/>主题沙龙<br data-page-node-id="M3zDfXFGSUBClpajnBP4F5"/>文体活动<br data-page-node-id="WSQPlac4izCfDk6rp5JxDl"/>共筑有温度的文化</p>
+      <article class="culture-block">
+        <div class="c-head">
+          <svg class="c-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2"><circle cx="20" cy="14" r="6"/><path d="M8 34 C8 27 14 24 20 24 C26 24 32 27 32 34"/></svg>
+          <span class="cnum">④</span>
+          <h4>员工团建活动</h4>
+        </div>
+        <div class="c-text">
+          <p>公司高度重视员工文化生活建设，常态化组织各类丰富多彩的员工团建活动，丰富员工业余生活、缓解工作压力、增进团队凝聚力，打造有温度、有活力、有归属感的企业文化。</p>
+          <p>团建活动形式丰富多元，涵盖户外拓展、团队研学、趣味运动会、节日团建、主题沙龙、集体出游、月度聚餐、年度团建盛典等多种形式。通过沉浸式团队互动、协作挑战、趣味比拼等活动，打破部门壁垒，增进员工之间的沟通与默契，锤炼团队协作能力与拼搏精神。</p>
+          <p>同时，公司结合节日节点、员工需求，定制多样化团建活动，让员工在工作之余放松身心、增进情谊，充分感受企业关怀。通过常态化团建建设，凝聚团队向心力，激发员工工作热情与团队活力，营造凝心聚力、其乐融融、携手共进的企业氛围。</p>
+        </div>
       </article>
     </div>
   </section>

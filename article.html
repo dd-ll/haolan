@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="iODGXmoUZCroSJ7GwB9omL">
+<head data-page-node-id="QeStgq7eC99P3L4TSPxOFL">
+<meta charset="UTF-8" data-page-node-id="rB3i3dLvd2RGA7MUdzs0FU" />
+<meta name="viewport" content="width=device-width, initial-scale=1" data-page-node-id="hde5pCt3zgWExY2TfAhtzD" />
+<title>政策解读详情 - 皓镧资产</title>
+<style>
+  /* ========== 品牌变量 ========== */
+  :root {
+    --gold: #C9A961;
+    --gold-deep: #B8941F;
+    --gold-soft: #E8D9A8;
+    --red: #C8102E;
+    --red-deep: #B91D2E;
+    --ink: #1A1A1A;
+    --muted: #6B6B6B;
+    --line: #E8E2D4;
+    --bg: #FFFFFF;
+    --bg-soft: #FAF6EC;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Microsoft YaHei", "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  /* ========== 顶部黑色导航（单层 10 项） ========== */
+  .topbar { background: linear-gradient(135deg, #E6C094 0%, #D4A574 100%); color: #22334F; border-bottom: 2px solid rgba(34,51,79,0.2); box-shadow: 0 2px 10px rgba(34,51,79,0.15); }
+  .topbar-inner { max-width: 1280px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; gap: 36px; }
+  .logo { display: flex; align-items: center; padding: 14px 0; flex-shrink: 0; }
+  .logo-card {
+    display: inline-flex; align-items: center; background: #fff;
+    padding: 8px 16px; border-radius: 4px; height: 56px;
+    box-shadow: 0 0 0 1px rgba(34,51,79,0.25);
+  }
+  .logo-card img { height: 44px; width: auto; display: block; }
+  .nav { display: flex; flex-direction: column; gap: 6px; margin-left: auto; padding: 14px 0; }
+  .nav-row { display: flex; gap: 30px; font-size: 14px; }
+  .nav-row.top a { color: rgba(34,51,79,0.88); transition: color .2s; padding: 4px 0; white-space: nowrap; }
+  .nav-row.top a:hover, .nav-row.top a.active { color: var(--red); }
+
+  /* ========== 页面横幅 ========== */
+  .page-banner {
+    background: linear-gradient(135deg, #2C2C2C 0%, #1A1A1A 100%);
+    padding: 60px 32px 50px; text-align: center; position: relative; overflow: hidden;
+  }
+  .page-banner::before {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .page-banner h1 {
+    font-family: "STSong","SimSun",serif; font-size: 38px; font-weight: 700;
+    letter-spacing: 8px; color: #fff; margin-bottom: 14px;
+  }
+  .page-banner .en {
+    color: rgba(201,169,97,0.8); font-size: 13px; letter-spacing: 5px; margin-bottom: 18px;
+  }
+  .page-banner .desc {
+    max-width: 680px; margin: 0 auto; color: rgba(255,255,255,0.7);
+    font-size: 14px; line-height: 1.9;
+  }
+
+  /* ========== 主区 ========== */
+  main { max-width: 1280px; margin: 0 auto; padding: 60px 32px 80px; }
+  section { margin-bottom: 70px; }
+  section:last-child { margin-bottom: 0; }
+
+  .sec-title {
+    text-align: center; font-size: 28px; font-weight: 700; letter-spacing: 6px;
+    color: var(--ink); position: relative; padding-bottom: 20px; margin-bottom: 10px;
+    font-family: "STSong","SimSun",serif;
+  }
+  .sec-title::after {
+    content: ""; position: absolute; left: 50%; bottom: 0;
+    width: 56px; height: 3px; background: var(--red); transform: translateX(-50%);
+  }
+  .sec-subtitle {
+    text-align: center; color: var(--muted); font-size: 12px; letter-spacing: 4px;
+    margin-bottom: 48px;
+  }
+  .sec-desc {
+    max-width: 860px; margin: 0 auto 52px; text-align: center;
+    color: var(--muted); font-size: 14px; line-height: 2;
+  }
+
+  /* ========== 资讯文章列表 ========== */
+  .news-layout {
+    display: flex; flex-direction: column; gap: 20px;
+  }
+  .news-list { display: flex; flex-direction: column; gap: 20px; }
+
+  .news-card {
+    border: 1.5px solid var(--gold-soft); border-radius: 10px;
+    background: #fff; padding: 28px 32px; transition: all .25s;
+    display: flex; gap: 24px; cursor: pointer;
+    min-height: 150px;
+  }
+  .news-card:hover {
+    border-color: var(--gold); transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(184,148,31,0.12);
+  }
+  .news-card .date-block {
+    flex-shrink: 0; text-align: center; min-width: 72px;
+    border-right: 1px solid var(--line); padding-right: 24px;
+  }
+  .news-card .date-block .day {
+    font-family: "STSong",serif; font-size: 36px; font-weight: 700;
+    color: var(--red); line-height: 1;
+  }
+  .news-card .date-block .month {
+    font-size: 12px; color: var(--muted); margin-top: 4px; letter-spacing: 1px;
+  }
+  .news-card .date-block .year {
+    font-size: 11px; color: var(--gold); margin-top: 2px;
+  }
+  .news-card .content { flex: 1; min-width: 0; }
+  .news-card .content .tag-row {
+    display: flex; gap: 8px; margin-bottom: 8px;
+  }
+  .news-card .content .cat-tag {
+    font-size: 11px; color: #fff; background: var(--gold);
+    padding: 2px 10px; border-radius: 3px; letter-spacing: 1px;
+  }
+  .news-card .content .cat-tag.hot { background: var(--red); }
+  .news-card .content .cat-tag.new { background: #2C2C2C; }
+  .news-card .content h3 {
+    font-size: 18px; font-weight: 600; color: var(--ink); line-height: 1.5;
+    margin-bottom: 8px; transition: color .2s;
+  }
+  .news-card:hover .content h3 { color: var(--red); }
+  .news-card .content .meta {
+    display: flex; gap: 16px; margin-top: 12px;
+    font-size: 12px; color: var(--muted);
+  }
+  .news-card .content .meta span {
+    display: flex; align-items: center; gap: 4px;
+  }
+
+  /* ========== 知识科普区 ========== */
+  /* 子分类导航 */
+  .kw-nav {
+    display: flex; justify-content: center; flex-wrap: wrap; gap: 0; margin-bottom: 48px;
+    border-bottom: 2px solid var(--line);
+  }
+  .kw-tab {
+    padding: 14px 40px; font-size: 16px; font-weight: 600; letter-spacing: 3px;
+    color: var(--muted); cursor: pointer; position: relative; transition: color .25s;
+    border-bottom: 3px solid transparent; margin-bottom: -2px;
+  }
+  .kw-tab:hover { color: var(--gold-deep); }
+  .kw-tab.active {
+    color: var(--red); border-bottom-color: var(--red);
+  }
+  .kw-tab svg { width: 20px; height: 20px; vertical-align: -4px; margin-right: 6px; }
+
+  /* 科普文章卡片 */
+  .kw-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .kw-card {
+    border: 1.5px solid var(--gold-soft); border-radius: 12px; overflow: hidden;
+    background: #fff; transition: all .25s; cursor: pointer;
+    display: flex; flex-direction: column;
+  }
+  .kw-card:hover {
+    border-color: var(--gold); transform: translateY(-4px);
+    box-shadow: 0 16px 36px rgba(184,148,31,0.14);
+  }
+  .kw-banner {
+    height: 100px; display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .kw-banner svg { width: 44px; height: 44px; opacity: 0.92; }
+  .kw-banner.k1 { background: linear-gradient(135deg, #C8102E, #e63950); }
+  .kw-banner.k2 { background: linear-gradient(135deg, #2C2C2C, #2d5a42); }
+  .kw-banner.k3 { background: linear-gradient(135deg, #B8941F, #D4AF37); }
+  .kw-banner .badge {
+    position: absolute; top: 10px; right: 10px; font-size: 11px;
+    color: #fff; background: rgba(0,0,0,0.25); padding: 2px 10px;
+    border-radius: 3px; letter-spacing: 1px;
+  }
+  .kw-body { padding: 22px 24px 26px; flex: 1; display: flex; flex-direction: column; }
+  .kw-body h4 {
+    font-size: 16px; font-weight: 700; color: var(--ink); letter-spacing: 1px;
+    margin-bottom: 10px; line-height: 1.5; font-family: "STSong","SimSun",serif;
+  }
+  .kw-card:hover .kw-body h4 { color: var(--red); }
+  .kw-body p { font-size: 13px; color: var(--muted); line-height: 1.8; flex: 1; margin-bottom: 14px; }
+  .kw-body .kw-meta {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 12px; color: var(--gold); border-top: 1px dashed var(--gold-soft);
+    padding-top: 12px;
+  }
+  .kw-body .kw-meta .cat { font-weight: 600; }
+  .kw-body .kw-meta .date { color: var(--muted); }
+
+  /* ========== 融资避坑专题列表 ========== */
+  .pitfall-list { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .pitfall-item {
+    display: flex; gap: 20px; align-items: center;
+    border: 1.5px solid var(--gold-soft); border-radius: 10px;
+    background: #fff; padding: 24px 28px; transition: all .25s; cursor: pointer;
+    min-height: 88px;
+  }
+  .pitfall-item:hover {
+    border-color: var(--gold); box-shadow: 0 12px 28px rgba(184,148,31,0.1);
+  }
+  .pitfall-num {
+    flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%;
+    background: var(--bg-soft); border: 2px solid var(--red);
+    display: flex; align-items: center; justify-content: center;
+    font-family: "STSong",serif; font-size: 18px; font-weight: 700; color: var(--red);
+  }
+  .pitfall-text h4 {
+    font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 8px;
+    line-height: 1.5;
+  }
+  .pitfall-item:hover .pitfall-text h4 { color: var(--red); }
+  .pitfall-text p { font-size: 13px; color: var(--muted); line-height: 1.8; }
+
+  /* ========== 征信知识卡片 ========== */
+  .credit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .credit-card {
+    border: 1.5px solid var(--gold); border-radius: 12px;
+    background: linear-gradient(180deg, #fff 0%, var(--bg-soft) 100%);
+    padding: 28px 24px; transition: all .25s; cursor: pointer;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    min-height: 200px; text-align: center;
+  }
+  .credit-card:hover {
+    transform: translateY(-4px); box-shadow: 0 16px 36px rgba(184,148,31,0.16);
+  }
+  .credit-icon {
+    width: 56px; height: 56px; border-radius: 12px; margin-bottom: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .credit-icon svg { width: 30px; height: 30px; }
+  .credit-icon.c1 { background: rgba(200,16,46,0.1); }
+  .credit-icon.c1 svg { color: var(--red); }
+  .credit-icon.c2 { background: rgba(31,58,46,0.1); }
+  .credit-icon.c2 svg { color: #2C2C2C; }
+  .credit-icon.c3 { background: rgba(184,148,31,0.12); }
+  .credit-icon.c3 svg { color: var(--gold-deep); }
+  .credit-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+
+  /* 资讯要点 */
+  .news-card .date-block .day.yr { font-size: 22px; }
+  .news-points { display: flex; flex-direction: column; gap: 9px; margin-top: 12px; }
+  .news-points li {
+    font-size: 13px; color: var(--muted); line-height: 1.95;
+    list-style: none; padding-left: 16px; position: relative; text-align: justify;
+  }
+  .news-points li::before {
+    content: ""; position: absolute; left: 0; top: 9px;
+    width: 6px; height: 6px; border-radius: 50%; background: var(--gold);
+  }
+  .news-points li b { color: var(--ink); font-weight: 600; }
+
+  /* 重点提示条 */
+  .pf-note {
+    display: flex; align-items: flex-start; gap: 10px; margin-bottom: 24px;
+    padding: 14px 20px; border-left: 4px solid var(--red); border-radius: 6px;
+    background: linear-gradient(90deg, rgba(200,16,46,0.07), rgba(200,16,46,0));
+    font-size: 13.5px; color: var(--muted); line-height: 1.9;
+  }
+  .pf-note svg { width: 20px; height: 20px; color: var(--red); flex: none; margin-top: 3px; }
+  .pf-note b { color: var(--ink); font-weight: 600; }
+  .pitfall-text p + p { margin-top: 8px; }
+  .pitfall-text b { color: var(--ink); font-weight: 600; }
+
+  /* 知识科普总结 */
+  .kw-summary {
+    position: relative; overflow: hidden; margin-top: 44px;
+    border: 1.5px solid var(--gold); border-radius: 10px;
+    background: #fff; padding: 26px 30px 28px 34px;
+  }
+  .kw-summary::before {
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+    background: linear-gradient(180deg, var(--red), var(--gold));
+  }
+  .kw-summary h4 {
+    display: flex; align-items: center; gap: 10px;
+    font-family: "STSong","SimSun",serif; font-size: 17px; font-weight: 700;
+    color: var(--ink); letter-spacing: 2px; margin-bottom: 12px;
+  }
+  .kw-summary h4 .snum { color: var(--gold); font-size: 20px; }
+  .kw-summary p {
+    color: var(--muted); font-size: 14.5px; line-height: 2.05; text-align: justify;
+  }
+  .credit-card h4 {
+    font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: 1px;
+    margin-bottom: 10px; font-family: "STSong","SimSun",serif;
+  }
+  .credit-card p { font-size: 13px; color: var(--muted); line-height: 1.9; margin-bottom: 14px; }
+  .credit-card .tips-list { display: flex; flex-direction: column; gap: 6px; }
+  .credit-card .tips-list li {
+    font-size: 12px; color: var(--ink); list-style: none;
+    padding-left: 16px; position: relative; line-height: 1.8;
+  }
+  .credit-card .tips-list li::before {
+    content: ""; position: absolute; left: 0; top: 8px;
+    width: 6px; height: 6px; border-radius: 50%; background: var(--gold);
+  }
+
+  /* ========== 贷款基础科普 ========== */
+  .loan-lead {
+    border: 1.5px solid var(--gold-soft); border-radius: 10px;
+    background: var(--bg-soft); padding: 22px 28px; margin-bottom: 26px;
+  }
+  .loan-lead p { font-size: 14.5px; color: var(--muted); line-height: 2.05; text-align: justify; }
+  .loan-lead p + p { margin-top: 10px; }
+
+  .loan-block {
+    position: relative; overflow: hidden; margin-bottom: 26px;
+    border: 1.5px solid var(--gold-soft); border-radius: 10px;
+    background: #fff; padding: 28px 32px; transition: all .25s;
+  }
+  .loan-block::before {
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+    background: linear-gradient(180deg, var(--red), var(--gold));
+  }
+  .loan-block:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(184,148,31,0.13); }
+  .loan-h3 {
+    display: flex; align-items: center; gap: 12px;
+    font-family: "STSong","SimSun",serif; font-size: 19px; font-weight: 700;
+    color: var(--ink); letter-spacing: 1px; line-height: 1.5;
+    padding-bottom: 12px; margin-bottom: 16px; border-bottom: 1px solid var(--line);
+  }
+  .loan-h3 .lnum {
+    flex: none; width: 34px; height: 34px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--red), var(--gold));
+    color: #fff; font-size: 15px; font-weight: 600;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .loan-block > p { font-size: 14.5px; color: var(--muted); line-height: 2.05; text-align: justify; }
+  .loan-tip { margin-top: 12px; color: var(--ink); font-weight: 600; }
+  .loan-points { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
+  .loan-points li {
+    list-style: none; padding-left: 16px; position: relative;
+    font-size: 14px; color: var(--muted); line-height: 2; text-align: justify;
+  }
+  .loan-points li::before {
+    content: ""; position: absolute; left: 0; top: 12px;
+    width: 6px; height: 6px; border-radius: 50%; background: var(--gold);
+  }
+  .loan-points li b { color: var(--ink); font-weight: 600; }
+  .loan-points.sm li { font-size: 13.2px; line-height: 1.95; }
+
+  /* 贷款类型卡 */
+  .loan-type-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 18px; }
+  .loan-type {
+    border: 1.5px solid var(--gold-soft); border-radius: 10px;
+    background: var(--bg-soft); padding: 22px 24px; transition: all .25s;
+  }
+  .loan-type:hover { border-color: var(--gold); background: #fff; box-shadow: 0 12px 26px rgba(184,148,31,0.12); }
+  .lt-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .lt-no {
+    flex: none; width: 26px; height: 26px; border-radius: 6px; background: var(--red);
+    color: #fff; font-size: 13px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .lt-head h4 {
+    font-family: "STSong","SimSun",serif; font-size: 16px; font-weight: 700;
+    color: var(--ink); letter-spacing: .5px;
+  }
+  .lt-desc { font-size: 13.5px; color: var(--muted); line-height: 1.9; }
+  .loan-type .loan-points { margin-top: 8px; }
+  .lt-warn {
+    margin-top: 12px; padding-top: 10px; border-top: 1px dashed var(--gold-soft);
+    font-size: 13px; color: var(--muted); line-height: 1.9; text-align: justify;
+  }
+  .lt-warn b { color: var(--red); font-weight: 600; }
+
+  /* 核心术语卡 */
+  .loan-term-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 18px; }
+  .loan-term {
+    border: 1.5px solid var(--gold-soft); border-radius: 10px;
+    background: #fff; padding: 22px 24px; transition: all .25s;
+  }
+  .loan-term:hover { border-color: var(--gold); box-shadow: 0 12px 26px rgba(184,148,31,0.12); }
+  .loan-term h4 {
+    font-family: "STSong","SimSun",serif; font-size: 16px; font-weight: 700;
+    color: var(--ink); letter-spacing: .5px; margin-bottom: 12px;
+  }
+  .loan-term h4 + p { font-size: 13.5px; color: var(--muted); line-height: 1.95; text-align: justify; }
+  .term-key {
+    margin-top: 10px; padding: 10px 14px; border-left: 3px solid var(--red);
+    background: linear-gradient(90deg, rgba(200,16,46,0.07), rgba(200,16,46,0));
+    font-size: 13.5px; color: var(--muted); line-height: 1.9; text-align: justify;
+  }
+  .term-key b { color: var(--red); font-weight: 600; }
+  .term-eg {
+    margin-top: 10px; font-size: 13.2px; color: var(--muted);
+    line-height: 1.95; text-align: justify;
+  }
+
+  /* 六大避坑卡 */
+  .loan-pit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 18px; }
+  .loan-pit {
+    position: relative; overflow: hidden; border: 1.5px solid var(--gold-soft);
+    border-radius: 10px; background: #fff; padding: 20px 22px; transition: all .25s;
+  }
+  .loan-pit::before {
+    content: ""; position: absolute; left: 0; top: 0; width: 100%; height: 3px;
+    background: linear-gradient(90deg, var(--red), var(--gold)); opacity: .8;
+  }
+  .loan-pit:hover { border-color: var(--gold); box-shadow: 0 12px 26px rgba(184,148,31,0.12); }
+  .pit-tag {
+    display: inline-block; font-size: 12px; font-weight: 700; color: #fff;
+    background: var(--red); border-radius: 4px; padding: 2px 9px; margin-bottom: 10px;
+    letter-spacing: 1px;
+  }
+  .loan-pit h4 {
+    font-size: 15px; font-weight: 700; color: var(--ink);
+    line-height: 1.6; margin-bottom: 8px;
+  }
+  .loan-pit p { font-size: 13px; color: var(--muted); line-height: 1.95; text-align: justify; }
+
+  /* 实用建议 */
+  .loan-advice { display: flex; flex-direction: column; gap: 12px; margin-top: 18px; counter-reset: adv; }
+  .loan-advice li {
+    list-style: none; display: flex; gap: 12px; align-items: flex-start;
+    padding: 14px 18px; border: 1.5px solid var(--gold-soft); border-radius: 8px;
+    background: var(--bg-soft); font-size: 14px; color: var(--muted);
+    line-height: 1.95; text-align: justify; transition: all .25s;
+  }
+  .loan-advice li:hover { border-color: var(--gold); background: #fff; }
+  .loan-advice li::before {
+    counter-increment: adv; content: counter(adv);
+    flex: none; width: 24px; height: 24px; border-radius: 50%; background: #fff;
+    border: 1.5px solid var(--gold); color: var(--gold-deep);
+    font-size: 12.5px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 2px;
+  }
+  .loan-advice li b { color: var(--ink); font-weight: 600; }
+
+  /* ========== 资讯分组 ========== */
+  .news-group { margin-bottom: 42px; }
+  .news-group:last-child { margin-bottom: 0; }
+  .group-head {
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    padding-bottom: 12px; margin-bottom: 20px; border-bottom: 2px solid var(--line);
+  }
+  .group-head .gnum {
+    flex: none; font-family: "STSong","SimSun",serif; font-size: 14px; font-weight: 700;
+    color: #fff; background: linear-gradient(135deg, var(--red), var(--gold));
+    border-radius: 4px; padding: 4px 10px; letter-spacing: 1px;
+  }
+  .group-head h3 {
+    font-family: "STSong","SimSun",serif; font-size: 20px; font-weight: 700;
+    color: var(--ink); letter-spacing: 1px;
+  }
+  .group-head .gsub { font-size: 13px; font-weight: 400; color: var(--gold-deep); letter-spacing: 0; }
+  .news-group .news-card { margin-bottom: 18px; }
+  .news-group .news-card:last-child { margin-bottom: 0; }
+  .news-group .news-card .date-block { width: 112px; }
+  .news-group .news-card .date-block .month { white-space: nowrap; }
+  .news-group .news-card .date-block .day.yr { font-size: 22px; }
+
+  /* 避坑子项 */
+  .pf-sub { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .pf-sub li {
+    list-style: none; font-size: 12px; color: var(--ink);
+    background: var(--bg-soft); border: 1px solid var(--gold-soft);
+    border-radius: 4px; padding: 3px 10px;
+  }
+  .credit-card.span-2 { grid-column: 1 / -1; }
+
+  /* 追加版块：说明条与分隔 */
+  .news-note {
+    display: flex; align-items: flex-start; gap: 10px; margin: 8px 0 30px;
+    padding: 16px 22px; border-left: 4px solid var(--gold);
+    border-radius: 6px; background: var(--bg-soft);
+    font-size: 13.5px; color: var(--muted); line-height: 2; text-align: justify;
+  }
+  .news-note svg { width: 20px; height: 20px; color: var(--gold-deep); flex: none; margin-top: 4px; }
+  .news-note b { color: var(--ink); font-weight: 600; }
+  .news-card .content .news-text {
+    font-size: 13px; color: var(--muted); line-height: 1.95; text-align: justify; margin-top: 6px;
+  }
+  .grid-sep {
+    grid-column: 1 / -1; display: flex; align-items: center; gap: 8px;
+    margin: 10px 0 2px; padding-bottom: 10px; border-bottom: 1px dashed var(--gold-soft);
+    font-family: "STSong","SimSun",serif; font-size: 15px; font-weight: 700;
+    color: var(--gold-deep); letter-spacing: 1px;
+  }
+  .grid-sep span { color: var(--gold); font-size: 16px; }
+
+  /* ========== 阅读全文 / 目录 ========== */
+  .read-more {
+    display: inline-flex; align-items: center; gap: 6px; margin-top: 12px;
+    font-size: 13px; font-weight: 600; color: var(--gold-deep);
+    border-bottom: 1px solid var(--gold-soft); padding-bottom: 2px;
+    transition: all .2s; letter-spacing: .5px;
+  }
+  .read-more svg { width: 14px; height: 14px; }
+  .read-more:hover { color: var(--red); border-bottom-color: var(--red); gap: 10px; }
+  .read-more.big {
+    margin-top: 20px; padding: 12px 28px; border: 1.5px solid var(--gold);
+    border-radius: 999px; font-size: 14px; display: inline-flex;
+  }
+  .read-more.big:hover {
+    background: linear-gradient(135deg, var(--red), var(--gold));
+    color: #fff; border-color: transparent;
+    box-shadow: 0 10px 24px rgba(200,16,46,0.18);
+  }
+  .loan-toc { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+  .loan-toc a {
+    display: flex; align-items: center; gap: 8px; padding: 10px 16px;
+    border: 1.5px solid var(--gold-soft); border-radius: 8px; background: var(--bg-soft);
+    font-size: 13.5px; color: var(--ink); transition: all .25s;
+  }
+  .loan-toc a:hover {
+    border-color: var(--gold); background: #fff; color: var(--red);
+    box-shadow: 0 8px 20px rgba(184,148,31,0.12);
+  }
+  .loan-toc a span {
+    flex: none; width: 22px; height: 22px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--red), var(--gold));
+    color: #fff; font-size: 12px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  /* ========== 页脚 ========== */
+  .footer {
+    background: #22334F;
+    border-top: 3px solid #D4A574;
+    color: rgba(255,255,255,0.7); padding: 40px 32px;
+  }
+  .footer-inner {
+    max-width: 1280px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; gap: 40px;
+  }
+  .footer-logo { display: flex; align-items: center; gap: 14px; }
+  .footer-logo .lt { color: #D4A574; font-size: 24px; font-weight: 600; letter-spacing: 4px; }
+  .footer-info { display: flex; flex-direction: column; gap: 6px; font-size: 13px; text-align: right; }
+  .footer-info b { color: #D4A574; font-weight: 600; }
+
+  /* ========== 响应式 ========== */
+  @media (max-width: 1080px) {
+    .kw-grid { grid-template-columns: repeat(2, 1fr); }
+    .pitfall-list { grid-template-columns: 1fr; }
+    .credit-grid { grid-template-columns: repeat(2, 1fr); }
+    .loan-type-grid { grid-template-columns: 1fr; }
+    .loan-term-grid { grid-template-columns: 1fr; }
+    .loan-pit-grid { grid-template-columns: repeat(2, 1fr); }
+    .kw-tab { padding: 12px 26px; font-size: 15px; }
+    .group-head h3 { font-size: 18px; }
+  }
+  @media (max-width: 760px) {
+    .kw-grid { grid-template-columns: 1fr; }
+    .credit-grid { grid-template-columns: 1fr; }
+    .news-card { flex-direction: column; gap: 16px; }
+    .news-card .date-block {
+      border-right: none; border-bottom: 1px solid var(--line);
+      padding-right: 0; padding-bottom: 12px;
+      display: flex; align-items: baseline; gap: 8px;
+    }
+    .topbar-inner { flex-wrap: wrap; padding: 0 20px; gap: 16px; }
+    .nav { margin-left: 0; }
+    .nav-row { gap: 16px; flex-wrap: wrap; }
+    .footer-inner { flex-direction: column; text-align: center; }
+    .footer-info { text-align: center; }
+    main { padding: 40px 20px; }
+    .page-banner { padding: 40px 20px 36px; }
+    .page-banner h1 { font-size: 28px; letter-spacing: 5px; }
+    .kw-tab { padding: 10px 20px; font-size: 14px; }
+  
+    .news-card { padding: 22px 20px; }
+    .news-card .date-block .day.yr { font-size: 19px; }
+    .news-points li { font-size: 12.5px; line-height: 1.85; }
+    .pf-note { padding: 12px 16px; font-size: 12.5px; }
+    .credit-grid.cols-2 { grid-template-columns: 1fr; }
+    .kw-summary { padding: 22px 20px 22px 24px; margin-top: 32px; }
+    .kw-summary p { font-size: 14px; line-height: 2; }
+    .loan-lead { padding: 18px 20px; }
+    .loan-lead p { font-size: 13.5px; line-height: 1.95; }
+    .loan-block { padding: 22px 20px; margin-bottom: 20px; }
+    .loan-h3 { font-size: 17px; gap: 10px; }
+    .loan-h3 .lnum { width: 30px; height: 30px; font-size: 14px; }
+    .loan-block > p { font-size: 13.5px; line-height: 1.95; }
+    .loan-points li { font-size: 13.5px; line-height: 1.9; }
+    .loan-points.sm li { font-size: 13px; }
+    .loan-pit-grid { grid-template-columns: 1fr; }
+    .loan-advice li { font-size: 13.5px; padding: 12px 14px; }
+    .news-group { margin-bottom: 30px; }
+    .group-head h3 { font-size: 17px; }
+    .group-head { gap: 8px; }
+    .news-group .news-card .date-block { width: auto; white-space: normal; }
+    .news-group .news-card .date-block .month { white-space: normal; }
+    .credit-card.span-2 { grid-column: auto; }
+    .pf-sub li { font-size: 11.5px; }
+    .news-note { padding: 14px 16px; font-size: 12.5px; line-height: 1.9; margin-bottom: 22px; }
+    .grid-sep { font-size: 14px; }
+    .loan-toc a { font-size: 13px; padding: 9px 14px; }
+    .read-more.big { padding: 11px 22px; font-size: 13.5px; }
+}
+
+  /* ========== 手机端通用优化（追加） ========== */
+  @media (max-width: 760px) {
+    .sec-title { font-size: 24px; letter-spacing: 3px; }
+    .sec-subtitle { letter-spacing: 2px; margin-bottom: 36px; }
+    .nav-row { gap: 12px; font-size: 13px; }
+    .nav { padding: 10px 0; }
+    .topbar-inner { padding: 0 16px; gap: 12px; }
+  }
+  /* ========== 详情页 ========== */
+  .art-wrap { max-width: 940px; margin: 0 auto; }
+  .art-top {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; flex-wrap: wrap; margin-bottom: 22px;
+  }
+  .art-back {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13.5px; font-weight: 600; color: var(--gold-deep);
+    border: 1.5px solid var(--gold-soft); border-radius: 999px;
+    padding: 8px 18px; transition: all .25s; background: #fff;
+  }
+  .art-back svg { width: 15px; height: 15px; }
+  .art-back:hover {
+    border-color: var(--gold); color: #fff;
+    background: linear-gradient(135deg, var(--red), var(--gold));
+  }
+  .art-crumb { font-size: 12.5px; color: var(--muted); }
+  .art-crumb a { color: var(--muted); }
+  .art-crumb a:hover { color: var(--red); }
+  .art-crumb b { color: var(--ink); font-weight: 600; }
+  #articleBox .news-card { min-height: 0; padding: 38px 42px; }
+  #articleBox .news-card:hover { transform: none; box-shadow: none; }
+  #articleBox .news-card .content h3 { font-size: 26px; line-height: 1.55; }
+  #articleBox .news-points li { font-size: 16.5px; line-height: 2.2; }
+  #articleBox .news-points li::before { top: 14px; width: 7px; height: 7px; }
+  #articleBox .news-text { font-size: 16.5px; line-height: 2.2; }
+  #articleBox .news-card .date-block .day.yr { font-size: 26px; }
+  #articleBox .news-card .date-block .month { font-size: 13.5px; }
+  #articleBox .news-card .date-block { min-width: 84px; }
+  #articleBox .news-card .content .cat-tag { font-size: 12.5px; padding: 3px 11px; }
+  #articleBox .loan-block:hover { transform: none; box-shadow: none; }
+  #articleBox .read-more { display: none; }
+
+  /* 详情页：贷款科普全文阅读字号 */
+  #articleBox .loan-lead { padding: 26px 30px; }
+  #articleBox .loan-lead p { font-size: 16.5px; line-height: 2.15; }
+  #articleBox .loan-block { padding: 32px 36px; }
+  #articleBox .loan-h3 { font-size: 22px; }
+  #articleBox .loan-block > p { font-size: 16.5px; line-height: 2.15; }
+  #articleBox .loan-points li { font-size: 16px; line-height: 2.1; }
+  #articleBox .loan-points li::before { top: 13px; width: 7px; height: 7px; }
+  #articleBox .loan-points.sm li { font-size: 15.5px; line-height: 2.05; }
+  #articleBox .lt-head h4 { font-size: 17.5px; }
+  #articleBox .lt-desc { font-size: 15.5px; line-height: 2; }
+  #articleBox .lt-warn { font-size: 15.5px; line-height: 2; }
+  #articleBox .loan-term h4 { font-size: 17.5px; }
+  #articleBox .loan-term h4 + p { font-size: 15.5px; line-height: 2; }
+  #articleBox .term-key { font-size: 15.5px; line-height: 2; padding: 12px 16px; }
+  #articleBox .term-eg { font-size: 15.5px; line-height: 2; }
+  #articleBox .loan-pit h4 { font-size: 16.5px; }
+  #articleBox .loan-pit p { font-size: 15.5px; line-height: 2; }
+  #articleBox .pit-tag { font-size: 13px; padding: 3px 11px; }
+  #articleBox .loan-advice li { font-size: 16px; line-height: 2.1; padding: 16px 20px; }
+  #articleBox .loan-pit-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+
+  .art-empty {
+    border: 1.5px solid var(--gold-soft); border-radius: 10px; background: #fff;
+    padding: 40px 30px; text-align: center; font-size: 15px; color: var(--muted);
+  }
+  .art-empty a { color: var(--red); font-weight: 600; }
+  @media (max-width: 760px) {
+    #articleBox .news-card { padding: 24px 20px; }
+    #articleBox .news-card .content h3 { font-size: 21px; }
+    #articleBox .news-points li,
+    #articleBox .news-text { font-size: 15.5px; line-height: 2.05; }
+    #articleBox .loan-block { padding: 22px 20px; }
+    #articleBox .loan-h3 { font-size: 19px; }
+    #articleBox .loan-lead p,
+    #articleBox .loan-block > p { font-size: 15.5px; line-height: 2.05; }
+    #articleBox .loan-points li,
+    #articleBox .loan-points.sm li { font-size: 15px; }
+    #articleBox .lt-desc, #articleBox .lt-warn,
+    #articleBox .term-key, #articleBox .term-eg,
+    #articleBox .loan-pit p { font-size: 14.8px; }
+    #articleBox .loan-advice li { font-size: 15px; padding: 14px 16px; }
+    #articleBox .loan-pit-grid { grid-template-columns: 1fr; gap: 16px; }
+    .art-top { gap: 10px; }
+  }
+</style>
+
+</head>
+<body data-page-node-id="gH9VGkTbSi9lChyw1afrZY">
+
+<!-- ========== 顶部导航（真实 logo） ========== -->
+<header class="topbar" data-page-node-id="rJSnnBcPoUEG107clYJGwx">
+  <div class="topbar-inner" data-page-node-id="wC8ibTj89kmq6vznUo6C3S">
+    <a href="./index.html" class="logo" aria-label="皓镧资产" data-page-node-id="YTNC2oIjiiHbpL2NeGm2O6">
+      <span class="logo-card" data-page-node-id="JfTjNiYEh19seWaUQFQYEE">
+        <img src="./assets/logo.jpg" alt="皓镧资产" data-page-node-id="9rZ1GzxiZuZR9fuzGIW4RF" />
+      </span>
+    </a>
+    <nav class="nav" aria-label="主导航" data-page-node-id="e0VgIlTOI3uZ6CFQXnkzbn">
+      <div class="nav-row top" data-page-node-id="TuVAHoInDbhXuxpHJxKVI7">
+        <a href="./about.html" data-page-node-id="y9B8GaMR74M5OE1s6pSzzo">关于我们</a>
+        <a href="./business.html" data-page-node-id="8iPwxcXcADyB81hjir4rnf">主营业务</a>
+        <a href="./service.html" data-page-node-id="nrQuI4QaCjbvNH8I6RHAFm">服务流程</a>
+        <a href="./team.html" data-page-node-id="YcnqW37oL8hRSB1vENxRxg">我们团队</a>
+        <a href="./policy.html" class="active" data-page-node-id="z12axjoSH4mKfR2IJVllM6">政策解读</a>
+        <a href="./notice.html" data-page-node-id="6p4D2K2hBr61PjBDNvrClm">企业风采</a>
+        <a href="./academy.html" data-page-node-id="roK4k44qrOFLWGVd5EQgwQ">皓镧商学院</a>
+        <a href="./video.html" data-page-node-id="NotEs7QHHLwFHG0yYrCl4H">短视频专区</a>
+        <a href="./join.html" data-page-node-id="JolEayfC36Rg3ZhRgtIr9H">加入我们</a>
+        <a href="./contact.html" data-page-node-id="hXadZQvMJCn0zNjzrESNl0">联系我们</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- ========== 页面横幅 ========== -->
+<div class="page-banner" data-page-node-id="H6yK2CnZEOuGoapGTQB8s4">
+  <h1 data-page-node-id="5av0mXxFoR4hKOnzDobGAO">政策解读</h1>
+  <p class="en" data-page-node-id="HoiVwEaLfEIDB1zUilg01Y">POLICY &amp; KNOWLEDGE</p>
+  <p class="desc" data-page-node-id="HD3Qoz4YT1oYMzCm9loIaG">紧跟行业资讯与金融政策导向，深度解读最新法规动态；以专业知识科普为辅，提供融资避坑指南与征信知识普及，助您融资决策更从容。</p>
+</div>
+
+
+<main>
+  <section class="art-wrap">
+    <div class="art-top">
+      <a class="art-back" href="./policy.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12 H5"/><path d="M11 6 L5 12 L11 18"/></svg>返回政策解读</a>
+      <span class="art-crumb"><a href="./index.html">首页</a> / <a href="./policy.html">政策解读</a> / <b id="crumb">详情</b></span>
+    </div>
+    <div id="articleBox"></div>
+  </section>
+</main>
+
+<footer class="footer" data-page-node-id="1IkB8gFvzX8ht6FdDBJfYj">
+  <div class="footer-inner" data-page-node-id="3uHgU1FzO6plSYjOM1xfmH">
+    <div class="footer-logo" data-page-node-id="DPxDwTFXTaMxBuHVdXLU8B">
+      <svg class="logo-mark" width="44" height="44" viewBox="0 0 64 64" fill="none" data-page-node-id="EymG07jjfwABz3EsI3Oigy">
+        <path d="M32 4 L58 18 L58 46 L32 60 L6 46 L6 18 Z" stroke="#D4A574" stroke-width="3" fill="none" data-page-node-id="nd47GLSe6FI4aIGjwp5u6N"/>
+        <path d="M22 22 L42 22 M22 32 L42 32 M22 42 L32 42" stroke="#D4A574" stroke-width="3" data-page-node-id="1LlMPCN6cv1no1cT34c3i8"/>
+      </svg>
+      <span class="lt" data-page-node-id="7rBzIUf2C77l8kUWdXvL14">皓镧资产</span>
+    </div>
+    <div class="footer-info" data-page-node-id="B1YDQGQ3MXZ2U4PVEzBZqo">
+      <div data-page-node-id="PQlSf0O2KKMURuZ7qZTkCE"><b data-page-node-id="sLjj33alWMXoMaDwjFqRt7">联系电话：</b>0762-3103909</div>
+      <div data-page-node-id="qxV3EnRhsmrCx8EZS8RlBr"><b data-page-node-id="MRXPU1BdMSmTebWGBjBAd0">邮箱：</b>865573331@qq.com</div>
+      <div data-page-node-id="ChBtAwDTrIMMQK4HKwsSzH"><b data-page-node-id="JeupR66ImNAjSfLdtWd2ua">地址：</b>河源市源城区永康大道与红星东路交汇处时代国际中心17楼</div>
+    </div>
+  </div>
+</footer>
+<script src="./assets/articles.js"></script>
+<script>
+  (function () {
+    var m = location.search.match(/[?&]id=([^&]+)/);
+    var id = m ? decodeURIComponent(m[1]) : '';
+    var data = window.ARTICLES || {};
+    var a = data[id];
+    var box = document.getElementById('articleBox');
+    if (!a) {
+      box.innerHTML = '<div class="art-empty">未找到对应内容，<a href="./policy.html">返回政策解读</a></div>';
+      document.getElementById('crumb').textContent = '未找到';
+      return;
+    }
+    document.title = a.t + ' - 皓镧资产';
+    document.getElementById('crumb').textContent = a.t;
+    box.innerHTML = a.h;
+  })();
+</script>
+</body>
+</html>

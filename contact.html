@@ -124,11 +124,65 @@
     border-radius: 16px; padding: 5px 14px;
   }
   .addr-card .chip svg { width: 13px; height: 13px; }
+  a.chip { transition: all .25s; cursor: pointer; }
+  a.chip:hover {
+    color: #fff; border-color: transparent;
+    background: linear-gradient(135deg, var(--red), var(--red-deep));
+    box-shadow: 0 6px 14px rgba(200,16,46,0.25);
+  }
+  a.chip:hover svg { color: #fff; }
+  /* 真实地图卡片（高德底图 + 中心定位钉 + 点击导航） */
   .addr-visual {
     border: 1.5px solid var(--gold-soft); border-radius: 12px; background: #fff;
-    display: flex; align-items: center; justify-content: center; padding: 20px;
+    position: relative; overflow: hidden; min-height: 300px; transition: all .25s;
   }
-  .addr-visual svg { width: 100%; max-width: 460px; height: auto; }
+  .addr-visual:hover { border-color: var(--gold); box-shadow: 0 12px 30px rgba(184,148,31,0.12); }
+  .addr-visual .map-link { display: block; position: absolute; inset: 0; line-height: 0; }
+  .addr-visual .map-img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center;
+    display: block; transition: transform .6s ease;
+  }
+  .addr-visual .map-link:hover .map-img { transform: scale(1.05); }
+
+  /* 中心定位钉（钉尖正好落在坐标点） */
+  .addr-visual .map-pin {
+    position: absolute; left: 50%; top: 50%; width: 26px; height: 26px;
+    margin: -31.4px 0 0 -13px; transform: rotate(-45deg);
+    background: linear-gradient(135deg, var(--red), var(--red-deep));
+    border-radius: 50% 50% 50% 0; box-shadow: 0 6px 14px rgba(200,16,46,0.42);
+  }
+  .addr-visual .map-pin::after {
+    content: ""; position: absolute; left: 50%; top: 50%; width: 9px; height: 9px;
+    margin: -4.5px 0 0 -4.5px; background: #fff; border-radius: 50%;
+  }
+  .addr-visual .map-pulse {
+    position: absolute; left: 50%; top: 50%; width: 26px; height: 26px;
+    margin: -13px 0 0 -13px; border-radius: 50%;
+    background: rgba(200,16,46,0.30); animation: mapPulse 2.4s ease-out infinite;
+  }
+  @keyframes mapPulse {
+    0%   { transform: scale(.5); opacity: .85; }
+    100% { transform: scale(2.4); opacity: 0; }
+  }
+  .addr-visual .map-label {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, 10px);
+    background: rgba(26,26,26,0.82); color: #fff; font-size: 11.5px;
+    letter-spacing: .5px; line-height: 1.5; padding: 4px 11px; border-radius: 13px;
+  }
+  .addr-visual .map-copy {
+    position: absolute; left: 8px; bottom: 6px; font-size: 10px; line-height: 1.5;
+    color: #6B6B6B; background: rgba(255,255,255,0.8); padding: 1px 6px; border-radius: 4px;
+  }
+  .addr-visual .map-open {
+    position: absolute; right: 10px; bottom: 10px; font-size: 12px; line-height: 1.5;
+    color: #fff; padding: 6px 14px; border-radius: 16px;
+    background: linear-gradient(135deg, var(--red), var(--red-deep));
+    box-shadow: 0 4px 12px rgba(200,16,46,0.3); transition: all .25s;
+  }
+  .addr-visual .map-link:hover .map-open {
+    background: linear-gradient(135deg, #D4AF37, #B8941F);
+    box-shadow: 0 6px 16px rgba(184,148,31,0.35);
+  }
 
   /* ========== 2. 联系电话 & 客服微信 ========== */
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
@@ -192,27 +246,7 @@
   .phone-item .pt { font-size: 13.5px; font-weight: 600; color: var(--ink); }
   .phone-item .pt b { font-family: "STSong",serif; font-size: 19px; color: var(--red); font-weight: 700; }
   .phone-item .pd { font-size: 11.5px; color: var(--muted); }
-  /* ========== 3. 导航定位 ========== */
-  .navi-wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 28px; }
-  .map-card {
-    border: 1.5px solid var(--gold-soft); border-radius: 12px; background: #fff;
-    overflow: hidden; position: relative;
-  }
-  .map-card .map-head {
-    display: flex; align-items: center; gap: 12px;
-    background: linear-gradient(135deg, #2C2C2C, #1A1A1A);
-    color: #fff; padding: 14px 22px;
-  }
-  .map-card .map-head svg { width: 18px; height: 18px; color: var(--gold); }
-  .map-card .map-head span { font-size: 13px; letter-spacing: 2px; }
-  .map-body { padding: 18px; background: var(--bg-soft); }
-  .map-body svg { width: 100%; height: auto; display: block; }
-  .map-tip {
-    display: flex; align-items: center; gap: 14px; padding: 12px 22px;
-    border-top: 1px solid var(--line); background: #fff; font-size: 12px; color: var(--muted);
-  }
-  .map-tip svg { width: 16px; height: 16px; color: var(--red); flex-shrink: 0; }
-  /* ========== 4. 工作时间 ========== */
+  /* ========== 3. 工作时间 ========== */
   .hours-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .hours-card {
     border: 1.5px solid var(--gold-soft); border-radius: 12px; background: #fff;
@@ -244,7 +278,7 @@
   .hours-note svg { width: 20px; height: 20px; color: var(--gold-deep); flex-shrink: 0; }
   .hours-note b { color: var(--ink); }
 
-  /* ========== 5. 公众号 ========== */
+  /* ========== 4. 公众号 ========== */
   .gzh-card {
     border: 1.5px solid var(--gold-soft); border-radius: 16px; background: #fff;
     overflow: hidden; display: grid; grid-template-columns: 1.2fr 1fr;
@@ -269,8 +303,84 @@
   .gzh-right {
     padding: 40px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
   }
+  .gzh-right .gzh-qr {
+    width: 100%; max-width: 236px; aspect-ratio: 1/1; object-fit: contain;
+    border-radius: 12px; border: 1px solid var(--gold-soft);
+    box-shadow: 0 10px 26px rgba(184,148,31,0.10);
+    /** 保持原生 img，供微信/手机浏览器长按识别；不要关闭 touch-callout / user-select */
+  }
   .gzh-right h5 { font-size: 14px; font-weight: 700; letter-spacing: 2px; margin-top: 14px; }
   .gzh-right p { font-size: 11.5px; color: var(--muted); margin-top: 6px; line-height: 1.8; }
+
+  /* 公众号 - 精选文章 */
+  .gzh-articles {
+    margin-top: 26px; padding: 28px 30px;
+    border: 1.5px solid var(--gold-soft); border-radius: 16px;
+    background: linear-gradient(180deg, #fbf6ea 0%, #ffffff 70%);
+  }
+  .gzh-articles .articles-title {
+    text-align: center; font-size: 18px; font-weight: 700;
+    color: var(--ink); letter-spacing: 3px; margin-bottom: 4px;
+  }
+  .gzh-articles .articles-subtitle {
+    text-align: center; font-size: 11px; letter-spacing: 3px;
+    color: var(--gold-deep); margin-bottom: 22px;
+  }
+  .articles-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  }
+  .article-card {
+    display: flex; flex-direction: column; gap: 12px;
+    padding: 22px;
+    background: #fff; border: 1px solid var(--gold-soft); border-radius: 12px;
+    text-decoration: none; color: inherit;
+    transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  }
+  .article-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--gold-deep);
+    box-shadow: 0 14px 32px rgba(184,148,31,0.18);
+  }
+  .article-card .article-head {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  }
+  .article-card .article-icon {
+    width: 36px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #fdf5dc 0%, #f3e2ad 100%);
+    color: var(--gold-deep); flex-shrink: 0;
+  }
+  .article-card .article-icon svg { width: 18px; height: 18px; }
+  .article-card .article-tag {
+    display: inline-flex; padding: 4px 10px;
+    border: 1px solid rgba(201,169,97,0.4); border-radius: 4px;
+    background: #fdf5dc;
+    font-size: 11px; color: var(--gold-deep); letter-spacing: 1px;
+  }
+  .article-card .article-title {
+    font-size: 16px; font-weight: 700; color: var(--ink); line-height: 1.5;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .article-card .article-excerpt {
+    font-size: 12.5px; color: var(--muted); line-height: 1.7;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .article-card .article-foot {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-top: auto; padding-top: 10px;
+    border-top: 1px dashed rgba(201,169,97,0.45);
+    font-size: 12px;
+  }
+  .article-card .article-date { color: var(--muted); letter-spacing: 1px; }
+  .article-card .article-go {
+    display: inline-flex; align-items: center; gap: 4px;
+    color: var(--gold-deep); font-weight: 600;
+  }
+  .article-card .article-go svg { width: 12px; height: 12px; transition: transform .3s ease; }
+  .article-card:hover .article-go svg { transform: translateX(3px); }
 
   /* ========== 页脚 ========== */
   .footer {
@@ -289,14 +399,18 @@
 
   /* ========== 响应式 ========== */
   @media (max-width: 1080px) {
-    .addr-feature, .contact-grid, .navi-wrap, .gzh-card { grid-template-columns: 1fr; }
+    .addr-feature, .contact-grid, .gzh-card { grid-template-columns: 1fr; }
     .hours-grid { grid-template-columns: repeat(3, 1fr); }
+    .addr-visual { min-height: 0; aspect-ratio: 920 / 560; }
   }
   @media (max-width: 900px) {
     .hours-grid { grid-template-columns: 1fr; }
   }
   @media (max-width: 760px) {
     .addr-card { padding: 26px 22px; }
+    .addr-visual { aspect-ratio: 4 / 3; }
+    .addr-visual .map-label { font-size: 10.5px; padding: 3px 9px; }
+    .addr-visual .map-open { font-size: 11px; padding: 5px 11px; right: 8px; bottom: 8px; }
     .topbar-inner { flex-wrap: wrap; padding: 0 20px; gap: 16px; }
     .nav { margin-left: 0; }
     .nav-row { gap: 16px; flex-wrap: wrap; }
@@ -306,6 +420,9 @@
     .page-banner { padding: 40px 20px 36px; }
     .page-banner h1 { font-size: 28px; letter-spacing: 5px; }
     .gzh-right { padding: 28px 20px; }
+    .gzh-articles { padding: 22px 18px; }
+    .articles-grid { grid-template-columns: 1fr; gap: 14px; }
+    .article-card { padding: 18px; }
   }
 
   /* ========== 手机端通用优化（追加） ========== */
@@ -319,7 +436,6 @@
 
   /* ========== 联系我们页面清理补丁（2026-09-03） ========== */
   .contact-box { min-height: 320px; }
-  .navi-wrap { grid-template-columns: 1fr; }
   .gzh-card { min-height: 260px; }
   .gzh-left, .gzh-right { min-height: 260px; }
 </style>
@@ -375,49 +491,24 @@
         <h4 data-page-node-id="qKVsXCF9BSxJrrDdFuRsDj">皓镧资产 · 总部</h4>
         <div class="full" data-page-node-id="lFnNTo9zptwB5WgurBDB4U"><b data-page-node-id="YhvF3sUVCxg0UkV26FU3cI">河源市源城区永康大道与红星东路交汇处时代国际中心17楼</b></div>
         <div class="note" data-page-node-id="pfRUXhkRJt3HBczboy7Qaz">公司位于永康大道与红星东路交汇处，地处河源市源城区核心地段，交通便利、配套完善。<b data-page-node-id="I5yiCpT65Dw8Qbj5wQgjvo">来访请提前预约</b>，前台将为您登记指引。</div>
-        <div class="chips" data-page-node-id="xHkT3L2aBL5CGlKwBCZop1"><span class="chip" data-page-node-id="ccQy8lDHZnfLHQvV8A4n1H">
+        <div class="chips" data-page-node-id="xHkT3L2aBL5CGlKwBCZop1"><a class="chip" href="https://uri.amap.com/marker?position=114.72839,23.767757&name=%E7%9A%93%E9%95%A7%E8%B5%84%E4%BA%A7&src=haolan-gw&coordinate=gaode&callnative=1" target="_blank" rel="noopener" title="在高德地图中打开导航">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="aA5FndN3rhbKYLm7XLDSLv"><path d="M9 18V6l-4 1v11M9 6l6-2v12M15 6l4-1v11" data-page-node-id="x5z6Jt7W7CKwsvz0cKw7u5"/></svg>
             导航：皓镧资产
-          </span></div>
+          </a></div>
       </div>
 
       <div class="addr-visual" data-page-node-id="rHVfCv3Rfg4pqdDthDEQlk">
-        <svg viewBox="0 0 460 300" fill="none" xmlns="http://www.w3.org/2000/svg" data-page-node-id="EHYFs2n4Ci66cJVaaG7Bfe">
-          <rect width="460" height="300" fill="#FAF6EC" data-page-node-id="FWYM1CZWsbtuttmxgArkrZ"/>
-          <!-- 街区 -->
-          <rect x="30" y="30" width="110" height="100" fill="#fff" stroke="#E8E2D4" stroke-width="1.5" data-page-node-id="dtAzH24wdp9xTOsAXCAa3I"/>
-          <rect x="170" y="30" width="110" height="100" fill="#fff" stroke="#E8E2D4" stroke-width="1.5" data-page-node-id="JeQ3HLxXsMnNzx8qScEMYY"/>
-          <rect x="310" y="30" width="120" height="100" fill="#fff" stroke="#E8E2D4" stroke-width="1.5" data-page-node-id="ZnroipfO9dVBcV6casSRpZ"/>
-          <rect x="30" y="170" width="110" height="100" fill="#fff" stroke="#E8E2D4" stroke-width="1.5" data-page-node-id="xELAbKwLthIbIRKoVSt7fl"/>
-          <rect x="310" y="170" width="120" height="100" fill="#fff" stroke="#E8E2D4" stroke-width="1.5" data-page-node-id="R4nQYcCkaEKuHDFfhF01z2"/>
-          <!-- 道路 -->
-          <path d="M150 20v260" stroke="#C9A961" stroke-width="5" stroke-linecap="round" data-page-node-id="CxOz108AxFMQWX98xKpIkU"/>
-          <path d="M290 20v260" stroke="#C9A961" stroke-width="5" stroke-linecap="round" data-page-node-id="wG8CLZbQ4adVgybdXBROk2"/>
-          <path d="M20 145h420" stroke="#C9A961" stroke-width="5" stroke-linecap="round" data-page-node-id="zlHY3mA9AFIv9B1ZIGudvq"/>
-          
-          <!-- 楼宇标注 -->
-          
-          
-          
-          
-          
-          
-          
-          <!-- 公司标记 -->
-          <g data-page-node-id="mXNgwmifxZe0JYHm8mXDu6">
-            <circle cx="195" cy="88" r="24" fill="#C8102E" opacity="0.15" data-page-node-id="9sDnV6vUFTLiW2S37DAPCO">
-              <animate attributeName="r" values="18;30;18" dur="2.4s" repeatCount="indefinite" data-page-node-id="xaJImQ1Ztu1ySpFEX8OlJ3"/>
-            </circle>
-            <circle cx="195" cy="88" r="12" fill="#C8102E" data-page-node-id="HiANpuyVDmOWyOasE3toyW"/>
-            <text x="195" y="93" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold" data-page-node-id="1qHa4b21yODx5uSWBR3pq2">皓</text>
-          </g>
-          <text x="195" y="125" font-size="11" fill="#B8941F" text-anchor="middle" data-page-node-id="wJ5BXEZKqu2Vw8sTkzukyy">皓镧资产 · 17 楼</text>
-          <!-- 指北针 -->
-          <g transform="translate(428,272)" data-page-node-id="MwSebD4LwZk0ul6I9HvqAr">
-            <path d="M0 0 L6 16 L0 13 L-6 16 Z" fill="#B8941F" data-page-node-id="RPIVr1OaEyrDfJJpi94a0f"/>
-            <text x="9" y="16" font-size="10" fill="#6B6B6B" data-page-node-id="an9Qas4RBNn34Gq3I3j1p3">北</text>
-          </g>
-        </svg>
+        <a class="map-link" href="https://uri.amap.com/marker?position=114.72839,23.767757&name=%E7%9A%93%E9%95%A7%E8%B5%84%E4%BA%A7&src=haolan-gw&coordinate=gaode&callnative=1"
+           target="_blank" rel="noopener" title="点击在地图中查看「皓镧资产」位置并导航">
+          <img class="map-img" src="./assets/map-address.png"
+               alt="皓镧资产位置地图：广东省河源市源城区永康大道与红星东路交汇处时代国际中心 17 楼"
+               loading="lazy" decoding="async" />
+          <span class="map-pulse" aria-hidden="true"></span>
+          <span class="map-pin" aria-hidden="true"></span>
+          <span class="map-label" aria-hidden="true">皓镧资产 · 时代国际中心 17F</span>
+          <span class="map-copy">© 高德地图</span>
+          <span class="map-open">点击导航 →</span>
+        </a>
       </div>
     </div>
   </section>
@@ -489,66 +580,8 @@
     </div>
   </section>
 
-
-  <!-- ========================================== -->
-  <!-- 3. 导航定位 -->
-  <!-- ========================================== -->
-  <section id="navigation" data-page-node-id="Bx3IlA7l2wDAFxnYAFni7M">
-    <h2 class="sec-title" data-page-node-id="1NXUC2lDEB9PKmlUoyeyZ7">导航定位</h2>
-    <p class="sec-subtitle" data-page-node-id="eXJO2jNT0wKyxOMq5CSerQ">LOCATION & ROUTES</p>
-
-    <div class="navi-wrap" data-page-node-id="1XHWjJDXa8jsjJN28eSNOv">
-      <!-- 示意图 -->
-      <div class="map-card" data-page-node-id="QAy1ASplhhhChLVY3QiHlQ">
-        <div class="map-head" data-page-node-id="oPVGgGe1MX7UTtVp38KAg8">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="gtIoXhllVsqlqOgZBKwvP8"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z" data-page-node-id="Et7EZB4uUVz1sBBmHEtT96"/><circle cx="12" cy="10" r="2.5" data-page-node-id="CZAtbKBalS5YwmlfHav8gQ"/></svg>
-          <span data-page-node-id="XtyA5W0Q63D9kxWsrnGrFX">位置示意图（示意） · 河源市源城区时代国际中心 17 楼</span>
-        </div>
-        <div class="map-body" data-page-node-id="yH4INjssiAkdPBbnDDP4qs">
-          <svg viewBox="0 0 460 300" fill="none" xmlns="http://www.w3.org/2000/svg" data-page-node-id="59YbvEHEkigT2hgS3QDr6c">
-            <rect width="460" height="300" fill="#FAF6EC" data-page-node-id="SUuBZ4Mxl0gAjltJ30mpx6"/>
-            <rect x="30" y="30" width="110" height="100" fill="#fff" stroke="#E8E2D4" stroke-width="1.5" data-page-node-id="YHjPgqeM404C3QsZ9lJMSI"/>
-            <rect x="170" y="30" width="110" height="100" fill="#fff" stroke="#E8E2D4" stroke-width="1.5" data-page-node-id="zj0jVtabSAfgwzgvYOgOpy"/>
-            <rect x="310" y="30" width="120" height="100" fill="#fff" stroke="#E8E2D4" stroke-width="1.5" data-page-node-id="F16e8LmQj2p9zB3Eo4JyEE"/>
-            <rect x="30" y="170" width="110" height="100" fill="#fff" stroke="#E8E2D4" stroke-width="1.5" data-page-node-id="d6GErCpHnELRhm4Ccf4zON"/>
-            <rect x="310" y="170" width="120" height="100" fill="#fff" stroke="#E8E2D4" stroke-width="1.5" data-page-node-id="RC7zQ8M8P9kGmSm1Gt728B"/>
-            <path d="M150 20v260" stroke="#C9A961" stroke-width="5" stroke-linecap="round" data-page-node-id="steSto0AlWZLZxqBavmHvn"/>
-            <path d="M290 20v260" stroke="#C9A961" stroke-width="5" stroke-linecap="round" data-page-node-id="eGlBmyWhUwmIwOXvONRBaM"/>
-            <path d="M20 145h420" stroke="#C9A961" stroke-width="5" stroke-linecap="round" data-page-node-id="iadYDUG88H2F8g2vUOPUeG"/>
-            
-            
-            
-            
-            
-            
-            
-            
-            <g data-page-node-id="uaGZqP01cWh0imwi4g4irc">
-              <circle cx="195" cy="88" r="24" fill="#C8102E" opacity="0.15" data-page-node-id="N3HxcQ4gvRpfT3W8wFLoUJ">
-                <animate attributeName="r" values="18;30;18" dur="2.4s" repeatCount="indefinite" data-page-node-id="sAaPnXUWHkc059BA6bBaKB"/>
-              </circle>
-              <circle cx="195" cy="88" r="12" fill="#C8102E" data-page-node-id="LjyZjViXGApjoewW9lCgDj"/>
-              <text x="195" y="93" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold" data-page-node-id="FFV2UvkxRhAIGIRnA9XMIl">皓</text>
-            </g>
-            <text x="195" y="125" font-size="11" fill="#B8941F" text-anchor="middle" data-page-node-id="S8wNnaVEmp2CiLWxONN2IG">皓镧资产 · 17 楼</text>
-            <g transform="translate(428,272)" data-page-node-id="dgF6LmAHjHTV4aKQbHbiiJ">
-              <path d="M0 0 L6 16 L0 13 L-6 16 Z" fill="#B8941F" data-page-node-id="tsCY4DNFWyl2SDzgVgVnpU"/>
-              <text x="9" y="16" font-size="10" fill="#6B6B6B" data-page-node-id="mChmlpYLIDa2Zwgr7FmfMH">北</text>
-            </g>
-          </svg>
-        </div>
-        <div class="map-tip" data-page-node-id="QoaOZSQJrhahSvIujKAdQX">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="MNB3ePo3WbMYOirWqtNsJW"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z" data-page-node-id="sGFJOeHCD9UBOuIw4PvkRR"/><circle cx="12" cy="10" r="2.5" data-page-node-id="KFP8NdJhoQVNRaHtcQewWG"/></svg>
-          示意图仅供位置参考，可在手机地图搜索「皓镧资产」或「时代国际中心」获取实时导航路线。
-        </div>
-      </div>
-
-
-    </div>
-  </section>
-
-  <!-- ========================================== -->
-  <!-- 4. 工作时间 -->
+<!-- ========================================== -->
+  <!-- 3. 工作时间 -->
   <!-- ========================================== -->
   <section id="hours" data-page-node-id="MxnqgAAcAQjPnQQubez7iI">
     <h2 class="sec-title" data-page-node-id="bkWKABXGcvVTiOQRcTGm1i">工作时间</h2>
@@ -561,7 +594,7 @@
         </div>
         <h4 data-page-node-id="uZUBBjucRn2jBFkZfrEvv8">工作日</h4>
         <div class="time" data-page-node-id="ccR0mruG0NQgrFF8sBCRPk">周一至周五</div>
-        <p data-page-node-id="qtJPA6FTv0HaOj5cxC1Eqa"><b data-page-node-id="rK8FTsLdA5Ml80mKEwUc3D">09:00 – 18:00</b>，午间不休，全时段接待客户</p>
+        <p data-page-node-id="qtJPA6FTv0HaOj5cxC1Eqa"><b data-page-node-id="rK8FTsLdA5Ml80mKEwUc3D">8:30 – 12:00</b>、<b>14:00 – 18:30</b>，午间 12:00 – 14:00 休息</p>
       </div>
       <div class="hours-card" data-page-node-id="UXuGBkEBTvwX03vWWHfe8m">
         <div class="h-icon" data-page-node-id="RCxHlqOBEKvq9wBHEtw5lK">
@@ -583,12 +616,12 @@
 
     <div class="hours-note" data-page-node-id="GblTd1mnUsQmop4ohyaAoN">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="j9s69DqyeMpWPMJAHJfA5R"><path d="M12 3l7 4v5c0 4.4-3 8.4-7 9-4-.6-7-4.6-7-9V7z" data-page-node-id="ZthwrXcRBhx8BP2tC1lBYq"/><path d="M9 12l2 2 4-4" data-page-node-id="l4Tjd0vJxyntnnpCHfQKSl"/></svg>
-      温馨提示：热线电话在<b data-page-node-id="vy0oTGMGYGgDXDCP1wchio">工作日 09:00–18:00</b> 由人工值守，其余时段可添加客服微信留言，我们将于次日优先处理。
+      温馨提示：热线电话在<b data-page-node-id="vy0oTGMGYGgDXDCP1wchio">工作日 8:30–12:00、14:00–18:30</b> 由人工值守，其余时段可添加客服微信留言，我们将于次日优先处理。
     </div>
   </section>
 
   <!-- ========================================== -->
-  <!-- 5. 公众号 -->
+  <!-- 4. 公众号 -->
   <!-- ========================================== -->
   <section id="gzh" data-page-node-id="ow8LVH4QiB5HXZQSkLQ2AZ">
     <h2 class="sec-title" data-page-node-id="rcfpIDC6jxEIFztTQ5jlOn">关注公众号</h2>
@@ -596,19 +629,59 @@
 
     <div class="gzh-card" data-page-node-id="TmutM5zWPMVv26JcRLTMwY">
       <div class="gzh-left" data-page-node-id="QjdEr9tZ9J8skSBBTtPCCM">
-        
-        
-        
-        
-        
-        
-        
-        
+        <h4 data-page-node-id="N5rhn4mVXrslit5Gt0uyOS">皓镧资产</h4>
+        <div class="en" data-page-node-id="Y1FBMfCyKZpN4sJXi4fCx5">官方公众号</div>
+        <p>关注<b data-page-node-id="yAQ5BUwsEPye3H6hU1rcO4">皓镧资产</b>官方公众号，第一时间获取金融政策解读、融资资讯与产品动态。</p>
+        <p>更多优选内容，尽在皓镧资产官方平台。</p>
+        <span class="gzh-id" data-page-node-id="lFnNTo9zptwB5WgurBDB4U">公众号：皓镧资产</span>
       </div>
       <div class="gzh-right" data-page-node-id="AX7wg5l6JfI9JL9Z17jqJB">
-        
-        
-        
+        <img src="./assets/gzh-qr.jpg" alt="皓镧资产公众号二维码 - 扫码关注官方公众号" class="gzh-qr" loading="lazy" decoding="async" />
+        <h5 data-page-node-id="8A0vGfDnizPBNFZApMJJ7d">扫码关注 · 皓镧资产</h5>
+        <p>长按识别二维码，关注官方公众号</p>
+      </div>
+    </div>
+
+    <div class="gzh-articles" data-page-node-id="GZHARTICLES001">
+      <h3 class="articles-title" data-page-node-id="GZHARTICLES002">精选文章</h3>
+      <p class="articles-subtitle" data-page-node-id="GZHARTICLES003">FEATURED ARTICLES</p>
+
+      <div class="articles-grid" data-page-node-id="GZHARTICLES004">
+
+        <a href="https://mp.weixin.qq.com/s/zaP9a0ZZrKOhMxVxkAkg5w" target="_blank" rel="noopener" class="article-card" data-page-node-id="GZHARTICLES005">
+          <div class="article-head">
+            <span class="article-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6M9 9h2"/></svg>
+            </span>
+            <span class="article-tag">公众号文章</span>
+          </div>
+          <h4 class="article-title">关于皓镧资产</h4>
+          <p class="article-excerpt">公司介绍 · 产品分类 · 核心业务全景</p>
+          <div class="article-foot">
+            <span class="article-date">2024.04.26</span>
+            <span class="article-go">阅读全文
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a href="https://mp.weixin.qq.com/s/gmH4CJUofudDsUlaRf5_cA" target="_blank" rel="noopener" class="article-card" data-page-node-id="GZHARTICLES006">
+          <div class="article-head">
+            <span class="article-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6M9 9h2"/></svg>
+            </span>
+            <span class="article-tag">公众号文章</span>
+          </div>
+          <h4 class="article-title">皓镧资产：近100人精英团队护航，助力企业融资快人一步</h4>
+          <p class="article-excerpt">核心业务 · 企业实力 · 团队优势 · 服务保障</p>
+          <div class="article-foot">
+            <span class="article-date">2025.03.07</span>
+            <span class="article-go">阅读全文
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+        </a>
+
       </div>
     </div>
   </section>
