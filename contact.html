@@ -438,7 +438,122 @@
   .contact-box { min-height: 320px; }
   .gzh-card { min-height: 260px; }
   .gzh-left, .gzh-right { min-height: 260px; }
-</style>
+
+    /* ========== 手机端侧边导航（汉堡按钮 + 右侧抽屉） ========== */
+    .nav-toggle {
+      display: none; align-items: center; justify-content: center;
+      width: 40px; height: 40px; padding: 0; margin-left: auto;
+      background: rgba(255,255,255,.9); border: 1.5px solid rgba(34,51,79,.28);
+      border-radius: 8px; color: #22334F; cursor: pointer; flex: none;
+    }
+    .nav-toggle svg { width: 22px; height: 22px; }
+    .nav-drawer {
+      position: fixed; top: 0; right: 0; z-index: 1200;
+      width: 78vw; max-width: 320px; height: 100%;
+      background: #fff; box-shadow: -6px 0 26px rgba(34,51,79,.2);
+      transform: translateX(103%); transition: transform .28s ease;
+      display: flex; flex-direction: column; overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .nav-drawer.open { transform: translateX(0); }
+    .nav-mask {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 1100;
+      background: rgba(20,28,40,.45);
+      opacity: 0; visibility: hidden; transition: opacity .28s ease, visibility .28s ease;
+    }
+    .nav-mask.open { opacity: 1; visibility: visible; }
+    .drawer-head {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 18px; border-bottom: 1px solid rgba(201,169,97,.45);
+      background: linear-gradient(135deg, #E6C094 0%, #D4A574 100%);
+    }
+    .drawer-title {
+      font-family: "STSong","SimSun",serif; font-size: 16px; letter-spacing: 2px;
+      color: #1F3A2E;
+    }
+    .drawer-close {
+      width: 34px; height: 34px; display: inline-flex; align-items: center; justify-content: center;
+      border: 1.5px solid rgba(31,58,46,.35); border-radius: 8px;
+      background: rgba(255,255,255,.85); color: #1F3A2E; cursor: pointer; padding: 0;
+    }
+    .drawer-close svg { width: 18px; height: 18px; }
+    .drawer-nav { display: flex; flex-direction: column; padding: 6px 0 12px; }
+    .drawer-nav a {
+      padding: 14px 20px; font-size: 15px; color: #22334F;
+      border-bottom: 1px dashed rgba(201,169,97,.38);
+    }
+    .drawer-nav a:active { background: rgba(200,16,46,.06); }
+    .drawer-nav a.active { color: #C8102E; font-weight: 600; background: rgba(200,16,46,.05); }
+    .drawer-foot {
+      margin-top: auto; padding: 18px 20px 26px;
+      font-size: 12px; line-height: 1.9; color: #6B7280;
+      border-top: 1px solid rgba(201,169,97,.35);
+    }
+    .drawer-foot b { color: #C8102E; font-family: "STSong",serif; }
+    @media (max-width: 760px) {
+      .topbar-inner { flex-wrap: nowrap; justify-content: space-between; gap: 10px; }
+      .topbar .nav { display: none; }
+      .nav-toggle { display: inline-flex; }
+    }
+  
+    /* ========== 电话点击呼叫弹窗 ========== */
+    .phone-item[data-tel] { cursor: pointer; }
+    .phone-item[data-tel]:active { opacity: .7; }
+    .tap-tip {
+      display: inline-block; margin-top: 6px;
+      font-size: 11.5px; color: #C8102E; letter-spacing: .5px;
+    }
+    .footer-info .js-call { color: #C8102E; text-decoration: underline; text-underline-offset: 3px; }
+    .call-mask {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 1300;
+      background: rgba(20,28,40,.5);
+      display: flex; align-items: center; justify-content: center; padding: 20px;
+      opacity: 0; visibility: hidden; transition: opacity .22s ease, visibility .22s ease;
+    }
+    .call-mask.open { opacity: 1; visibility: visible; }
+    .call-dialog {
+      width: 100%; max-width: 340px; background: #fff; border-radius: 14px;
+      border: 1.5px solid rgba(201,169,97,.6);
+      box-shadow: 0 18px 40px rgba(34,51,79,.22);
+      padding: 26px 22px 18px; text-align: center;
+      transform: translateY(14px) scale(.97); transition: transform .22s ease;
+    }
+    .call-mask.open .call-dialog { transform: translateY(0) scale(1); }
+    .call-icon {
+      width: 52px; height: 52px; margin: 0 auto 14px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #C8102E 0%, #E23A52 100%);
+      color: #fff;
+    }
+    .call-icon svg { width: 24px; height: 24px; }
+    .call-title {
+      font-family: "STSong","SimSun",serif; font-size: 18px; color: #1F3A2E; letter-spacing: 1px;
+    }
+    .call-num {
+      margin: 10px 0 4px; font-family: "STSong",serif;
+      font-size: 26px; font-weight: 700; color: #C8102E; letter-spacing: 1px;
+    }
+    .call-desc { font-size: 12px; color: #6B7280; line-height: 1.8; }
+    .call-actions { display: flex; gap: 10px; margin-top: 18px; }
+    .call-actions > * {
+      flex: 1; height: 44px; border-radius: 8px; font-size: 15px;
+      display: inline-flex; align-items: center; justify-content: center;
+      cursor: pointer; text-decoration: none; border: 0;
+    }
+    .btn-cancel { background: #fff; border: 1.5px solid rgba(201,169,97,.8) !important; color: #1F3A2E; }
+    .btn-call {
+      background: linear-gradient(135deg, #D4AF37 0%, #C9A961 100%);
+      color: #fff; font-weight: 600;
+    }
+    .btn-copy {
+      margin-top: 12px; width: 100%; height: 38px; background: none; border: 0;
+      font-size: 13px; color: #C9A961; cursor: pointer;
+    }
+    @media (max-width: 760px) {
+      .call-dialog { padding: 22px 18px 16px; }
+      .call-num { font-size: 23px; }
+    }
+  </style>
 </head>
 <body data-page-node-id="jl7CeKgiWAAZBKrnw9QjmI">
 
@@ -464,8 +579,36 @@
         <a href="./contact.html" class="active" data-page-node-id="Fbu2x6QN4ykpSN30QA2nvx">联系我们</a>
       </div>
     </nav>
+  <button class="nav-toggle" id="navToggle" type="button" aria-label="展开导航菜单" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
   </div>
 </header>
+  <div class="nav-mask" id="navMask"></div>
+  <nav class="nav-drawer" id="navDrawer" aria-label="侧边导航">
+    <div class="drawer-head">
+      <span class="drawer-title">皓镧资产</span>
+      <button class="drawer-close" id="navClose" type="button" aria-label="收起导航菜单">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <div class="drawer-nav">
+      <a href="./about.html">关于我们</a>
+      <a href="./business.html">主营业务</a>
+      <a href="./service.html">服务流程</a>
+      <a href="./team.html">我们团队</a>
+      <a href="./policy.html">政策解读</a>
+      <a href="./notice.html">企业风采</a>
+      <a href="./academy.html">皓镧商学院</a>
+      <a href="./video.html">短视频专区</a>
+      <a href="./join.html">加入我们</a>
+      <a href="./contact.html">联系我们</a>
+    </div>
+    <div class="drawer-foot">
+      服务热线 <b>0762-3103909</b><br />
+      河源市源城区永康大道与红星东路交汇处时代国际中心17楼
+    </div>
+  </nav>
 
 <!-- ========== 页面横幅 ========== -->
 <div class="page-banner" data-page-node-id="dsbNOWkRMsfX46Tl63CqV0">
@@ -533,13 +676,14 @@
           </div>
         </div>
         <div class="phone-list" data-page-node-id="JZ163iw5ib4Q0bvMeRRuE3">
-          <div class="phone-item" data-page-node-id="sQxRRZAsAdMNjDCEkaSSMs">
+          <div class="phone-item js-call" data-tel="0762-3103909" role="button" tabindex="0" data-page-node-id="sQxRRZAsAdMNjDCEkaSSMs">
             <span class="pico" data-page-node-id="0fdacolLFUfomLtxdylogB">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" data-page-node-id="cI3bCeeqJnEEm7Jmp3CXTw"><path d="M5 4h4l2 5-3 2a12 12 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" data-page-node-id="519Bmgvu1zHsbykFlENsdF"/></svg>
             </span>
             <div data-page-node-id="k0MxaI7VD7Ji0wqEBiuU9D">
               <div class="pt" data-page-node-id="JlolxVlppdA3qn9jQ3TYZ4">服务热线 <b data-page-node-id="zTjzpaxvJs833ivDYuWE62">0762-3103909</b></div>
               <div class="pd" data-page-node-id="8KpsWZoBxJ4Esa9SFAwoFG">融资咨询 · 业务办理 · 售后服务</div>
+              <span class="tap-tip">点击拨打 ›</span>
             </div>
           </div>
           <div class="phone-item" data-page-node-id="FdQSKuXIkkukwylsvlDlf4">
@@ -698,13 +842,109 @@
       <span class="lt" data-page-node-id="TlwOjC2hb07gYh7QDi9Cyn">皓镧资产</span>
     </div>
     <div class="footer-info" data-page-node-id="WhaAatX44PQ3jGchvwLcnH">
-      <div data-page-node-id="mPKQhqLbZDN1VRuFdfpF4N"><b data-page-node-id="QzHhaSsCqUU9ACSsNPPBt6">联系电话：</b>0762-3103909</div>
+      <div data-page-node-id="mPKQhqLbZDN1VRuFdfpF4N"><b data-page-node-id="QzHhaSsCqUU9ACSsNPPBt6">联系电话：</b><a href="tel:0762-3103909" class="js-call" data-tel="0762-3103909">0762-3103909</a></div>
       <div data-page-node-id="OF1grMwnuLoXhZyBIMCX2v"><b data-page-node-id="cCPBJDYhJVVMlJo6DSgsCM">邮箱：</b>865573331@qq.com</div>
       <div data-page-node-id="G3TbRfY3lStmJMuCg2X6xd"><b data-page-node-id="mTMHi9PcroOB5SHCGZZeKF">地址：</b>河源市源城区永康大道与红星东路交汇处时代国际中心17楼</div>
     </div>
   </div>
 </footer>
 
+
+<script>
+  (function () {
+    var btn = document.getElementById('navToggle');
+    var drawer = document.getElementById('navDrawer');
+    var mask = document.getElementById('navMask');
+    var closeBtn = document.getElementById('navClose');
+    if (!btn || !drawer || !mask) return;
+    function openNav() {
+      drawer.classList.add('open'); mask.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeNav() {
+      drawer.classList.remove('open'); mask.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+    btn.addEventListener('click', function () {
+      drawer.classList.contains('open') ? closeNav() : openNav();
+    });
+    closeBtn && closeBtn.addEventListener('click', closeNav);
+    mask.addEventListener('click', closeNav);
+    drawer.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeNav); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeNav(); });
+    var here = (location.pathname.split('/').pop() || 'index.html');
+    drawer.querySelectorAll('a[href]').forEach(function (a) {
+      if (a.getAttribute('href').replace('./', '') === here) a.classList.add('active');
+    });
+  })();
+</script>
+
+<div class="call-mask" id="callMask">
+  <div class="call-dialog" role="dialog" aria-modal="true" aria-labelledby="callTitle">
+    <div class="call-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 4h4l2 5-3 2a12 12 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+    </div>
+    <div class="call-title" id="callTitle">呼叫确认</div>
+    <div class="call-num" id="callNum">0762-3103909</div>
+    <div class="call-desc">工作时间：周一至周五 8:30–12:00、14:00–18:30<br />其他时段可添加客服微信留言</div>
+    <div class="call-actions">
+      <button class="btn-cancel" id="callCancel" type="button">取消</button>
+      <a class="btn-call" id="callGo" href="tel:0762-3103909">立即呼叫</a>
+    </div>
+    <button class="btn-copy" id="callCopy" type="button">复制号码</button>
+  </div>
+</div>
+<script>
+  (function () {
+    var mask = document.getElementById('callMask');
+    var numEl = document.getElementById('callNum');
+    var go = document.getElementById('callGo');
+    if (!mask || !numEl || !go) return;
+    var cur = '';
+    function openCall(tel) {
+      cur = tel;
+      numEl.textContent = tel;
+      go.setAttribute('href', 'tel:' + tel);
+      mask.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeCall() {
+      mask.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('click', function (e) {
+      var t = e.target.closest ? e.target.closest('[data-tel]') : null;
+      if (!t) return;
+      e.preventDefault();
+      openCall(t.getAttribute('data-tel'));
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      var el = document.activeElement;
+      var t = el && el.closest ? el.closest('[data-tel]') : null;
+      if (!t) return;
+      e.preventDefault();
+      openCall(t.getAttribute('data-tel'));
+    });
+    document.getElementById('callCancel').addEventListener('click', closeCall);
+    mask.addEventListener('click', function (e) { if (e.target === mask) closeCall(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeCall(); });
+    document.getElementById('callCopy').addEventListener('click', function () {
+      var done = function () { this.textContent = '已复制'; var b = this; setTimeout(function () { b.textContent = '复制号码'; }, 1600); };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(cur).then(done.bind(this), function () {});
+      } else {
+        var ta = document.createElement('textarea');
+        ta.value = cur; document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); } catch (err) {}
+        document.body.removeChild(ta);
+        done.call(this);
+      }
+    });
+  })();
+</script>
 
 </body>
 </html>

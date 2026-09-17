@@ -218,7 +218,64 @@
     .sec-subtitle { letter-spacing: 2px; margin-bottom: 36px; }
     .footer { padding: 32px 20px; }
   }
-</style>
+
+    /* ========== 手机端侧边导航（汉堡按钮 + 右侧抽屉） ========== */
+    .nav-toggle {
+      display: none; align-items: center; justify-content: center;
+      width: 40px; height: 40px; padding: 0; margin-left: auto;
+      background: rgba(255,255,255,.9); border: 1.5px solid rgba(34,51,79,.28);
+      border-radius: 8px; color: #22334F; cursor: pointer; flex: none;
+    }
+    .nav-toggle svg { width: 22px; height: 22px; }
+    .nav-drawer {
+      position: fixed; top: 0; right: 0; z-index: 1200;
+      width: 78vw; max-width: 320px; height: 100%;
+      background: #fff; box-shadow: -6px 0 26px rgba(34,51,79,.2);
+      transform: translateX(103%); transition: transform .28s ease;
+      display: flex; flex-direction: column; overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .nav-drawer.open { transform: translateX(0); }
+    .nav-mask {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 1100;
+      background: rgba(20,28,40,.45);
+      opacity: 0; visibility: hidden; transition: opacity .28s ease, visibility .28s ease;
+    }
+    .nav-mask.open { opacity: 1; visibility: visible; }
+    .drawer-head {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 18px; border-bottom: 1px solid rgba(201,169,97,.45);
+      background: linear-gradient(135deg, #E6C094 0%, #D4A574 100%);
+    }
+    .drawer-title {
+      font-family: "STSong","SimSun",serif; font-size: 16px; letter-spacing: 2px;
+      color: #1F3A2E;
+    }
+    .drawer-close {
+      width: 34px; height: 34px; display: inline-flex; align-items: center; justify-content: center;
+      border: 1.5px solid rgba(31,58,46,.35); border-radius: 8px;
+      background: rgba(255,255,255,.85); color: #1F3A2E; cursor: pointer; padding: 0;
+    }
+    .drawer-close svg { width: 18px; height: 18px; }
+    .drawer-nav { display: flex; flex-direction: column; padding: 6px 0 12px; }
+    .drawer-nav a {
+      padding: 14px 20px; font-size: 15px; color: #22334F;
+      border-bottom: 1px dashed rgba(201,169,97,.38);
+    }
+    .drawer-nav a:active { background: rgba(200,16,46,.06); }
+    .drawer-nav a.active { color: #C8102E; font-weight: 600; background: rgba(200,16,46,.05); }
+    .drawer-foot {
+      margin-top: auto; padding: 18px 20px 26px;
+      font-size: 12px; line-height: 1.9; color: #6B7280;
+      border-top: 1px solid rgba(201,169,97,.35);
+    }
+    .drawer-foot b { color: #C8102E; font-family: "STSong",serif; }
+    @media (max-width: 760px) {
+      .topbar-inner { flex-wrap: nowrap; justify-content: space-between; gap: 10px; }
+      .topbar .nav { display: none; }
+      .nav-toggle { display: inline-flex; }
+    }
+  </style>
 </head>
 <body data-page-node-id="xQgSYa5VAdQbGfmyiF73ND">
 
@@ -244,8 +301,36 @@
         <a href="./contact.html" data-page-node-id="yBe75YwRFzISHetpL0kmlg">联系我们</a>
       </div>
     </nav>
+  <button class="nav-toggle" id="navToggle" type="button" aria-label="展开导航菜单" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
   </div>
 </header>
+  <div class="nav-mask" id="navMask"></div>
+  <nav class="nav-drawer" id="navDrawer" aria-label="侧边导航">
+    <div class="drawer-head">
+      <span class="drawer-title">皓镧资产</span>
+      <button class="drawer-close" id="navClose" type="button" aria-label="收起导航菜单">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <div class="drawer-nav">
+      <a href="./about.html">关于我们</a>
+      <a href="./business.html">主营业务</a>
+      <a href="./service.html">服务流程</a>
+      <a href="./team.html">我们团队</a>
+      <a href="./policy.html">政策解读</a>
+      <a href="./notice.html">企业风采</a>
+      <a href="./academy.html">皓镧商学院</a>
+      <a href="./video.html">短视频专区</a>
+      <a href="./join.html">加入我们</a>
+      <a href="./contact.html">联系我们</a>
+    </div>
+    <div class="drawer-foot">
+      服务热线 <b>0762-3103909</b><br />
+      河源市源城区永康大道与红星东路交汇处时代国际中心17楼
+    </div>
+  </nav>
 
 <main data-page-node-id="4rYPYzYVodtM0SeyolEHLX">
 
@@ -378,6 +463,37 @@
     </div>
   </div>
 </footer>
+
+<script>
+  (function () {
+    var btn = document.getElementById('navToggle');
+    var drawer = document.getElementById('navDrawer');
+    var mask = document.getElementById('navMask');
+    var closeBtn = document.getElementById('navClose');
+    if (!btn || !drawer || !mask) return;
+    function openNav() {
+      drawer.classList.add('open'); mask.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeNav() {
+      drawer.classList.remove('open'); mask.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+    btn.addEventListener('click', function () {
+      drawer.classList.contains('open') ? closeNav() : openNav();
+    });
+    closeBtn && closeBtn.addEventListener('click', closeNav);
+    mask.addEventListener('click', closeNav);
+    drawer.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeNav); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeNav(); });
+    var here = (location.pathname.split('/').pop() || 'index.html');
+    drawer.querySelectorAll('a[href]').forEach(function (a) {
+      if (a.getAttribute('href').replace('./', '') === here) a.classList.add('active');
+    });
+  })();
+</script>
 
 </body>
 </html>
