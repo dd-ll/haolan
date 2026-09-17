@@ -38,7 +38,7 @@
     padding: 8px 16px; border-radius: 4px; height: 56px;
     box-shadow: 0 0 0 1px rgba(34,51,79,0.25);
   }
-  .logo-card img { height: 44px; width: auto; display: block; }
+  .logo-card img { height: 58px; width: auto; display: block; }
   .nav { display: flex; flex-direction: column; gap: 6px; margin-left: auto; padding: 14px 0; }
   .nav-row { display: flex; gap: 30px; font-size: 14px; }
   .nav-row.top a { color: rgba(34,51,79,0.88); transition: color .2s; padding: 4px 0; }
@@ -275,6 +275,13 @@
       .topbar .nav { display: none; }
       .nav-toggle { display: inline-flex; }
     }
+      /* ========== 品牌新 Logo（透明底 PNG） ========== */
+    .footer-logo .footer-logo-img { height: 62px; width: auto; display: block; }
+    @media (max-width: 760px) {
+      .logo-card { padding: 4px 7px; }
+      .logo-card img { height: 48px; }
+      .footer-logo .footer-logo-img { height: 52px; }
+    }
   </style>
 </head>
 <body data-page-node-id="xQgSYa5VAdQbGfmyiF73ND">
@@ -284,7 +291,7 @@
   <div class="topbar-inner" data-page-node-id="cEHYnicewSqfdEZ1HJ2kvK">
     <a href="./index.html" class="logo" aria-label="皓镧资产" data-page-node-id="mUtvNWpJDuxB1UD2JQHHhb">
       <span class="logo-card" data-page-node-id="aJRoAoqgMrbCvaQtZATmNd">
-        <img src="./assets/logo.jpg" alt="皓镧资产" data-page-node-id="c2D8oDMGujdEBBwPvN3RXm" />
+        <img src="./assets/haolan-logo.svg" alt="皓镧资产" data-page-node-id="c2D8oDMGujdEBBwPvN3RXm" />
       </span>
     </a>
     <nav class="nav" aria-label="主导航" data-page-node-id="enYgfnlte6l1xr0TNTWo22">
@@ -450,11 +457,7 @@
 <footer class="footer" data-page-node-id="ODNRZcHuZvgQe9bnzZfWQ8">
   <div class="footer-inner" data-page-node-id="ong05Zu8nFxMUbeWRHbX42">
     <div class="footer-logo" data-page-node-id="xGgJeKOdK2GVKM5b8QLl4R">
-      <svg class="logo-mark" width="44" height="44" viewBox="0 0 64 64" fill="none" data-page-node-id="VMxwZPxkuK02An0RBaf55t">
-        <path d="M32 4 L58 18 L58 46 L32 60 L6 46 L6 18 Z" stroke="#D4A574" stroke-width="3" fill="none" data-page-node-id="I5Tdv0zIZc0kYrzA258kL5"/>
-        <path d="M22 22 L42 22 M22 32 L42 32 M22 42 L32 42" stroke="#D4A574" stroke-width="3" data-page-node-id="EmvFDWWWba7JbVEuZxRIT6"/>
-      </svg>
-      <span class="lt" data-page-node-id="sspPa6djnFXz1kHNPG9gBL">皓镧资产</span>
+      <img class="footer-logo-img" src="./assets/haolan-logo-light.svg" alt="皓镧资产" />
     </div>
     <div class="footer-info" data-page-node-id="5DEh6Xj8p5c7N2iUSzv3ZI">
       <div data-page-node-id="VIB6h7C0boW7juSkBYhq29"><b data-page-node-id="O4JdACjV4EsALeBPI7Lhmi">联系电话：</b>0762-3103909</div>
