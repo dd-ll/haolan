@@ -288,6 +288,18 @@
       .logo-card img { height: 40px; }
       .footer-logo .footer-logo-img { height: 52px; }
     }
+  
+  /* ===== 顶部导航滚动吸顶 ===== */
+  .topbar { position: sticky; top: 0; z-index: 900; }
+  .topbar .topbar-inner,
+  .topbar .nav,
+  .topbar .logo-card,
+  .topbar .logo-card img { transition: padding .22s ease, height .22s ease; }
+  .topbar.compact { box-shadow: 0 6px 22px rgba(34,51,79,0.22); border-bottom-color: rgba(34,51,79,0.3); }
+  .topbar.compact .nav { padding: 7px 0; }
+  .topbar.compact .logo-card { height: 50px; }
+  .topbar.compact .logo-card img { height: 40px; }
+  [id] { scroll-margin-top: 96px; }
   </style>
 </head>
 <body data-page-node-id="bGFjKNwMnJGjvjh8FEVguz">
@@ -638,6 +650,7 @@
   })();
 </script>
 
+<script src="./assets/sticky.js"></script>
 <script src="./assets/call.js"></script>
 </body>
 </html>

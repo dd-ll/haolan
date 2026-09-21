@@ -204,11 +204,39 @@
   .phone-list { display: flex; flex-direction: column; gap: 16px; }
   /* 客服微信 - 企业微信名片 */
   .wechat-card-body {
-    display: flex; flex-direction: column; align-items: center;
-    gap: 14px; padding-top: 2px;
+    display: flex; flex-direction: row; align-items: center;
+    gap: 30px; padding-top: 2px;
+  }
+  .wx-meta { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+  .wechat-card-body .wx-label {
+    font-size: 11.5px; color: var(--muted); letter-spacing: 3px;
+  }
+  .wechat-card-body .wx-id-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .wechat-card-body .wx-id {
+    font-family: "STSong", "SimSun", serif;
+    font-size: 25px; font-weight: 700; color: var(--red); letter-spacing: 1px;
+    line-height: 1.25; white-space: nowrap;
+  }
+  .wechat-card-body .wx-copy {
+    font-family: inherit; font-size: 12px; line-height: 1; letter-spacing: 1px;
+    color: var(--gold-deep); background: #fff;
+    border: 1px solid var(--gold-soft); border-radius: 20px;
+    padding: 7px 14px; cursor: pointer;
+    transition: all .22s;
+  }
+  .wechat-card-body .wx-copy:hover {
+    color: #fff; border-color: transparent;
+    background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+    box-shadow: 0 6px 14px rgba(184,148,31,0.28);
+  }
+  .wechat-card-body .wx-copy:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+  .wechat-card-body .wx-copy.is-done {
+    color: #fff; border-color: transparent;
+    background: linear-gradient(135deg, var(--red), var(--red-deep));
+    box-shadow: 0 6px 14px rgba(200,16,46,0.26);
   }
   .wechat-card-body .img-frame {
-    position: relative; width: 100%; max-width: 300px;
+    position: relative; flex: 0 0 200px; width: 200px; max-width: 200px;
     border-radius: 14px; overflow: hidden;
     background: linear-gradient(135deg, #f7f7f7, #ffffff);
     border: 1px solid var(--gold-soft);
@@ -231,7 +259,7 @@
   .wechat-card-body .wechat-hint {
     display: inline-flex; align-items: center; gap: 6px;
     font-size: 12px; color: var(--muted); letter-spacing: 1px;
-    padding: 0 6px; text-align: center;
+    padding: 0; margin-top: 6px; text-align: left;
   }
   .wechat-card-body .wechat-hint svg {
     width: 14px; height: 14px; color: var(--gold-deep); flex-shrink: 0;
@@ -400,6 +428,7 @@
   /* ========== 响应式 ========== */
   @media (max-width: 1080px) {
     .addr-feature, .contact-grid, .gzh-card { grid-template-columns: 1fr; }
+    .contact-box { padding: 28px; }
     .hours-grid { grid-template-columns: repeat(3, 1fr); }
     .addr-visual { min-height: 0; aspect-ratio: 920 / 560; }
   }
@@ -423,6 +452,14 @@
     .gzh-articles { padding: 22px 18px; }
     .articles-grid { grid-template-columns: 1fr; gap: 14px; }
     .article-card { padding: 18px; }
+    .contact-box { padding: 24px 20px; }
+    .contact-box .head { gap: 12px; margin-bottom: 18px; }
+    .wechat-card-body { flex-direction: column; gap: 18px; }
+    .wechat-card-body .img-frame { flex: 0 0 auto; width: 180px; max-width: 180px; }
+    .wx-meta { align-items: center; text-align: center; }
+    .wechat-card-body .wx-id { font-size: 23px; }
+    .wechat-card-body .wx-id-row { justify-content: center; }
+    .wechat-card-body .wechat-hint { text-align: center; justify-content: center; }
   }
 
   /* ========== 手机端通用优化（追加） ========== */
@@ -517,6 +554,18 @@
       .logo-card img { height: 40px; }
       .footer-logo .footer-logo-img { height: 52px; }
     }
+  
+  /* ===== 顶部导航滚动吸顶 ===== */
+  .topbar { position: sticky; top: 0; z-index: 900; }
+  .topbar .topbar-inner,
+  .topbar .nav,
+  .topbar .logo-card,
+  .topbar .logo-card img { transition: padding .22s ease, height .22s ease; }
+  .topbar.compact { box-shadow: 0 6px 22px rgba(34,51,79,0.22); border-bottom-color: rgba(34,51,79,0.3); }
+  .topbar.compact .nav { padding: 7px 0; }
+  .topbar.compact .logo-card { height: 50px; }
+  .topbar.compact .logo-card img { height: 40px; }
+  [id] { scroll-margin-top: 96px; }
   </style>
 </head>
 <body data-page-node-id="jl7CeKgiWAAZBKrnw9QjmI">
@@ -677,12 +726,19 @@
 
         <div class="wechat-card-body" data-page-node-id="wxa91BdwfwC8M3nXuqhL7M">
           <div class="img-frame">
-            <img src="./assets/wechat-qr.jpg" alt="皓镧资产企业微信二维码 - 微信号 13172796462" loading="lazy" decoding="async" />
+            <img src="./assets/wechat-qr-code.png" alt="皓镧资产客服微信二维码 - 微信号 13172796462" loading="lazy" decoding="async" />
           </div>
-          <p class="wechat-hint" data-page-node-id="wxa92CdwgwD9N4oYvriM8N">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
-            长按识别二维码，添加客服微信
-          </p>
+          <div class="wx-meta">
+            <span class="wx-label" data-page-node-id="wxa93EdwgwE0O5pZwsiN9O">微信号</span>
+            <div class="wx-id-row">
+              <b class="wx-id">13172796462</b>
+              <button type="button" class="wx-copy" data-copy="13172796462" aria-label="复制微信号">复制</button>
+            </div>
+            <p class="wechat-hint" data-page-node-id="wxa92CdwgwD9N4oYvriM8N">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+              长按识别二维码，添加客服微信
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -844,6 +900,45 @@
 
 
 
+<script>
+  /* 复制微信号 */
+  (function () {
+    function fallbackCopy(text, ok) {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed';
+      ta.style.top = '-1000px';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, ta.value.length);
+      try { document.execCommand('copy'); ok(); } catch (e) {}
+      document.body.removeChild(ta);
+    }
+    document.addEventListener('click', function (e) {
+      var btn = e.target && e.target.closest ? e.target.closest('.wx-copy') : null;
+      if (!btn) return;
+      var text = btn.getAttribute('data-copy') || '';
+      if (!text) return;
+      var done = function () {
+        var old = btn.textContent;
+        btn.textContent = '已复制';
+        btn.classList.add('is-done');
+        setTimeout(function () {
+          btn.textContent = old;
+          btn.classList.remove('is-done');
+        }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, function () { fallbackCopy(text, done); });
+      } else {
+        fallbackCopy(text, done);
+      }
+    });
+  })();
+</script>
+<script src="./assets/sticky.js"></script>
 <script src="./assets/call.js"></script>
 </body>
 </html>

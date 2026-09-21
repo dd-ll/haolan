@@ -134,10 +134,36 @@
   }
   .step-card .sc-num { font-family: "STSong",serif; font-size: 38px; font-weight: 700; color: var(--gold); line-height: 1; }
   .step-card .sc-icon { width: 34px; height: 34px; color: var(--gold-deep); }
-  .step-card .sc-main { padding: 28px 30px; flex: 1; display: flex; align-items: center; }
+  .step-card .sc-main {
+    padding: 26px 28px; flex: 1; min-width: 0;
+    display: flex; flex-direction: column; align-items: stretch; justify-content: flex-start;
+  }
   .step-card .sc-main h4 {
     font-family: "STSong","SimSun",serif; font-size: 20px; font-weight: 700; color: var(--ink);
     letter-spacing: 2px; line-height: 1.5;
+    padding-bottom: 12px; margin-bottom: 14px; border-bottom: 1px dashed var(--line);
+  }
+  .sc-goal {
+    display: flex; align-items: flex-start; gap: 10px; margin-bottom: 14px;
+    padding: 10px 14px; border-radius: 6px;
+    background: var(--bg-soft); border-left: 3px solid var(--gold);
+  }
+  .sc-goal .gl-tag {
+    flex-shrink: 0; margin-top: 1px; padding: 2px 9px; border-radius: 10px;
+    font-size: 11.5px; letter-spacing: 1px; color: #fff;
+    background: linear-gradient(135deg, var(--red), var(--gold));
+  }
+  .sc-goal p { font-size: 13px; line-height: 1.9; color: var(--ink); }
+  .sc-act .act-label {
+    display: flex; align-items: center; gap: 7px; margin-bottom: 9px;
+    font-size: 12px; letter-spacing: 2px; color: var(--gold-deep);
+  }
+  .sc-act .act-label::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+  .act-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 7px; }
+  .act-list li { position: relative; padding-left: 17px; font-size: 13px; line-height: 1.9; color: var(--muted); }
+  .act-list li::before {
+    content: ""; position: absolute; left: 2px; top: 9px;
+    width: 5px; height: 5px; border-radius: 50%; background: var(--gold-soft);
   }
 
   /* ========== 服务承诺 ========== */
@@ -203,6 +229,11 @@
     .flow-circle { width: 64px; height: 64px; }
     .flow-wrap { padding: 44px 16px 48px; }
     .step-grid { grid-template-columns: 1fr; gap: 16px; }
+    .step-card .sc-main { padding: 20px 18px; }
+    .step-card .sc-main h4 { font-size: 18px; padding-bottom: 10px; margin-bottom: 12px; }
+    .sc-goal { padding: 9px 12px; gap: 8px; margin-bottom: 12px; }
+    .sc-goal p { font-size: 12.5px; line-height: 1.85; }
+    .act-list li { font-size: 12.5px; line-height: 1.85; }
     .promise-grid { grid-template-columns: 1fr; }
     .notice { padding: 22px 20px; }
     .topbar-inner { padding: 0 16px; gap: 12px; }
@@ -280,6 +311,18 @@
       .logo-card img { height: 40px; }
       .footer-logo .footer-logo-img { height: 52px; }
     }
+  
+  /* ===== 顶部导航滚动吸顶 ===== */
+  .topbar { position: sticky; top: 0; z-index: 900; }
+  .topbar .topbar-inner,
+  .topbar .nav,
+  .topbar .logo-card,
+  .topbar .logo-card img { transition: padding .22s ease, height .22s ease; }
+  .topbar.compact { box-shadow: 0 6px 22px rgba(34,51,79,0.22); border-bottom-color: rgba(34,51,79,0.3); }
+  .topbar.compact .nav { padding: 7px 0; }
+  .topbar.compact .logo-card { height: 50px; }
+  .topbar.compact .logo-card img { height: 40px; }
+  [id] { scroll-margin-top: 96px; }
   </style>
 </head>
 <body data-page-node-id="UJ5uEOeA0t785PSxDvGcnW">
@@ -431,6 +474,19 @@
         </div>
         <div class="sc-main" data-page-node-id="xFeqX6VSSOqr7AE30iTS6r">
           <h4 data-page-node-id="puJh1kARzCZXGuLipLfL4J">咨询对接</h4>
+          <div class="sc-goal">
+            <span class="gl-tag">阶段目标</span>
+            <p>了解真实需求，初步判断可行性，建立服务关系。</p>
+          </div>
+          <div class="sc-act">
+            <div class="act-label">核心动作</div>
+            <ul class="act-list">
+              <li>与客户沟通，了解借款主体、资金用途、需求金额、期限、还款来源、现有负债、征信情况、资产状况等。</li>
+              <li>介绍服务内容、办理流程、收费标准、所需资料及隐私保护方式。</li>
+              <li>初步判断是否符合基本准入条件，判断是否进入下一阶段。</li>
+              <li>双方确认合作意向，签署服务协议或授权文件。</li>
+            </ul>
+          </div>
         </div>
       </article>
 
@@ -442,6 +498,19 @@
         </div>
         <div class="sc-main" data-page-node-id="TCYD8qb3cusGtKAuN32z5n">
           <h4 data-page-node-id="OKQc1wwv9eeTA0zjI4VjsX">资料评估</h4>
+          <div class="sc-goal">
+            <span class="gl-tag">阶段目标</span>
+            <p>核验客户资质，识别风险，为方案制定提供依据。</p>
+          </div>
+          <div class="sc-act">
+            <div class="act-label">核心动作</div>
+            <ul class="act-list">
+              <li>收集基础资料</li>
+              <li>审核资料完整性、真实性、一致性。</li>
+              <li>分析收入负债比、征信查询次数、逾期记录、经营流水、抵押物价值、涉诉情况等。</li>
+              <li>形成初步评估结论：可做/不可做、大致额度区间、利率区间、难点与风险点。</li>
+            </ul>
+          </div>
         </div>
       </article>
 
@@ -453,6 +522,19 @@
         </div>
         <div class="sc-main" data-page-node-id="lrez0Ta2iH8pBq62HYigpu">
           <h4 data-page-node-id="OMNYLHlDtnRO3r5baUG9ao">方案制定</h4>
+          <div class="sc-goal">
+            <span class="gl-tag">阶段目标</span>
+            <p>根据评估结果，匹配最优融资方案，提高通过率。</p>
+          </div>
+          <div class="sc-act">
+            <div class="act-label">核心动作</div>
+            <ul class="act-list">
+              <li>根据客户资质匹配银行、持牌金融机构产品。</li>
+              <li>对比不同方案的额度、利率、期限、还款方式、准入条件、放款周期、抵押要求、提前还款规则等。</li>
+              <li>设计单方案或组合方案，规划申请顺序。</li>
+              <li>向客户说明推荐方案、备选方案、费用结构、潜在风险。</li>
+            </ul>
+          </div>
         </div>
       </article>
 
@@ -464,6 +546,19 @@
         </div>
         <div class="sc-main" data-page-node-id="C9FjkycxykvIcbrzcxMt4S">
           <h4 data-page-node-id="2eFWfVAypptRJDVSlPqFRM">协助办理</h4>
+          <div class="sc-goal">
+            <span class="gl-tag">阶段目标</span>
+            <p>协助客户完成申请、审批、面签、抵押等流程，推动业务落地。</p>
+          </div>
+          <div class="sc-act">
+            <div class="act-label">核心动作</div>
+            <ul class="act-list">
+              <li>指导客户准备、补充、整理申请材料。</li>
+              <li>协助申请和提交资料。</li>
+              <li>跟进审批进度等环节。</li>
+              <li>及时向客户反馈跟进情况及下一步动作。</li>
+            </ul>
+          </div>
         </div>
       </article>
 
@@ -475,6 +570,20 @@
         </div>
         <div class="sc-main" data-page-node-id="X6Hy0fYJ7yZAmqVsHPB8K9">
           <h4 data-page-node-id="4dBlEDujhBgc9imXNd1JmB">放款落地</h4>
+          <div class="sc-goal">
+            <span class="gl-tag">阶段目标</span>
+            <p>协助完成合同签署、放款到账，提示资金安全合规使用。</p>
+          </div>
+          <div class="sc-act">
+            <div class="act-label">核心动作</div>
+            <ul class="act-list">
+              <li>确认批复条件，协助客户签署借款合同、担保合同、抵押合同等。</li>
+              <li>办理抵押登记、质押、公证、保险等手续。</li>
+              <li>落实受托支付、资金用途证明等合规要求。</li>
+              <li>跟进资金方放款，核对到账金额、利率、期限、还款计划。</li>
+              <li>提醒客户首期还款时间与还款方式。</li>
+            </ul>
+          </div>
         </div>
       </article>
 
@@ -486,6 +595,21 @@
         </div>
         <div class="sc-main" data-page-node-id="1MYJsZUWyrYIE4fpGWVLjQ">
           <h4 data-page-node-id="fQwwDJ4bXuq6KLOlvMrfHM">售后服务</h4>
+          <div class="sc-goal">
+            <span class="gl-tag">阶段目标</span>
+            <p>做好贷后维护，降低逾期风险。</p>
+          </div>
+          <div class="sc-act">
+            <div class="act-label">核心动作</div>
+            <ul class="act-list">
+              <li>提供还款提醒，协助客户处理还款异常。</li>
+              <li>定期回访，了解经营与还款情况。</li>
+              <li>提供续贷、转贷、等后续方案咨询。</li>
+              <li>提供征信维护建议、财务优化建议。</li>
+              <li>协助结清、解押、开具结清证明。</li>
+              <li>处理客户投诉与异议，持续改进服务。</li>
+            </ul>
+          </div>
         </div>
       </article>
 
@@ -585,6 +709,7 @@
   })();
 </script>
 
+<script src="./assets/sticky.js"></script>
 <script src="./assets/call.js"></script>
 </body>
 </html>

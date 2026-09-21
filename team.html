@@ -370,6 +370,18 @@
       .logo-card img { height: 40px; }
       .footer-logo .footer-logo-img { height: 52px; }
     }
+  
+  /* ===== 顶部导航滚动吸顶 ===== */
+  .topbar { position: sticky; top: 0; z-index: 900; }
+  .topbar .topbar-inner,
+  .topbar .nav,
+  .topbar .logo-card,
+  .topbar .logo-card img { transition: padding .22s ease, height .22s ease; }
+  .topbar.compact { box-shadow: 0 6px 22px rgba(34,51,79,0.22); border-bottom-color: rgba(34,51,79,0.3); }
+  .topbar.compact .nav { padding: 7px 0; }
+  .topbar.compact .logo-card { height: 50px; }
+  .topbar.compact .logo-card img { height: 40px; }
+  [id] { scroll-margin-top: 96px; }
   </style>
 </head>
 <body data-page-node-id="qYh1GbMbFY7pMSWIQYz0MP">
@@ -569,7 +581,7 @@
     <h2 class="sec-title" data-page-node-id="bDU6DsjFrmDwNStx3Ih10n">业务顾问团队风采</h2>
     <p class="sec-subtitle" data-page-node-id="tErvTwHpJkXTmUhvF9dLOR">ADVISORY TEAM</p>
     <p class="sec-desc" data-page-node-id="8j4IekNzBNPpTq3mpyHa2s">
-      商务谈判部与渠道分销部的专业顾问团队，以精湛的谈判策略与广泛的渠道网络，为客户提供高效、精准的融资解决方案。
+      营销部、商务谈判部、渠道分销部与风控 / 售后部的专业团队协同作战，从前段的市场开拓与顾问式服务，到谈判落地、渠道整合，再到权证风控与售后跟进，为客户提供高效、精准、全程无忧的融资解决方案。
     </p>
 
     <div class="advice-grid" data-page-node-id="xfocopY2dFHUun2GzT5vkF">
@@ -587,6 +599,23 @@
           <div class="advice-person" data-page-node-id="AvX7feLdGnZnkFLoKbFTNL"><span class="avatar xs" data-page-node-id="Sz2GIfrafdqKqAcEktC30n">刘</span><div data-page-node-id="VwSHXQ5isMBNYorGzHlkOQ"><div class="name" data-page-node-id="0rrCfcRZqKvEJ4lDkb5PfP">刘法胜</div><div class="post" data-page-node-id="KV6et5mECOXv9VEzO00iDl">经理</div></div></div>
           <div class="advice-person" data-page-node-id="GtEiL4dc1Q2BtQM5hXYaa0"><span class="avatar xs" data-page-node-id="GIQ9py3tCXwvnIng1cGUbi">叶</span><div data-page-node-id="obf4mfFOyMUGR7TCojdrIg"><div class="name" data-page-node-id="C5eU3WV4dTOaF1kRDiiZIz">叶永权</div><div class="post" data-page-node-id="WanmvGrVwlFtlvdr37D0bF">高级渠道专员</div></div></div>
           <div class="advice-person" data-page-node-id="IX4mHQgb4HYkSfTPFGrbtz"><span class="avatar xs" data-page-node-id="1W2m74eDEfJlzswM9jdRv9">郑</span><div data-page-node-id="PWSzYZwCVbQ4L83xJy2VDR"><div class="name" data-page-node-id="CEhBkB6EuhyT6LZbUY2sAV">郑逸芬</div><div class="post" data-page-node-id="o6lOOG5eS4WPVobPoi8Rs2">高级渠道专员</div></div></div>
+        </div>
+      </div>
+            <div class="advice-group" data-page-node-id="uwRb0IefVpwiSSC4zNMc69">
+        <div class="g-head" data-page-node-id="GOkRMF1FWJRHEsNxnvmDfd"><b data-page-node-id="66TcW5Dfdtor3tzow7p1zW">营销部</b><span data-page-node-id="t2yIQOunxRrmx7DngioTIA">4 人</span></div>
+        <div class="g-body" data-page-node-id="cBnVBEH79DjixbJqj0wsnk">
+          <div class="advice-person" data-page-node-id="raPgg0AyLodPxPBE0ezY6R"><span class="avatar xs" data-page-node-id="P260PZdtNKCQeeaV37NSiB">龚</span><div data-page-node-id="79jVNQakYf1cVFv6gLFJm0"><div class="name" data-page-node-id="Ys0GxTPNkJYmyReoiamA1q">龚韬凡</div><div class="post" data-page-node-id="IEuTpaTJ4A0vGImaTMEGnd">经理</div></div></div>
+          <div class="advice-person" data-page-node-id="QlqgYcTlsFurp55FWVaUzt"><span class="avatar xs" data-page-node-id="9SdfsBC86vKXXEpAE4ZSOg">诸</span><div data-page-node-id="4mAhaujhdTLMu8rympgHWU"><div class="name" data-page-node-id="3YRuFFL1IUQmfsZzuRFMzv">诸超明</div><div class="post" data-page-node-id="PVERX7ZAwR0W0tLWcyLMZa">营销主管</div></div></div>
+          <div class="advice-person" data-page-node-id="7aJWJ4yOnKP8XfmeId4C5V"><span class="avatar xs" data-page-node-id="mEIQyiSwe0Sy6WPrP1VmyM">游</span><div data-page-node-id="RwAhv9D9figD4AcMjNk57e"><div class="name" data-page-node-id="LLxt5rFrUmNBXnv7eVMyXF">游珠</div><div class="post" data-page-node-id="rvRzGom6Zef3qbKOaYckSM">营销主管</div></div></div>
+          <div class="advice-person" data-page-node-id="OZx8BDOF85LQC4tTK0WUdK"><span class="avatar xs" data-page-node-id="TPiglp82aR9Gu8e7hESaLu">邱</span><div data-page-node-id="HTKnjoCgDTuwrAAsjqoxzT"><div class="name" data-page-node-id="fQF2rugaU61q8gLYie4P9u">邱鑫</div><div class="post" data-page-node-id="zv8EC7t8Kkt4FYmUHZ3Plv">营销主管</div></div></div>
+        </div>
+      </div>
+            <div class="advice-group" data-page-node-id="l2FsTsrQsIZciS6kr6i98r">
+        <div class="g-head" data-page-node-id="b9fwwpKmA8aHR34Zm1yHey"><b data-page-node-id="KSKs0FZDkLQnEhnSvQQCjD">风控 / 售后部</b><span data-page-node-id="JSVj6Ak4Abna9kQ68HvrrV">3 人</span></div>
+        <div class="g-body" data-page-node-id="NMTTv1WHKckz58ylSVHLYw">
+          <div class="advice-person" data-page-node-id="R7Un4zMrx9QEblmsaUeuw4"><span class="avatar xs" data-page-node-id="LcFnwS8swa9wpEQ6stboqw">廖</span><div data-page-node-id="BG8TULoJvOoQZ63fMlaQ2g"><div class="name" data-page-node-id="B5LxW0E6Wm91FMZOprxNNh">廖经勋</div><div class="post" data-page-node-id="TfH50WYDNqgbueiCGF41aR">经理</div></div></div>
+          <div class="advice-person" data-page-node-id="1OSzdfZ7tqGfwV5PFfeWXN"><span class="avatar xs" data-page-node-id="sgvvDOeOnq6Fex2YQ8Z9Wp">赖</span><div data-page-node-id="LXTeJ2Yp9b6oPtFG1zmNHI"><div class="name" data-page-node-id="yk1My614ak8qbSNWhDcXgU">赖银杏</div><div class="post" data-page-node-id="bbmneU4NBbJ7Xnq69TSCMS">客服专员</div></div></div>
+          <div class="advice-person" data-page-node-id="Lygm7WmKJ1ZhAnDWTafmdk"><span class="avatar xs" data-page-node-id="Pcrh2HxCEUM1Vvjk3BXEVj">黄</span><div data-page-node-id="1Jcs1Xem5SQj4XiQOCFlLQ"><div class="name" data-page-node-id="FVhPl5uFouwfX48HxZetRv">黄漫</div><div class="post" data-page-node-id="T9jIAr8OeC6FfyQNCHHipA">客服专员</div></div></div>
         </div>
       </div>
     </div>
@@ -704,6 +733,7 @@
   })();
 </script>
 
+<script src="./assets/sticky.js"></script>
 <script src="./assets/call.js"></script>
 </body>
 </html>
