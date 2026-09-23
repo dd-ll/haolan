@@ -441,6 +441,76 @@
   .topbar.compact .logo-card { height: 50px; }
   .topbar.compact .logo-card img { height: 40px; }
   [id] { scroll-margin-top: 96px; }
+  /* ===== 团队风采 · 活动掠影 ===== */
+  .tf-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .tf-card {
+    background: #fff; border: 1.5px solid var(--gold-soft); border-radius: 10px; overflow: hidden;
+    transition: transform .28s ease, box-shadow .28s ease;
+  }
+  .tf-card:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(201,169,97,.3); }
+  .tf-card .tf-photo { display: block; overflow: hidden; }
+  .tf-card img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; }
+  .tf-card .tf-cap { padding: 16px 18px 18px; }
+  .tf-card .tf-cap b {
+    display: block; font-family: "STSong","SimSun",serif; font-size: 15.5px;
+    letter-spacing: 1.5px; color: var(--ink); margin-bottom: 7px;
+  }
+  .tf-card .tf-cap span { display: block; font-size: 12.5px; line-height: 1.9; color: var(--muted); }
+
+  @media (max-width: 1080px) { .tf-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 760px) {
+    .tf-grid { grid-template-columns: 1fr; gap: 18px; }
+    .tf-card img { aspect-ratio: 16 / 9; }
+    .tf-card .tf-cap { padding: 14px 16px 16px; }
+  }
+  /* ===== 正能量价值观语录 ===== */
+  .val-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; margin-bottom: 28px; }
+  .val-card {
+    background: #fff; border: 1.5px solid var(--gold-soft); border-radius: 10px;
+    padding: 24px 28px 26px; transition: transform .28s ease, box-shadow .28s ease;
+  }
+  .val-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(201,169,97,.3); }
+  .val-card .v-head {
+    display: flex; align-items: center; gap: 12px;
+    padding-bottom: 12px; margin-bottom: 14px;
+    border-bottom: 1px dashed rgba(201,169,97,.45);
+  }
+  .val-card .vnum {
+    font-family: "STSong","SimSun",serif; font-size: 20px; color: var(--gold); flex: none;
+  }
+  .val-card .v-head h4 {
+    font-family: "STSong","SimSun",serif; font-size: 17.5px; font-weight: 700;
+    letter-spacing: 2px; color: var(--ink);
+  }
+  .val-card .v-list { list-style: none; counter-reset: vnum; }
+  .val-card .v-list li {
+    position: relative; padding-left: 20px; margin-bottom: 10px; counter-increment: vnum;
+    font-size: 13.5px; line-height: 1.95; color: var(--muted);
+  }
+  .val-card .v-list li:last-child { margin-bottom: 0; }
+  .val-card .v-list li::before {
+    content: counter(vnum) "."; position: absolute; left: 0;
+    color: var(--gold-deep); font-weight: 600;
+  }
+
+  .val-quote-t {
+    font-family: "STSong","SimSun",serif; font-size: 17.5px; font-weight: 700;
+    letter-spacing: 2px; color: var(--ink); text-align: center; margin-bottom: 18px;
+  }
+  .val-quotes { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+  .vq-item {
+    padding: 11px 22px; border: 1px solid var(--gold-soft); border-radius: 999px;
+    background: linear-gradient(135deg, #FFF9EE 0%, #FFFFFF 100%);
+    font-family: "STSong","SimSun",serif; font-size: 15px; letter-spacing: 2px; color: var(--ink);
+  }
+
+  @media (max-width: 1080px) { .val-grid { grid-template-columns: 1fr; gap: 18px; } }
+  @media (max-width: 760px) {
+    .val-card { padding: 20px 18px 22px; }
+    .val-card .v-head h4 { font-size: 16px; }
+    .val-card .v-list li { font-size: 13px; line-height: 1.9; }
+    .vq-item { font-size: 14px; padding: 9px 16px; }
+  }
   </style>
 </head>
 <body data-page-node-id="IJaeFzT9AEr3LIJ3YyUQE5">
@@ -602,7 +672,125 @@
   </section>
 
   <!-- ========================================== -->
-  <!-- 3. 公司动态 -->
+  <!-- 3. 正能量价值观语录 -->
+  <!-- ========================================== -->
+  <section id="values">
+    <h2 class="sec-title">正能量价值观语录</h2>
+    <p class="sec-subtitle">POSITIVE VALUES</p>
+    <p class="sec-desc">这些话不是挂在墙上的口号，而是同事们日常提醒自己的做事准则——怎么待人、怎么做事、怎么看待得失，都写在里面。</p>
+
+    <div class="val-grid">
+      <article class="val-card">
+        <div class="v-head"><span class="vnum">①</span><h4>立身做人</h4></div>
+        <ol class="v-list">
+          <li>做人以真，待人以善，行事以正，守住本心，便是最好的修养。</li>
+          <li>品行是一个人的底色，能力决定你能走多快，品德决定你能走多远。</li>
+          <li>不必攀比他人的生活，认真经营自己，守好底线，稳步前行。</li>
+          <li>懂得感恩，学会体谅，尊重每一个认真生活的人。</li>
+          <li>穷不失志，富不张狂；顺境不骄，逆境不馁。</li>
+        </ol>
+      </article>
+
+      <article class="val-card">
+        <div class="v-head"><span class="vnum">②</span><h4>奋斗与成长</h4></div>
+        <ol class="v-list">
+          <li>人生没有白走的路，每一分坚持与付出，都在悄悄塑造更好的自己。</li>
+          <li>努力不是为了超越别人，而是拥有更多选择权，活成自己喜欢的模样。</li>
+          <li>遇到困难不逃避，遭遇挫折不沉沦，困境恰恰是磨练心性的机会。</li>
+          <li>接受暂时的不完美，持续精进，慢慢沉淀，时间会见证成长。</li>
+          <li>星光不问赶路人，时光不负有心人，脚踏实地，自有收获。</li>
+        </ol>
+      </article>
+
+      <article class="val-card">
+        <div class="v-head"><span class="vnum">③</span><h4>格局与取舍</h4></div>
+        <ol class="v-list">
+          <li>格局大的人，不困于小事，不纠结得失，目光长远，内心从容。</li>
+          <li>凡事多向内反思，少向外抱怨，改变自己远比指责他人更有力量。</li>
+          <li>得失皆是常态，得到时珍惜，失去时释怀，看淡纷扰，稳住内心。</li>
+          <li>宽容不是一味退让，而是不被琐事消耗，守住自己的原则与立场。</li>
+        </ol>
+      </article>
+
+      <article class="val-card">
+        <div class="v-head"><span class="vnum">④</span><h4>责任与理想</h4></div>
+        <ol class="v-list">
+          <li>心怀敬畏，肩担责任，小事认真，大事担当。</li>
+          <li>理想不必宏大，把每一件平凡事做好，本身就是一种不凡。</li>
+          <li>心中有信仰，脚下有力量，坚守正道，不随波逐流。</li>
+          <li>个体微光亦可照亮前路，做好自己，也尽力温暖身边的世界。</li>
+        </ol>
+      </article>
+    </div>
+
+    <p class="val-quote-t">简短短句（适合海报、摘抄、座右铭）</p>
+    <div class="val-quotes">
+        <div class="vq-item">正道直行，心安为本。</div>
+        <div class="vq-item">以德立身，以行致远。</div>
+        <div class="vq-item">向阳而生，择善而行。</div>
+        <div class="vq-item">厚积薄发，行稳致远。</div>
+        <div class="vq-item">心有坚守，无畏前行。</div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 4. 团队风采 · 活动掠影 -->
+  <!-- ========================================== -->
+  <section id="teamlife">
+    <h2 class="sec-title">团队风采</h2>
+    <p class="sec-subtitle">TEAM MOMENTS</p>
+    <p class="sec-desc">从开业的第一张合影，到年会舞台上的并肩；从银企共建的横幅，到一顿热闹的团队聚餐。这些画面记录着皓镧资产真实的工作日常。</p>
+
+    <div class="tf-grid">
+      <figure class="tf-card">
+        <span class="tf-photo"><img src="./assets/culture/culture-opening.jpg" alt="皓镧资产团队开业合影" loading="lazy" /></span>
+        <figcaption class="tf-cap"><b>开业合影</b><span>团队正式启航的第一张全员合影，一切从这里开始。</span></figcaption>
+      </figure>
+
+      <figure class="tf-card">
+        <span class="tf-photo"><img src="./assets/culture/culture-cooperation.jpg" alt="皓镧资产与广发银行河源分行共建诚信文化" loading="lazy" /></span>
+        <figcaption class="tf-cap"><b>银企共建 · 诚信文化</b><span>与广发银行河源分行共同开展诚信文化建设，把合规与诚信摆在业务之前。</span></figcaption>
+      </figure>
+
+      <figure class="tf-card">
+        <span class="tf-photo"><img src="./assets/culture/culture-award.jpg" alt="季度优秀员工表彰现场" loading="lazy" /></span>
+        <figcaption class="tf-cap"><b>季度优秀员工表彰</b><span>每季度评选优秀员工，奖状与奖杯交给真正做出结果的人。</span></figcaption>
+      </figure>
+
+      <figure class="tf-card">
+        <span class="tf-photo"><img src="./assets/culture/culture-anniversary.jpg" alt="皓镧资产周年庆典全员合影" loading="lazy" /></span>
+        <figcaption class="tf-cap"><b>周年庆典</b><span>周年庆当天，公司为每位同事备好礼物，一起庆祝又走过的一年。</span></figcaption>
+      </figure>
+
+      <figure class="tf-card">
+        <span class="tf-photo"><img src="./assets/culture/culture-annual.jpg" alt="皓镧资产年度盛典合影" loading="lazy" /></span>
+        <figcaption class="tf-cap"><b>年度盛典</b><span>一年一度的全员盛典，台上总结、台下举杯，为新一年定好节奏。</span></figcaption>
+      </figure>
+
+      <figure class="tf-card">
+        <span class="tf-photo"><img src="./assets/culture/culture-group-newyear.jpg" alt="春节全公司在时代国际中心前合影" loading="lazy" /></span>
+        <figcaption class="tf-cap"><b>新春合影 · 时代国际中心</b><span>春节，全公司在办公楼前拍下一张全家福，收下这一年的期许。</span></figcaption>
+      </figure>
+
+      <figure class="tf-card">
+        <span class="tf-photo"><img src="./assets/culture/culture-spring-fu.jpg" alt="新春写福字活动合影" loading="lazy" /></span>
+        <figcaption class="tf-cap"><b>写福迎新</b><span>写福字、贴春联，把年味带进办公室，也把祝福送给每一位同事。</span></figcaption>
+      </figure>
+
+      <figure class="tf-card">
+        <span class="tf-photo"><img src="./assets/culture/culture-spring-couplet.jpg" alt="同事现场书写春联" loading="lazy" /></span>
+        <figcaption class="tf-cap"><b>写春联现场</b><span>一副春联写下来，围观的同事比写的人还认真。</span></figcaption>
+      </figure>
+
+      <figure class="tf-card">
+        <span class="tf-photo"><img src="./assets/culture/culture-dinner.jpg" alt="团队聚餐合影" loading="lazy" /></span>
+        <figcaption class="tf-cap"><b>团队聚餐</b><span>业务再忙也要坐下吃顿饭，跨部门的默契常常就是这样建立起来的。</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 5. 公司动态 -->
   <!-- ========================================== -->
   <section id="dynamics" data-page-node-id="T0YWZQrAFI7HXA4JtD8bDV">
     <h2 class="sec-title" data-page-node-id="EMM2lHEJRK7C3e1sfbhFum">公司动态</h2>
@@ -649,7 +837,7 @@
   </section>
 
   <!-- ========================================== -->
-  <!-- 4. 客户案例 + 服务优势 -->
+  <!-- 6. 客户案例 + 服务优势 -->
   <!-- ========================================== -->
   <section id="cases" data-page-node-id="1NXIbN2B2Ifdcvny42dif2">
     <h2 class="sec-title" data-page-node-id="eQWCFu1XYFQlK41uRBooQf">客户案例与服务优势</h2>
@@ -737,7 +925,7 @@
   </section>
 
   <!-- ========================================== -->
-  <!-- 5. 服务场景展示 -->
+  <!-- 7. 服务场景展示 -->
   <!-- ========================================== -->
   <section id="scenes" data-page-node-id="itG5wGaTJ45BTyElg6Rc4D">
     <h2 class="sec-title" data-page-node-id="bGtFGxPpEqOPqK8Bl0EnWo">服务场景展示</h2>

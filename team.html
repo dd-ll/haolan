@@ -86,58 +86,31 @@
   .stat-card .label { font-size: 14px; color: var(--ink); letter-spacing: 3px; font-weight: 600; }
   .stat-card .sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
 
-  /* ========== 组织架构图 ========== */
-  .org-chart {
-    background: linear-gradient(180deg, #fff 0%, #fdf9ee 100%);
+  /* ========== 组织架构图（按客户提供图重绘） ========== */
+  .org-flow {
+    background: #fff;
     border: 1px solid var(--gold-soft); border-radius: 14px;
-    padding: 48px 24px 40px;
+    padding: 40px 28px 34px;
   }
-  .org-level { display: flex; justify-content: center; }
-  .org-box { border-radius: 10px; text-align: center; line-height: 1.5; transition: transform .25s; }
-  .org-box:hover { transform: translateY(-2px); }
-  .org-company {
-    background: #2C2C2C; color: #fff;
-    font-family: "STSong",serif; font-size: 20px; font-weight: 700;
-    letter-spacing: 6px; padding: 14px 52px;
-    border: 2px solid var(--gold);
-    box-shadow: 0 6px 20px rgba(31,58,46,0.25);
+  .org-flow-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .org-flow-svg { display: block; width: 100%; height: auto; }
+  .org-flow-svg text {
+    fill: #fff; font-size: 50px; text-anchor: middle;
+    font-family: "PingFang SC", "Microsoft YaHei", "Source Han Sans SC", "Noto Sans CJK SC", "Helvetica Neue", Arial, sans-serif;
   }
-  .org-dir-box {
-    background: var(--red); color: #fff; border: 2px solid var(--gold);
-    padding: 12px 40px; box-shadow: 0 6px 20px rgba(200,16,46,0.2);
+  .org-flow-svg .t-lead { font-size: 67px; }
+  .org-flow-hint { display: none; }
+
+  @media (max-width: 760px) {
+    .org-flow { padding: 22px 14px 18px; border-radius: 12px; }
+    .org-flow-svg { min-width: 700px; }
+    .org-flow-hint {
+      display: block; margin-top: 10px; text-align: center;
+      font-size: 12px; color: var(--muted); letter-spacing: 1px;
+    }
   }
-  .org-dir-box .dt { font-size: 12px; letter-spacing: 2px; color: rgba(255,255,255,0.8); }
-  .org-dir-box .dn { font-size: 18px; font-weight: 700; letter-spacing: 3px; font-family: "STSong",serif; }
-  .org-gm-box {
-    background: #1F3A2E; color: #fff; border: 2px solid var(--gold);
-    padding: 12px 40px; box-shadow: 0 6px 20px rgba(31,58,46,0.28);
-  }
-  .org-gm-box .dt { font-size: 12px; letter-spacing: 2px; color: rgba(255,255,255,0.8); }
-  .org-gm-box .dn { font-size: 18px; font-weight: 700; letter-spacing: 3px; font-family: "STSong",serif; }
-  .org-vline { width: 2px; height: 28px; background: var(--gold); margin: 0 auto; }
-  .org-branch { position: relative; padding-top: 28px; }
-  .org-branch::before {
-    content: ""; position: absolute; top: 0; left: 8.33%; right: 8.33%;
-    height: 2px; background: var(--gold);
-  }
-  .org-depts { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
-  .org-dept-item { position: relative; }
-  .org-dept-item::before {
-    content: ""; position: absolute; top: -28px; left: 50%;
-    width: 2px; height: 28px; background: var(--gold); transform: translateX(-50%);
-  }
-  .org-dc {
-    border: 1.5px solid var(--gold); border-radius: 10px; background: #fff;
-    padding: 14px 8px 12px; text-align: center; transition: all .25s;
-    height: 100%; display: flex; flex-direction: column;
-  }
-  .org-dc:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(184,148,31,0.18); }
-  .org-dc .d-name { font-size: 13px; font-weight: 700; letter-spacing: 1px; margin-bottom: 4px; }
-  .org-dc .d-mgr { font-size: 11px; color: var(--red); font-weight: 600; margin-bottom: 6px; }
-  .org-dc .d-cnt {
-    display: inline-block; font-size: 10px; color: var(--gold); background: var(--bg-soft);
-    border: 1px solid var(--gold-soft); padding: 1px 8px; border-radius: 10px; margin-bottom: 8px;
-  }/* ========== 部门卡 ========== */
+
+  /* ========== 部门卡 ========== */
   .dept-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .dept-card {
     border: 1.5px solid var(--gold); border-radius: 10px; padding: 28px 26px;
@@ -175,7 +148,8 @@
   }
   .avatar.lg { width: 108px; height: 108px; font-size: 40px; box-shadow: 0 0 0 4px rgba(201,169,97,0.25); }
   .avatar.sm { width: 76px; height: 76px; font-size: 28px; box-shadow: 0 0 0 3px rgba(201,169,97,0.22); }
-  .avatar.xs { width: 44px; height: 44px; font-size: 16px; box-shadow: 0 0 0 2px rgba(201,169,97,0.2); }
+  .avatar.xs { width: 56px; height: 56px; font-size: 18px; box-shadow: 0 0 0 2px rgba(201,169,97,0.22); }
+  .avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
   .leader-info h3 { font-size: 26px; font-weight: 700; letter-spacing: 3px; font-family: "STSong",serif; }
   .leader-info .role {
     display: inline-block; margin: 8px 0 10px; font-size: 13px; letter-spacing: 2px;
@@ -213,33 +187,59 @@
   .advice-group .g-head span { font-size: 11px; color: var(--gold); letter-spacing: 2px; }
   .advice-group .g-body { padding: 18px 18px 20px; display: grid; gap: 10px; }
   .advice-person {
-    display: flex; align-items: center; gap: 10px;
-    border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px;
+    display: flex; align-items: center; gap: 12px;
+    border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px;
     transition: border-color .2s;
   }
   .advice-person:hover { border-color: var(--gold); }
   .advice-person .name { font-size: 13px; font-weight: 600; letter-spacing: 1px; }
   .advice-person .post { font-size: 11px; color: var(--muted); }
 
+  /* ========== 营销团队风采 ========== */
+  .grp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .grp-card {
+    border: 1.5px solid var(--gold); border-radius: 10px; background: #fff;
+    overflow: hidden; margin: 0; transition: all .25s;
+  }
+  .grp-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(184,148,31,0.16); }
+  .grp-card img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+  .grp-card .grp-cap {
+    background: linear-gradient(135deg, #2C2C2C, #1A1A1A); color: #fff;
+    padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  }
+  .grp-card .grp-cap b { font-size: 15px; letter-spacing: 2px; }
+  .grp-card .grp-cap span { font-size: 11px; color: var(--gold); letter-spacing: 2px; }
+
   /* ========== 自媒体 / 智能团队 ========== */
-  .media-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 28px; }
+  .media-wrap { display: grid; grid-template-columns: 1fr; gap: 24px; }
   .media-card {
     border: 1.5px solid var(--gold); border-radius: 14px; overflow: hidden; background: #fff;
     transition: all .25s;
   }
   .media-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(184,148,31,0.16); }
   .media-card .m-head {
-    padding: 26px 30px; color: #fff;
-    display: flex; align-items: center; gap: 16px;
+    position: relative; overflow: hidden; color: #fff;
+    padding: 30px 34px; min-height: 340px;
+    display: flex; align-items: flex-end;
   }
+  /* 兜底红底（照片未加载时文字仍可读）；照片之上再盖一层半透明红渐变罩 */
   .media-card.m-newmedia .m-head { background: linear-gradient(135deg, var(--red), var(--red-deep)); }
-  .media-card
-  .media-card .m-head .icon { width: 40px; height: 40px; color: var(--gold); flex-shrink: 0; }
-  .media-card .m-head h3 { font-size: 20px; letter-spacing: 3px; font-family: "STSong",serif; }
-  .media-card .m-head p { font-size: 12px; color: rgba(255,255,255,0.75); letter-spacing: 1px; }
+  .media-card .m-head .m-bg {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: center 30%;
+  }
+  /* 不再盖红色罩：照片原色显示，仅在底部留一小条暗角保证白字可读 */
+  .media-card.m-newmedia .m-head::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.26) 22%, rgba(0,0,0,0) 46%);
+  }
+  .media-card .m-head .m-head-txt { position: relative; z-index: 2; }
+  .media-card .m-head h3 { font-size: 24px; letter-spacing: 3px; font-family: "STSong",serif; text-shadow: 0 2px 12px rgba(0,0,0,0.8), 0 0 22px rgba(0,0,0,0.5); }
+  .media-card .m-head p { font-size: 12px; color: rgba(255,255,255,0.95); letter-spacing: 1px; text-shadow: 0 1px 8px rgba(0,0,0,0.85), 0 0 16px rgba(0,0,0,0.5); }
   .media-card .m-body { padding: 26px 30px; }
-  .media-card .m-body .list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .media-card .m-body .list { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
   .media-card .m-body .duty { font-size: 12px; color: var(--muted); line-height: 1.9; margin-bottom: 18px; }
+
   .media-tags { display: flex; flex-wrap: wrap; gap: 8px; }
   .media-tags span {
     font-size: 12px; border: 1px solid var(--gold); color: var(--ink);
@@ -279,13 +279,17 @@
     .team-grid, .advice-grid, .adv-grid { grid-template-columns: repeat(2, 1fr); }
     .dept-grid { grid-template-columns: repeat(2, 1fr); }
     .media-wrap { grid-template-columns: 1fr; }
-    .org-depts { grid-template-columns: repeat(3, 1fr); }
-    .org-branch::before { left: 16.67%; right: 16.67%; }
+    .media-card .m-body .list { grid-template-columns: repeat(3, 1fr); }
+    .media-card .m-head { min-height: 260px; }
   }
   @media (max-width: 760px) {
     .stats-bar { grid-template-columns: repeat(2, 1fr); }
     .team-grid, .advice-grid, .dept-grid, .adv-grid,
     .media-card .m-body .list { grid-template-columns: repeat(2, 1fr); }
+    .grp-grid { grid-template-columns: 1fr; }
+    .media-card .m-head { min-height: 200px; padding: 22px 20px; align-items: flex-end; }
+    .media-card .m-head h3 { font-size: 20px; }
+    .avatar.xs { width: 48px; height: 48px; font-size: 16px; }
     .leader-card { flex-direction: column; text-align: center; padding: 28px 20px; }
     .topbar-inner { flex-wrap: wrap; padding: 0 20px; gap: 16px; }
     .nav { margin-left: 0; }
@@ -293,9 +297,6 @@
     .footer-inner { flex-direction: column; text-align: center; }
     .footer-info { text-align: center; }
     main { padding: 40px 20px; }
-    .org-depts { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-    .org-branch::before, .org-dept-item::before { display: none; }
-    .org-branch { padding-top: 16px; }
   }
 
   /* ========== 手机端通用优化（追加） ========== */
@@ -474,65 +475,66 @@
       </div>
     </div>
 
-    <div class="org-chart" data-page-node-id="GOKhcxVxBKl7woynSCuWes">
-      <div class="org-level" data-page-node-id="tjusA30JGqLmEQt6fCDxBC">
-        <div class="org-box org-company" data-page-node-id="dvFpYvfrSsaPJbT2wfoqws">皓镧资产</div>
+    <!-- 组织架构图（依据客户提供图重绘 · 纯 SVG 等比缩放，各尺寸自适应） -->
+    <div class="org-flow" data-page-node-id="oBkNGNI2YPbgq3vCO4zzio">
+      <div class="org-flow-scroll" data-page-node-id="zkeE30cqaKXQkCGvDxw7k1">
+        <svg class="org-flow-svg" viewBox="0 0 3027 1280" role="img" aria-labelledby="orgFlowTitle" preserveAspectRatio="xMidYMid meet" data-page-node-id="d8i5wxIfftCfqjyaoyhvqM">
+          <title id="orgFlowTitle">皓镧资产组织架构图：总经办下设业务部与行政部；业务部下设营销部、商务谈判部、渠道分销部、风控/售后部、互联网部；营销部下设 1 组、2 组、3 组；风控/售后部下设客服组；行政部下设人事组、研发组。</title>
+          <g fill="none" stroke="#2E3134" stroke-width="3" stroke-linecap="square">
+            <path d="M1322 220V368"/>
+            <path d="M1322 292H2578V708"/>
+            <path d="M1322 532V708"/>
+            <path d="M489 607H2162"/>
+            <path d="M489 607V708"/>
+            <path d="M919 607V708"/>
+            <path d="M1739 607V708"/>
+            <path d="M2162 607V708"/>
+            <path d="M507 872V1000"/>
+            <path d="M187 1000H827"/>
+            <path d="M187 1000V1072"/>
+            <path d="M507 1000V1072"/>
+            <path d="M827 1000V1072"/>
+            <path d="M1739 872V1072"/>
+            <path d="M2578 872V1000"/>
+            <path d="M2416 1000H2834"/>
+            <path d="M2416 1000V1072"/>
+            <path d="M2834 1000V1072"/>
+          </g>
+          <g>
+            <rect x="1098" y="48" width="448" height="172" rx="3" fill="#7289A7"/>
+            <rect x="1168" y="368" width="308" height="164" rx="3" fill="#A4BCBC"/>
+            <rect x="334" y="708" width="310" height="164" rx="3" fill="#A4BCBC"/>
+            <rect x="764" y="708" width="310" height="164" rx="3" fill="#A4BCBC"/>
+            <rect x="1167" y="708" width="310" height="164" rx="3" fill="#A4BCBC"/>
+            <rect x="1584" y="708" width="310" height="164" rx="3" fill="#A4BCBC"/>
+            <rect x="2007" y="708" width="310" height="164" rx="3" fill="#A4BCBC"/>
+            <rect x="2421" y="708" width="314" height="164" rx="3" fill="#ED8F60"/>
+            <rect x="47" y="1072" width="280" height="160" rx="3" fill="#A4BCBC"/>
+            <rect x="367" y="1072" width="280" height="160" rx="3" fill="#A4BCBC"/>
+            <rect x="687" y="1072" width="280" height="160" rx="3" fill="#A4BCBC"/>
+            <rect x="1599" y="1072" width="280" height="160" rx="3" fill="#A4BCBC"/>
+            <rect x="2269" y="1072" width="294" height="160" rx="3" fill="#ED8F60"/>
+            <rect x="2687" y="1072" width="294" height="160" rx="3" fill="#ED8F60"/>
+          </g>
+          <g>
+            <text class="t-lead" x="1322" y="159">总经办</text>
+            <text x="1322" y="469">业务部</text>
+            <text x="489" y="809">营销部</text>
+            <text x="919" y="809">商务谈判部</text>
+            <text x="1322" y="809">渠道分销部</text>
+            <text x="1739" y="809">风控/售后部</text>
+            <text x="2162" y="809">互联网部</text>
+            <text x="2578" y="809">行政部</text>
+            <text x="187" y="1171">1组</text>
+            <text x="507" y="1171">2组</text>
+            <text x="827" y="1171">3组</text>
+            <text x="1739" y="1171">客服组</text>
+            <text x="2416" y="1171">人事组</text>
+            <text x="2834" y="1171">研发组</text>
+          </g>
+        </svg>
       </div>
-      <div class="org-vline" data-page-node-id="33KG4QOdJWiXJcRcEBAqGT"></div>
-      <div class="org-level">
-        <div class="org-box org-gm-box">
-          <div class="dt">总经办</div>
-          <div class="dn">具海镧</div>
-        </div>
-      </div>
-      <div class="org-vline"></div>
-      <div class="org-level" data-page-node-id="OXlP0KZiHM7VITQw3XGR1S">
-        <div class="org-box org-dir-box" data-page-node-id="9UhWD8k8hjCbRMX5yxiIGH">
-          <div class="dt" data-page-node-id="74WsLxNF44jQ51apX2VKrZ">业务部 · 总监</div>
-          <div class="dn" data-page-node-id="qZsW8TIvkKkOF2SoB5wxcY">叶斯敏</div>
-        </div>
-      </div>
-      <div class="org-vline" data-page-node-id="BZUChDJTUm2NBRTZBEQZWL"></div>
-      <div class="org-branch" data-page-node-id="HMeIsMKeUPRxttc9vpuRou">
-        <div class="org-depts" data-page-node-id="Mcd8IDe3NMqPNbNdmiye78">
-          <div class="org-dept-item" data-page-node-id="1cKy7E8euq50WPGVWMc5z1">
-            <div class="org-dc" data-page-node-id="IAgs4xBkJI9ZvwWpkUTzxH">
-              <div class="d-name" data-page-node-id="pDpYwltRiFQ8TuVzDfQb5q">营销部</div>
-              <div class="d-mgr" data-page-node-id="XgPOYaE9E8nV5pwzw58clH">经理 龚韬凡</div>
-              <div class="d-cnt" data-page-node-id="zOLBAtBLKATkAR8CuqZwF6">34 人</div></div>
-          </div>
-          <div class="org-dept-item" data-page-node-id="qPEaUmBloQFKu6SiiHMO1s">
-            <div class="org-dc" data-page-node-id="N7eCeZyEZGlAAVKbM4PZco">
-              <div class="d-name" data-page-node-id="vP0jhEtv7SVFOeklAe9Cck">商务谈判部</div>
-              <div class="d-mgr" data-page-node-id="t5cmVNCZZdNKnryBDRNpBq">经理 李朗</div>
-              <div class="d-cnt" data-page-node-id="RyRbxpPI0xRPVuPdgjtNlW">4 人</div></div>
-          </div>
-          <div class="org-dept-item" data-page-node-id="EJROTNBcFmEjvPhWf8naw4">
-            <div class="org-dc" data-page-node-id="NHTT7yqzAnQ24ZqLz6zzaB">
-              <div class="d-name" data-page-node-id="IIV6GD44Gq6cSYAjAomsMk">渠道分销部</div>
-              <div class="d-mgr" data-page-node-id="YNYiS5641kbpE4YIYdtYmK">经理 刘法胜</div>
-              <div class="d-cnt" data-page-node-id="y9yZQYWFe1PswTH65KxneN">3 人</div></div>
-          </div>
-          <div class="org-dept-item" data-page-node-id="LjQ2ElEn7PWzljhcbsZCTb">
-            <div class="org-dc" data-page-node-id="2whJKSFdGnFHLX8CCz6isl">
-              <div class="d-name" data-page-node-id="uSoEwHGDDBK04Owgb2fT7d">风控 / 售后部</div>
-              <div class="d-mgr" data-page-node-id="S6EZ1uGjkytGIgJrTpRh8p">经理 廖经勋</div>
-              <div class="d-cnt" data-page-node-id="Dts4vF2lr9sUAEcj9bkDBC">3 人</div></div>
-          </div>
-          <div class="org-dept-item" data-page-node-id="zCX2rLaH51eDBMdnVcIfdB">
-            <div class="org-dc" data-page-node-id="6NcZn0g2sRMgsOsnMakG8p">
-              <div class="d-name" data-page-node-id="LtSir3BxL80UAk6bqogBTB">互联网部</div>
-              <div class="d-mgr" data-page-node-id="RPPVJTefe6JHbQ7ZSxNklU">经理 诸晓奇</div>
-              <div class="d-cnt" data-page-node-id="HmoySz0DNCORMlPAHwuUPO">6 人</div></div>
-          </div>
-          <div class="org-dept-item" data-page-node-id="jNc3hYhk6F8Vb2jaw9jwW4">
-            <div class="org-dc" data-page-node-id="3IgdPmzvKcjCtOpsfPb67g">
-              <div class="d-name" data-page-node-id="K5VO6vKnS1UIIIJ1eBspmW">行政人事部</div>
-              <div class="d-mgr" data-page-node-id="Qapjxc0dSg1B4JcVdq7TnR">经理 李安</div>
-              <div class="d-cnt" data-page-node-id="vLx7nlxVGDdvyFEb8Qdb23">8 人</div></div>
-          </div>
-        </div>
-      </div>
+      <p class="org-flow-hint" data-page-node-id="XtA0t62Q7ThavfTKDiBt1Q">左右滑动查看完整组织架构</p>
     </div>
 
     <div class="dept-grid" data-page-node-id="bq3I7UlYGdS08HNnJqu2Ye">
@@ -564,7 +566,7 @@
         <div class="top" data-page-node-id="v4h9FpKERPiuVBerqii62v"><h4 data-page-node-id="q4hEIhwoLZQZc4EPS2D7As">互联网部</h4><span class="cnt" data-page-node-id="qCqtuVaQzjWeZxdVW689qj">6 人</span></div>
         <div class="lead" data-page-node-id="jFFEY0ypqc6Gaj5E2Bk93s">经理 诸晓奇 · 短视频内容与线上运营</div>
         <p data-page-node-id="84JdcEnrYgBwLRuvoakXTF">专注短视频内容策划、拍摄制作与账号矩阵运营，以优质内容传递品牌价值，构建皓镧资产的线上影响力阵地。</p>
-        <div class="posts" data-page-node-id="NSHheSsOiE0o2LfUOIKF6u"><span data-page-node-id="9fjIUSIWhm8LfTEFhMycHM">经理</span><span data-page-node-id="6vMXGfPIATXNDQB3qhX05b">运营组长</span><span data-page-node-id="OAlNcBXF175ESZwF5Gy1ki">拍摄剪辑</span></div>
+        <div class="posts" data-page-node-id="NSHheSsOiE0o2LfUOIKF6u"><span data-page-node-id="9fjIUSIWhm8LfTEFhMycHM">经理</span><span data-page-node-id="OAlNcBXF175ESZwF5Gy1ki">拍摄剪辑</span></div>
       </article>
       <article class="dept-card" data-page-node-id="ovHPK5yGcoVmJ4mxbl041y">
         <div class="top" data-page-node-id="L6YleI5UpDznGdw8d5wI4L"><h4 data-page-node-id="robCr4sbr1EPhMzxRG2BYP">行政人事部</h4><span class="cnt" data-page-node-id="tusBPOtUvJj1te00QwShqI">8 人</span></div>
@@ -588,32 +590,32 @@
       <div class="advice-group" data-page-node-id="q3uC7G8Avvb57zVRf1RV5d">
         <div class="g-head" data-page-node-id="mOITGoBUFbeR8R3R0z8fej"><b data-page-node-id="RtHUKZnkDpKgQqmrOYDjdl">商务谈判部</b><span data-page-node-id="wI6NTqAGLKpdSuNnPUGEtZ">3 人</span></div>
         <div class="g-body" data-page-node-id="QUjtDS9HEZxqH1mVBMnZdq">
-          <div class="advice-person" data-page-node-id="E9ApnRijYDFEEky7onzExF"><span class="avatar xs" data-page-node-id="g5dDWf745ysH8GxUXrB9rF">李</span><div data-page-node-id="8fLdF3CPxG5Z3zBoae5GH0"><div class="name" data-page-node-id="3EuKqIsD9njQRSOeaPvgb0">李朗</div><div class="post" data-page-node-id="cwKDU7nlYmjtWxADE9IHgB">经理</div></div></div>
-          <div class="advice-person" data-page-node-id="hNahYLXbHu6dAU3QqX8ztH"><span class="avatar xs" data-page-node-id="zlSfNmMIxRAmwcFLIvQtzo">曾</span><div data-page-node-id="Q4u88Z4kNJKk5767lIAjjq"><div class="name" data-page-node-id="cBTchPu6iOSnfh5r73mEKa">曾淑媚</div><div class="post" data-page-node-id="yNgkU6OKHSHC9iGxvJp8AL">高级商务顾问</div></div></div>
+          <div class="advice-person" data-page-node-id="E9ApnRijYDFEEky7onzExF"><span class="avatar xs"><img src="./assets/team/li-lang.jpg" alt="李朗" /></span><div data-page-node-id="8fLdF3CPxG5Z3zBoae5GH0"><div class="name" data-page-node-id="3EuKqIsD9njQRSOeaPvgb0">李朗</div><div class="post" data-page-node-id="cwKDU7nlYmjtWxADE9IHgB">经理</div></div></div>
+          <div class="advice-person" data-page-node-id="hNahYLXbHu6dAU3QqX8ztH"><span class="avatar xs"><img src="./assets/team/zeng-shumei.jpg" alt="曾淑媚" /></span><div data-page-node-id="Q4u88Z4kNJKk5767lIAjjq"><div class="name" data-page-node-id="cBTchPu6iOSnfh5r73mEKa">曾淑媚</div><div class="post" data-page-node-id="yNgkU6OKHSHC9iGxvJp8AL">高级商务顾问</div></div></div>
           <div class="advice-person" data-page-node-id="X7A3IWFCRvdTp13WBnKs6G"><span class="avatar xs" data-page-node-id="vs4Zlb08vrui5FkW4q8HOF">刘</span><div data-page-node-id="gEXAFJNgOlospiNkCld4Y2"><div class="name" data-page-node-id="VwaFdSM2dCa2rpdVJV4vcl">刘金康</div><div class="post" data-page-node-id="FOBhQNZpcild2UG0QFX9Ua">谈判权证</div></div></div>
         </div>
       </div>
       <div class="advice-group" data-page-node-id="H1lfDIBnjoNB5ohGciEzD5">
         <div class="g-head" data-page-node-id="E0RAs9gfPybVoEcRW4tgFR"><b data-page-node-id="mY0n6hktMDAlRJjFprnxBg">渠道分销部</b><span data-page-node-id="TxGVIhNxkwCHYD2eKv3nnN">3 人</span></div>
         <div class="g-body" data-page-node-id="tcKSwVHzPwMmRWneWcChOT">
-          <div class="advice-person" data-page-node-id="AvX7feLdGnZnkFLoKbFTNL"><span class="avatar xs" data-page-node-id="Sz2GIfrafdqKqAcEktC30n">刘</span><div data-page-node-id="VwSHXQ5isMBNYorGzHlkOQ"><div class="name" data-page-node-id="0rrCfcRZqKvEJ4lDkb5PfP">刘法胜</div><div class="post" data-page-node-id="KV6et5mECOXv9VEzO00iDl">经理</div></div></div>
-          <div class="advice-person" data-page-node-id="GtEiL4dc1Q2BtQM5hXYaa0"><span class="avatar xs" data-page-node-id="GIQ9py3tCXwvnIng1cGUbi">叶</span><div data-page-node-id="obf4mfFOyMUGR7TCojdrIg"><div class="name" data-page-node-id="C5eU3WV4dTOaF1kRDiiZIz">叶永权</div><div class="post" data-page-node-id="WanmvGrVwlFtlvdr37D0bF">高级渠道专员</div></div></div>
-          <div class="advice-person" data-page-node-id="IX4mHQgb4HYkSfTPFGrbtz"><span class="avatar xs" data-page-node-id="1W2m74eDEfJlzswM9jdRv9">郑</span><div data-page-node-id="PWSzYZwCVbQ4L83xJy2VDR"><div class="name" data-page-node-id="CEhBkB6EuhyT6LZbUY2sAV">郑逸芬</div><div class="post" data-page-node-id="o6lOOG5eS4WPVobPoi8Rs2">高级渠道专员</div></div></div>
+          <div class="advice-person" data-page-node-id="AvX7feLdGnZnkFLoKbFTNL"><span class="avatar xs"><img src="./assets/team/liu-fasheng.jpg" alt="刘法胜" /></span><div data-page-node-id="VwSHXQ5isMBNYorGzHlkOQ"><div class="name" data-page-node-id="0rrCfcRZqKvEJ4lDkb5PfP">刘法胜</div><div class="post" data-page-node-id="KV6et5mECOXv9VEzO00iDl">经理</div></div></div>
+          <div class="advice-person" data-page-node-id="GtEiL4dc1Q2BtQM5hXYaa0"><span class="avatar xs"><img src="./assets/team/ye-yongquan.jpg" alt="叶永权" /></span><div data-page-node-id="obf4mfFOyMUGR7TCojdrIg"><div class="name" data-page-node-id="C5eU3WV4dTOaF1kRDiiZIz">叶永权</div><div class="post" data-page-node-id="WanmvGrVwlFtlvdr37D0bF">高级渠道专员</div></div></div>
+          <div class="advice-person" data-page-node-id="IX4mHQgb4HYkSfTPFGrbtz"><span class="avatar xs"><img src="./assets/team/zheng-yifen.jpg" alt="郑逸芬" /></span><div data-page-node-id="PWSzYZwCVbQ4L83xJy2VDR"><div class="name" data-page-node-id="CEhBkB6EuhyT6LZbUY2sAV">郑逸芬</div><div class="post" data-page-node-id="o6lOOG5eS4WPVobPoi8Rs2">高级渠道专员</div></div></div>
         </div>
       </div>
             <div class="advice-group" data-page-node-id="uwRb0IefVpwiSSC4zNMc69">
         <div class="g-head" data-page-node-id="GOkRMF1FWJRHEsNxnvmDfd"><b data-page-node-id="66TcW5Dfdtor3tzow7p1zW">营销部</b><span data-page-node-id="t2yIQOunxRrmx7DngioTIA">4 人</span></div>
         <div class="g-body" data-page-node-id="cBnVBEH79DjixbJqj0wsnk">
-          <div class="advice-person" data-page-node-id="raPgg0AyLodPxPBE0ezY6R"><span class="avatar xs" data-page-node-id="P260PZdtNKCQeeaV37NSiB">龚</span><div data-page-node-id="79jVNQakYf1cVFv6gLFJm0"><div class="name" data-page-node-id="Ys0GxTPNkJYmyReoiamA1q">龚韬凡</div><div class="post" data-page-node-id="IEuTpaTJ4A0vGImaTMEGnd">经理</div></div></div>
-          <div class="advice-person" data-page-node-id="QlqgYcTlsFurp55FWVaUzt"><span class="avatar xs" data-page-node-id="9SdfsBC86vKXXEpAE4ZSOg">诸</span><div data-page-node-id="4mAhaujhdTLMu8rympgHWU"><div class="name" data-page-node-id="3YRuFFL1IUQmfsZzuRFMzv">诸超明</div><div class="post" data-page-node-id="PVERX7ZAwR0W0tLWcyLMZa">营销主管</div></div></div>
-          <div class="advice-person" data-page-node-id="7aJWJ4yOnKP8XfmeId4C5V"><span class="avatar xs" data-page-node-id="mEIQyiSwe0Sy6WPrP1VmyM">游</span><div data-page-node-id="RwAhv9D9figD4AcMjNk57e"><div class="name" data-page-node-id="LLxt5rFrUmNBXnv7eVMyXF">游珠</div><div class="post" data-page-node-id="rvRzGom6Zef3qbKOaYckSM">营销主管</div></div></div>
-          <div class="advice-person" data-page-node-id="OZx8BDOF85LQC4tTK0WUdK"><span class="avatar xs" data-page-node-id="TPiglp82aR9Gu8e7hESaLu">邱</span><div data-page-node-id="HTKnjoCgDTuwrAAsjqoxzT"><div class="name" data-page-node-id="fQF2rugaU61q8gLYie4P9u">邱鑫</div><div class="post" data-page-node-id="zv8EC7t8Kkt4FYmUHZ3Plv">营销主管</div></div></div>
+          <div class="advice-person" data-page-node-id="raPgg0AyLodPxPBE0ezY6R"><span class="avatar xs"><img src="./assets/team/gong-taofan.jpg" alt="龚韬凡" /></span><div data-page-node-id="79jVNQakYf1cVFv6gLFJm0"><div class="name" data-page-node-id="Ys0GxTPNkJYmyReoiamA1q">龚韬凡</div><div class="post" data-page-node-id="IEuTpaTJ4A0vGImaTMEGnd">经理</div></div></div>
+          <div class="advice-person" data-page-node-id="QlqgYcTlsFurp55FWVaUzt"><span class="avatar xs"><img src="./assets/team/zhu-chaoming.jpg" alt="诸超明" /></span><div data-page-node-id="4mAhaujhdTLMu8rympgHWU"><div class="name" data-page-node-id="3YRuFFL1IUQmfsZzuRFMzv">诸超明</div><div class="post" data-page-node-id="PVERX7ZAwR0W0tLWcyLMZa">营销主管</div></div></div>
+          <div class="advice-person" data-page-node-id="7aJWJ4yOnKP8XfmeId4C5V"><span class="avatar xs"><img src="./assets/team/you-zhu.jpg" alt="游珠" /></span><div data-page-node-id="RwAhv9D9figD4AcMjNk57e"><div class="name" data-page-node-id="LLxt5rFrUmNBXnv7eVMyXF">游珠</div><div class="post" data-page-node-id="rvRzGom6Zef3qbKOaYckSM">营销主管</div></div></div>
+          <div class="advice-person" data-page-node-id="OZx8BDOF85LQC4tTK0WUdK"><span class="avatar xs"><img src="./assets/team/qiu-xin.jpg" alt="邱鑫" /></span><div data-page-node-id="HTKnjoCgDTuwrAAsjqoxzT"><div class="name" data-page-node-id="fQF2rugaU61q8gLYie4P9u">邱鑫</div><div class="post" data-page-node-id="zv8EC7t8Kkt4FYmUHZ3Plv">营销主管</div></div></div>
         </div>
       </div>
             <div class="advice-group" data-page-node-id="l2FsTsrQsIZciS6kr6i98r">
         <div class="g-head" data-page-node-id="b9fwwpKmA8aHR34Zm1yHey"><b data-page-node-id="KSKs0FZDkLQnEhnSvQQCjD">风控 / 售后部</b><span data-page-node-id="JSVj6Ak4Abna9kQ68HvrrV">3 人</span></div>
         <div class="g-body" data-page-node-id="NMTTv1WHKckz58ylSVHLYw">
-          <div class="advice-person" data-page-node-id="R7Un4zMrx9QEblmsaUeuw4"><span class="avatar xs" data-page-node-id="LcFnwS8swa9wpEQ6stboqw">廖</span><div data-page-node-id="BG8TULoJvOoQZ63fMlaQ2g"><div class="name" data-page-node-id="B5LxW0E6Wm91FMZOprxNNh">廖经勋</div><div class="post" data-page-node-id="TfH50WYDNqgbueiCGF41aR">经理</div></div></div>
+          <div class="advice-person" data-page-node-id="R7Un4zMrx9QEblmsaUeuw4"><span class="avatar xs"><img src="./assets/team/liao-jingxun.jpg" alt="廖经勋" /></span><div data-page-node-id="BG8TULoJvOoQZ63fMlaQ2g"><div class="name" data-page-node-id="B5LxW0E6Wm91FMZOprxNNh">廖经勋</div><div class="post" data-page-node-id="TfH50WYDNqgbueiCGF41aR">经理</div></div></div>
           <div class="advice-person" data-page-node-id="1OSzdfZ7tqGfwV5PFfeWXN"><span class="avatar xs" data-page-node-id="sgvvDOeOnq6Fex2YQ8Z9Wp">赖</span><div data-page-node-id="LXTeJ2Yp9b6oPtFG1zmNHI"><div class="name" data-page-node-id="yk1My614ak8qbSNWhDcXgU">赖银杏</div><div class="post" data-page-node-id="bbmneU4NBbJ7Xnq69TSCMS">客服专员</div></div></div>
           <div class="advice-person" data-page-node-id="Lygm7WmKJ1ZhAnDWTafmdk"><span class="avatar xs" data-page-node-id="Pcrh2HxCEUM1Vvjk3BXEVj">黄</span><div data-page-node-id="1Jcs1Xem5SQj4XiQOCFlLQ"><div class="name" data-page-node-id="FVhPl5uFouwfX48HxZetRv">黄漫</div><div class="post" data-page-node-id="T9jIAr8OeC6FfyQNCHHipA">客服专员</div></div></div>
         </div>
@@ -622,7 +624,32 @@
   </section>
 
   <!-- ========================================== -->
-  <!-- 3. 自媒体运营团队 -->
+  <!-- 3. 营销团队风采 -->
+  <!-- ========================================== -->
+  <section id="marketing">
+    <h2 class="sec-title">营销团队风采</h2>
+    <p class="sec-subtitle">MARKETING TEAM</p>
+    <p class="sec-desc">
+      营销部是业务前端的主力，下设三个业务小组，以专业分工与高效协同，为客户提供从需求诊断到方案落地的顾问式融资服务。
+    </p>
+    <div class="grp-grid">
+      <figure class="grp-card">
+        <img src="./assets/team/group-1.jpg" alt="营销1组团队合影" loading="lazy" />
+        <figcaption class="grp-cap"><b>营销 1 组</b><span>11 人</span></figcaption>
+      </figure>
+      <figure class="grp-card">
+        <img src="./assets/team/group-2.jpg" alt="营销2组团队合影" loading="lazy" />
+        <figcaption class="grp-cap"><b>营销 2 组</b><span>11 人</span></figcaption>
+      </figure>
+      <figure class="grp-card">
+        <img src="./assets/team/group-3.jpg" alt="营销3组团队合影" loading="lazy" />
+        <figcaption class="grp-cap"><b>营销 3 组</b><span>9 人</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 4. 自媒体运营团队 -->
   <!-- ========================================== -->
   <section id="newmedia" data-page-node-id="DxZSnAnArDe8DRdaUj1h1I">
     <h2 class="sec-title" data-page-node-id="XzLYd9wAWGJNQNpWWXCxj7">自媒体运营团队</h2>
@@ -634,29 +661,30 @@
     <div class="media-wrap" data-page-node-id="cUNIrZPrT8shRvnzUrxIlG">
       <article class="media-card m-newmedia" data-page-node-id="w12wDMC2CpwqNXu0If4ygr">
         <div class="m-head" data-page-node-id="Tn5KM9wo5PSGGOTpGfodZt">
-          <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="YwzPBkF5mHXcDxOA1LnFmi"><rect x="8" y="10" width="24" height="18" rx="3" data-page-node-id="KxgQTbxTsgRfsvSz9c2Rhx"/><path d="M17 15 L26 19 L17 23 Z" fill="currentColor" stroke="none" data-page-node-id="hCv01VD28I9lhELnSvo8IM"/></svg>
-          <div data-page-node-id="mU0fk3hDjoLAWb1g2WBS3Z">
-            <h3 data-page-node-id="csxjbkveqmHbJkrGrz4wGz">自媒体运营团队</h3>
-            <p data-page-node-id="0uNgXBb9hClsHSzOAJrjXS">互联网部 · 短视频内容创作与矩阵运营</p>
+          <img class="m-bg" src="./assets/team/group-media.jpg" alt="互联网部团队合影" />
+          <div class="m-head-txt" data-page-node-id="mU0fk3hDjoLAWb1g2WBS3Z">
+            <h3 data-page-node-id="csxjbkveqmHbJkrGrz4wGz">互联网部</h3>
+            <p data-page-node-id="0uNgXBb9hClsHSzOAJrjXS">短视频内容创作与矩阵运营</p>
           </div>
         </div>
         <div class="m-body" data-page-node-id="5PgdR4VV59RBGoBFi5qPc9">
           <p class="duty" data-page-node-id="hn8vkpdShBnVRUBDz2Loks">聚焦短视频赛道，涵盖内容策划、拍摄制作、剪辑包装与账号运营全链路，持续输出优质内容，构建皓镧资产的线上品牌影响力。</p>
           <div class="list" data-page-node-id="nFjFOSZvJp5ugZMcBODuTv">
-            <div class="advice-person" data-page-node-id="NIh415hExw05GRGEN4eenZ"><span class="avatar xs" data-page-node-id="eyLkbwRRcY7GZDxPNXVwct">诸</span><div data-page-node-id="Off1C3eiP4IrGqwqXsRRWv"><div class="name" data-page-node-id="FAFKmlpb5RJmvJuqqJ5V29">诸晓奇</div><div class="post" data-page-node-id="Eftt9ByAxdpBVwlFYAEhHp">经理</div></div></div>
-            <div class="advice-person" data-page-node-id="M97hXi1BpQlRUYJ5efQa5S"><span class="avatar xs" data-page-node-id="2XBgs8bL7bNDBjWMYbKSpt">谢</span><div data-page-node-id="P8MceYGM9hmIPJ02Cq0ts4"><div class="name" data-page-node-id="ECtghTLVlszJwL6gWv8mwq">谢国斌</div><div class="post" data-page-node-id="ucOpThwbhNmJRR1gDNNjdw">运营组长</div></div></div>
-            <div class="advice-person" data-page-node-id="4RHC4cqWH6DtGl8C2yhyCy"><span class="avatar xs" data-page-node-id="08AoIYiIGEkfU72UHKuXi6">廖</span><div data-page-node-id="HhvQG0BwTtFFqYleLhJV2z"><div class="name" data-page-node-id="1Sa8fcLAJoAeW9faeCWH5E">廖泽希</div><div class="post" data-page-node-id="kRVSXRRB9bpZkd8bLDFpCZ">拍摄剪辑</div></div></div>
-            <div class="advice-person" data-page-node-id="FBVZPqhfm2fZpo9ImALlwS"><span class="avatar xs" data-page-node-id="qpTLZChyCSpcLdhdPV4XqO">刘</span><div data-page-node-id="FGI799fUwFd6DCi6XUILjm"><div class="name" data-page-node-id="WBJ9IMSzNgqxbJ9tQgumRV">刘永博</div><div class="post" data-page-node-id="IC2PSN1EtgWtEiAEz50QN6">拍摄剪辑</div></div></div>
-            <div class="advice-person" data-page-node-id="sRsB5D5q8ywrto3Gnj01Dp"><span class="avatar xs" data-page-node-id="5A6Map0eKA7Sr1bb3wJOxA">罗</span><div data-page-node-id="TeBD4uUUFQB8xYWdjKz20P"><div class="name" data-page-node-id="OeX9CfEXEcI77mGHDUCkc7">罗丹丹</div><div class="post" data-page-node-id="qjhGjNFKe5lBrWpK7rh4hL">拍摄剪辑</div></div></div>
-            <div class="advice-person" data-page-node-id="uEkJPuXNqHM0v7qyK7DH2i"><span class="avatar xs" data-page-node-id="GIC1eNtVHU1B1sXvIOosDM">朱</span><div data-page-node-id="GIagP1rvx2WCjHyzltkqVu"><div class="name" data-page-node-id="IJc0W8l4nhUP4epzbinRPC">朱志维</div><div class="post" data-page-node-id="BW8qOIvEWZTzBGXurJnUi5">拍摄剪辑</div></div></div>
+            <div class="advice-person" data-page-node-id="NIh415hExw05GRGEN4eenZ"><span class="avatar xs"><img src="./assets/team/zhu-xiaoqi.jpg" alt="诸晓奇" /></span><div><div class="name">诸晓奇</div><div class="post">经理</div></div></div>
+            <div class="advice-person"><span class="avatar xs"><img src="./assets/team/liang-jiaxin.jpg" alt="梁嘉欣" /></span><div><div class="name">梁嘉欣</div><div class="post">拍摄剪辑</div></div></div>
+            <div class="advice-person"><span class="avatar xs"><img src="./assets/team/liu-yuhao.jpg" alt="刘宇豪" /></span><div><div class="name">刘宇豪</div><div class="post">拍摄剪辑</div></div></div>
+            <div class="advice-person" data-page-node-id="sRsB5D5q8ywrto3Gnj01Dp"><span class="avatar xs"><img src="./assets/team/luo-dandan.jpg" alt="罗丹丹" /></span><div><div class="name">罗丹丹</div><div class="post">拍摄剪辑</div></div></div>
+            <div class="advice-person"><span class="avatar xs"><img src="./assets/team/zheng-jiayi.jpg" alt="郑佳意" /></span><div><div class="name">郑佳意</div><div class="post">拍摄剪辑</div></div></div>
+            <div class="advice-person" data-page-node-id="uEkJPuXNqHM0v7qyK7DH2i"><span class="avatar xs">朱</span><div><div class="name">朱志维</div><div class="post">拍摄剪辑</div></div></div>
           </div>
         </div>
       </article>
     </div>
+
   </section>
 
   <!-- ========================================== -->
-  <!-- 4. 我们的优势 -->
+  <!-- 5. 我们的优势 -->
   <!-- ========================================== -->
   <section id="advantage" data-page-node-id="SPgPmlI35AH1vvLbYDAafU">
     <h2 class="sec-title" data-page-node-id="3JFRJZqrh4NvugFCwTz5K8">我们的优势</h2>

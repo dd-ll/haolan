@@ -89,42 +89,38 @@
   }
 
   /* ========== 1. 成长分享 ========== */
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 48px;
-  }
-    border: 1.5px solid var(--gold-soft); border-radius: 10px;
-    background: linear-gradient(135deg, var(--bg-soft) 0%, #fff 100%);
-    padding: 24px 16px; text-align: center; transition: all .25s;
-  }
-    width: 44px; height: 44px; margin: 0 auto 10px; color: var(--gold-deep);
-    display: flex; align-items: center; justify-content: center;
-  }
-    font-family: "STSong",serif; font-size: 30px; font-weight: 700;
-    color: var(--red); line-height: 1.1;
-  }
-
-  /* 成长故事卡 */
+  /* 精选成长故事（大卡） */
   .growth-featured {
-    display: grid; grid-template-columns: 1.2fr 1fr; gap: 28px; margin-bottom: 28px;
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 28px; margin-bottom: 28px;
   }
   .gf-card {
     border: 1.5px solid var(--gold-soft); border-radius: 12px; background: #fff;
-    overflow: hidden; transition: all .25s;
+    overflow: hidden; transition: all .25s; display: flex; flex-direction: column;
   }
   .gf-card:hover { border-color: var(--gold); box-shadow: 0 12px 32px rgba(184,148,31,0.12); }
   .gf-card .gf-banner {
     background: linear-gradient(135deg, #2C2C2C 0%, #1A1A1A 100%);
-    padding: 26px 30px; display: flex; align-items: center; gap: 20px;
+    padding: 22px 28px; display: flex; align-items: center; gap: 18px;
   }
-    display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 14px;
+  .gf-card .gf-idx {
+    flex: none; font-family: "STSong",serif; font-size: 26px; font-weight: 700;
+    color: var(--gold); line-height: 1;
   }
+  .gf-card .gf-banner h3 {
+    font-family: "STSong","SimSun",serif; font-size: 19px; letter-spacing: 2px;
+    color: #fff; margin-bottom: 5px;
+  }
+  .gf-card .gf-date { font-size: 12px; color: rgba(201,169,97,0.85); letter-spacing: 1.5px; }
+  .gf-card .gf-photo img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+  .gf-card .gf-body { padding: 22px 28px 26px; display: flex; flex-direction: column; flex: 1; }
+  .gf-card .gf-body p { font-size: 13.5px; color: var(--muted); line-height: 2.05; text-align: justify; }
+  .gf-card .gf-tags { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+  .gf-card .gf-tag {
     font-size: 12px; color: #2C2C2C; background: var(--bg-soft);
     border: 1px solid var(--gold-soft); border-radius: 4px; padding: 3px 10px;
   }
-    border-left: 3px solid var(--gold); background: var(--bg-soft);
-    padding: 14px 18px; font-size: 13px; color: var(--muted); line-height: 1.9; border-radius: 0 6px 6px 0;
-  }
 
-  /* 精选成长卡列表 */
+  /* 成长路径小卡 */
   .growth-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
   .growth-card {
     border: 1.5px solid var(--gold-soft); border-radius: 10px; background: #fff;
@@ -135,10 +131,17 @@
     background: linear-gradient(90deg, var(--gold), var(--gold-soft));
   }
   .growth-card:hover { border-color: var(--gold); box-shadow: 0 10px 28px rgba(184,148,31,0.1); transform: translateY(-4px); }
-    font-size: 12px; color: #2C2C2C; background: var(--bg-soft);
-    border-radius: 4px; padding: 6px 12px; margin-bottom: 14px; text-align: center;
-    border: 1px dashed var(--gold-soft);
+  .growth-card .gc-stage {
+    display: inline-block; font-size: 12px; color: #2C2C2C; background: var(--bg-soft);
+    border-radius: 4px; padding: 6px 12px; margin-bottom: 16px;
+    border: 1px dashed var(--gold-soft); letter-spacing: 1px;
   }
+  .growth-card h3 {
+    font-family: "STSong","SimSun",serif; font-size: 17px; font-weight: 700;
+    letter-spacing: 2px; color: var(--ink); padding-bottom: 10px; margin-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  .growth-card p { font-size: 13px; color: var(--muted); line-height: 1.95; text-align: justify; }
 
   /* ========== 2. 内部培训文化 ========== */
   /* 培训体系 三阶梯 */
@@ -146,78 +149,111 @@
   .train-step {
     border: 1.5px solid var(--gold-soft); border-radius: 12px; background: #fff;
     padding: 30px 28px; position: relative; transition: all .25s; overflow: hidden;
+    display: flex; flex-direction: column;
   }
   .train-step:hover { border-color: var(--gold); box-shadow: 0 12px 32px rgba(184,148,31,0.1); }
-  .train-step .icon {
-    width: 48px; height: 48px; margin-bottom: 16px; color: var(--gold-deep);
+  .train-step .icon { width: 46px; height: 46px; margin-bottom: 14px; color: var(--gold-deep); }
+  .train-step .icon svg { width: 46px; height: 46px; }
+  .train-step .ts-tag {
+    align-self: flex-start; font-size: 11px; padding: 3px 10px; border-radius: 3px;
+    letter-spacing: 1px; background: var(--bg-soft); color: #2C2C2C;
+    border: 1px solid var(--gold-soft); margin-bottom: 12px;
   }
-  .train-step .icon svg { width: 48px; height: 48px; }
-    font-size: 11px; padding: 3px 10px; border-radius: 3px; letter-spacing: 1px;
-    background: var(--bg-soft); color: #2C2C2C; border: 1px solid var(--gold-soft);
+  .train-step h3 {
+    font-family: "STSong","SimSun",serif; font-size: 18px; font-weight: 700;
+    letter-spacing: 2px; color: var(--ink); margin-bottom: 10px;
   }
+  .train-step > p { font-size: 13px; color: var(--muted); line-height: 1.95; text-align: justify; margin-bottom: 16px; }
+  .train-step .ts-list { list-style: none; margin-bottom: 20px; }
+  .train-step .ts-list li {
+    position: relative; padding-left: 16px; font-size: 13px; color: var(--muted); line-height: 2;
+  }
+  .train-step .ts-list li::before {
+    content: ""; position: absolute; left: 2px; top: 11px;
+    width: 5px; height: 5px; border-radius: 50%; background: var(--gold);
+  }
+  .train-step .ts-photo {
+    margin-top: auto; border-radius: 8px; overflow: hidden; border: 1px solid var(--gold-soft);
+  }
+  .train-step .ts-photo img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
 
   /* 培训文化双栏 */
-  .culture-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-bottom: 32px; }
+  .culture-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-bottom: 40px; }
   .culture-box {
-    border: 1.5px solid var(--gold-soft); border-radius: 12px; background: #fff; overflow: hidden;
+    border: 1.5px solid var(--gold-soft); border-radius: 12px; background: #fff;
+    overflow: hidden; display: flex; flex-direction: column;
   }
   .culture-box .cb-head {
     background: linear-gradient(135deg, var(--bg-soft) 0%, #fff 100%);
     padding: 20px 28px; border-bottom: 1.5px solid var(--gold-soft);
     display: flex; align-items: center; gap: 12px;
   }
-  .culture-box .cb-head .icon { width: 30px; height: 30px; color: var(--gold-deep); }
+  .culture-box .cb-head .icon { width: 30px; height: 30px; color: var(--gold-deep); flex: none; }
   .culture-box .cb-head .icon svg { width: 30px; height: 30px; }
   .culture-box .cb-head h4 { font-size: 17px; font-weight: 700; letter-spacing: 2px; color: var(--ink); font-family: "STSong","SimSun",serif; }
+  .culture-box .cb-photo img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+  .culture-box .cb-body { padding: 18px 28px 22px; flex: 1; }
+  .culture-box .cb-item {
     display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px dashed var(--line);
     font-size: 13px; color: var(--muted); line-height: 1.8;
   }
+  .culture-box .cb-item:last-child { border-bottom: none; padding-bottom: 2px; }
+  .culture-box .cb-num {
     flex-shrink: 0; width: 22px; height: 22px; margin-top: 3px; border-radius: 50%;
     background: var(--bg-soft); border: 1px solid var(--gold);
     color: var(--gold-deep); font-size: 12px; display: flex; align-items: center; justify-content: center;
   }
+  .culture-box .cb-item p { flex: 1; }
 
   /* 文化理念条 */
   .culture-band {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 48px;
   }
   .culture-pill {
     border: 1.5px solid var(--gold-soft); border-radius: 10px;
     background: linear-gradient(135deg, #2C2C2C 0%, #1A1A1A 100%);
-    padding: 22px 18px; text-align: center; transition: all .25s;
+    padding: 24px 20px; text-align: center; transition: all .25s;
+    display: flex; flex-direction: column; align-items: center;
   }
   .culture-pill:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(31,58,46,0.25); }
   .culture-pill .icon { width: 36px; height: 36px; margin: 0 auto 10px; color: var(--gold); }
   .culture-pill .icon svg { width: 36px; height: 36px; }
-  .culture-pill h5 { color: var(--gold); font-size: 16px; letter-spacing: 3px; margin-bottom: 6px; font-family: "STSong","SimSun",serif; }
+  .culture-pill h5 { color: var(--gold); font-size: 16px; letter-spacing: 3px; margin-bottom: 9px; font-family: "STSong","SimSun",serif; }
+  .culture-pill p { font-size: 12.5px; color: rgba(255,255,255,0.7); line-height: 1.9; }
 
-    font-size: 13px; letter-spacing: 2px; padding: 8px 22px; border-radius: 20px;
-    border: 1.5px solid var(--gold-soft); color: var(--muted); cursor: pointer;
-    background: #fff; transition: all .2s;
+  /* 培训现场 */
+  .edu-sub-title {
+    text-align: center; font-size: 19px; font-weight: 700; letter-spacing: 4px;
+    color: var(--ink); font-family: "STSong","SimSun",serif; margin-bottom: 9px;
   }
-    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-deep) 100%);
-    border-color: transparent; color: #fff; font-weight: 600;
+  .edu-sub-en { text-align: center; color: var(--muted); font-size: 11px; letter-spacing: 3px; margin-bottom: 30px; }
+  .edu-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-bottom: 28px; }
+  .edu-gallery figure {
+    border: 1.5px solid var(--gold-soft); border-radius: 10px; overflow: hidden;
+    background: #fff; transition: all .25s;
   }
-
-    border: 1.5px solid var(--gold-soft); border-radius: 10px;
-    background: #fff; margin-bottom: 16px; overflow: hidden; transition: all .25s;
+  .edu-gallery figure:hover { border-color: var(--gold); box-shadow: 0 10px 26px rgba(184,148,31,0.12); }
+  .edu-gallery img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+  .edu-gallery figcaption { padding: 15px 18px 17px; }
+  .edu-gallery figcaption b {
+    display: block; font-size: 14px; color: var(--ink); letter-spacing: 1.5px;
+    margin-bottom: 7px; font-family: "STSong","SimSun",serif;
   }
-    list-style: none; cursor: pointer; display: flex; align-items: center; gap: 14px;
-    padding: 18px 24px; font-size: 15px; font-weight: 600; color: var(--ink);
-    transition: color .2s;
+  .edu-gallery figcaption span { display: block; font-size: 12.5px; color: var(--muted); line-height: 1.85; }
+  .edu-teacher {
+    display: grid; grid-template-columns: 200px 1fr; gap: 30px; align-items: center;
+    border: 1.5px solid var(--gold-soft); border-radius: 12px; overflow: hidden;
+    background: linear-gradient(135deg, var(--bg-soft) 0%, #fff 62%);
+    padding: 24px 30px 24px 24px;
   }
-    flex-shrink: 0; width: 26px; height: 26px; border-radius: 6px;
-    background: var(--bg-soft); border: 1px solid var(--gold-soft);
-    color: var(--gold-deep); font-size: 14px; font-weight: 700;
-    display: flex; align-items: center; justify-content: center;
-  }
-    margin-left: auto; flex-shrink: 0; color: var(--gold); font-size: 18px;
-    transition: transform .25s; line-height: 1;
-  }
-    padding: 0 24px 20px 64px; font-size: 13px; color: var(--muted); line-height: 2;
-  }
-
-    text-align: center; margin-top: 36px; font-size: 13px; color: var(--muted);
+  .edu-teacher .et-photo { border-radius: 8px; overflow: hidden; border: 1px solid var(--gold-soft); }
+  .edu-teacher .et-photo img { width: 100%; height: auto; display: block; }
+  .edu-teacher h4 { font-family: "STSong","SimSun",serif; font-size: 18px; letter-spacing: 2px; color: var(--ink); margin-bottom: 12px; }
+  .edu-teacher p { font-size: 13.5px; color: var(--muted); line-height: 2.05; text-align: justify; }
+  .edu-teacher .et-quote {
+    margin-top: 14px; border-left: 3px solid var(--gold); background: #fff;
+    padding: 12px 16px; font-size: 13px; color: var(--gold-deep); line-height: 1.9;
+    border-radius: 0 6px 6px 0;
   }
 
   /* ========== 页脚 ========== */
@@ -265,20 +301,25 @@
     .topbar-inner { padding: 0 16px; gap: 12px; }
   }
 
-  /* ========== 内容清空后布局补丁 ========== */
-  /* 成长故事大卡（深色头部条撑满卡片） */
-  .gf-card { display: flex; }
-  .gf-card .gf-banner { flex: 1; min-height: 140px; }
-  /* 成长故事小卡（头像+姓名居中） */
-  .growth-card { display: flex; align-items: center; justify-content: center; min-height: 170px; }
-  /* 培训阶梯（序号+图标+计划名垂直居中） */
-  .train-step { display: flex; flex-direction: column; justify-content: center; min-height: 230px; }
-  /* 培训文化双栏（仅剩标题条） */
-  .culture-box { display: flex; min-height: 150px; }
-  .culture-box .cb-head { flex: 1; border-bottom: none; }
-  /* 文化理念条（图标+理念名居中） */
-  .culture-pill { min-height: 150px; display: flex; flex-direction: column; justify-content: center; }
-
+  /* ========== 新版块响应式补充 ========== */
+  @media (max-width: 1080px) {
+    .edu-gallery { grid-template-columns: repeat(2, 1fr); }
+    .edu-teacher { grid-template-columns: 180px 1fr; gap: 22px; }
+  }
+  @media (max-width: 760px) {
+    .gf-card .gf-banner { padding: 18px 20px; gap: 14px; }
+    .gf-card .gf-idx { font-size: 22px; }
+    .gf-card .gf-banner h3 { font-size: 17px; }
+    .gf-card .gf-body { padding: 18px 20px 22px; }
+    .growth-card { padding: 22px 20px; }
+    .train-step { padding: 24px 20px; }
+    .culture-box .cb-head { padding: 16px 20px; }
+    .culture-box .cb-body { padding: 16px 20px 18px; }
+    .edu-gallery { grid-template-columns: 1fr; }
+    .edu-teacher { grid-template-columns: 1fr; gap: 18px; padding: 20px; }
+    .edu-teacher .et-photo { width: 210px; max-width: 100%; margin: 0 auto; }
+    .edu-sub-title { font-size: 17px; letter-spacing: 3px; }
+  }
 
     /* ========== 手机端侧边导航（汉堡按钮 + 右侧抽屉） ========== */
     .nav-toggle {
@@ -429,58 +470,74 @@
     <p class="sec-subtitle" data-page-node-id="WCUOBXlweOK5xOuT3bnu1C">GROWTH STORIES</p>
     <p class="sec-desc" data-page-node-id="AKhgh6abfaSTYxCauX0UVa">在这里，每一位普通员工都拥有不普通的成长故事。从入职第一天到独当一面，皓镧见证着他们的每一步蜕变。</p>
 
-    
-
     <!-- 精选成长故事（大卡） -->
     <div class="growth-featured" data-page-node-id="IDMdG4VNkJuRrVdt9DUPXN">
-      <div class="gf-card" data-page-node-id="VYoZ3iZwneI7vGXxwSDrvW">
+      <article class="gf-card" data-page-node-id="VYoZ3iZwneI7vGXxwSDrvW">
         <div class="gf-banner" data-page-node-id="HAClhVogUoFmlXvONFGU5F">
-          
-          
+          <span class="gf-idx">01</span>
+          <div>
+            <h3>皓镧商学院正式启动</h3>
+            <span class="gf-date">2025.04.19 · 商学院启动仪式</span>
+          </div>
         </div>
-        
-      </div>
-      <div class="gf-card" data-page-node-id="OXLv2crIjza9n34nnd4D1e">
+        <figure class="gf-photo">
+          <img src="./assets/academy/school-launch.jpg" alt="皓镧商学院启动仪式现场" loading="lazy" />
+        </figure>
+        <div class="gf-body">
+          <div class="gf-tags"><span class="gf-tag">全员培养</span><span class="gf-tag">课程体系</span><span class="gf-tag">内部讲师</span></div>
+          <p>2025 年 4 月 19 日，皓镧商学院启动仪式在公司总部举行，全体同事到场见证。从这一天起，公司把过去"跟着师傅学"的口传心授，变成有课表、有讲师、有考核的系统化培养——每一位皓镧人的成长，都有了清晰的路径和可用的资源。</p>
+        </div>
+      </article>
+      <article class="gf-card" data-page-node-id="OXLv2crIjza9n34nnd4D1e">
         <div class="gf-banner" data-page-node-id="Ij4WSg4FapAoy94HwKGvyw">
-          
-          
+          <span class="gf-idx">02</span>
+          <div>
+            <h3>金融启蒙 · 全员必修课</h3>
+            <span class="gf-date">面向全员的专业打底课</span>
+          </div>
         </div>
-        
-      </div>
+        <figure class="gf-photo">
+          <img src="./assets/academy/finance-class.jpg" alt="金融启蒙专题培训现场" loading="lazy" />
+        </figure>
+        <div class="gf-body">
+          <div class="gf-tags"><span class="gf-tag">金融常识</span><span class="gf-tag">产品逻辑</span><span class="gf-tag">合规红线</span></div>
+          <p>做助贷这一行，先把专业和规矩讲清楚，才谈得上服务客户。商学院开设"金融启蒙"系列课程，从金融常识、产品逻辑讲到合规红线，要求包括行政、互联网部在内的全体同事参加——不是只有业务岗才需要懂金融。</p>
+        </div>
+      </article>
     </div>
 
-    <!-- 更多成长故事 -->
+    <!-- 成长路径 -->
     <div class="growth-grid" data-page-node-id="6gEwce0OEaO54gMQGAOpe9">
-      <div class="growth-card" data-page-node-id="kTTvQLPrRK8zyM2WKCBiUM">
-        
-        
-        
-      </div>
-      <div class="growth-card" data-page-node-id="Z1G3LmLV9zVbXG4f9fP8jM">
-        
-        
-        
-      </div>
-      <div class="growth-card" data-page-node-id="bGWfhXSfCVerJe4HNEeJJF">
-        
-        
-        
-      </div>
-      <div class="growth-card" data-page-node-id="KLSA9bgYWluB0L8FSbCNm1">
-        
-        
-        
-      </div>
-      <div class="growth-card" data-page-node-id="HBKvrJninRKjisUSmvOUWe">
-        
-        
-        
-      </div>
-      <div class="growth-card" data-page-node-id="CIlDiGGIEhqFf4B8iuB2yS">
-        
-        
-        
-      </div>
+      <article class="growth-card">
+        <span class="gc-stage">入职 1 周</span>
+        <h3>融入启航</h3>
+        <p>认识团队、读懂公司。企业文化、组织架构、规章制度与合规红线，一天一课，当天讲、当天考，先把"什么能做、什么不能碰"讲清楚。</p>
+      </article>
+      <article class="growth-card">
+        <span class="gc-stage">入职 1 个月</span>
+        <h3>基础通关</h3>
+        <p>产品、流程、话术三关连考。房产抵押、企业经营贷、个人信用、车辆融资四大产品的适用对象、产品要素与办理流程逐项过关。</p>
+      </article>
+      <article class="growth-card">
+        <span class="gc-stage">入职 3 个月</span>
+        <h3>独立上岗</h3>
+        <p>从跟单到接单。在师傅陪同下走完客户对接、材料审核、银行渠道沟通的完整流程，开始独立承接自己的第一批客户。</p>
+      </article>
+      <article class="growth-card">
+        <span class="gc-stage">入职 6 个月</span>
+        <h3>独当一面</h3>
+        <p>客户的问题自己扛。能独立判断客户资质、匹配产品方案、处理常见异议；月度复盘自己讲，问题自己提，方案自己改。</p>
+      </article>
+      <article class="growth-card">
+        <span class="gc-stage">入职 1 年</span>
+        <h3>带队成长</h3>
+        <p>从做事到带人。通过内部讲师认证，带 1–2 名新同事，把自己踩过的坑整理成新人能用上的教材。</p>
+      </article>
+      <article class="growth-card">
+        <span class="gc-stage">入职 2 年以上</span>
+        <h3>反哺传承</h3>
+        <p>站上台讲自己的课。进入商学院讲师库，参与课程开发与授课，成为下一批皓镧人的引路人。</p>
+      </article>
     </div>
   </section>
 
@@ -494,74 +551,146 @@
 
     <!-- 三级培训体系 -->
     <div class="train-steps" data-page-node-id="7R00V0C1tycU7J6XrUzy8U">
-      <div class="train-step" data-page-node-id="C78NvJN49Pe6eA0QFgvN0D">
-        
-        <div class="icon" data-page-node-id="zqBhbJnLuxLJiSLFUxrsjR"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="aWVMHTb67upZtUkNLwEUth"><path d="M12 3 L2 8 L12 13 L22 8 Z" data-page-node-id="x7SFqLNAO00RopnuIAXUgk"/><path d="M5 10.5 L5 16 C5 18 8 20 12 20 C16 20 19 18 19 16 L19 10.5" data-page-node-id="TW9zbBQaVoLiXgu2c69DZi"/><path d="M22 8 L22 13" data-page-node-id="jkDp1zqzeG9j1REdqnF30O"/></svg></div>
-        
-        
-        
-        
-        
-      </div>
-      <div class="train-step" data-page-node-id="TXZrwDY58mBFOedFu5cRg2">
-        
-        <div class="icon" data-page-node-id="VfYpcI7w4YTh8WeGW1bPAa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="xEJHDQsdbm1mFlEbW8Kshf"><path d="M13 2 L4 14 L11 14 L10 22 L20 9 L13 9 Z" data-page-node-id="OUpkHIkW66a4WXdnvEfLkB"/></svg></div>
-        
-        
-        
-        
-        
-      </div>
-      <div class="train-step" data-page-node-id="LxPJhFzDNTH5JasvJ7NBjl">
-        
-        <div class="icon" data-page-node-id="qgQEY9A06EaP0ACejOvPFH"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="3gmgeTLO3segW5RCYyo0SP"><path d="M12 2 L15 8.5 L22 9.5 L17 14.5 L18 21.5 L12 18 L6 21.5 L7 14.5 L2 9.5 L9 8.5 Z" data-page-node-id="JEZmSxo4xDaYAmeGo1nhml"/></svg></div>
-        
-        
-        
-        
-        
-      </div>
+      <article class="train-step">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3 L2 8 L12 13 L22 8 Z"/><path d="M5 10.5 L5 16 C5 18 8 20 12 20 C16 20 19 18 19 16 L19 10.5"/><path d="M22 8 L22 13"/></svg></div>
+        <span class="ts-tag">入职 0–1 个月</span>
+        <h3>新人启航计划</h3>
+        <p>从入职第一天起，由人事组、部门经理与带教师傅三方共同接引，把"能不能留下来"变成"多快能上手"。</p>
+        <ul class="ts-list">
+          <li>企业文化与规章制度</li>
+          <li>四大产品与办理流程</li>
+          <li>合规红线与风险案例</li>
+          <li>首轮考核与上岗评估</li>
+        </ul>
+        <figure class="ts-photo"><img src="./assets/academy/class-basics.jpg" alt="新人启航计划 · 小班授课" loading="lazy" /></figure>
+      </article>
+      <article class="train-step">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2 L4 14 L11 14 L10 22 L20 9 L13 9 Z"/></svg></div>
+        <span class="ts-tag">入职 3–12 个月</span>
+        <h3>骨干进阶计划</h3>
+        <p>面向已经能独立接单的骨干，围绕疑难客户、渠道沟通与方案设计做专项训练，每周一次实战复盘。</p>
+        <ul class="ts-list">
+          <li>疑难资质诊断与方案设计</li>
+          <li>银行渠道与政策变化跟进</li>
+          <li>客户沟通与异议处理演练</li>
+          <li>月度数据复盘与目标拆解</li>
+        </ul>
+        <figure class="ts-photo"><img src="./assets/academy/class-roundtable.jpg" alt="骨干进阶计划 · 课堂研讨" loading="lazy" /></figure>
+      </article>
+      <article class="train-step">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2 L15 8.5 L22 9.5 L17 14.5 L18 21.5 L12 18 L6 21.5 L7 14.5 L2 9.5 L9 8.5 Z"/></svg></div>
+        <span class="ts-tag">晋升储备 / 在职主管</span>
+        <h3>管理者孵化计划</h3>
+        <p>为储备干部与在职主管开设，从"自己做好"转向"带团队做好"，课程由总经办与外部讲师共同承担。</p>
+        <ul class="ts-list">
+          <li>目标管理与团队节奏把控</li>
+          <li>招聘面试与新人培养</li>
+          <li>数据看板与过程管理</li>
+          <li>跨部门协同与向上沟通</li>
+        </ul>
+        <figure class="ts-photo"><img src="./assets/academy/class-manager.jpg" alt="管理者孵化计划 · 圆桌交流" loading="lazy" /></figure>
+      </article>
     </div>
 
     <!-- 培训日常 + 师徒制 -->
     <div class="culture-layout" data-page-node-id="kVrkACu07RQmrfxPvxtKpm">
-      <div class="culture-box" data-page-node-id="d3Mn0XAzGK347KyoIgduE2">
-        <div class="cb-head" data-page-node-id="3vxDYkyu0q7IlNmpKVs3nq">
-          <div class="icon" data-page-node-id="PApZqecEDcSlmBZP12TW0G"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="vFXmJ024Ds5Gg8tw0bGacp"><circle cx="12" cy="12" r="9" data-page-node-id="KuPA1BwklMkBiM9q5vLtxr"/><path d="M12 7 L12 12 L15.5 14" data-page-node-id="iLduzDfBDB9cbXTfPRPQX6"/></svg></div>
-          <h4 data-page-node-id="DY1JgHdaAHOaKUIpnOyAMU">培训日常 · 每一天都在成长</h4>
+      <article class="culture-box" data-page-node-id="d3Mn0XAzGK347KyoIgduE2">
+        <div class="cb-head">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7 L12 12 L15.5 14"/></svg></div>
+          <h4>培训日常 · 每一天都在成长</h4>
         </div>
-        
-      </div>
-      <div class="culture-box" data-page-node-id="0it34kbIsAARoOXEWwKEzj">
-        <div class="cb-head" data-page-node-id="Z2ZOICPsLuxOUBrfFh4Ig5">
-          <div class="icon" data-page-node-id="RburiC3RfvPT5PTS8tTY3r"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="Ku0xKSK0I5C1xnGXFdjBmZ"><circle cx="8.5" cy="7" r="3.5" data-page-node-id="RdsmLu85y9QenXXsMrSh6P"/><circle cx="16.5" cy="9" r="2.5" data-page-node-id="XmIRzv1SEcGPxQIkePfzT6"/><path d="M2.5 20 C2.5 16 5 14 8.5 14 C12 14 14.5 16 14.5 20" data-page-node-id="KWleyHiJlgALYxlI1ySA1S"/><path d="M14.5 15.5 C15 14.5 16 14 17.5 14 C20 14 21.5 15.5 21.5 18" data-page-node-id="bkF0AObnh04kU2Q5pjPzE4"/></svg></div>
-          <h4 data-page-node-id="yO2HKIAY2OsmOKVvF2PpCh">传帮带 · 一对一师徒制</h4>
+        <figure class="cb-photo"><img src="./assets/academy/daily-training.jpg" alt="培训日常 · 课堂现场" loading="lazy" /></figure>
+        <div class="cb-body">
+          <div class="cb-item"><span class="cb-num">1</span><p>15 分钟政策速递与目标对齐，当天的热点当天讲，不积压问题。</p></div>
+          <div class="cb-item"><span class="cb-num">2</span><p>商学院固定课表，内部讲师轮流上台，主题从产品要素到合规红线。</p></div>
+          <div class="cb-item"><span class="cb-num">3</span><p>以数据说话。成交要讲清做对了什么，流失也要讲清输在哪里。</p></div>
+          <div class="cb-item"><span class="cb-num">4</span><p>银行政策有变动，当天组织专项讲解，不留隔夜账。</p></div>
         </div>
-        
-      </div>
+      </article>
+      <article class="culture-box" data-page-node-id="0it34kbIsAARoOXEWwKEzj">
+        <div class="cb-head">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8.5" cy="7" r="3.5"/><circle cx="16.5" cy="9" r="2.5"/><path d="M2.5 20 C2.5 16 5 14 8.5 14 C12 14 14.5 16 14.5 20"/><path d="M14.5 15.5 C15 14.5 16 14 17.5 14 C20 14 21.5 15.5 21.5 18"/></svg></div>
+          <h4>传帮带 · 一对一师徒制</h4>
+        </div>
+        <figure class="cb-photo"><img src="./assets/academy/mentoring.jpg" alt="传帮带 · 导师带教" loading="lazy" /></figure>
+        <div class="cb-body">
+          <div class="cb-item"><span class="cb-num">1</span><p>新同事入职即配带教师傅，师徒同考核、同奖惩。</p></div>
+          <div class="cb-item"><span class="cb-num">2</span><p>师傅带徒弟跑客户、跑银行，全程跟、当面讲，不隔着屏幕教。</p></div>
+          <div class="cb-item"><span class="cb-num">3</span><p>徒弟独立操作后，由师傅逐环节点评纠偏，直到能独立交付。</p></div>
+          <div class="cb-item"><span class="cb-num">4</span><p>通过考核才算"出师"，带出合格新人的师傅计入培养积分。</p></div>
+        </div>
+      </article>
     </div>
 
     <!-- 文化理念 -->
     <div class="culture-band" data-page-node-id="8VXUS798AQe4LbJ6nbHLsZ">
-      <div class="culture-pill" data-page-node-id="7GmR0EdwhJQJMxdaG2TyGR">
-        <div class="icon" data-page-node-id="C2p2UHSgkbG2JOpnGjfOb7"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="pjFPeHpSkXdfyXkvDUrNTO"><path d="M4 19 L4 10 M10 19 L10 5 M16 19 L16 13 M22 19 L22 8" stroke-linecap="round" data-page-node-id="5WOW8i7J5JbLQZM2DBKHfk"/></svg></div>
-        <h5 data-page-node-id="3ILFpFPdjPJF4JTjGNASqL">以战代练</h5>
-        
+      <div class="culture-pill">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 19 L4 10 M10 19 L10 5 M16 19 L16 13 M22 19 L22 8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h5>以战代练</h5>
+        <p>课堂讲一遍，实战练十遍。课程都从真实客户案例出发，学完当天就能用上。</p>
       </div>
-      <div class="culture-pill" data-page-node-id="iGC3ZmkGH7lPIq5rVK7nFS">
-        <div class="icon" data-page-node-id="rGRy88L0dxfZFzVHorJg6i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="QpnI47rlFO6UYDuh5mg7RA"><path d="M12 21 C7 17 3 13.5 3 9.5 C3 6.5 5.5 4 8.5 4 C10 4 11.3 4.7 12 5.8 C12.7 4.7 14 4 15.5 4 C18.5 4 21 6.5 21 9.5 C21 13.5 17 17 12 21 Z" data-page-node-id="M5PwL8ypwlCaZd2MT6XdrY"/></svg></div>
-        <h5 data-page-node-id="FqnHEHWrwlp20D5EuvaM7L">薪火相传</h5>
-        
+      <div class="culture-pill">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 21 C7 17 3 13.5 3 9.5 C3 6.5 5.5 4 8.5 4 C10 4 11.3 4.7 12 5.8 C12.7 4.7 14 4 15.5 4 C18.5 4 21 6.5 21 9.5 C21 13.5 17 17 12 21 Z"/>
+          </svg>
+        </div>
+        <h5>薪火相传</h5>
+        <p>师傅带徒弟、老人带新人。皓镧的内部讲师全部来自一线，讲的都是自己踩过的坑。</p>
       </div>
-      <div class="culture-pill" data-page-node-id="Z728impWjIswAHCmcpv1MN">
-        <div class="icon" data-page-node-id="KnVxUoXEFgX6SLDB7mfMOP"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="hXd6bkV8Ln0qUrvg2aimLR"><path d="M12 3 L2 8 L12 13 L22 8 Z" data-page-node-id="rNftAyJCAHlSNNm1yG7gTq"/><path d="M5 10.5 L5 16 C5 18 8 20 12 20 C16 20 19 18 19 16 L19 10.5" data-page-node-id="iU1nPGHI2N5DMo8BJADvHN"/></svg></div>
-        <h5 data-page-node-id="dGJS5xNVMtsFDHTUfxomkH">终身学习</h5>
-        
+      <div class="culture-pill">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 3 L2 8 L12 13 L22 8 Z"/>
+            <path d="M5 10.5 L5 16 C5 18 8 20 12 20 C16 20 19 18 19 16 L19 10.5"/>
+            <path d="M22 8 L22 13"/>
+          </svg>
+        </div>
+        <h5>终身学习</h5>
+        <p>政策在变、产品在变，学习就不能停。商学院课程对所有同事长期开放。</p>
       </div>
-      <div class="culture-pill" data-page-node-id="NMFTvVj0SlOq2eeWxwtSTA">
-        <div class="icon" data-page-node-id="6NMAaZkbdzAc7RPHvIQypR"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="FfRI6b6Z91goFMmT8gteGD"><rect x="3" y="3" width="8" height="8" rx="1.5" data-page-node-id="GoNA2tq8Sxkf32Phd2TLco"/><rect x="13" y="3" width="8" height="8" rx="1.5" data-page-node-id="p46qm5X8Hnqcl6vAnqfvlj"/><rect x="3" y="13" width="8" height="8" rx="1.5" data-page-node-id="4lLVoo8ugJr6PeBt4EoZzU"/><rect x="13" y="13" width="8" height="8" rx="1.5" data-page-node-id="WVpEEQWYkB1w3LzsFdRH6v"/></svg></div>
-        <h5 data-page-node-id="vS0zJgAy7EBCuyUtl2Swyt">成果导向</h5>
-        
+      <div class="culture-pill">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="3" width="8" height="8" rx="1.5"/>
+            <rect x="13" y="3" width="8" height="8" rx="1.5"/>
+            <rect x="3" y="13" width="8" height="8" rx="1.5"/>
+            <rect x="13" y="13" width="8" height="8" rx="1.5"/>
+          </svg>
+        </div>
+        <h5>成果导向</h5>
+        <p>不看听了多少课，只看能不能解决问题。每次培训都对应可检验的目标。</p>
+      </div>
+    </div>
+
+    <!-- 培训现场 -->
+    <h3 class="edu-sub-title">培训现场</h3>
+    <p class="edu-sub-en">CLASSROOM MOMENTS</p>
+    <div class="edu-gallery">
+      <figure>
+        <img src="./assets/academy/all-hands.jpg" alt="皓镧商学院全员大课现场" loading="lazy" />
+        <figcaption><b>全员大课</b><span>商学院课程面向全体同事，业务、行政、互联网部同堂上课，没有人是旁听生。</span></figcaption>
+      </figure>
+      <figure>
+        <img src="./assets/academy/culture-talk.jpg" alt="企业文化宣讲现场" loading="lazy" />
+        <figcaption><b>文化宣讲</b><span>把"组织驱动的六脉神剑"讲进工作日常：凡是生意必有规划，无节点不行动。</span></figcaption>
+      </figure>
+      <figure>
+        <img src="./assets/academy/team-group.jpg" alt="商学院课程结业合影" loading="lazy" />
+        <figcaption><b>结业合影</b><span>一期课程结束，讲师与学员合影留念，记录这一段一起走过的成长。</span></figcaption>
+      </figure>
+    </div>
+
+    <div class="edu-teacher">
+      <figure class="et-photo"><img src="./assets/academy/teachers-day.jpg" alt="教师节 · 皓镧商学院首席导师" loading="lazy" /></figure>
+      <div>
+        <h4>教师节 · 致敬皓镧商学院导师</h4>
+        <p>皓镧商学院的讲师全部来自一线：他们是业务骨干、部门经理，也是愿意站上台、把自己踩过的坑讲给同事听的人。每年教师节，公司都会为导师们留一份仪式感——因为传帮带这件事，值得被认真对待。</p>
+        <div class="et-quote">人生就是打怪升级，而您给了我们足够的装备。</div>
       </div>
     </div>
   </section>
