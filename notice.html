@@ -88,128 +88,7 @@
     color: var(--muted); font-size: 14px; line-height: 2;
   }
 
-  /* ========== 1. 公司动态 ========== */
-  /* 动态时间线 */
-  .dyna-layout { display: block; }
-
-  .dyna-timeline { position: relative; padding-left: 28px; }
-  .dyna-timeline::before {
-    content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px;
-    width: 2px; background: linear-gradient(180deg, var(--gold), var(--gold-soft));
-  }
-  .dyna-item { position: relative; margin-bottom: 28px; }
-  .dyna-item:last-child { margin-bottom: 0; }
-  .dyna-item::before {
-    content: ""; position: absolute; left: -25px; top: 6px;
-    width: 12px; height: 12px; border-radius: 50%;
-    background: #fff; border: 2.5px solid var(--gold);
-    transition: all .25s;
-  }
-  .dyna-item:hover::before { border-color: var(--red); background: var(--red); }
-  .dyna-item .di-date {
-    font-size: 12px; color: var(--gold-deep); font-weight: 600; letter-spacing: 1px;
-    margin-bottom: 6px;
-  }
-  .dyna-card {
-    border: 1.5px solid var(--gold-soft); border-radius: 10px;
-    background: #fff; padding: 22px 28px; transition: all .25s; cursor: pointer;
-  }
-  .dyna-card:hover {
-    border-color: var(--gold); box-shadow: 0 10px 28px rgba(184,148,31,0.1);
-    transform: translateX(4px);
-  }
-
-  /* ========== 2. 客户案例 + 服务优势 ========== */
-  /* 精选案例 */
-  .case-featured {
-    border: 1.5px solid var(--gold); border-radius: 12px; overflow: hidden;
-    background: #fff; margin-bottom: 32px; transition: all .25s;
-  }
-  .case-featured:hover { box-shadow: 0 16px 40px rgba(184,148,31,0.14); }
-  .case-featured .cf-visual {
-    background: linear-gradient(135deg, #2C2C2C 0%, #2d5a42 100%);
-    min-height: 250px; display: flex; align-items: center; justify-content: center;
-    position: relative; overflow: hidden;
-  }
-  .case-featured .cf-star { width: 72px; height: 72px; color: var(--gold); opacity: .92; }
-
-  /* 案例列表 */
-  .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 48px; }
-  .case-card {
-    border: 1.5px solid var(--gold-soft); border-radius: 12px; overflow: hidden;
-    background: #fff; transition: all .25s; cursor: pointer;
-    display: flex; flex-direction: column;
-  }
-  .case-card:hover {
-    border-color: var(--gold); transform: translateY(-4px);
-    box-shadow: 0 16px 36px rgba(184,148,31,0.12);
-  }
-  .case-banner {
-    height: 150px; display: flex; align-items: center; justify-content: center;
-  }
-  .case-banner svg { width: 46px; height: 46px; opacity: 0.9; }
-  .case-banner.b1 { background: linear-gradient(135deg, #C8102E, #e63950); }
-  .case-banner.b2 { background: linear-gradient(135deg, #2C2C2C, #2d5a42); }
-  .case-banner.b3 { background: linear-gradient(135deg, #B8941F, #D4AF37); }
-
-  /* 服务优势 */
-  .adv-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-  .adv-card {
-    border: 1.5px solid var(--gold); border-radius: 12px;
-    background: linear-gradient(180deg, #fff 0%, var(--bg-soft) 100%);
-    padding: 32px 24px; text-align: center; transition: all .25s; cursor: pointer;
-    min-height: 210px; display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-  }
-  .adv-card:hover {
-    transform: translateY(-4px); box-shadow: 0 16px 36px rgba(184,148,31,0.16);
-  }
-  .adv-icon {
-    width: 60px; height: 60px; border-radius: 50%; margin: 0 auto;
-    display: flex; align-items: center; justify-content: center;
-    border: 2px solid var(--gold);
-  }
-  .adv-icon svg { width: 28px; height: 28px; color: var(--gold-deep); }
-  .adv-card:nth-child(1) .adv-icon { background: rgba(200,16,46,0.08); border-color: var(--red); }
-  .adv-card:nth-child(1) .adv-icon svg { color: var(--red); }
-  .adv-card:nth-child(2) .adv-icon { background: rgba(31,58,46,0.08); border-color: #2C2C2C; }
-  .adv-card:nth-child(2) .adv-icon svg { color: #2C2C2C; }
-  .adv-card:nth-child(3) .adv-icon { background: rgba(184,148,31,0.1); border-color: var(--gold-deep); }
-  .adv-card:nth-child(3) .adv-icon svg { color: var(--gold-deep); }
-  .adv-card:nth-child(4) .adv-icon { background: rgba(201,169,97,0.1); border-color: var(--gold); }
-  .adv-card:nth-child(4) .adv-icon svg { color: var(--gold-deep); }
-
-  /* ========== 3. 服务场景展示 ========== */
-  .scene-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .scene-card {
-    border: 1.5px solid var(--gold-soft); border-radius: 12px; overflow: hidden;
-    background: #fff; transition: all .25s; cursor: pointer;
-  }
-  .scene-card:hover {
-    border-color: var(--gold); transform: translateY(-4px);
-    box-shadow: 0 16px 36px rgba(184,148,31,0.12);
-  }
-  .scene-banner {
-    height: 140px; position: relative; overflow: hidden;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .scene-banner svg { width: 48px; height: 48px; opacity: 0.85; z-index: 1; }
-  .scene-banner::after {
-    content: ""; position: absolute; inset: 0;
-    background: radial-gradient(circle at 70% 30%, rgba(255,255,255,0.15), transparent 60%);
-  }
-  .scene-banner.s1 { background: linear-gradient(135deg, #8E0A1F 0%, #C8102E 100%); }
-  .scene-banner.s2 { background: linear-gradient(135deg, #2C2C2C 0%, #2d5a42 100%); }
-  .scene-banner.s3 { background: linear-gradient(135deg, #B8941F 0%, #D4AF37 100%); }
-  .scene-banner.s4 { background: linear-gradient(135deg, #2a4a3a 0%, #2C2C2C 100%); }
-  .scene-banner.s5 { background: linear-gradient(135deg, #B91D2E 0%, #8E0A1F 100%); }
-  .scene-banner.s6 { background: linear-gradient(135deg, #B4941F 0%, #B8941F 100%); }
-  .scene-card { min-height: 100%; }
-
   /* ========== 企业荣誉 / 企业文化（自关于我们页迁入） ========== */
-  .sub-grid { display: grid; gap: 20px; }
-  .sub-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
-
   /* 荣誉卡片 */
   .honor-card {
     border: 1.5px solid var(--gold); border-radius: 10px; overflow: hidden;
@@ -234,6 +113,28 @@
     background: rgba(200,16,46,0.9); color: #fff;
     font-size: 12px; padding: 4px 12px; border-radius: 3px; letter-spacing: 2px;
   }
+
+  /* 荣誉视频卡 */
+  .honor-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .honor-card .honor-visual { aspect-ratio: 3/4; background: #151515; }
+  .honor-visual::before { pointer-events: none; }
+  .honor-visual video {
+    position: relative; z-index: 1;
+    width: 100%; height: 100%; display: block;
+    object-fit: contain; background: #151515;
+  }
+  .honor-visual .badge { z-index: 2; }
+  .hv-cap { padding: 16px 20px 18px; border-top: 1px solid var(--line); }
+  .hv-cap .hv-no {
+    display: inline-block; color: var(--gold-deep);
+    font-family: "STSong", "SimSun", serif;
+    font-size: 13px; letter-spacing: 2px;
+  }
+  .hv-cap h4 {
+    margin: 6px 0 0; font-size: 16px; font-weight: 600;
+    letter-spacing: 1px; color: var(--ink);
+  }
+  .hv-cap .hv-meta { margin: 8px 0 0; font-size: 12.5px; color: var(--muted); letter-spacing: .5px; }
 
   /* 文化内容块 */
   .culture-list { display: flex; flex-direction: column; gap: 20px; }
@@ -321,24 +222,21 @@
 
   /* ========== 响应式 ========== */
   @media (max-width: 1080px) {
-    .case-grid { grid-template-columns: repeat(2, 1fr); }
-    .adv-grid { grid-template-columns: repeat(2, 1fr); }
-    .scene-grid { grid-template-columns: repeat(2, 1fr); }
+    .honor-grid { grid-template-columns: repeat(2, 1fr); }
     .culture-block { padding: 26px 24px 26px 28px; }
     .honor-block { padding: 26px 24px 26px 28px; }
   }
   @media (max-width: 760px) {
-    .case-grid { grid-template-columns: 1fr; }
-    .adv-grid { grid-template-columns: 1fr; }
-    .scene-grid { grid-template-columns: 1fr; }
-    .sub-grid.cols-2 { grid-template-columns: 1fr; }
     .culture-block { padding: 22px 18px 22px 22px; }
     .culture-block .c-head { gap: 10px; padding-bottom: 10px; margin-bottom: 12px; }
     .culture-block .c-icon { width: 28px; height: 28px; }
     .culture-block .cnum { font-size: 19px; }
     .culture-block .c-head h4 { font-size: 16.5px; letter-spacing: 1.5px; }
     .culture-block .c-text p { font-size: 14px; line-height: 2; }
+    .honor-grid { grid-template-columns: 1fr; }
     .honor-visual .badge { left: 14px; top: 14px; }
+    .hv-cap { padding: 14px 16px 16px; }
+    .hv-cap h4 { font-size: 15px; }
     .honor-lead { font-size: 14px; line-height: 2; text-align: left; margin: -10px 0 18px; }
     .honor-block { padding: 22px 18px 22px 22px; margin-top: 18px; }
     .honor-block .honor-head h4 { font-size: 17px; letter-spacing: 1.5px; }
@@ -352,10 +250,6 @@
     .page-banner { padding: 40px 20px 36px; }
     .page-banner h1 { font-size: 28px; letter-spacing: 5px; }
   }
-
-  /* ========== 内容清除后的空卡视觉补丁 ========== */
-  .dyna-card { min-height: 96px; display: flex; align-items: center; }
-  .case-card { min-height: 152px; }
 
   /* ========== 手机端通用优化（追加） ========== */
   @media (max-width: 760px) {
@@ -586,17 +480,47 @@
 
     <p class="honor-lead">多年来，公司凭借规范的经营体系、优质的服务品质、良好的市场信誉与积极的社会担当，斩获行业与社会各界的广泛认可，积累了多项企业荣誉，彰显企业综合实力与品牌价值。公司始终以荣誉为激励，坚守初心、精益求精，持续以高标准要求自身，赋能行业发展、回馈社会信任。</p>
 
-    <div class="sub-grid cols-2" data-page-node-id="mkMHFCkJWG3sPaZtz7YcfR">
-      <article class="honor-card" data-page-node-id="4kt693BhNrDaz9VEif8AC4">
-        <div class="honor-visual" data-page-node-id="4fdgeWyKC5C9bMhcFTPf75">
-          <span class="badge" data-page-node-id="82HVRvAzszZEsjQvx9zkq4">公益</span>
-          <span class="ph" data-page-node-id="yHIpWiCYTQyFH76xGY2q3l">公益活动展示</span>
+    <div class="honor-grid">
+      <article class="honor-card">
+        <div class="honor-visual">
+          <span class="badge">影像</span>
+          <video controls preload="metadata" playsinline webkit-playsinline>
+            <source src="./assets/video/honor-1.mp4" type="video/mp4">
+            您的浏览器不支持视频播放，请更换浏览器查看。
+          </video>
+        </div>
+        <div class="hv-cap">
+          <span class="hv-no">01</span>
+          <h4>企业荣誉影像 · 一</h4>
+          <p class="hv-meta">竖屏 · 2 分 00 秒</p>
         </div>
       </article>
-      <article class="honor-card" data-page-node-id="M5wKPirYepoi91JGNTjI1m">
-        <div class="honor-visual" data-page-node-id="ZhFZfHdy8nrJefXxaJnxop">
-          <span class="badge" data-page-node-id="JGyRNVl7lQ9rg7Stwn1pYM">6·26</span>
-          <span class="ph" data-page-node-id="c9kVevxLf13pdlG1gr6d0i">禁毒日主题宣传</span>
+      <article class="honor-card">
+        <div class="honor-visual">
+          <span class="badge">影像</span>
+          <video controls preload="metadata" playsinline webkit-playsinline>
+            <source src="./assets/video/honor-2.mp4" type="video/mp4">
+            您的浏览器不支持视频播放，请更换浏览器查看。
+          </video>
+        </div>
+        <div class="hv-cap">
+          <span class="hv-no">02</span>
+          <h4>企业荣誉影像 · 二</h4>
+          <p class="hv-meta">横屏 · 0 分 31 秒</p>
+        </div>
+      </article>
+      <article class="honor-card">
+        <div class="honor-visual">
+          <span class="badge">影像</span>
+          <video controls preload="metadata" playsinline webkit-playsinline>
+            <source src="./assets/video/honor-3.mp4" type="video/mp4">
+            您的浏览器不支持视频播放，请更换浏览器查看。
+          </video>
+        </div>
+        <div class="hv-cap">
+          <span class="hv-no">03</span>
+          <h4>企业荣誉影像 · 三</h4>
+          <p class="hv-meta">竖屏 · 1 分 54 秒</p>
         </div>
       </article>
     </div>
@@ -739,12 +663,12 @@
   <section id="teamlife">
     <h2 class="sec-title">团队风采</h2>
     <p class="sec-subtitle">TEAM MOMENTS</p>
-    <p class="sec-desc">从开业的第一张合影，到年会舞台上的并肩；从银企共建的横幅，到一顿热闹的团队聚餐。这些画面记录着皓镧资产真实的工作日常。</p>
+    <p class="sec-desc">从公司年度庆典的全员合影，到年会舞台上的并肩；从银企共建的横幅，到一顿热闹的团队聚餐。这些画面记录着皓镧资产真实的工作日常。</p>
 
     <div class="tf-grid">
       <figure class="tf-card">
-        <span class="tf-photo"><img src="./assets/culture/culture-opening.jpg" alt="皓镧资产团队开业合影" loading="lazy" /></span>
-        <figcaption class="tf-cap"><b>开业合影</b><span>团队正式启航的第一张全员合影，一切从这里开始。</span></figcaption>
+        <span class="tf-photo"><img src="./assets/culture/culture-opening.jpg" alt="皓镧资产公司年度庆典合影" loading="lazy" /></span>
+        <figcaption class="tf-cap"><b>公司年度庆典</b><span>一年一度的公司庆典，全员齐聚，镜头定格下完整的团队阵容。</span></figcaption>
       </figure>
 
       <figure class="tf-card">
@@ -758,13 +682,13 @@
       </figure>
 
       <figure class="tf-card">
-        <span class="tf-photo"><img src="./assets/culture/culture-anniversary.jpg" alt="皓镧资产周年庆典全员合影" loading="lazy" /></span>
-        <figcaption class="tf-cap"><b>周年庆典</b><span>周年庆当天，公司为每位同事备好礼物，一起庆祝又走过的一年。</span></figcaption>
+        <span class="tf-photo"><img src="./assets/culture/culture-anniversary.jpg" alt="与公司同行180天蜕变合影" loading="lazy" /></span>
+        <figcaption class="tf-cap"><b>公司180天蜕变</b><span>与公司同行 180 天，从陌生到默契，每个人的蜕变都看得见。</span></figcaption>
       </figure>
 
       <figure class="tf-card">
-        <span class="tf-photo"><img src="./assets/culture/culture-annual.jpg" alt="皓镧资产年度盛典合影" loading="lazy" /></span>
-        <figcaption class="tf-cap"><b>年度盛典</b><span>一年一度的全员盛典，台上总结、台下举杯，为新一年定好节奏。</span></figcaption>
+        <span class="tf-photo"><img src="./assets/culture/culture-annual.jpg" alt="皓镧资产公司年会合影" loading="lazy" /></span>
+        <figcaption class="tf-cap"><b>公司年会</b><span>一年一度的公司年会，台上总结、台下举杯，为新一年定好节奏。</span></figcaption>
       </figure>
 
       <figure class="tf-card">
@@ -778,202 +702,14 @@
       </figure>
 
       <figure class="tf-card">
-        <span class="tf-photo"><img src="./assets/culture/culture-spring-couplet.jpg" alt="同事现场书写春联" loading="lazy" /></span>
-        <figcaption class="tf-cap"><b>写春联现场</b><span>一副春联写下来，围观的同事比写的人还认真。</span></figcaption>
+        <span class="tf-photo"><img src="./assets/culture/culture-spring-couplet.jpg" alt="皓镧资产开年活动现场" loading="lazy" /></span>
+        <figcaption class="tf-cap"><b>开年活动</b><span>新年开工的第一场活动，全员到场，把一整年的气势先立起来。</span></figcaption>
       </figure>
 
       <figure class="tf-card">
         <span class="tf-photo"><img src="./assets/culture/culture-dinner.jpg" alt="团队聚餐合影" loading="lazy" /></span>
         <figcaption class="tf-cap"><b>团队聚餐</b><span>业务再忙也要坐下吃顿饭，跨部门的默契常常就是这样建立起来的。</span></figcaption>
       </figure>
-    </div>
-  </section>
-
-  <!-- ========================================== -->
-  <!-- 5. 公司动态 -->
-  <!-- ========================================== -->
-  <section id="dynamics" data-page-node-id="T0YWZQrAFI7HXA4JtD8bDV">
-    <h2 class="sec-title" data-page-node-id="EMM2lHEJRK7C3e1sfbhFum">公司动态</h2>
-    <p class="sec-subtitle" data-page-node-id="EQmJJNvEc8gZ9h0X2M5Ebd">COMPANY DYNAMICS</p>
-    <p class="sec-desc" data-page-node-id="6VlYuPgOBofyFjpYI8wOkp">记录皓镧资产发展的每一个重要时刻——从公司成立到业务拓展，从团队建设到品牌升级，每一步都脚踏实地。</p>
-
-
-
-    <div class="dyna-layout" data-page-node-id="6XbkOrqNSeSZMWVhjbkh5I">
-        <div class="dyna-timeline" data-page-node-id="ZGGelxRL2lSNvECLNRzbnW">
-        <div class="dyna-item" data-page-node-id="bxo0mp7ckR98xNDRFOnp2f">
-          <div class="di-date" data-page-node-id="Wqy9HXQjNuYc13diWbAR6y">2026-08-10</div>
-          <div class="dyna-card" data-page-node-id="ktot6HUvKtv08kKF2J9oVn">
-          </div>
-        </div>
-
-        <div class="dyna-item" data-page-node-id="HS937YSKddjwkSCmEvY0cM">
-          <div class="di-date" data-page-node-id="9ObnAeWpOg8XNO4dgITaEt">2026-07-28</div>
-          <div class="dyna-card" data-page-node-id="L2PVZ26pRDLmihWdfQnDDM">
-          </div>
-        </div>
-
-        <div class="dyna-item" data-page-node-id="aCFCbt3SsooqlKaeVm6lXs">
-          <div class="di-date" data-page-node-id="BPKSC64pYw9zEUZ9wpEBCv">2026-06-15</div>
-          <div class="dyna-card" data-page-node-id="7pUjqp79mdnqtFHmF5xHVv">
-          </div>
-        </div>
-
-        <div class="dyna-item" data-page-node-id="ltOW2I1kutXhUpnwuMJlYa">
-          <div class="di-date" data-page-node-id="T8N81koaZHvuLpEhpzRGdd">2026-05-20</div>
-          <div class="dyna-card" data-page-node-id="AAECtWacBgvmE5QkW97Avu">
-          </div>
-        </div>
-
-        <div class="dyna-item" data-page-node-id="hqFaSxOt4WU9FOecLIsg0e">
-          <div class="di-date" data-page-node-id="CEjKRwlVOGjBKQCMgHBo1e">2026-03-12</div>
-          <div class="dyna-card" data-page-node-id="jaaKhUePbPVKFrVxuPstCp">
-          </div>
-        </div>
-      </div>
-
-
-    </div>
-  </section>
-
-  <!-- ========================================== -->
-  <!-- 6. 客户案例 + 服务优势 -->
-  <!-- ========================================== -->
-  <section id="cases" data-page-node-id="1NXIbN2B2Ifdcvny42dif2">
-    <h2 class="sec-title" data-page-node-id="eQWCFu1XYFQlK41uRBooQf">客户案例与服务优势</h2>
-    <p class="sec-subtitle" data-page-node-id="L3C692ALc2QV4XeXjTi4HX">CLIENT CASES &amp; SERVICE ADVANTAGES</p>
-    <p class="sec-desc" data-page-node-id="rTgMK5GMZZzNaW0yIScBPp">每一个成功案例都是皓镧专业能力的证明，每一项服务优势都是客户选择皓镧的理由。以真实案例说话，以硬核实力赢得信任。</p>
-
-    <div class="case-featured" data-page-node-id="v7RocrJ1Bx29d1r59bRwFM">
-      <div class="cf-visual" data-page-node-id="Zfe3LniF4vkXcbHeVF90gf">
-          <svg class="cf-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-            <path d="M12 2 L14 8 L20 8 L15 12 L17 18 L12 14 L7 18 L9 12 L4 8 L10 8 Z"/>
-          </svg>
-        </div>
-      
-    </div>
-
-    <div class="case-grid" data-page-node-id="xmp10KuuSwnYJPM75JWDIn">
-      <div class="case-card" data-page-node-id="hCqhFCB8RfuWfqOgomCdfs">
-        <div class="case-banner b1" data-page-node-id="WQ4cKLlIhtAyLtQQjKJoYu">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" data-page-node-id="A0V9FDAYAvCuarV7IUdCjT"><rect x="3" y="7" width="18" height="13" rx="2" data-page-node-id="6w6LAxymLbtQidmLuZhEbj"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" data-page-node-id="gip052Nx7x7GZUWVMsP2RO"/><path d="M3 12h18" data-page-node-id="vsF6TDk4rJrKuIyFmwjZaD"/></svg>
-        </div>
-        
-      </div>
-
-      <div class="case-card" data-page-node-id="LmB4BHTPGJ88ApXYcDTDMY">
-        <div class="case-banner b2" data-page-node-id="B3hIMXTUh6TQxIORHGOGnP">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" data-page-node-id="aE3tFGHA4tewMtGUAy7pnT"><circle cx="12" cy="8" r="4" data-page-node-id="gcxc74HE7TWsC45YOOw6GR"/><path d="M4 21v-1a8 8 0 0 1 16 0v1" data-page-node-id="jbqf4s2jS5WBwY1NGX1yc1"/></svg>
-        </div>
-        
-      </div>
-
-      <div class="case-card" data-page-node-id="EDqXJbzDizS8ehkaKL9okw">
-        <div class="case-banner b3" data-page-node-id="DSi7cqV14BaQwVZg1YxtLq">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" data-page-node-id="Km4EhuygUjAcJ1htLUfjAx"><path d="M3 13l2-5a3 3 0 0 1 3-2h8a3 3 0 0 1 3 2l2 5" data-page-node-id="NbEN14tLQAWzH24wTUWIDS"/><path d="M3 13v5h2v-2h14v2h2v-5" data-page-node-id="AHHOjDbmLJBxIq4cYcrrF6"/><circle cx="7" cy="16" r="1.5" data-page-node-id="iGITCPxX4oWCZFDqjDEyGj"/><circle cx="17" cy="16" r="1.5" data-page-node-id="Q6RKENbIaj06JML34WiU83"/></svg>
-        </div>
-        
-      </div>
-
-      <div class="case-card" data-page-node-id="FxH9vwsESstctxhEY4rguC">
-        <div class="case-banner b2" data-page-node-id="4N7m0DvUlrAWdbE3jb3ZrV">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" data-page-node-id="Y751FgbT3E79mbrbqaipEf"><path d="M3 21h18M5 21V8l7-5 7 5v13" data-page-node-id="f4HAnPgY6clHAzryBOFF0M"/><path d="M9 21v-6h6v6" data-page-node-id="hTT10ZveQTIyN8IjJi6E9p"/></svg>
-        </div>
-        
-      </div>
-
-      <div class="case-card" data-page-node-id="tCBpxpdTlumKcLv9RxAgZ6">
-        <div class="case-banner b1" data-page-node-id="Lk9msXhQfskQO5zJ29P6JI">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" data-page-node-id="PC0nAgynbjfKYJqzWbo7oX"><path d="M12 2v20M5 7l7-5 7 5M5 17l7 5 7-5" data-page-node-id="r8TJEwnWTxbcWcS3oB0SbP"/></svg>
-        </div>
-        
-      </div>
-
-      <div class="case-card" data-page-node-id="rPVtOqbsvID9N6TiPRHoKF">
-        <div class="case-banner b3" data-page-node-id="kalHnNeAZAXqWljTpHEWxE">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" data-page-node-id="iHBJ4SyoZao3GHW5zEcFmQ"><path d="M3 12l3-3 3 3-3 3zM12 7l3-3 3 3-3 3zM12 17l3-3 3 3-3 3zM18 12l3-3 3 3-3 3z" data-page-node-id="AaJe8CZSTUnDuwgFF0KUaU"/></svg>
-        </div>
-        
-      </div>
-    </div>
-
-    <h3 class="sec-title" style="font-size: 24px; margin-top: 20px;" data-page-node-id="yFy0nZDz8Rd0jpKRyBnmzn">我们的服务优势</h3>
-    <p class="sec-subtitle" data-page-node-id="xHFWTVj3oWKsrJ7knqlhrh">CORE ADVANTAGES</p>
-
-    <div class="adv-grid" data-page-node-id="rmbLx6g0AZJx5SFJPHCGmp">
-      <div class="adv-card" data-page-node-id="9B4zUEKBzcJHNTAHBIQfaz">
-        <div class="adv-icon" data-page-node-id="pn7pPvgJWfERjirb5M7OJZ">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="yk3DWhucaKzl2RIw4OwEHt"><path d="M13 2L3 14h7v8l10-12h-7V2z" data-page-node-id="yVwA9lbQ5GPSWw2O7Eujfj"/></svg>
-        </div>
-      </div>
-      <div class="adv-card" data-page-node-id="rrUHckU4rUf480Iv9GguDL">
-        <div class="adv-icon" data-page-node-id="3YgNGGr4K1FGBuCQC0p22s">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="iEMT45VaHYP1eUPRoEUOgV"><path d="M12 2L4 6v6c0 5 4 9 8 10 4-1 8-5 8-10V6l-8-4z" data-page-node-id="G1gnWsk6RpraPjKbNX7T5n"/><path d="M9 12l2 2 4-4" data-page-node-id="O9ZjYADQgHIWrBkHpTSgrN"/></svg>
-        </div>
-      </div>
-      <div class="adv-card" data-page-node-id="I4rkN3njoPs2bHu2XGhzrR">
-        <div class="adv-icon" data-page-node-id="iMY8OXIFdjGJAczxYiyuWS">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="EHh20n6CyNJcnfIGS3HMnA"><circle cx="12" cy="12" r="10" data-page-node-id="BajNEfB8s7s22jqhO2Fsor"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20" data-page-node-id="ojEGQApLteOG7M0y4bUBaj"/></svg>
-        </div>
-      </div>
-      <div class="adv-card" data-page-node-id="AbmFyjFxL1hPShFnqEVRzs">
-        <div class="adv-icon" data-page-node-id="zlr5bR3J4flbsp4qwHE2Dg">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-page-node-id="fqq1R0bJGAvMW0hnNxQgKE"><path d="M21 11.5a8.38 8.38 0 0 1-9 8.5 8.5 8.5 0 0 1-7.6-4.7L3 21l1.9-1.4A8.38 8.38 0 0 1 12 3a8.5 8.5 0 0 1 9 8.5z" data-page-node-id="3QYVX4a6nJwNFuiTU3T2rJ"/></svg>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================== -->
-  <!-- 7. 服务场景展示 -->
-  <!-- ========================================== -->
-  <section id="scenes" data-page-node-id="itG5wGaTJ45BTyElg6Rc4D">
-    <h2 class="sec-title" data-page-node-id="bGtFGxPpEqOPqK8Bl0EnWo">服务场景展示</h2>
-    <p class="sec-subtitle" data-page-node-id="EJlPm1agvQrtUDoczso3v1">SERVICE SCENARIOS</p>
-    <p class="sec-desc" data-page-node-id="VaQyOIg3wOR4VJzgnqAeKp">不同客户、不同需求、不同场景，皓镧资产以专业能力精准匹配。以下六大服务场景，覆盖个人与企业全生命周期融资需求。</p>
-
-    <div class="scene-grid" data-page-node-id="dMoXxx7fSYQiM94X3RNe51">
-      <div class="scene-card" data-page-node-id="ASNSUz8hLp8L1al1UT4Llb">
-        <div class="scene-banner s1" data-page-node-id="Vj9oIzYaFGtB2FcIW2QNZ1">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" data-page-node-id="KGyyXt5LGhMCfJBHm9GnoL"><path d="M3 21h18M5 21V8l7-5 7 5v13" data-page-node-id="YTpGlJNwAHPKG9zwvc8AZa"/><path d="M9 21v-6h6v6" data-page-node-id="2r4yru5fSeWZB0vcioFOAT"/></svg>
-        </div>
-        
-      </div>
-
-      <div class="scene-card" data-page-node-id="rrpSysrzQmRSVBqvcMzQBJ">
-        <div class="scene-banner s2" data-page-node-id="QUIOE1ZtXMDEL9Xy3Sp9KJ">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" data-page-node-id="js5eUVjkfqA4bK2eoBxgP2"><rect x="3" y="7" width="18" height="13" rx="2" data-page-node-id="yXuIOEVXp3Rtc6H81PP07E"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" data-page-node-id="qoTFQpQVrj4z1wXOLTBHc8"/><path d="M3 12h18" data-page-node-id="63X8R0n0Ub08ddWgQIuNMT"/></svg>
-        </div>
-        
-      </div>
-
-      <div class="scene-card" data-page-node-id="fLBKrv1PekItDsAowAc6he">
-        <div class="scene-banner s3" data-page-node-id="CGABjWYdoDGXZmiatjGA4G">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" data-page-node-id="AYYsWzxtJCic1aNZ3K8WWb"><circle cx="12" cy="8" r="4" data-page-node-id="lrN3HXpKxLjdjbqQ2Op9Tb"/><path d="M4 21v-1a8 8 0 0 1 16 0v1" data-page-node-id="pYVGr5GcMW3aXD1XPiIzS3"/></svg>
-        </div>
-        
-      </div>
-
-      <div class="scene-card" data-page-node-id="JUEBmvOwulaLsFupB7Z66f">
-        <div class="scene-banner s4" data-page-node-id="5TG6C8Vvcp5P5aTzao1NhE">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" data-page-node-id="l9vW6geOa6DIoRtYdnL4Ct"><path d="M3 13l2-5a3 3 0 0 1 3-2h8a3 3 0 0 1 3 2l2 5" data-page-node-id="BSEuCA2Cni2mRAoxGFLBby"/><path d="M3 13v5h2v-2h14v2h2v-5" data-page-node-id="3Te30M0sgXqadMI6OColm6"/><circle cx="7" cy="16" r="1.5" data-page-node-id="AGSPurgh9mrYvzPUlRg9nB"/><circle cx="17" cy="16" r="1.5" data-page-node-id="ubbYSNV55gD9kPF4qIs4xp"/></svg>
-        </div>
-        
-      </div>
-
-      <div class="scene-card" data-page-node-id="zeb6RFDABqQOeTloiz0Vu5">
-        <div class="scene-banner s5" data-page-node-id="HZGxI6ENhcFNxU6YBFYvlF">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" data-page-node-id="J4LM7FQDOotmDpCgm8e14e"><path d="M3 12l3-3 3 3-3 3zM12 7l3-3 3 3-3 3zM12 17l3-3 3 3-3 3zM18 12l3-3 3 3-3 3z" data-page-node-id="MsaWvbdFElHDph6WRAfUMs"/></svg>
-        </div>
-        
-      </div>
-
-      <div class="scene-card" data-page-node-id="VV1CgrUW7w6iy74KvmEGFe">
-        <div class="scene-banner s6" data-page-node-id="UMZDNgMTzqokp51ckCmksA">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" data-page-node-id="aUZfrfAfqenFYYAYvtGlfn"><path d="M3 21h18M5 21V11l7-7 7 7v10" data-page-node-id="6y2EEG5yr3DCy4Jz0MRVGr"/><path d="M9 21v-6h6v6" data-page-node-id="g8AS8xHJ1x613RGUYIma2X"/></svg>
-        </div>
-        
-      </div>
     </div>
   </section>
 

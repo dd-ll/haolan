@@ -89,9 +89,7 @@
   }
 
   /* ========== 1. 精选推荐 ========== */
-  .featured-video {
-    display: grid; grid-template-columns: 1.6fr 1fr; gap: 28px; margin-bottom: 24px;
-  }
+  .featured-video { max-width: 980px; margin: 0 auto; }
   .player-card {
     border: 1.5px solid var(--gold-soft); border-radius: 12px; overflow: hidden;
     background: #000; transition: all .25s;
@@ -122,60 +120,13 @@
     box-shadow: 0 0 40px rgba(201,169,97,0.5); transform: scale(1.06);
   }
   .play-btn svg { width: 32px; height: 32px; margin-left: 4px; fill: #fff; }
-
-  /* 精选侧榜 */
-  .rank-box {
-    border: 1.5px solid var(--gold-soft); border-radius: 12px; background: #fff;
-    padding: 24px; display: flex; flex-direction: column;
+  .player-frame { cursor: default; }
+  .player-frame video {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    display: block; object-fit: contain; background: #000;
   }
-
-  /* ========== 2. 视频库 ========== */
-
-  .video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .v-card {
-    border: 1.5px solid var(--gold-soft); border-radius: 10px; background: #fff;
-    overflow: hidden; cursor: pointer; transition: all .25s;
-  }
-  .v-card:hover { border-color: var(--gold); box-shadow: 0 12px 28px rgba(184,148,31,0.12); transform: translateY(-4px); }
-  .v-thumb { position: relative; aspect-ratio: 16/9; overflow: hidden; }
-  .v-thumb .ph {
-    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-  }
-  /* 分类配色封面 */
-  .ph.c-green { background: radial-gradient(ellipse 55% 45% at 30% 35%, rgba(201,169,97,0.3), transparent 60%), linear-gradient(135deg, #16241d, #2C2C2C 60%, #142720); }
-  .ph.c-red { background: radial-gradient(ellipse 55% 45% at 70% 35%, rgba(201,169,97,0.25), transparent 60%), linear-gradient(135deg, #5c0a17, var(--red-deep) 60%, #7c1122); }
-  .ph.c-gold { background: radial-gradient(ellipse 55% 45% at 40% 60%, rgba(255,255,255,0.18), transparent 60%), linear-gradient(135deg, #8a6d1e, var(--gold-deep) 60%, #6d5617); }
-  .ph.c-ink { background: radial-gradient(ellipse 55% 45% at 60% 30%, rgba(201,169,97,0.22), transparent 60%), linear-gradient(135deg, #111, #2a2a2a 60%, #1a1a1a); }
-  .v-thumb .ph .glyph { width: 40px; height: 40px; color: rgba(255,255,255,0.85); }
-  .v-thumb .ph .glyph svg { width: 40px; height: 40px; }
-  .v-thumb .mini-play {
-    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-    transition: background .25s;
-  }
-  .v-thumb .mini-play .pb {
-    width: 46px; height: 46px; border-radius: 50%;
-    background: rgba(0,0,0,0.35); border: 1.5px solid rgba(255,255,255,0.85);
-    display: flex; align-items: center; justify-content: center;
-    transition: all .25s; backdrop-filter: blur(2px);
-  }
-  .v-thumb .mini-play .pb svg { width: 16px; height: 16px; margin-left: 2px; fill: #fff; }
-  .v-card:hover .mini-play { background: rgba(0,0,0,0.2); }
-  .v-card:hover .mini-play .pb { background: var(--gold); border-color: var(--gold); transform: scale(1.1); }
-
-
-  /* ========== 3. 平台账号矩阵 ========== */
-  .plat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-  .plat-card {
-    border: 1.5px solid var(--gold-soft); border-radius: 10px; background: #fff;
-    padding: 26px 20px; text-align: center; transition: all .25s;
-  }
-  .plat-card:hover { border-color: var(--gold); box-shadow: 0 10px 28px rgba(184,148,31,0.12); transform: translateY(-4px); }
-  .plat-card .p-icon {
-    width: 52px; height: 52px; margin: 0 auto 12px; border-radius: 14px;
-    display: flex; align-items: center; justify-content: center;
-    background: var(--bg-soft); border: 1.5px solid var(--gold-soft); color: var(--gold-deep);
-  }
-  .plat-card .p-icon svg { width: 28px; height: 28px; }
+  .player-cap { padding: 14px 22px 16px; background: #fff; border-top: 1px solid var(--line); text-align: center; }
+  .player-cap .p-meta { margin: 0; font-size: 12.5px; color: var(--muted); letter-spacing: .5px; }
 
   /* ========== 页脚 ========== */
   .footer {
@@ -194,13 +145,8 @@
 
   /* ========== 响应式 ========== */
   @media (max-width: 1080px) {
-    .featured-video { grid-template-columns: 1fr; }
-    .video-grid { grid-template-columns: repeat(2, 1fr); }
-    .plat-grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 760px) {
-    .video-grid { grid-template-columns: 1fr; }
-    .plat-grid { grid-template-columns: 1fr; }
     .topbar-inner { flex-wrap: wrap; padding: 0 20px; gap: 16px; }
     .nav { margin-left: 0; }
     .nav-row { gap: 16px; flex-wrap: wrap; }
@@ -219,11 +165,6 @@
     .nav { padding: 10px 0; }
     .topbar-inner { padding: 0 16px; gap: 12px; }
   }
-
-  /* ========== 卡片清空后布局补丁（2026-09-03） ========== */
-  .rank-box { justify-content: center; min-height: 300px; }
-  .plat-card { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 170px; }
-  .plat-card .p-icon { margin: 0 auto; }
 
     /* ========== 手机端侧边导航（汉堡按钮 + 右侧抽屉） ========== */
     .nav-toggle {
@@ -365,239 +306,21 @@
 </div>
 
 <main data-page-node-id="UtAHZim7D94HquWr6SHnSQ">
+  <section id="featured">
+    <h2 class="sec-title">品牌宣传片</h2>
+    <p class="sec-subtitle">BRAND PROMOTION VIDEO</p>
 
-  <!-- ========================================== -->
-  <!-- 1. 精选推荐 -->
-  <!-- ========================================== -->
-  <section id="featured" data-page-node-id="Mkcr1J5KDtkfNb8aUdkC1N">
-    <h2 class="sec-title" data-page-node-id="P1XsbZ9QwZTdWqp2UgFTpn">精选推荐</h2>
-    <p class="sec-subtitle" data-page-node-id="GjvP5IVsR5dj39CYqtcsWi">FEATURED VIDEOS</p>
-
-    <div class="featured-video" data-page-node-id="8ceO0M4R9iXiguEBmqEK84">
-      <!-- 播放器 -->
-      <div class="player-card" data-page-node-id="VrZgIx96j8SLE3ksxtsjRN">
-        <div class="player-frame" id="mainPlayer" data-page-node-id="48NjuHw552cb8wYQzDUIPT">
-          <div class="ph" data-page-node-id="BJOshCNtvHYRsRZL3NZFT1">
-            <svg class="skyline" viewBox="0 0 1200 200" preserveAspectRatio="none" fill="rgba(201,169,97,0.35)" data-page-node-id="sCVKEyqVEt19ftRDMDxnFV">
-              <path d="M0 200 L0 140 L60 140 L60 100 L110 100 L110 150 L170 150 L170 80 L200 50 L230 80 L230 150 L300 150 L300 120 L360 120 L360 160 L430 160 L430 70 L460 40 L490 70 L490 160 L560 160 L560 110 L620 110 L620 150 L690 150 L690 90 L730 60 L770 90 L770 150 L840 150 L840 130 L900 130 L900 160 L960 160 L960 100 L1010 70 L1060 100 L1060 160 L1120 160 L1120 130 L1200 130 L1200 200 Z" data-page-node-id="wMy9NNIH31ENCK8WmH5KRv"/>
-            </svg>
-            <div class="play-btn" data-page-node-id="KLLeeVPJXOtTQG2rcvTGJF">
-              <svg viewBox="0 0 24 24" data-page-node-id="JPATSTN8NWX9s3yGtm63TK"><path d="M8 5 L19 12 L8 19 Z" data-page-node-id="cLzd2DEG2D8KFbgjg70nNH"/></svg>
-            </div>
-            
-            
-          </div>
+    <div class="featured-video">
+      <div class="player-card">
+        <div class="player-frame" id="mainPlayer">
+          <video id="promoVideo" controls preload="metadata" playsinline webkit-playsinline>
+            <source src="./assets/video/promo-01.mp4" type="video/mp4">
+            您的浏览器不支持视频播放，请更换浏览器查看。
+          </video>
         </div>
-        
-      </div>
-
-      <!-- 热播榜 -->
-      <div class="rank-box" data-page-node-id="YINfkPYpBvV7ANn0lv55sB">
-        
-        
-        
-        
-        
-        
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================== -->
-  <!-- 2. 视频库 -->
-  <!-- ========================================== -->
-  <section id="library" data-page-node-id="53dM3HW83brakGixDTeUxD">
-    <h2 class="sec-title" data-page-node-id="t3sGx5zo8Y39EHs4H0UT3W">视频库</h2>
-    <p class="sec-subtitle" data-page-node-id="WPTJGtPZ8ZBnOi2BlDALMt">VIDEO LIBRARY</p>
-    <p class="sec-desc" data-page-node-id="qfCiUE3NQGCAYsLGVMHTe4">覆盖公司口播、活动宣传、品牌形象、知识科普四大内容板块，持续更新中。</p>
-
-    <!-- 分类筛选 -->
-    
-
-    <div class="video-grid" id="videoGrid" data-page-node-id="4jSbBGOXHXwvaCCK78pDmO">
-      <!-- 公司口播 -->
-      <div class="v-card" data-cat="koubo" data-page-node-id="YNn21gi0Hin4QAX56QaJhx">
-        <div class="v-thumb" data-page-node-id="ZpzdBmI3TDfpfik2wxeE6O">
-          <div class="ph c-green" data-page-node-id="KR2vTTseG9abh4VkRvlKYT">
-            <span class="glyph" data-page-node-id="wa4JXIAYEVq4uKPKACjzt8"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="CDrWC9uXwUuYHs46CLx2J3"><rect x="3" y="5" width="18" height="14" rx="3" data-page-node-id="4oq3NEStfPxqMJKtjBzxPN"/><path d="M9 9 C7.5 10 7.5 14 9 15 M13 9 C11.5 10 11.5 14 13 15 M16.5 10.5 C15.8 11.2 15.8 12.8 16.5 13.5" data-page-node-id="OQofgA2QAwXOFrbeiExFtG"/></svg></span>
-          </div>
-          <div class="mini-play" data-page-node-id="Cmtn2EUPsTNi1QRdgN3iGs"><span class="pb" data-page-node-id="631r0toIFbYy0m6UHOBN0L"><svg viewBox="0 0 24 24" data-page-node-id="UUQj0sedZ5aZRUIHEK6igq"><path d="M8 5 L19 12 L8 19 Z" data-page-node-id="yp0YyevCr57gbftNiGJ6Fj"/></svg></span></div>
-          
-          
+        <div class="player-cap">
+          <p class="p-meta">横屏 · 1 分 30 秒</p>
         </div>
-        
-      </div>
-      <div class="v-card" data-cat="koubo" data-page-node-id="blUCkUKFGWA7t2Z7nRIk3H">
-        <div class="v-thumb" data-page-node-id="TOTi9ZwcefXNIibg3HzTL1">
-          <div class="ph c-green" data-page-node-id="E4muGDLTmSSUF9TxtOSyGj">
-            <span class="glyph" data-page-node-id="rBvp02wCG897mimpz5pMHr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="4DCWCCvKwFa3QjxM0zc8L1"><rect x="3" y="5" width="18" height="14" rx="3" data-page-node-id="wnbOGAIXaNsAetGqrJrb6s"/><path d="M9 9 C7.5 10 7.5 14 9 15 M13 9 C11.5 10 11.5 14 13 15" data-page-node-id="NGqe9Su73SnUUglC01LNqv"/></svg></span>
-          </div>
-          <div class="mini-play" data-page-node-id="U5pRtVcUOAdQW0F8U5TqOS"><span class="pb" data-page-node-id="vgr1V3sfUpyB8N5XSnfsaj"><svg viewBox="0 0 24 24" data-page-node-id="pkiRcVKTHFq3U5BsHImIj7"><path d="M8 5 L19 12 L8 19 Z" data-page-node-id="vLCSjjsjEvvg0gJKLLyHOk"/></svg></span></div>
-          
-          
-        </div>
-        
-      </div>
-      <div class="v-card" data-cat="koubo" data-page-node-id="IIYAbhbQrDeBZGWtL0BilT">
-        <div class="v-thumb" data-page-node-id="KdLYCEQlCLHLYW0o8mFeN5">
-          <div class="ph c-green" data-page-node-id="B2CqzjnSWdPfe2BZiHLNUe">
-            <span class="glyph" data-page-node-id="9qWOdPuEhHEjGwo0jlLmTO"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="tb199DZHn2EUAZKWp83EXT"><rect x="3" y="5" width="18" height="14" rx="3" data-page-node-id="sWqxuPvJCrF72Dz5TOgvaQ"/><path d="M12 9 L12 15 M9 12 L15 12" data-page-node-id="UxvtWdFHv4WwAyLQXBtZx2"/></svg></span>
-          </div>
-          <div class="mini-play" data-page-node-id="pZkX19Q0xBjrynk1x1GQDo"><span class="pb" data-page-node-id="MmFTY34EzZbogfwDRht6xf"><svg viewBox="0 0 24 24" data-page-node-id="nS0LCrXn1QThRcFQoY18OV"><path d="M8 5 L19 12 L8 19 Z" data-page-node-id="rKrASaKdMr1t8dDwde2rSw"/></svg></span></div>
-          
-          
-        </div>
-        
-      </div>
-
-      <!-- 活动宣传片 -->
-      <div class="v-card" data-cat="huodong" data-page-node-id="D90DNreypnZlBDvYKfZtyG">
-        <div class="v-thumb" data-page-node-id="OFWYs4Wpack6sDW5ctevtR">
-          <div class="ph c-red" data-page-node-id="X0N81pCeh9nok7j8Flzb3r">
-            <span class="glyph" data-page-node-id="tCSAreJU4ro0uaw7XpQF7V"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="6sGrMAZgExq4yCgttmYboN"><path d="M4 21 L4 8 L12 3 L20 8 L20 21" data-page-node-id="iRNCEc8MG3bemB9c6BedDY"/><path d="M9 21 L9 13 L15 13 L15 21" data-page-node-id="wylAt2XQtsZedRiNPOiftt"/><path d="M2 21 L22 21" data-page-node-id="CpBkHBthuU3IAILg2sW8Em"/></svg></span>
-          </div>
-          <div class="mini-play" data-page-node-id="DL9OaCCsySBtrY3v6pYyxo"><span class="pb" data-page-node-id="afAbriBFmVeTrGFeOTqpQg"><svg viewBox="0 0 24 24" data-page-node-id="wGsI4ZjBnaMZjPECHghuwr"><path d="M8 5 L19 12 L8 19 Z" data-page-node-id="3pDEIyExoLTEEPQgHzpVOF"/></svg></span></div>
-          
-          
-        </div>
-        
-      </div>
-      <div class="v-card" data-cat="huodong" data-page-node-id="oIDW1bP4Z0r9YWon4Ef7UJ">
-        <div class="v-thumb" data-page-node-id="EFOBImsUQ7QmZnbU0ADK1a">
-          <div class="ph c-red" data-page-node-id="UXfHqXZnENM5dZkAUHLBsn">
-            <span class="glyph" data-page-node-id="eHHDpokHRhWsPiAhtZ8WAc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="hsJs55UPta6qhlLvUN1lIh"><path d="M12 3 L14.5 8.5 L20.5 9.2 L16 13.3 L17.3 19.5 L12 16.4 L6.7 19.5 L8 13.3 L3.5 9.2 L9.5 8.5 Z" data-page-node-id="HG083ASiiaL9vM62y48FGz"/></svg></span>
-          </div>
-          <div class="mini-play" data-page-node-id="BRwkuA3VZAaCcZIlYxzgNG"><span class="pb" data-page-node-id="G2dMo7UxrUfpvfSFAbENSe"><svg viewBox="0 0 24 24" data-page-node-id="zCNe2NmG8ceQnITvCovSOK"><path d="M8 5 L19 12 L8 19 Z" data-page-node-id="AkrYTr9xNd3KVSBLBHmkfv"/></svg></span></div>
-          
-          
-        </div>
-        
-      </div>
-      <div class="v-card" data-cat="huodong" data-page-node-id="HZlJbZ6wHbDWVTPrwQLzpo">
-        <div class="v-thumb" data-page-node-id="5sbKaQT6musypkNeMQtclo">
-          <div class="ph c-red" data-page-node-id="Lr1q1cfDC3MoKCzAABdQBs">
-            <span class="glyph" data-page-node-id="m4AQe4lKRmwSzIwBv12JWX"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="HaRKcVUaEuNSkQpfLxc089"><circle cx="12" cy="12" r="9" data-page-node-id="G1iHlv64KNDHubPozQPPXe"/><path d="M12 7 L12 12 L15.5 14" data-page-node-id="3FxtlLv5VJ5tLmIL1HHDl4"/></svg></span>
-          </div>
-          <div class="mini-play" data-page-node-id="FvXOHKmSCujv8HtjEnAkK9"><span class="pb" data-page-node-id="NyX35izVtL49drNNDgFRNe"><svg viewBox="0 0 24 24" data-page-node-id="yryDCQ5zUb7wpR2s6xwKjl"><path d="M8 5 L19 12 L8 19 Z" data-page-node-id="BCWz4OvBNYRPUz7yR3spXi"/></svg></span></div>
-          
-          
-        </div>
-        
-      </div>
-
-      <!-- 品牌宣传片 -->
-      <div class="v-card" data-cat="pinpai" data-page-node-id="MKcWpCodsKoDd7FAAJ5z7u">
-        <div class="v-thumb" data-page-node-id="qfk4wUdC5YotJvxzw1DfZ5">
-          <div class="ph c-gold" data-page-node-id="OyDh6iVAHFu1e7WXysKFXY">
-            <span class="glyph" data-page-node-id="pfMqXszB5jgeq2QrQKojiC"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="FoR1mvCQXFwc6CtUMFMJIt"><path d="M32 4 L58 18 L58 46 L32 60 L6 46 L6 18 Z" transform="scale(0.3) translate(8,8)" data-page-node-id="FPnMGDc3iolm7KGrxYGb8m"/><path d="M12 2 L15 8.5 L22 9.5 L17 14.5 L18 21.5 L12 18 L6 21.5 L7 14.5 L2 9.5 L9 8.5 Z" data-page-node-id="NgZiv9jMc33s7oYZWdfvFv"/></svg></span>
-          </div>
-          <div class="mini-play" data-page-node-id="6MDcTGWrHlAfGZDCvGZq9R"><span class="pb" data-page-node-id="wkWTRlwM6yZuzuWpeOSWRU"><svg viewBox="0 0 24 24" data-page-node-id="mkYwH3RZozGQC8xP2Letbt"><path d="M8 5 L19 12 L8 19 Z" data-page-node-id="JhOmlEWP6oumnf74bHrHxf"/></svg></span></div>
-          
-          
-        </div>
-        
-      </div>
-      <div class="v-card" data-cat="pinpai" data-page-node-id="4CGES28tdhKJyfGDzQCuzr">
-        <div class="v-thumb" data-page-node-id="rXF6RXCX4FyluLMDyPVNiE">
-          <div class="ph c-gold" data-page-node-id="WDp2duw6CxMjuOYCR1ld4n">
-            <span class="glyph" data-page-node-id="bLSgF9IPMKDQuwwxdcR4Cb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="oBGKqzNEtcJ53C3wD8ijpw"><path d="M4 7 L4 17 L9 17 L9 7 Z" data-page-node-id="2oqUq9phNzwG4MdwrPHYkJ"/><path d="M10 7 L10 17 L15 17 L15 7 Z" data-page-node-id="b7MPVrLXNFknWS0o1YZl3o"/><path d="M16 8 L20 8 L20 16 L16 16 Z" data-page-node-id="yAj8uxBu7icIe3Zh3O7ru6"/><path d="M2 19 L22 19" data-page-node-id="XJdiPm073yCna3joVgV6pA"/></svg></span>
-          </div>
-          <div class="mini-play" data-page-node-id="NBvVCRdJw15G4dFjTyq7au"><span class="pb" data-page-node-id="OJgQWK13Z8teBhKiXvvgls"><svg viewBox="0 0 24 24" data-page-node-id="aYK6Sc8sdzwNlXSTRO4Buq"><path d="M8 5 L19 12 L8 19 Z" data-page-node-id="jmljJa7OZa1euL3a87ukUl"/></svg></span></div>
-          
-          
-        </div>
-        
-      </div>
-      <div class="v-card" data-cat="pinpai" data-page-node-id="adgOPR7rkAqLu1CCD5tlBP">
-        <div class="v-thumb" data-page-node-id="CT7IHLGNtSnEcQMwQaCw9C">
-          <div class="ph c-gold" data-page-node-id="BZGXUgBnLpDjgYyl3fV6Om">
-            <span class="glyph" data-page-node-id="ARJcfHuwutGQAMTuz12olU"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="jpWfRkkHMubgSt7U1rhNRf"><rect x="4" y="10" width="16" height="10" rx="2" data-page-node-id="ztyRIe4WyXbgeJIdntHMOe"/><path d="M8 10 L8 7 C8 5 9.5 4 12 4 C14.5 4 16 5 16 7 L16 10" data-page-node-id="9WRD1Yp3aDsGuK78PxaIkr"/><circle cx="12" cy="15" r="1.5" data-page-node-id="OmVGJWXYtSdMnXqM4LUNm8"/></svg></span>
-          </div>
-          <div class="mini-play" data-page-node-id="e0JhGcdACTXuDDE6YPNVjD"><span class="pb" data-page-node-id="945mQPKFEjLlmsC2DM8Bdj"><svg viewBox="0 0 24 24" data-page-node-id="zNmS9dmFtpKHQP7iw3t6Du"><path d="M8 5 L19 12 L8 19 Z" data-page-node-id="b8aKEpDYQGDQhZDjG14x1F"/></svg></span></div>
-          
-          
-        </div>
-        
-      </div>
-
-      <!-- 知识科普 -->
-      <div class="v-card" data-cat="kepu" data-page-node-id="Xgnuszgwlb40pZPonABG6r">
-        <div class="v-thumb" data-page-node-id="Am1TmvgiimWMZiiZZq21FA">
-          <div class="ph c-ink" data-page-node-id="ktUjGO2oxZmG8sxdq2Mb8U">
-            <span class="glyph" data-page-node-id="7sGHleY6Ujm2TVEiC9RAp5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="1e3sAxzxCYVLraJEfYkCKx"><path d="M5 4 L19 4 L19 18 L15 18 L12 21 L9 18 L5 18 Z" data-page-node-id="9D8pHdDmkV1Jgoi8CldC12"/><path d="M9 9 L15 9 M9 13 L13 13" data-page-node-id="mcVHi5tH1uEXvxjcPmaHXJ"/></svg></span>
-          </div>
-          <div class="mini-play" data-page-node-id="abFaxPwAgZ7NwkAC15bowD"><span class="pb" data-page-node-id="wQhy0his8BssUYwuSCipvM"><svg viewBox="0 0 24 24" data-page-node-id="BaHh66GFfHkDWE4MGrWGei"><path d="M8 5 L19 12 L8 19 Z" data-page-node-id="6yceaEvf7YrH3C0NZttnkr"/></svg></span></div>
-          
-          
-        </div>
-        
-      </div>
-      <div class="v-card" data-cat="kepu" data-page-node-id="FjJenEgFgq0ZGWYeGkCbDD">
-        <div class="v-thumb" data-page-node-id="AHYxVEtN7ui4OHHHTBEsQp">
-          <div class="ph c-ink" data-page-node-id="nXzWqKmWpJQqUj09oCjodW">
-            <span class="glyph" data-page-node-id="2AkDkLF2Ftg85bBDlPdLCR"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="ROalL9j61kdaGNtCi0vdoc"><circle cx="12" cy="12" r="9" data-page-node-id="rvJYNK5PWE6gWcZa1fffuE"/><path d="M12 8 L12 12" data-page-node-id="Icx1LcDH3ZT2v3gFAFqxdM"/><path d="M8.5 14.5 C9.5 13.5 10.6 13 12 13 C13.4 13 14.5 13.5 15.5 14.5" data-page-node-id="eqoU25iCokBeOn8uH9R3Xn"/></svg></span>
-          </div>
-          <div class="mini-play" data-page-node-id="7xtIVq9OwPEL1gPNqobLkI"><span class="pb" data-page-node-id="vtix7cDXgMUSwpkBkrAifo"><svg viewBox="0 0 24 24" data-page-node-id="XNmbmmnyeTPATEsSKElQEB"><path d="M8 5 L19 12 L8 19 Z" data-page-node-id="Hogr0O3nEG5JJto0eBrZau"/></svg></span></div>
-          
-          
-        </div>
-        
-      </div>
-      <div class="v-card" data-cat="kepu" data-page-node-id="JpLRbktr2gLC0JgSxNHwIY">
-        <div class="v-thumb" data-page-node-id="KmhdtAwpmzGMe0S8hzNceZ">
-          <div class="ph c-ink" data-page-node-id="VYb3DlyN4TCGdxOYPUf07u">
-            <span class="glyph" data-page-node-id="NxCYzxO2ELW8AqzmBEEX0K"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-page-node-id="FwMAIJEBJv3dDHFi2fjA0w"><path d="M12 3 L2 8 L12 13 L22 8 Z" data-page-node-id="nmSDi9s3TRTxbQa0PC6bT6"/><path d="M6 10.5 L6 15 C6 17 8.5 18.5 12 18.5 C15.5 18.5 18 17 18 15 L18 10.5" data-page-node-id="AAe4Qti88ZHrMv9GEYXvk3"/></svg></span>
-          </div>
-          <div class="mini-play" data-page-node-id="Z2oyG1KxngOLetLJEbTSAa"><span class="pb" data-page-node-id="F0k2VGygFFSfBCqvfQXZA7"><svg viewBox="0 0 24 24" data-page-node-id="2GRNBlxG9YGVAobccau0kc"><path d="M8 5 L19 12 L8 19 Z" data-page-node-id="Zzl2HZz5CcLNkmcKYaA6CP"/></svg></span></div>
-          
-          
-        </div>
-        
-      </div>
-    </div>
-
-        
-  </section>
-  <!-- ========================================== -->
-  <!-- 3. 平台账号矩阵 -->
-  <!-- ========================================== -->
-  <section id="platforms" data-page-node-id="FwqE4wkJVjDUrEZWiSBTtc">
-    <h2 class="sec-title" data-page-node-id="LrjAl2tfCxvoqlSaBOYK9B">平台账号矩阵</h2>
-    <p class="sec-subtitle" data-page-node-id="8bpZevFaKkR849MOIoiULd">FOLLOW US</p>
-    <p class="sec-desc" data-page-node-id="Zr7QM5wJ8G0QG0wHiD6FCG">皓镧资产官方新媒体矩阵，同名账号全网同步更新，关注我们获取第一手内容。</p>
-
-    <div class="plat-grid" data-page-node-id="nhMphnvHbegslxF2aIauqa">
-      <div class="plat-card" data-page-node-id="1nxyhllMYdhHFxrr2x4ZFj">
-        <div class="p-icon" data-page-node-id="XB2pPnWBB99tfHRVAnKr2G"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" data-page-node-id="QA3YQofc0Vzpmb3SBBAfBU"><path d="M16.5 3 C13 3 10.5 5.4 10.5 8.8 C10.5 9.3 10.6 9.9 10.7 10.3 C7 10.6 4 8.7 1.8 5.6 C1.4 6.4 1.2 7.4 1.2 8.4 C1.2 10.4 2.2 12.1 3.7 13.1 C2.8 13 1.9 12.7 1.2 12.3 C1.2 15.1 3.1 17.3 5.6 17.9 C4.8 18.2 3.8 18.3 2.9 18.1 C3.8 20.2 5.8 21.6 8.1 21.7 C6 23.4 3.4 24.2 0.6 24.2 C6 24.2 11 22 14 18.4 C16.4 15.5 17.8 11.8 17.8 8.5 L17.8 8.5 C18.6 7.9 19.3 7.2 19.8 6.3 C19 6.7 18.2 7 17.3 7.1 C18.2 6.5 18.9 5.6 19.2 4.6 C18.3 5.2 17.4 5.6 16.4 5.9 C15.6 5 14.5 4.4 13.3 4.4" data-page-node-id="Q9ZFj1B5jg37uRVk5sQWDm"/></svg></div>
-        
-        
-        
-        
-        
-      </div>
-      <div class="plat-card" data-page-node-id="vLbeZlEg0Omoxfr7LvCNOH">
-        <div class="p-icon" data-page-node-id="87NTEFkZr28LichDkVD4e8"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" data-page-node-id="kjIZC8IWdGNlm69HIPQC32"><path d="M12 2 C6.5 2 2 5.9 2 10.8 C2 13.5 3.4 15.9 5.7 17.5 L5.7 21.5 L9.5 19.5 C10.3 19.7 11.1 19.7 12 19.7 C17.5 19.7 22 15.8 22 10.8 C22 5.9 17.5 2 12 2 Z" data-page-node-id="TVlPoVLOtjIfp25kouZnbE"/><path d="M8.5 9.5 L15.5 9.5 M8.5 13 L12.5 13" data-page-node-id="CUa16aLxSU1n4lOMH8GAkA"/></svg></div>
-        
-        
-        
-        
-        
-      </div>
-      <div class="plat-card" data-page-node-id="TuPtgg7FYU7bZrGabUXTYl">
-        <div class="p-icon" data-page-node-id="rEWQce4stJAXUDHS1OkGPt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" data-page-node-id="UO8YGK4AD8XYzDpFeP0hMW"><rect x="3" y="6" width="18" height="12" rx="4" data-page-node-id="Way9Jt3BHvAgJpXdeFO0xK"/><path d="M10 9.5 L15 12 L10 14.5 Z" data-page-node-id="GHbavEJx0UDNaa5X5mIMyQ"/></svg></div>
-        
-        
-        
-        
-        
-      </div>
-      <div class="plat-card" data-page-node-id="LY0wtaRFGJ2xTPZJKo9FfI">
-        <div class="p-icon" data-page-node-id="PUbpSnOyAEInC4auPjz6Vj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" data-page-node-id="gysLEpNbc9kq0UpOHXl5An"><path d="M4 4 L20 4 L20 20 L16 20 L12 23 L8 20 L4 20 Z" data-page-node-id="mqag9kmSj0cv3kBiETG6ri"/><path d="M9 10 L15 10 M9 14 L13 14" data-page-node-id="tBv40lpitqlJW8TVfYRd3I"/></svg></div>
-        
-        
-        
-        
-        
       </div>
     </div>
   </section>
